@@ -17,14 +17,18 @@ public class Graph : MonoBehaviour
 
     private void Sample()
     {
+        Debug.Log("===========");
         List<Node> currentNodes = rootNodes.ToList();
         while(currentNodes.Count > 0)
         {
             Node node = currentNodes[0];
             currentNodes.RemoveAt(0);
-            node.IsTrue(node.Query(Random.value));
-            Debug.Log(node.IsTrue());
-            AddChildren(currentNodes, node.GetChildren());
+            if (node.IsReadyToCalculateProbability())
+            {
+                node.IsTrue(node.Query(Random.value));
+                Debug.Log(node.IsTrue());
+                AddChildren(currentNodes, node.GetChildren());
+            }
         }
     }
 

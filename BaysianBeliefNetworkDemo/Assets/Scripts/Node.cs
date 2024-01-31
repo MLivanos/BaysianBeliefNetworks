@@ -8,6 +8,7 @@ public class Node : MonoBehaviour
     [SerializeField] List<Node> parents;
     [SerializeField] float[] jointProbabilityDistribution;
     bool isTrue;
+    bool isSet;
 
     public float Query()
     {
@@ -37,6 +38,7 @@ public class Node : MonoBehaviour
     public void IsTrue(bool truthValue)
     {
         isTrue = truthValue;
+        isSet = true;
     }
 
     public void AddChild(Node child)
@@ -52,6 +54,28 @@ public class Node : MonoBehaviour
     public List<Node> GetParents()
     {
         return parents;
+    }
+
+    public bool IsSet()
+    {
+        return isSet;
+    }
+
+    public void IsSet(bool set)
+    {
+        isSet = set;
+    }
+
+    public bool IsReadyToCalculateProbability()
+    {
+        foreach(Node parent in parents)
+        {
+            if (!parent.IsSet())
+            {
+                return false;
+            }
+        }
+        return true;
     }
 }
 
