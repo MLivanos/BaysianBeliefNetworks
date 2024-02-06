@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Node : MonoBehaviour
 {
+    [SerializeField] private string nodeName;
+    [SerializeField] private string abriviation;
     [SerializeField] List<Node> children;
     [SerializeField] List<Node> parents;
     [SerializeField] float[] jointProbabilityDistribution;
@@ -64,6 +66,11 @@ public class Node : MonoBehaviour
     public void IsSet(bool set)
     {
         isSet = set;
+    }
+
+    public string GetName()
+    {
+        return name;
     }
 
     public bool IsReadyToCalculateProbability()

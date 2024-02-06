@@ -934,6 +934,79 @@ RectTransform:
   m_AnchoredPosition: {x: -30, y: -162.08}
   m_SizeDelta: {x: 727.5, y: 187.50003}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &41130334
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 41130336}
+  - component: {fileID: 41130335}
+  m_Layer: 0
+  m_Name: RainNode
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &41130335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 41130334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d200f5a0aecc34b9db11e1b3cf084979, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeName: Rain
+  abriviation: R
+  children:
+  - {fileID: 2102270092}
+  - {fileID: 1958355176}
+  - {fileID: 2108900983}
+  - {fileID: 2008926346}
+  parents:
+  - {fileID: 252608305}
+  - {fileID: 1487077430}
+  - {fileID: 1935005719}
+  - {fileID: 1237729336}
+  jointProbabilityDistribution:
+  - 0
+  - 0.16
+  - 0.05
+  - 0
+  - 0.15
+  - 0
+  - 0
+  - 0
+  - 0.3
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+--- !u!4 &41130336
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 41130334}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 431.19583, y: 181.63103, z: 0.8831177}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &44376299
 GameObject:
   m_ObjectHideFlags: 0
@@ -1572,7 +1645,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: FF
+  m_text: FT
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5739,6 +5812,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 252608304}
+  - component: {fileID: 252608305}
   m_Layer: 0
   m_Name: WinterNode
   m_TagString: Untagged
@@ -5761,6 +5835,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &252608305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 252608303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d200f5a0aecc34b9db11e1b3cf084979, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeName: Winter
+  abriviation: W
+  children:
+  - {fileID: 1487077430}
+  - {fileID: 1935005719}
+  - {fileID: 1237729336}
+  - {fileID: 41130335}
+  parents: []
+  jointProbabilityDistribution:
+  - 0.25
 --- !u!1 &252709288
 GameObject:
   m_ObjectHideFlags: 0
@@ -16858,7 +16954,7 @@ GameObject:
   m_Component:
   - component: {fileID: 750265682}
   m_Layer: 5
-  m_Name: ElseEntry
+  m_Name: FEntry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26972,6 +27068,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1195105914}
   m_CullTransparentMesh: 1
+--- !u!1 &1201334749
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1201334751}
+  - component: {fileID: 1201334750}
+  m_Layer: 0
+  m_Name: CafeNode
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1201334750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1201334749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d200f5a0aecc34b9db11e1b3cf084979, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeName: 
+  abriviation: 
+  children: []
+  parents:
+  - {fileID: 2102270092}
+  jointProbabilityDistribution:
+  - 0.7
+  - 0.98
+--- !u!4 &1201334751
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1201334749}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 431.19583, y: 181.63103, z: 0.8831177}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1202726525
 GameObject:
   m_ObjectHideFlags: 0
@@ -28401,6 +28549,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1237729335}
+  - component: {fileID: 1237729336}
   m_Layer: 0
   m_Name: FallNode
   m_TagString: Untagged
@@ -28423,6 +28572,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1237729336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1237729334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d200f5a0aecc34b9db11e1b3cf084979, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeName: Fall
+  abriviation: F
+  children:
+  - {fileID: 41130335}
+  parents:
+  - {fileID: 252608305}
+  - {fileID: 1487077430}
+  - {fileID: 1935005719}
+  jointProbabilityDistribution:
+  - 1
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
 --- !u!1 &1244632813
 GameObject:
   m_ObjectHideFlags: 0
@@ -30916,7 +31094,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.75
+  m_Value: 0.9
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -34148,6 +34326,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1487077429}
+  - component: {fileID: 1487077430}
   m_Layer: 0
   m_Name: SpringNode
   m_TagString: Untagged
@@ -34170,6 +34349,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1487077430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1487077428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d200f5a0aecc34b9db11e1b3cf084979, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeName: Spring
+  abriviation: Sp
+  children:
+  - {fileID: 1935005719}
+  - {fileID: 1237729336}
+  - {fileID: 41130335}
+  parents:
+  - {fileID: 252608305}
+  jointProbabilityDistribution:
+  - 0.333
+  - 0
 --- !u!1 &1491405649
 GameObject:
   m_ObjectHideFlags: 0
@@ -44119,6 +44321,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1935005718}
+  - component: {fileID: 1935005719}
   m_Layer: 0
   m_Name: SummerNode
   m_TagString: Untagged
@@ -44141,6 +44344,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1935005719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1935005717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d200f5a0aecc34b9db11e1b3cf084979, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeName: Summer
+  abriviation: Su
+  children:
+  - {fileID: 1237729336}
+  - {fileID: 41130335}
+  - {fileID: 2102270092}
+  parents:
+  - {fileID: 252608305}
+  - {fileID: 1487077430}
+  jointProbabilityDistribution:
+  - 0.5
+  - 0
+  - 0
+  - 0
 --- !u!1 &1938174427
 GameObject:
   m_ObjectHideFlags: 0
@@ -44520,6 +44749,62 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1950548181}
   m_CullTransparentMesh: 1
+--- !u!1 &1958355175
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1958355177}
+  - component: {fileID: 1958355176}
+  m_Layer: 0
+  m_Name: AlienNode
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1958355176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1958355175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d200f5a0aecc34b9db11e1b3cf084979, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeName: 
+  abriviation: 
+  children:
+  - {fileID: 2108900983}
+  parents:
+  - {fileID: 2102270092}
+  - {fileID: 41130335}
+  jointProbabilityDistribution:
+  - 0.001
+  - 0.0001
+  - 0.0001
+  - 0.00001
+--- !u!4 &1958355177
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1958355175}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 431.19583, y: 181.63103, z: 0.8831177}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1967382411
 GameObject:
   m_ObjectHideFlags: 0
@@ -46146,6 +46431,61 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2007461219}
   m_CullTransparentMesh: 1
+--- !u!1 &2008926345
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2008926347}
+  - component: {fileID: 2008926346}
+  m_Layer: 0
+  m_Name: CatNode
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2008926346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008926345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d200f5a0aecc34b9db11e1b3cf084979, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeName: 
+  abriviation: 
+  children: []
+  parents:
+  - {fileID: 41130335}
+  - {fileID: 2108900983}
+  jointProbabilityDistribution:
+  - 0.1
+  - 0.8
+  - 0.95
+  - 0.995
+--- !u!4 &2008926347
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008926345}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 431.19583, y: 181.63103, z: 0.8831177}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2023168792
 GameObject:
   m_ObjectHideFlags: 0
@@ -46332,7 +46672,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rootNodes:
-  - {fileID: 0}
+  - {fileID: 252608305}
 --- !u!4 &2029756919
 Transform:
   m_ObjectHideFlags: 0
@@ -47293,6 +47633,119 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2101160078}
   m_CullTransparentMesh: 1
+--- !u!1 &2102270091
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2102270093}
+  - component: {fileID: 2102270092}
+  m_Layer: 0
+  m_Name: BusyNode
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2102270092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2102270091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d200f5a0aecc34b9db11e1b3cf084979, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeName: Busy
+  abriviation: B
+  children:
+  - {fileID: 1201334750}
+  - {fileID: 1958355176}
+  parents:
+  - {fileID: 1935005719}
+  - {fileID: 41130335}
+  jointProbabilityDistribution:
+  - 0.7
+  - 0.3
+  - 0.2
+  - 0.02
+--- !u!4 &2102270093
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2102270091}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 431.19583, y: 181.63103, z: 0.8831177}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2108900982
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2108900984}
+  - component: {fileID: 2108900983}
+  m_Layer: 0
+  m_Name: DogNode
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2108900983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2108900982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d200f5a0aecc34b9db11e1b3cf084979, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeName: 
+  abriviation: 
+  children:
+  - {fileID: 2008926346}
+  parents:
+  - {fileID: 41130335}
+  - {fileID: 1958355176}
+  jointProbabilityDistribution:
+  - 0.3
+  - 0.75
+  - 0.3
+  - 0.9
+--- !u!4 &2108900984
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2108900982}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 431.19583, y: 181.63103, z: 0.8831177}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2109561998
 GameObject:
   m_ObjectHideFlags: 0

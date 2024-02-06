@@ -18,17 +18,34 @@ public class Graph : MonoBehaviour
     private void Sample()
     {
         Debug.Log("===========");
-        List<Node> currentNodes = rootNodes.ToList();
-        while(currentNodes.Count > 0)
+        int[] counts = new int[10];
+        string[] names = new string[10];
+        List<Node> currentNodes;
+        for(int i=0; i<10000; i++)
         {
-            Node node = currentNodes[0];
-            currentNodes.RemoveAt(0);
-            if (node.IsReadyToCalculateProbability())
+            int index = 0;
+            currentNodes = rootNodes.ToList();
+            while(currentNodes.Count > 0)
             {
-                node.IsTrue(node.Query(Random.value));
-                Debug.Log(node.IsTrue());
-                AddChildren(currentNodes, node.GetChildren());
+                Node node = currentNodes[0];
+                currentNodes.RemoveAt(0);
+                if (node.IsReadyToCalculateProbability())
+                {
+                    node.IsTrue(node.Query(Random.value));
+                    if (node.IsTrue())
+                    {
+                        counts[index] ++;
+                        names[index] = node.GetName();
+                    }
+                    AddChildren(currentNodes, node.GetChildren());
+                    index++;
+                }
             }
+        }
+        for(int i = 0; i<counts.Count(); i++)
+        {
+            Debug.Log(names[i]);
+            Debug.Log(counts[i]);
         }
     }
 
