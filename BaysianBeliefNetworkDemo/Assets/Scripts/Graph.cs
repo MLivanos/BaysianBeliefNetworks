@@ -77,16 +77,12 @@ public class Graph : MonoBehaviour
     {
         List<Node> relevantList = isNegative ? negativeEvidence : positiveEvidence;
         relevantList.Add(node);
-        print(isNegative);
-        print(relevantList[relevantList.Count - 1]);
     }
 
     public void AddToQuery(Node node)
     {
         List<Node> relevantList = isNegative ? negativeQuery : positiveQuery;
         relevantList.Add(node);
-        print(isNegative);
-        print(relevantList[relevantList.Count - 1]);
     }
 
     public void RemoveFromEvidence(Node node)
@@ -97,7 +93,6 @@ public class Graph : MonoBehaviour
             relevantList = negativeEvidence;
         }
         relevantList.Remove(node);
-        print(relevantList.Count);
     }
 
     public void RemoveFromQuery(Node node)
@@ -108,7 +103,6 @@ public class Graph : MonoBehaviour
             relevantList = negativeQuery;
         }
         relevantList.Remove(node);
-        print(relevantList.Count);
     }
 }
 
