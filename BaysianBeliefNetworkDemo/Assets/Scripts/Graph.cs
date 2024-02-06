@@ -6,12 +6,25 @@ using UnityEngine;
 public class Graph : MonoBehaviour
 {
     [SerializeField] private List<Node> rootNodes;
+    private List<Node> positiveQuery = new List<Node>();
+    private List<Node> negativeQuery = new List<Node>();
+    private List<Node> positiveEvidence = new List<Node>();
+    private List<Node> negativeEvidence = new List<Node>();
+    bool isNegative;
 
     private void Update()
     {
         if(Input.GetKeyDown("s"))
         {
             Sample();
+        }
+        if(Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
+        {
+            isNegative = true;
+        }
+        if(Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.RightShift))
+        {
+            isNegative = false;
         }
     }
 
@@ -58,6 +71,44 @@ public class Graph : MonoBehaviour
                 currentNodes.Add(child);
             }
         }
+    }
+
+    public void AddToEvidence(Node node)
+    {
+        List<Node> relevantList = isNegative ? negativeEvidence : positiveEvidence;
+        relevantList.Add(node);
+        print(isNegative);
+        print(relevantList[relevantList.Count - 1]);
+    }
+
+    public void AddToQuery(Node node)
+    {
+        List<Node> relevantList = isNegative ? negativeQuery : positiveQuery;
+        relevantList.Add(node);
+        print(isNegative);
+        print(relevantList[relevantList.Count - 1]);
+    }
+
+    public void RemoveFromEvidence(Node node)
+    {
+        List<Node> relevantList = positiveEvidence;
+        if (negativeEvidence.Any(n => n == node))
+        {
+            relevantList = negativeEvidence;
+        }
+        relevantList.Remove(node);
+        print(relevantList.Count);
+    }
+
+    public void RemoveFromQuery(Node node)
+    {
+        List<Node> relevantList = positiveQuery;
+        if (negativeQuery.Any(n => n == node))
+        {
+            relevantList = negativeQuery;
+        }
+        relevantList.Remove(node);
+        print(relevantList.Count);
     }
 }
 
