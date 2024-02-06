@@ -84,5 +84,10 @@ public class Node : MonoBehaviour
         }
         return true;
     }
+
+    public void SetProbability(float probability, int index)
+    {
+        jointProbabilityDistribution[index] = probability;
+    }
 }
 
