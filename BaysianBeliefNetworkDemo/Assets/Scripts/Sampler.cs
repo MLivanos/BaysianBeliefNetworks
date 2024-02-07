@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -29,5 +30,32 @@ public abstract class Sampler : MonoBehaviour
                 currentNodes.Add(child);
             }
         }
+    }
+
+    protected int[] GetNodeOrder(List<Node> nodeList)
+    {
+        List<Node> currentNodes;
+        int[] nodeOrder = new int[nodeList.Count];
+        bool[] truthValues = new bool[10];
+        currentNodes = graph.GetRootNodes().ToList();
+        int orderIndex = 0;
+        int index = 0;
+        while(currentNodes.Count > 0)
+        {
+            Node node = currentNodes[0];
+            currentNodes.RemoveAt(0);
+            if (node.IsReadyToCalculateProbability())
+            {
+                node.IsTrue(node.Query(Random.value));
+                if (nodeList.Any(n => n == node))
+                {
+                    nodeOrder[orderIndex] = index;
+                    orderIndex ++;
+                }
+                index ++;
+                AddChildren(currentNodes, node.GetChildren());
+            }
+        }
+        return nodeOrder;
     }
 }

@@ -68,7 +68,7 @@ public class Graph : MonoBehaviour
     {
         queryText = "P(";
         queryText += GetPartialQuery(positiveQuery);
-        if (negativeQuery.Count > 0)
+        if (positiveQuery.Count > 0 && negativeQuery.Count > 0)
         {
             queryText += ",";
         }
@@ -78,7 +78,7 @@ public class Graph : MonoBehaviour
             queryText += "|";
         }
         queryText += GetPartialQuery(positiveEvidence);
-        if (negativeEvidence.Count > 0)
+        if (positiveEvidence.Count > 0 && negativeEvidence.Count > 0)
         {
             queryText += ",";
         }
@@ -103,5 +103,25 @@ public class Graph : MonoBehaviour
             }
         }
         return queryText;
+    }
+
+    public List<Node> GetPositiveEvidence()
+    {
+        return positiveEvidence.ToList();
+    }
+
+    public List<Node> GetNegativeEvidence()
+    {
+        return negativeEvidence.ToList();
+    }
+
+    public List<Node> GetPositiveQuery()
+    {
+        return positiveQuery.ToList();
+    }
+
+    public List<Node> GetNegativeQuery()
+    {
+        return negativeQuery.ToList();
     }
 }
