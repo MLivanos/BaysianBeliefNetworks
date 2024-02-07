@@ -8,7 +8,7 @@ public class LikelihoodWeightingSampler : Sampler
     private float sumOfWeights;
     private float sumOfWeightsInQuery;
 
-    public override void Sample()
+    public override float Sample()
     {
         List<Node> currentNodes;
         List<Node> positiveEvidence = graph.GetPositiveEvidence();
@@ -55,12 +55,12 @@ public class LikelihoodWeightingSampler : Sampler
             samples.Add(truthValues);
         }
         sampleCount += numberOfSamples;
-        CalculateProbability();
+        return CalculateProbability();
     }
 
-    public override void CalculateProbability()
+    public override float CalculateProbability()
     {  
-        Debug.Log(sumOfWeightsInQuery/sumOfWeights);
+        return sumOfWeightsInQuery/sumOfWeights;
     }
 
     public override void Reset()

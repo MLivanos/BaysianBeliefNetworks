@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class RejectionSampler : Sampler
 {
-    public override void Sample()
+    int numberOfAcceptedSamples;
+
+    public override float Sample()
     {
         List<Node> currentNodes;
         for(int i=0; i<numberOfSamples; i++)
@@ -29,18 +31,24 @@ public class RejectionSampler : Sampler
             samples.Add(truthValues);
         }
         sampleCount += numberOfSamples;
-        CalculateProbability();
+        return CalculateProbability();
     }
 
-    public override void CalculateProbability()
+    public override float CalculateProbability()
     {
         List<bool[]> filteredSamples = FilterSamples(samples, graph.GetPositiveEvidence(), graph.GetNegativeEvidence());
         List<bool[]> filteredSamplesInQuery = FilterSamples(filteredSamples, graph.GetPositiveQuery(), graph.GetNegativeQuery());
+        numberOfAcceptedSamples = filteredSamples.Count;
         if (filteredSamples.Count == 0)
         {
             Debug.Log("N/A (evidence never occured)");
-            return;
+            return -1.0f;
         }
-        Debug.Log((float)filteredSamplesInQuery.Count / filteredSamples.Count);
+        return (float)filteredSamplesInQuery.Count / filteredSamples.Count;
+    }
+
+    public override int GetNumberOfAcceptedSamples()
+    {
+        return numberOfAcceptedSamples;
     }
 }

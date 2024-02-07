@@ -16,14 +16,14 @@ public abstract class Sampler : MonoBehaviour
         graph = GetComponent<Graph>();
     }
 
-    public virtual void Sample()
+    public virtual float Sample()
     {
-
+        return -1.0f;
     }
 
-    public virtual void CalculateProbability()
+    public virtual float CalculateProbability()
     {
-
+        return -1.0f;
     }
 
     protected void AddChildren(List<Node> currentNodes, List<Node> children)
@@ -100,5 +100,15 @@ public abstract class Sampler : MonoBehaviour
     {
         samples = new List<bool[]>();
         sampleCount = 0;
+    }
+
+    public int GetNumberOfSamples()
+    {
+        return sampleCount;
+    }
+
+    public virtual int GetNumberOfAcceptedSamples()
+    {
+        return -1;
     }
 }

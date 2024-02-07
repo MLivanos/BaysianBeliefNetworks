@@ -9,6 +9,7 @@ public class Graph : MonoBehaviour
 {
     [SerializeField] private List<Node> rootNodes;
     [SerializeField] private TMP_Text queryTextDisplay;
+    [SerializeField] private TMP_Text sampleInfo;
     private Sampler currentSampler;
     // Replace with sampler array if new sampler is added. Not planned.
     private RejectionSampler rejectionSampler;
@@ -80,7 +81,7 @@ public class Graph : MonoBehaviour
         likelihoodWeightingSampler.Reset();
     }
 
-    public void UpdateText()
+    public void UpdateText(float probabilityValue=-1.0f)
     {
         queryText = "P(";
         queryText += GetPartialQuery(positiveQuery);
@@ -100,6 +101,10 @@ public class Graph : MonoBehaviour
         }
         queryText += GetPartialQuery(negativeEvidence, true);
         queryText += ")";
+        if (probabilityValue >= 0.0f)
+        {
+            queryText += "≈" + probabilityValue.ToString("0.00000");
+        }
         queryTextDisplay.text = queryText;
     }
 
@@ -123,7 +128,13 @@ public class Graph : MonoBehaviour
 
     public void Sample()
     {
-        currentSampler.Sample();
+        float probability = currentSampler.Sample();
+        Debug.Log(probability);
+        string numberOfSamples = currentSampler.GetNumberOfSamples().ToString();
+        string numberOfAcceptedSamples = currentSampler.GetNumberOfAcceptedSamples().ToString();
+        string sampleInfoText = numberOfSamples + "\n" + numberOfAcceptedSamples;
+        sampleInfo.text = sampleInfoText;
+        UpdateText(probability);
     }
 
     public void ChangeSampler(int index)
