@@ -21,6 +21,11 @@ public abstract class Sampler : MonoBehaviour
 
     }
 
+    public virtual void CalculateProbability()
+    {
+        
+    }
+
     protected void AddChildren(List<Node> currentNodes, List<Node> children)
     {
         foreach(Node child in children)
@@ -62,5 +67,32 @@ public abstract class Sampler : MonoBehaviour
     public void SetNumberOfSamples(int nSamples)
     {
         numberOfSamples = nSamples;
+    }
+
+    protected List<bool[]> FilterSamples(List<bool[]> group, List<Node> positiveNodes, List<Node> negativeNodes)
+    {
+        List<bool[]> samplesWithEvidence = new List<bool[]>();
+        int[] positiveEvidenceOrder = GetNodeOrder(positiveNodes);
+        int[] negativeEvidenceOrder = GetNodeOrder(negativeNodes);
+        foreach(bool[] sample in group)
+        {
+            if(FilerSample(sample, positiveEvidenceOrder, true) && FilerSample(sample, negativeEvidenceOrder, false))
+            {
+                samplesWithEvidence.Add(sample);
+            }
+        }
+        return samplesWithEvidence;
+    }
+
+    protected bool FilerSample(bool[] sample, int[] indices, bool isTrue)
+    {
+        foreach(int index in indices)
+        {
+            if(sample[index] != isTrue)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 }

@@ -32,7 +32,7 @@ public class RejectionSampler : Sampler
         CalculateProbability();
     }
 
-    public void CalculateProbability()
+    public override void CalculateProbability()
     {
         List<bool[]> filteredSamples = FilterSamples(samples, graph.GetPositiveEvidence(), graph.GetNegativeEvidence());
         List<bool[]> filteredSamplesInQuery = FilterSamples(filteredSamples, graph.GetPositiveQuery(), graph.GetNegativeQuery());
@@ -42,32 +42,5 @@ public class RejectionSampler : Sampler
             return;
         }
         Debug.Log((float)filteredSamplesInQuery.Count / filteredSamples.Count);
-    }
-
-    private List<bool[]> FilterSamples(List<bool[]> group, List<Node> positiveNodes, List<Node> negativeNodes)
-    {
-        List<bool[]> samplesWithEvidence = new List<bool[]>();
-        int[] positiveEvidenceOrder = GetNodeOrder(positiveNodes);
-        int[] negativeEvidenceOrder = GetNodeOrder(negativeNodes);
-        foreach(bool[] sample in group)
-        {
-            if(FilerSample(sample, positiveEvidenceOrder, true) && FilerSample(sample, negativeEvidenceOrder, false))
-            {
-                samplesWithEvidence.Add(sample);
-            }
-        }
-        return samplesWithEvidence;
-    }
-
-    private bool FilerSample(bool[] sample, int[] indices, bool isTrue)
-    {
-        foreach(int index in indices)
-        {
-            if(sample[index] != isTrue)
-            {
-                return false;
-            }
-        }
-        return true;
     }
 }
