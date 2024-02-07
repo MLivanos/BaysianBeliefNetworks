@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,6 +9,11 @@ public class Graph : MonoBehaviour
 {
     [SerializeField] private List<Node> rootNodes;
     [SerializeField] private TMP_Text queryTextDisplay;
+    [SerializeField] private TMP_Text sampleInfo;
+    private Sampler currentSampler;
+    // Replace with sampler array if new sampler is added. Not planned.
+    private RejectionSampler rejectionSampler;
+    private LikelihoodWeightingSampler likelihoodWeightingSampler;
     private string queryText;
     private List<Node> positiveQuery = new List<Node>();
     private List<Node> negativeQuery = new List<Node>();
@@ -15,12 +21,15 @@ public class Graph : MonoBehaviour
     private List<Node> negativeEvidence = new List<Node>();
     bool isNegative;
 
+    private void Start()
+    {
+        rejectionSampler = GetComponent<RejectionSampler>();
+        likelihoodWeightingSampler = GetComponent<LikelihoodWeightingSampler>();
+        currentSampler = rejectionSampler;
+    }
+
     private void Update()
     {
-        if(Input.GetKeyDown("s"))
-        {
-            Sample();
-        }
         if(Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
         {
             isNegative = true;
@@ -31,61 +40,31 @@ public class Graph : MonoBehaviour
         }
     }
 
-    private void Sample()
+    public List<Node> GetRootNodes()
     {
-        Debug.Log("===========");
-        int[] counts = new int[10];
-        string[] names = new string[10];
-        List<Node> currentNodes;
-        for(int i=0; i<10000; i++)
-        {
-            int index = 0;
-            currentNodes = rootNodes.ToList();
-            while(currentNodes.Count > 0)
-            {
-                Node node = currentNodes[0];
-                currentNodes.RemoveAt(0);
-                if (node.IsReadyToCalculateProbability())
-                {
-                    node.IsTrue(node.Query(Random.value));
-                    if (node.IsTrue())
-                    {
-                        counts[index] ++;
-                        names[index] = node.GetName();
-                    }
-                    AddChildren(currentNodes, node.GetChildren());
-                    index++;
-                }
-            }
-        }
-        for(int i = 0; i<counts.Count(); i++)
-        {
-            Debug.Log(names[i]);
-            Debug.Log(counts[i]);
-        }
+        return rootNodes;
     }
 
-    private void AddChildren(List<Node> currentNodes, List<Node> children)
-    {
-        foreach(Node child in children)
-        {
-            if (!currentNodes.Contains(child))
-            {
-                currentNodes.Add(child);
-            }
-        }
-    }
-
-    public void AddToEvidence(Node node)
+    public void AddToEvidence(Node node, VariableChecks checks)
     {
         List<Node> relevantList = isNegative ? negativeEvidence : positiveEvidence;
         relevantList.Add(node);
+        if (positiveQuery.Any(n => n == node) || negativeQuery.Any(n => n == node))
+        {
+            checks.SwitchQuery();
+        }
+        likelihoodWeightingSampler.Reset();
     }
 
-    public void AddToQuery(Node node)
+    public void AddToQuery(Node node, VariableChecks checks)
     {
         List<Node> relevantList = isNegative ? negativeQuery : positiveQuery;
         relevantList.Add(node);
+        if (positiveEvidence.Any(n => n == node) || negativeEvidence.Any(n => n == node))
+        {
+            checks.SwitchEvidence();
+        }
+        likelihoodWeightingSampler.Reset();
     }
 
     public void RemoveFromEvidence(Node node)
@@ -96,6 +75,7 @@ public class Graph : MonoBehaviour
             relevantList = negativeEvidence;
         }
         relevantList.Remove(node);
+        likelihoodWeightingSampler.Reset();
     }
 
     public void RemoveFromQuery(Node node)
@@ -106,13 +86,14 @@ public class Graph : MonoBehaviour
             relevantList = negativeQuery;
         }
         relevantList.Remove(node);
+        likelihoodWeightingSampler.Reset();
     }
 
-    public void UpdateText()
+    public void UpdateText(float probabilityValue=-1.0f)
     {
         queryText = "P(";
         queryText += GetPartialQuery(positiveQuery);
-        if (negativeQuery.Count > 0)
+        if (positiveQuery.Count > 0 && negativeQuery.Count > 0)
         {
             queryText += ",";
         }
@@ -122,12 +103,16 @@ public class Graph : MonoBehaviour
             queryText += "|";
         }
         queryText += GetPartialQuery(positiveEvidence);
-        if (negativeEvidence.Count > 0)
+        if (positiveEvidence.Count > 0 && negativeEvidence.Count > 0)
         {
             queryText += ",";
         }
         queryText += GetPartialQuery(negativeEvidence, true);
         queryText += ")";
+        if (probabilityValue >= 0.0f)
+        {
+            queryText += "≈" + probabilityValue.ToString("0.00000");
+        }
         queryTextDisplay.text = queryText;
     }
 
@@ -147,5 +132,54 @@ public class Graph : MonoBehaviour
             }
         }
         return queryText;
+    }
+
+    public void Sample()
+    {
+        float probability = currentSampler.Sample();
+        string numberOfSamples = currentSampler.GetNumberOfSamples().ToString();
+        string numberOfAcceptedSamples = currentSampler.GetNumberOfAcceptedSamples().ToString();
+        string sampleInfoText = numberOfSamples + "\n" + numberOfAcceptedSamples;
+        sampleInfo.text = sampleInfoText;
+        UpdateText(probability);
+    }
+
+    public void ChangeSampler(int index)
+    {
+        // Replace with sampler array if new sampler is added. Not planned.
+        if (index == 0)
+        {
+            currentSampler = rejectionSampler;
+        }
+        else
+        {
+            currentSampler = likelihoodWeightingSampler;
+        }
+    }
+
+    public List<Node> GetPositiveEvidence()
+    {
+        return positiveEvidence.ToList();
+    }
+
+    public List<Node> GetNegativeEvidence()
+    {
+        return negativeEvidence.ToList();
+    }
+
+    public List<Node> GetPositiveQuery()
+    {
+        return positiveQuery.ToList();
+    }
+
+    public List<Node> GetNegativeQuery()
+    {
+        return negativeQuery.ToList();
+    }
+
+    public void SetNumberOfSamples(string numberOfSamplesText)
+    {
+        rejectionSampler.SetNumberOfSamples(Int32.Parse(numberOfSamplesText));
+        likelihoodWeightingSampler.SetNumberOfSamples(Int32.Parse(numberOfSamplesText));
     }
 }
