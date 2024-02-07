@@ -36,8 +36,11 @@ public class RejectionSampler : Sampler
     {
         List<bool[]> filteredSamples = FilterSamples(samples, graph.GetPositiveEvidence(), graph.GetNegativeEvidence());
         List<bool[]> filteredSamplesInQuery = FilterSamples(filteredSamples, graph.GetPositiveQuery(), graph.GetNegativeQuery());
-        Debug.Log(filteredSamples.Count);
-        Debug.Log(filteredSamplesInQuery.Count);
+        if (filteredSamples.Count == 0)
+        {
+            Debug.Log("N/A (evidence never occured)");
+            return;
+        }
         Debug.Log((float)filteredSamplesInQuery.Count / filteredSamples.Count);
     }
 

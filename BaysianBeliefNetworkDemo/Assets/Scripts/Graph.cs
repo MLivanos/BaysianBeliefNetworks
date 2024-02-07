@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,12 +9,18 @@ public class Graph : MonoBehaviour
 {
     [SerializeField] private List<Node> rootNodes;
     [SerializeField] private TMP_Text queryTextDisplay;
+    private RejectionSampler rejectionSampler;
     private string queryText;
     private List<Node> positiveQuery = new List<Node>();
     private List<Node> negativeQuery = new List<Node>();
     private List<Node> positiveEvidence = new List<Node>();
     private List<Node> negativeEvidence = new List<Node>();
     bool isNegative;
+
+    private void Start()
+    {
+        rejectionSampler = GetComponent<RejectionSampler>();
+    }
 
     private void Update()
     {
@@ -123,5 +130,10 @@ public class Graph : MonoBehaviour
     public List<Node> GetNegativeQuery()
     {
         return negativeQuery.ToList();
+    }
+
+    public void SetNumberOfSamples(string numberOfSamplesText)
+    {
+        rejectionSampler.SetNumberOfSamples(Int32.Parse(numberOfSamplesText));
     }
 }

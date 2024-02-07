@@ -58,4 +58,9 @@ public abstract class Sampler : MonoBehaviour
         }
         return nodeOrder;
     }
+
+    public void SetNumberOfSamples(int nSamples)
+    {
+        numberOfSamples = nSamples;
+    }
 }
