@@ -73,6 +73,11 @@ public class Node : MonoBehaviour
         return name;
     }
 
+    public string GetAbriviation()
+    {
+        return abriviation;
+    }
+
     public bool IsReadyToCalculateProbability()
     {
         foreach(Node parent in parents)

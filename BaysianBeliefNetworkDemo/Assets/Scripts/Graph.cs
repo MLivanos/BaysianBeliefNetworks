@@ -2,10 +2,13 @@ using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Graph : MonoBehaviour
 {
     [SerializeField] private List<Node> rootNodes;
+    [SerializeField] private TMP_Text queryTextDisplay;
+    private string queryText;
     private List<Node> positiveQuery = new List<Node>();
     private List<Node> negativeQuery = new List<Node>();
     private List<Node> positiveEvidence = new List<Node>();
@@ -104,5 +107,45 @@ public class Graph : MonoBehaviour
         }
         relevantList.Remove(node);
     }
-}
 
+    public void UpdateText()
+    {
+        queryText = "P(";
+        queryText += GetPartialQuery(positiveQuery);
+        if (negativeQuery.Count > 0)
+        {
+            queryText += ",";
+        }
+        queryText += GetPartialQuery(negativeQuery, true);
+        if (positiveEvidence.Count + negativeEvidence.Count > 0)
+        {
+            queryText += "|";
+        }
+        queryText += GetPartialQuery(positiveEvidence);
+        if (negativeEvidence.Count > 0)
+        {
+            queryText += ",";
+        }
+        queryText += GetPartialQuery(negativeEvidence, true);
+        queryText += ")";
+        queryTextDisplay.text = queryText;
+    }
+
+    private string GetPartialQuery(List<Node> nodeList, bool isNegative=false)
+    {
+        string queryText = "";
+        for(int i=0; i < nodeList.Count; i++)
+        {
+            if (isNegative)
+            {
+                queryText += "¬";
+            }
+            queryText += nodeList[i].GetAbriviation();
+            if (i < nodeList.Count - 1)
+            {
+                queryText += ",";
+            }
+        }
+        return queryText;
+    }
+}

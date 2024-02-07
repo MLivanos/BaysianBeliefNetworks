@@ -31,6 +31,7 @@ public class VariableChecks : MonoBehaviour
         {
             graph.RemoveFromQuery(node);
         }
+        graph.UpdateText();
     }
 
     private void ChangeEvidence()
@@ -43,5 +44,6 @@ public class VariableChecks : MonoBehaviour
         {
             graph.RemoveFromEvidence(node);
         }
+        graph.UpdateText();
     }
 }
