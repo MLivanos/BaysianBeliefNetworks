@@ -61,6 +61,11 @@ public class LikelihoodWeightingSampler : Sampler
     public override void CalculateProbability()
     {  
         Debug.Log(sumOfWeightsInQuery/sumOfWeights);
+    }
+
+    public override void Reset()
+    {
+        base.Reset();
         sumOfWeights = 0.0f;
         sumOfWeightsInQuery = 0.0f;
     }

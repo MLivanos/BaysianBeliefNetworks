@@ -23,7 +23,7 @@ public abstract class Sampler : MonoBehaviour
 
     public virtual void CalculateProbability()
     {
-        
+
     }
 
     protected void AddChildren(List<Node> currentNodes, List<Node> children)
@@ -94,5 +94,11 @@ public abstract class Sampler : MonoBehaviour
             }
         }
         return true;
+    }
+
+    public virtual void Reset()
+    {
+        samples = new List<bool[]>();
+        sampleCount = 0;
     }
 }

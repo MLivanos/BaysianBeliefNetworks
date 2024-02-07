@@ -9,7 +9,10 @@ public class Graph : MonoBehaviour
 {
     [SerializeField] private List<Node> rootNodes;
     [SerializeField] private TMP_Text queryTextDisplay;
+    private Sampler currentSampler;
+    // Replace with sampler array if new sampler is added. Not planned.
     private RejectionSampler rejectionSampler;
+    private LikelihoodWeightingSampler likelihoodWeightingSampler;
     private string queryText;
     private List<Node> positiveQuery = new List<Node>();
     private List<Node> negativeQuery = new List<Node>();
@@ -20,6 +23,8 @@ public class Graph : MonoBehaviour
     private void Start()
     {
         rejectionSampler = GetComponent<RejectionSampler>();
+        likelihoodWeightingSampler = GetComponent<LikelihoodWeightingSampler>();
+        currentSampler = rejectionSampler;
     }
 
     private void Update()
@@ -43,12 +48,14 @@ public class Graph : MonoBehaviour
     {
         List<Node> relevantList = isNegative ? negativeEvidence : positiveEvidence;
         relevantList.Add(node);
+        likelihoodWeightingSampler.Reset();
     }
 
     public void AddToQuery(Node node)
     {
         List<Node> relevantList = isNegative ? negativeQuery : positiveQuery;
         relevantList.Add(node);
+        likelihoodWeightingSampler.Reset();
     }
 
     public void RemoveFromEvidence(Node node)
@@ -59,6 +66,7 @@ public class Graph : MonoBehaviour
             relevantList = negativeEvidence;
         }
         relevantList.Remove(node);
+        likelihoodWeightingSampler.Reset();
     }
 
     public void RemoveFromQuery(Node node)
@@ -69,6 +77,7 @@ public class Graph : MonoBehaviour
             relevantList = negativeQuery;
         }
         relevantList.Remove(node);
+        likelihoodWeightingSampler.Reset();
     }
 
     public void UpdateText()
@@ -112,6 +121,24 @@ public class Graph : MonoBehaviour
         return queryText;
     }
 
+    public void Sample()
+    {
+        currentSampler.Sample();
+    }
+
+    public void ChangeSampler(int index)
+    {
+        // Replace with sampler array if new sampler is added. Not planned.
+        if (index == 0)
+        {
+            currentSampler = rejectionSampler;
+        }
+        else
+        {
+            currentSampler = likelihoodWeightingSampler;
+        }
+    }
+
     public List<Node> GetPositiveEvidence()
     {
         return positiveEvidence.ToList();
@@ -135,5 +162,6 @@ public class Graph : MonoBehaviour
     public void SetNumberOfSamples(string numberOfSamplesText)
     {
         rejectionSampler.SetNumberOfSamples(Int32.Parse(numberOfSamplesText));
+        likelihoodWeightingSampler.SetNumberOfSamples(Int32.Parse(numberOfSamplesText));
     }
 }
