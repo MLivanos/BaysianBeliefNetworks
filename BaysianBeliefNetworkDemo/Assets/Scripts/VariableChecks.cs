@@ -25,7 +25,7 @@ public class VariableChecks : MonoBehaviour
     {
         if (queryToggle.isOn)
         {
-            graph.AddToQuery(node);
+            graph.AddToQuery(node, this);
         }
         else
         {
@@ -38,12 +38,22 @@ public class VariableChecks : MonoBehaviour
     {
         if (evidenceToggle.isOn)
         {
-            graph.AddToEvidence(node);
+            graph.AddToEvidence(node, this);
         }
         else
         {
             graph.RemoveFromEvidence(node);
         }
         graph.UpdateText();
+    }
+
+    public void SwitchEvidence()
+    {
+        evidenceToggle.isOn = !evidenceToggle.isOn;
+    }
+
+    public void SwitchQuery()
+    {
+        queryToggle.isOn = !queryToggle.isOn;
     }
 }

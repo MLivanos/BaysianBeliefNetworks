@@ -45,17 +45,25 @@ public class Graph : MonoBehaviour
         return rootNodes;
     }
 
-    public void AddToEvidence(Node node)
+    public void AddToEvidence(Node node, VariableChecks checks)
     {
         List<Node> relevantList = isNegative ? negativeEvidence : positiveEvidence;
         relevantList.Add(node);
+        if (positiveQuery.Any(n => n == node) || negativeQuery.Any(n => n == node))
+        {
+            checks.SwitchQuery();
+        }
         likelihoodWeightingSampler.Reset();
     }
 
-    public void AddToQuery(Node node)
+    public void AddToQuery(Node node, VariableChecks checks)
     {
         List<Node> relevantList = isNegative ? negativeQuery : positiveQuery;
         relevantList.Add(node);
+        if (positiveEvidence.Any(n => n == node) || negativeEvidence.Any(n => n == node))
+        {
+            checks.SwitchEvidence();
+        }
         likelihoodWeightingSampler.Reset();
     }
 
@@ -129,7 +137,6 @@ public class Graph : MonoBehaviour
     public void Sample()
     {
         float probability = currentSampler.Sample();
-        Debug.Log(probability);
         string numberOfSamples = currentSampler.GetNumberOfSamples().ToString();
         string numberOfAcceptedSamples = currentSampler.GetNumberOfAcceptedSamples().ToString();
         string sampleInfoText = numberOfSamples + "\n" + numberOfAcceptedSamples;
