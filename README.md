@@ -2,9 +2,11 @@
 
 # Aliens Are Coming To Davis!
 
+<img width="847" alt="Screenshot 2024-02-08 at 11 37 50 PM" src="https://github.com/MLivanos/BaysianBeliefNetworks/assets/59032623/d9b59373-c5a4-4692-9531-ae1ed8c48aa6">
+
 <br>
 
-<p><a href="https://mlivanos.github.io/BaysianBeliefNetworks"><img alt="Static Badge" src="https://img.shields.io/badge/PLAY-black?style=for-the-badge&logo=unity&logoColor=white&labelColor=black&color=black&link=mlivanos.github.io%2FSearchAlgorithmVisualizer%2F" style="width:225px;"/></a></p>
+<p><a href="https://play.unity.com/mg/other/webgl-builds-390406"><img alt="Static Badge" src="https://img.shields.io/badge/PLAY-black?style=for-the-badge&logo=unity&logoColor=white&labelColor=black&color=black&link=mlivanos.github.io%2FSearchAlgorithmVisualizer%2F" style="width:225px;"/></a></p>
 
 </div>
 
