@@ -6,7 +6,7 @@
 
 <br>
 
-<p><a href="https://play.unity.com/mg/other/webgl-builds-390406"><img alt="Static Badge" src="https://img.shields.io/badge/PLAY-black?style=for-the-badge&logo=unity&logoColor=white&labelColor=black&color=black&link=mlivanos.github.io%2FSearchAlgorithmVisualizer%2F" style="width:225px;"/></a></p>
+<p><a href="https://prodigiousmike.itch.io/bayesian-belief-network-simulation-alien-invasion"><img alt="Static Badge" src="https://img.shields.io/badge/PLAY-black?style=for-the-badge&logo=unity&logoColor=white&labelColor=black&color=black&link=mlivanos.github.io%2FSearchAlgorithmVisualizer%2F" style="width:225px;"/></a></p>
 
 </div>
 
