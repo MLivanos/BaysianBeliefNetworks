@@ -29,22 +29,28 @@ public class TitleUFOBehavior : MonoBehaviour
     public float toPlanetMotionDuration = 20f;
     public Vector3 planetLocation;
     public Vector3 minimumScale;
+    [Header("Disappear Settings")]
+    [Tooltip("The particle effect to activate on collision.")]
+    public ParticleSystem landingEffect;
 
     private Vector3 startPosition;
     private Vector3 initialPosition;
     private float elapsedMoveTime = 0f;
     private float elapsedMotionTime = 0f;
-    private bool hasMovedIn = false;
+    private bool instantiatedGleam = false;
 
     void Start()
     {
+        if (landingEffect != null)
+        {
+            landingEffect.Stop();
+        }
         initialPosition = targetPosition;
         StartCoroutine(StartBehavior());
     }
 
     void Update()
     {
-        // Rotate the UFO around its Y-axis
         transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime, Space.Self);
     }
 
@@ -72,7 +78,6 @@ public class TitleUFOBehavior : MonoBehaviour
 
         // Ensure the UFO reaches the exact target position
         transform.position = endingPos;
-        hasMovedIn = true;
 
         // Start UFO-like motions after moving in
         StartCoroutine(UFOMotions());
@@ -92,8 +97,25 @@ public class TitleUFOBehavior : MonoBehaviour
             time += Time.deltaTime;
             yield return null;
         }
+    }
 
-        // Optional: Add any behavior after motions complete
-        // For now, the UFO will just stop moving up and down
+    private void OnCollisionEnter(Collision collision)
+    {
+        StartCoroutine(PlayLight());
+        foreach (Renderer renderer in GetComponentsInChildren<Renderer>())
+        {
+            renderer.enabled = false;
+        }
+    }
+
+    private IEnumerator PlayLight()
+    {
+        if (landingEffect != null)
+        {
+            landingEffect.gameObject.SetActive(true);
+            landingEffect.Play();
+        }
+        yield return new WaitForSeconds(1.5f);
+        landingEffect.Stop();
     }
 }
