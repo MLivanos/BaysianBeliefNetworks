@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using TMPro;
 
@@ -15,17 +16,62 @@ public class Graph : MonoBehaviour
     private RejectionSampler rejectionSampler;
     private LikelihoodWeightingSampler likelihoodWeightingSampler;
     private string queryText;
-    private List<Node> positiveQuery = new List<Node>();
-    private List<Node> negativeQuery = new List<Node>();
-    private List<Node> positiveEvidence = new List<Node>();
-    private List<Node> negativeEvidence = new List<Node>();
+    private List<Node> positiveQuery;
+    private List<Node> negativeQuery;
+    private List<Node> positiveEvidence;
+    private List<Node> negativeEvidence;
     bool isNegative;
 
     private void Start()
     {
+        positiveQuery = new List<Node>();
+        negativeQuery = new List<Node>();
+        positiveEvidence = new List<Node>();
+        negativeEvidence = new List<Node>();
+        SaveGraph();
         rejectionSampler = GetComponent<RejectionSampler>();
         likelihoodWeightingSampler = GetComponent<LikelihoodWeightingSampler>();
         currentSampler = rejectionSampler;
+    }
+
+    private void SaveGraph()
+    {
+        DontDestroyOnLoad(gameObject);
+        List<Node> currentNodes;
+        currentNodes = rootNodes.ToList();
+        while(currentNodes.Count > 0)
+        {
+            Node node = currentNodes[0];
+            foreach(Node child in node.GetChildren())
+            {
+                if (!currentNodes.Contains(child))
+                {
+                    currentNodes.Add(child);
+                }
+            }
+            currentNodes.RemoveAt(0);
+            DontDestroyOnLoad(node);
+        }
+    }
+
+    public void UnsaveGraph()
+    {
+        SceneManager.MoveGameObjectToScene(gameObject, SceneManager.GetActiveScene());
+        List<Node> currentNodes;
+        currentNodes = rootNodes.ToList();
+        while(currentNodes.Count > 0)
+        {
+            Node node = currentNodes[0];
+            foreach(Node child in node.GetChildren())
+            {
+                if (!currentNodes.Contains(child))
+                {
+                    currentNodes.Add(child);
+                }
+            }
+            currentNodes.RemoveAt(0);
+            SceneManager.MoveGameObjectToScene(node.gameObject, SceneManager.GetActiveScene());
+        }
     }
 
     private void Update()
@@ -91,6 +137,14 @@ public class Graph : MonoBehaviour
 
     public void UpdateText(float probabilityValue=-1.0f)
     {
+        if (queryTextDisplay == null)
+        {
+            queryTextDisplay = GameObject.Find("QueryText").GetComponent<TMP_Text>();
+            /*positiveQuery = new List<Node>();
+            negativeQuery = new List<Node>();
+            positiveEvidence = new List<Node>();
+            negativeEvidence = new List<Node>();*/
+        }
         queryText = "P(";
         queryText += GetPartialQuery(positiveQuery);
         if (positiveQuery.Count > 0 && negativeQuery.Count > 0)
@@ -181,5 +235,13 @@ public class Graph : MonoBehaviour
     {
         rejectionSampler.SetNumberOfSamples(Int32.Parse(numberOfSamplesText));
         likelihoodWeightingSampler.SetNumberOfSamples(Int32.Parse(numberOfSamplesText));
+    }
+
+    public bool[] VisualizeSample()
+    {
+        likelihoodWeightingSampler.SetNumberOfSamples(1);
+        likelihoodWeightingSampler.Sample();
+        bool[] truthValues = likelihoodWeightingSampler.GetLastSample();
+        return truthValues;
     }
 }
