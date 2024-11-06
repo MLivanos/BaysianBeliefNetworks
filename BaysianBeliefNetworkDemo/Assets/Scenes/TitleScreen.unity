@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0422759, g: 0.058330044, b: 0.07622095, a: 1}
+  m_IndirectSpecularColor: {r: 0.042927526, g: 0.05913271, b: 0.0772736, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -244,6 +244,7 @@ GameObject:
   - component: {fileID: 566154546}
   - component: {fileID: 566154545}
   - component: {fileID: 566154544}
+  - component: {fileID: 566154547}
   m_Layer: 5
   m_Name: PlayButton
   m_TagString: Untagged
@@ -315,7 +316,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 566154545}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 566154547}
+        m_TargetAssemblyTypeName: SceneManagerScript, Assembly-CSharp
+        m_MethodName: StartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &566154545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -354,6 +367,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 566154542}
   m_CullTransparentMesh: 1
+--- !u!114 &566154547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 566154542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa49e5cf2784d409fa17dd08c146fea8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &670132593
 GameObject:
   m_ObjectHideFlags: 0

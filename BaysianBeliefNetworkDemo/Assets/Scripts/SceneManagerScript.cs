@@ -14,6 +14,11 @@ public class SceneManagerScript : MonoBehaviour
     {
         Graph graph = GameObject.Find("Graph").GetComponent<Graph>();
         graph.UnsaveGraph();
+        StartGame();
+    }
+
+    public void StartGame()
+    {
         SceneManager.LoadScene("BBN");
     }
 }
