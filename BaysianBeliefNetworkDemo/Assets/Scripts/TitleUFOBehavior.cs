@@ -36,8 +36,6 @@ public class TitleUFOBehavior : MonoBehaviour
     private Vector3 startPosition;
     private Vector3 initialPosition;
     private float elapsedMoveTime = 0f;
-    private float elapsedMotionTime = 0f;
-    private bool instantiatedGleam = false;
 
     void Start()
     {
