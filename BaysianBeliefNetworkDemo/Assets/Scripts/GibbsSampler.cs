@@ -149,7 +149,6 @@ public class GibbsSampler : Sampler
     public void SetRandomInitialization(float initializationPercentage)
     {
         randomInitializationPercentage = initializationPercentage;
-        Debug.Log(randomInitializationPercentage);
     }
 
     public void SetRandomInitialization(string percentageText)
