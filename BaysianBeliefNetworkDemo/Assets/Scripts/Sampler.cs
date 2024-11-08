@@ -111,4 +111,9 @@ public abstract class Sampler : MonoBehaviour
     {
         return -1;
     }
+
+    public bool[] GetLastSample()
+    {
+        return samples[samples.Count - 1];
+    }
 }
