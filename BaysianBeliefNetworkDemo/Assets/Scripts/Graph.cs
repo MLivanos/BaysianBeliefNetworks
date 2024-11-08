@@ -14,8 +14,10 @@ public class Graph : MonoBehaviour
     private Sampler currentSampler;
     // Replace with sampler array if new sampler is added. Not planned.
     private RejectionSampler rejectionSampler;
-    private LikelihoodWeightingSampler likelihoodWeightingSampler;
+    // TODO: CHANGE BACK
+    private GibbsSampler likelihoodWeightingSampler;
     private string queryText;
+    private List<Node> allNodes;
     private List<Node> positiveQuery;
     private List<Node> negativeQuery;
     private List<Node> positiveEvidence;
@@ -30,7 +32,7 @@ public class Graph : MonoBehaviour
         negativeEvidence = new List<Node>();
         SaveGraph();
         rejectionSampler = GetComponent<RejectionSampler>();
-        likelihoodWeightingSampler = GetComponent<LikelihoodWeightingSampler>();
+        likelihoodWeightingSampler = GetComponent<GibbsSampler>();
         currentSampler = rejectionSampler;
     }
 
@@ -39,6 +41,7 @@ public class Graph : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         List<Node> currentNodes;
         currentNodes = rootNodes.ToList();
+        allNodes = rootNodes.ToList();
         while(currentNodes.Count > 0)
         {
             Node node = currentNodes[0];
@@ -46,6 +49,7 @@ public class Graph : MonoBehaviour
             {
                 if (!currentNodes.Contains(child))
                 {
+                    allNodes.Add(child);
                     currentNodes.Add(child);
                 }
             }
@@ -243,5 +247,10 @@ public class Graph : MonoBehaviour
         likelihoodWeightingSampler.Sample();
         bool[] truthValues = likelihoodWeightingSampler.GetLastSample();
         return truthValues;
+    }
+
+    public List<Node> GetAllNodes()
+    {
+        return allNodes;
     }
 }
