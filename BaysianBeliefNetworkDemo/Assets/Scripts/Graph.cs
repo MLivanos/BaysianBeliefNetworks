@@ -257,8 +257,9 @@ public class Graph : MonoBehaviour
 
     public bool[] VisualizeSample()
     {
-        LikelihoodWeightingSampler sampler = GetComponent<LikelihoodWeightingSampler>();
+        GibbsSampler sampler = GetComponent<GibbsSampler>();
         sampler.SetNumberOfSamples(1);
+        sampler.Sample();
         bool[] truthValues = sampler.GetLastSample();
         return truthValues;
     }
