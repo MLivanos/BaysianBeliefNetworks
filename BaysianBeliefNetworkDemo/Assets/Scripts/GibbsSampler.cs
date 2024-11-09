@@ -137,7 +137,7 @@ public class GibbsSampler : Sampler
 
     public override int GetNumberOfAcceptedSamples()
     {
-        return samples.Count - (int)burnInPercentage*samples.Count;
+        return samples.Count - (int)(burnInPercentage*samples.Count);
     }
 
     public void SetBurnIn(float burnIn)
