@@ -195,10 +195,21 @@ public class Graph : MonoBehaviour
 
     public void Sample()
     {
+        float startTime = Time.realtimeSinceStartup;
         float probability = currentSampler.Sample();
-        string numberOfSamples = currentSampler.GetNumberOfSamples().ToString();
-        string numberOfAcceptedSamples = currentSampler.GetNumberOfAcceptedSamples().ToString();
-        string sampleInfoText = numberOfSamples + "\n" + numberOfAcceptedSamples;
+        float timeElapsed = Time.realtimeSinceStartup - startTime;
+        
+        int numberOfSamples = currentSampler.GetNumberOfSamples();
+        int numberOfAcceptedSamples = currentSampler.GetNumberOfAcceptedSamples();
+        float acceptanceRatio = 100f * numberOfAcceptedSamples / numberOfSamples;
+
+        string sampleInfoText = string.Format(
+            "{0}\n{1} ({2:F2}%)\n{3:F2}s",
+            numberOfSamples,
+            numberOfAcceptedSamples,
+            acceptanceRatio,
+            timeElapsed
+        );
         sampleInfo.text = sampleInfoText;
         UpdateText(probability);
     }
