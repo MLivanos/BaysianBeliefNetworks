@@ -70,11 +70,6 @@ public class LikelihoodWeightingSampler : Sampler
         sumOfWeightsInQuery = 0.0f;
     }
 
-    public bool[] GetLastSample()
-    {
-        return samples[samples.Count - 1];
-    }
-
     public override int GetNumberOfAcceptedSamples()
     {
         return samples.Count;

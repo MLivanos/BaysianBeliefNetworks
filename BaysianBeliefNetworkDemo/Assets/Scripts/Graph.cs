@@ -11,11 +11,11 @@ public class Graph : MonoBehaviour
     [SerializeField] private List<Node> rootNodes;
     [SerializeField] private TMP_Text queryTextDisplay;
     [SerializeField] private TMP_Text sampleInfo;
+    [SerializeField] private GameObject gibbsOptions;
     private Sampler currentSampler;
-    // Replace with sampler array if new sampler is added. Not planned.
-    private RejectionSampler rejectionSampler;
-    private LikelihoodWeightingSampler likelihoodWeightingSampler;
+    private Sampler[] samplers;
     private string queryText;
+    private List<Node> allNodes;
     private List<Node> positiveQuery;
     private List<Node> negativeQuery;
     private List<Node> positiveEvidence;
@@ -29,9 +29,12 @@ public class Graph : MonoBehaviour
         positiveEvidence = new List<Node>();
         negativeEvidence = new List<Node>();
         SaveGraph();
-        rejectionSampler = GetComponent<RejectionSampler>();
-        likelihoodWeightingSampler = GetComponent<LikelihoodWeightingSampler>();
-        currentSampler = rejectionSampler;
+        samplers = new Sampler[3];
+        samplers[0] = GetComponent<RejectionSampler>();
+        samplers[1] = GetComponent<LikelihoodWeightingSampler>();
+        samplers[2] = GetComponent<GibbsSampler>();
+
+        currentSampler = samplers[0];
     }
 
     private void SaveGraph()
@@ -39,6 +42,7 @@ public class Graph : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         List<Node> currentNodes;
         currentNodes = rootNodes.ToList();
+        allNodes = rootNodes.ToList();
         while(currentNodes.Count > 0)
         {
             Node node = currentNodes[0];
@@ -46,6 +50,7 @@ public class Graph : MonoBehaviour
             {
                 if (!currentNodes.Contains(child))
                 {
+                    allNodes.Add(child);
                     currentNodes.Add(child);
                 }
             }
@@ -99,7 +104,7 @@ public class Graph : MonoBehaviour
         {
             checks.SwitchQuery();
         }
-        likelihoodWeightingSampler.Reset();
+        GetComponent<LikelihoodWeightingSampler>().Reset();
     }
 
     public void AddToQuery(Node node, VariableChecks checks)
@@ -110,7 +115,7 @@ public class Graph : MonoBehaviour
         {
             checks.SwitchEvidence();
         }
-        likelihoodWeightingSampler.Reset();
+        GetComponent<LikelihoodWeightingSampler>().Reset();
     }
 
     public void RemoveFromEvidence(Node node)
@@ -121,7 +126,7 @@ public class Graph : MonoBehaviour
             relevantList = negativeEvidence;
         }
         relevantList.Remove(node);
-        likelihoodWeightingSampler.Reset();
+        GetComponent<LikelihoodWeightingSampler>().Reset();
     }
 
     public void RemoveFromQuery(Node node)
@@ -132,7 +137,7 @@ public class Graph : MonoBehaviour
             relevantList = negativeQuery;
         }
         relevantList.Remove(node);
-        likelihoodWeightingSampler.Reset();
+        GetComponent<LikelihoodWeightingSampler>().Reset();
     }
 
     public void UpdateText(float probabilityValue=-1.0f)
@@ -190,24 +195,35 @@ public class Graph : MonoBehaviour
 
     public void Sample()
     {
+        float startTime = Time.realtimeSinceStartup;
         float probability = currentSampler.Sample();
-        string numberOfSamples = currentSampler.GetNumberOfSamples().ToString();
-        string numberOfAcceptedSamples = currentSampler.GetNumberOfAcceptedSamples().ToString();
-        string sampleInfoText = numberOfSamples + "\n" + numberOfAcceptedSamples;
+        float timeElapsed = Time.realtimeSinceStartup - startTime;
+        
+        int numberOfSamples = currentSampler.GetNumberOfSamples();
+        int numberOfAcceptedSamples = currentSampler.GetNumberOfAcceptedSamples();
+        float acceptanceRatio = 100f * numberOfAcceptedSamples / numberOfSamples;
+
+        string sampleInfoText = string.Format(
+            "{0}\n{1} ({2:F2}%)\n{3:F2}s",
+            numberOfSamples,
+            numberOfAcceptedSamples,
+            acceptanceRatio,
+            timeElapsed
+        );
         sampleInfo.text = sampleInfoText;
         UpdateText(probability);
     }
 
     public void ChangeSampler(int index)
     {
-        // Replace with sampler array if new sampler is added. Not planned.
-        if (index == 0)
+        currentSampler = samplers[index];
+        if (index == 2)
         {
-            currentSampler = rejectionSampler;
+            gibbsOptions.SetActive(true);
         }
         else
         {
-            currentSampler = likelihoodWeightingSampler;
+            gibbsOptions.SetActive(false);
         }
     }
 
@@ -233,15 +249,22 @@ public class Graph : MonoBehaviour
 
     public void SetNumberOfSamples(string numberOfSamplesText)
     {
-        rejectionSampler.SetNumberOfSamples(Int32.Parse(numberOfSamplesText));
-        likelihoodWeightingSampler.SetNumberOfSamples(Int32.Parse(numberOfSamplesText));
+        foreach(Sampler sampler in samplers)
+        {
+            sampler.SetNumberOfSamples(Int32.Parse(numberOfSamplesText));
+        }
     }
 
     public bool[] VisualizeSample()
     {
-        likelihoodWeightingSampler.SetNumberOfSamples(1);
-        likelihoodWeightingSampler.Sample();
-        bool[] truthValues = likelihoodWeightingSampler.GetLastSample();
+        LikelihoodWeightingSampler sampler = GetComponent<LikelihoodWeightingSampler>();
+        sampler.SetNumberOfSamples(1);
+        bool[] truthValues = sampler.GetLastSample();
         return truthValues;
+    }
+
+    public List<Node> GetAllNodes()
+    {
+        return allNodes;
     }
 }

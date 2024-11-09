@@ -7,6 +7,7 @@ public class ProbabilityDisplay : MonoBehaviour
 {
     [SerializeField] private int index;
     [SerializeField] private Node node;
+    [SerializeField] private bool isNode=true;
     private TMP_InputField inputField;
     private TMP_Text inputText;
 
@@ -14,7 +15,10 @@ public class ProbabilityDisplay : MonoBehaviour
     {
         inputField = GetComponent<TMP_InputField>() as TMP_InputField;
         inputText = inputField.textComponent;
-        inputField.onValueChanged.AddListener(delegate {ChangeProbability(); });
+        if (isNode)
+        {
+            inputField.onValueChanged.AddListener(delegate {ChangeProbability(); });
+        }
     }
 
     private void ChangeProbability()
