@@ -12,12 +12,14 @@ public abstract class Sampler : MonoBehaviour
     protected int numberOfSamples = 10000;
     protected List<bool[]> samples = new List<bool[]>();
     protected string[] names = new string[10];
+    protected Dictionary<Node, bool> evidence;
 
     private void Start()
     {
         graph = GetComponent<Graph>();
-        List<Node> nodes = graph.GetAllNodes();
-        numberOfNodes = nodes.Count;
+        currentNodes = graph.GetAllNodes();
+        numberOfNodes = currentNodes.Count;
+        GatherEvidence();
     }
 
     public virtual float Sample()
@@ -98,6 +100,26 @@ public abstract class Sampler : MonoBehaviour
             }
         }
         return true;
+    }
+
+    protected void GatherEvidence()
+    {
+        evidence = new Dictionary<Node, bool>();
+        List<Node> positiveEvidence = graph.GetPositiveEvidence();
+        List<Node> negativeEvidence = graph.GetNegativeEvidence();
+        foreach (Node node in positiveEvidence)
+        {
+            evidence.Add(node, true);
+        }
+        foreach (Node node in negativeEvidence)
+        {
+            evidence.Add(node, false);
+        }
+    }
+
+    protected bool IsInEvidence(Node node)
+    {
+        return evidence.ContainsKey(node);
     }
 
     public virtual void Reset()
