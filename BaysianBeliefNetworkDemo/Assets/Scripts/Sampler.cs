@@ -6,6 +6,7 @@ using UnityEngine;
 public abstract class Sampler : MonoBehaviour
 {
     protected Graph graph;
+    protected List<Node> currentNodes;
     protected int sampleCount;
     protected int numberOfSamples = 10000;
     protected List<bool[]> samples = new List<bool[]>();
@@ -14,6 +15,7 @@ public abstract class Sampler : MonoBehaviour
     private void Start()
     {
         graph = GetComponent<Graph>();
+        List<Node> nodes = graph.GetAllNodes();
     }
 
     public virtual float Sample()

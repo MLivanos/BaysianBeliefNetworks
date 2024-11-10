@@ -13,7 +13,6 @@ public class GibbsSampler : Sampler
     {
         int reinitializationInterval = (int)(1 / Mathf.Max(0.00001f,randomInitializationPercentage));
         GatherEvidence();
-        List<Node> currentNodes = graph.GetAllNodes().ToList();
         InitializeState(currentNodes);
 
         for (int i = 0; i < numberOfSamples; i++)
