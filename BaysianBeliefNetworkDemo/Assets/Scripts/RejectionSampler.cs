@@ -13,7 +13,7 @@ public class RejectionSampler : Sampler
         for(int i=0; i<numberOfSamples; i++)
         {
             int index = 0;
-            bool[] truthValues = new bool[10];
+            bool[] truthValues = new bool[numberOfNodes];
             currentNodes = graph.GetRootNodes().ToList();
             while(currentNodes.Count > 0)
             {

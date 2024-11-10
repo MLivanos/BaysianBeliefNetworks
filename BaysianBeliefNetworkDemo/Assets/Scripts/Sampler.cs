@@ -8,6 +8,7 @@ public abstract class Sampler : MonoBehaviour
     protected Graph graph;
     protected List<Node> currentNodes;
     protected int sampleCount;
+    protected int numberOfNodes;
     protected int numberOfSamples = 10000;
     protected List<bool[]> samples = new List<bool[]>();
     protected string[] names = new string[10];
@@ -16,6 +17,7 @@ public abstract class Sampler : MonoBehaviour
     {
         graph = GetComponent<Graph>();
         List<Node> nodes = graph.GetAllNodes();
+        numberOfNodes = nodes.Count;
     }
 
     public virtual float Sample()

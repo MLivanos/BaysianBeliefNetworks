@@ -19,7 +19,7 @@ public class LikelihoodWeightingSampler : Sampler
         {
             float weight = 1;
             int index = 0;
-            bool[] truthValues = new bool[10];
+            bool[] truthValues = new bool[numberOfNodes];
             currentNodes = graph.GetRootNodes().ToList();
             while(currentNodes.Count > 0)
             {
