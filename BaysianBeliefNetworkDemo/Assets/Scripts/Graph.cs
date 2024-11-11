@@ -29,10 +29,11 @@ public class Graph : MonoBehaviour
         positiveEvidence = new List<Node>();
         negativeEvidence = new List<Node>();
         SaveGraph();
-        samplers = new Sampler[3];
+        samplers = new Sampler[4];
         samplers[0] = GetComponent<RejectionSampler>();
         samplers[1] = GetComponent<LikelihoodWeightingSampler>();
         samplers[2] = GetComponent<GibbsSampler>();
+        samplers[3] = GetComponent<HamiltonianSampler>();
 
         currentSampler = samplers[0];
     }
@@ -104,7 +105,10 @@ public class Graph : MonoBehaviour
         {
             checks.SwitchQuery();
         }
+        // These samplers clamp evidence, so prior samples are invalid
         GetComponent<LikelihoodWeightingSampler>().Reset();
+        GetComponent<GibbsSampler>().Reset();
+        GetComponent<HamiltonianSampler>().Reset();
     }
 
     public void AddToQuery(Node node, VariableChecks checks)
@@ -127,6 +131,8 @@ public class Graph : MonoBehaviour
         }
         relevantList.Remove(node);
         GetComponent<LikelihoodWeightingSampler>().Reset();
+        GetComponent<GibbsSampler>().Reset();
+        GetComponent<HamiltonianSampler>().Reset();
     }
 
     public void RemoveFromQuery(Node node)
