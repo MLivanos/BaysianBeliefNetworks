@@ -6,14 +6,21 @@ using UnityEngine;
 public abstract class Sampler : MonoBehaviour
 {
     protected Graph graph;
+    protected List<Node> currentNodes;
     protected int sampleCount;
+    protected int numberOfNodes;
     protected int numberOfSamples = 10000;
     protected List<bool[]> samples = new List<bool[]>();
     protected string[] names = new string[10];
+    protected Dictionary<Node, bool> evidence;
+    protected float timeElapsed;
 
     private void Start()
     {
         graph = GetComponent<Graph>();
+        currentNodes = graph.GetAllNodes();
+        numberOfNodes = currentNodes.Count;
+        GatherEvidence();
     }
 
     public virtual float Sample()
@@ -96,9 +103,30 @@ public abstract class Sampler : MonoBehaviour
         return true;
     }
 
+    protected void GatherEvidence()
+    {
+        evidence = new Dictionary<Node, bool>();
+        List<Node> positiveEvidence = graph.GetPositiveEvidence();
+        List<Node> negativeEvidence = graph.GetNegativeEvidence();
+        foreach (Node node in positiveEvidence)
+        {
+            evidence.Add(node, true);
+        }
+        foreach (Node node in negativeEvidence)
+        {
+            evidence.Add(node, false);
+        }
+    }
+
+    protected bool IsInEvidence(Node node)
+    {
+        return evidence.ContainsKey(node);
+    }
+
     public virtual void Reset()
     {
         samples = new List<bool[]>();
+        timeElapsed = 0f;
         sampleCount = 0;
     }
 
@@ -115,5 +143,15 @@ public abstract class Sampler : MonoBehaviour
     public bool[] GetLastSample()
     {
         return samples[samples.Count - 1];
+    }
+
+    public float GetTimeElapsed()
+    {
+        return timeElapsed;
+    }
+
+    public void AddTime(float time)
+    {
+        timeElapsed += time;
     }
 }

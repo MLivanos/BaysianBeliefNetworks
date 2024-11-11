@@ -11,15 +11,13 @@ public class LikelihoodWeightingSampler : Sampler
     public override float Sample()
     {
         List<Node> currentNodes;
-        List<Node> positiveEvidence = graph.GetPositiveEvidence();
-        List<Node> negativeEvidence = graph.GetNegativeEvidence();
         int[] positiveQueryOrder = GetNodeOrder(graph.GetPositiveQuery());
         int[] negativeQueryOrder = GetNodeOrder(graph.GetNegativeQuery());
         for(int i=0; i<numberOfSamples; i++)
         {
             float weight = 1;
             int index = 0;
-            bool[] truthValues = new bool[10];
+            bool[] truthValues = new bool[numberOfNodes];
             currentNodes = graph.GetRootNodes().ToList();
             while(currentNodes.Count > 0)
             {
@@ -27,12 +25,12 @@ public class LikelihoodWeightingSampler : Sampler
                 currentNodes.RemoveAt(0);
                 if (node.IsReadyToCalculateProbability())
                 {
-                    if (positiveEvidence.Any(n => n == node))
+                    if (IsInEvidence(node) && evidence[node])
                     {
                         node.IsTrue(true);
                         weight *= node.Query();
                     }
-                    else if (negativeEvidence.Any(n => n == node))
+                    else if (IsInEvidence(node) && !evidence[node])
                     {
                         node.IsTrue(false);
                         weight *= (1 - node.Query());

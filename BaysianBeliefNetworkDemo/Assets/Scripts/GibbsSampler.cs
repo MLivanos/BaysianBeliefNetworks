@@ -7,13 +7,11 @@ public class GibbsSampler : Sampler
 {
     private float burnInPercentage=0.1f;
     private float randomInitializationPercentage=0.1f;
-    private Dictionary<Node, bool> evidence;
 
     public override float Sample()
     {
         int reinitializationInterval = (int)(1 / Mathf.Max(0.00001f,randomInitializationPercentage));
         GatherEvidence();
-        List<Node> currentNodes = graph.GetAllNodes().ToList();
         InitializeState(currentNodes);
 
         for (int i = 0; i < numberOfSamples; i++)
@@ -24,7 +22,7 @@ public class GibbsSampler : Sampler
             }
             foreach (Node node in currentNodes)
             {
-                if (evidence.ContainsKey(node))
+                if (IsInEvidence(node))
                 {
                     node.IsTrue(evidence[node]);
                 }
@@ -42,26 +40,11 @@ public class GibbsSampler : Sampler
         return CalculateProbability();
     }
 
-    private void GatherEvidence()
-    {
-        evidence = new Dictionary<Node, bool>();
-        List<Node> positiveEvidence = graph.GetPositiveEvidence();
-        List<Node> negativeEvidence = graph.GetNegativeEvidence();
-        foreach (Node node in positiveEvidence)
-        {
-            evidence.Add(node, true);
-        }
-        foreach (Node node in negativeEvidence)
-        {
-            evidence.Add(node, false);
-        }
-    }
-
     private void InitializeState(List<Node> nodes)
     {
         foreach (Node node in nodes)
         {
-            if (!evidence.ContainsKey(node))
+            if (!IsInEvidence(node))
             {
                 node.IsTrue(Random.value < node.Query());
             }
