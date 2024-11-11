@@ -13,6 +13,7 @@ public abstract class Sampler : MonoBehaviour
     protected List<bool[]> samples = new List<bool[]>();
     protected string[] names = new string[10];
     protected Dictionary<Node, bool> evidence;
+    protected float timeElapsed;
 
     private void Start()
     {
@@ -125,6 +126,7 @@ public abstract class Sampler : MonoBehaviour
     public virtual void Reset()
     {
         samples = new List<bool[]>();
+        timeElapsed = 0f;
         sampleCount = 0;
     }
 
@@ -141,5 +143,15 @@ public abstract class Sampler : MonoBehaviour
     public bool[] GetLastSample()
     {
         return samples[samples.Count - 1];
+    }
+
+    public float GetTimeElapsed()
+    {
+        return timeElapsed;
+    }
+
+    public void AddTime(float time)
+    {
+        timeElapsed += time;
     }
 }
