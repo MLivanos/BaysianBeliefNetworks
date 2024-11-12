@@ -5,17 +5,19 @@ using UnityEngine;
 
 public class HamiltonianSampler : Sampler
 {
-    public float stepSize = 0.1f;
-    public int leapfrogSteps = 10;
+    private float stepSize = 0.1f;
+    private int leapfrogSteps = 10;
+    private float randomInitializationPercentage=0.1f;
     
     private Dictionary<Node, float> currentPositions;
     private Dictionary<Node, float> currentMomentum;
     
     public override float Sample()
     {
+        int reinitializationInterval = (int)(1 / Mathf.Max(0.00001f,randomInitializationPercentage));
         for (int i = 0; i < numberOfSamples; i++)
         {
-            if (i%100 == 0)
+            if (i%reinitializationInterval == 0)
             {
                 currentPositions = InitializePositions();
                 currentMomentum = InitializeMomentum();
@@ -178,5 +180,35 @@ public class HamiltonianSampler : Sampler
     public override int GetNumberOfAcceptedSamples()
     {
         return samples.Count;
+    }
+
+    public void SetRandomInitialization(float initializationPercentage)
+    {
+        randomInitializationPercentage = initializationPercentage;
+    }
+
+    public void SetRandomInitialization(string percentageText)
+    {
+        SetRandomInitialization(float.Parse(percentageText));
+    }
+
+    public void SetStepSize(string percentageText)
+    {
+        SetStepSize(float.Parse(percentageText));
+    }
+
+    public void SetStepSize(float newStepSize)
+    {
+        stepSize = newStepSize;
+    }
+
+    public void SetLeapfrogSteps(string leapfrogSteps)
+    {
+        SetLeapfrogSteps(int.Parse(leapfrogSteps));
+    }
+
+    public void SetLeapfrogSteps(int newLeapfrogSteps)
+    {
+        leapfrogSteps = newLeapfrogSteps;
     }
 }
