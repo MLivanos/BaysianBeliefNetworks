@@ -12,6 +12,7 @@ public class Graph : MonoBehaviour
     [SerializeField] private TMP_Text queryTextDisplay;
     [SerializeField] private TMP_Text sampleInfo;
     [SerializeField] private GameObject gibbsOptions;
+    [SerializeField] private GameObject hamiltonianOptions;
     private Sampler currentSampler;
     private Sampler[] samplers;
     private string queryText;
@@ -224,14 +225,8 @@ public class Graph : MonoBehaviour
     public void ChangeSampler(int index)
     {
         currentSampler = samplers[index];
-        if (index == 2)
-        {
-            gibbsOptions.SetActive(true);
-        }
-        else
-        {
-            gibbsOptions.SetActive(false);
-        }
+        gibbsOptions.SetActive(index == 2);
+        hamiltonianOptions.SetActive(index == 3);
     }
 
     public List<Node> GetPositiveEvidence()
