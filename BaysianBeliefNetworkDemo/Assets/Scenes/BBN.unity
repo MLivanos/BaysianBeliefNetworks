@@ -7620,7 +7620,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 2100000, guid: 32946f43322154068bc806fe3ebeaa16, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -18047,7 +18047,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 583895121}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -18061,7 +18061,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 800, y: 900}
+  m_SizeDelta: {x: 800, y: 450}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &585232641
 GameObject:
@@ -32929,7 +32929,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 800, y: 900}
+  m_SizeDelta: {x: 800, y: 450}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1162414052
 MonoBehaviour:
@@ -32945,7 +32945,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 2100000, guid: e1a71dce352174b1e8b4d031fffb362f, type: 2}
   m_Color: {r: 0.05882353, g: 0.05882353, b: 0.05882353, a: 0.8627451}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -38337,235 +38337,235 @@ MonoBehaviour:
   tutorialSteps:
   - message: Scroll/Pinch to zoom in and out
     icon: {fileID: 0}
-    position: {x: 0, y: 0}
+    position: {x: 0.5, y: 0.65}
     size: {x: 0, y: 0}
   - message: Right click and move the mouse to scroll around
     icon: {fileID: 0}
-    position: {x: 0, y: 0}
+    position: {x: 0.5, y: 0.65}
     size: {x: 0, y: 0}
   - message: To add a node to the query, click the checkbox under the Q. Let's learn
       about the probability that the dog barks.
     icon: {fileID: 0}
-    position: {x: 0, y: 0}
-    size: {x: 0, y: 0}
+    position: {x: 0.68, y: 0.275}
+    size: {x: 0.275, y: 0.275}
   - message: To add a node to evidence, click the checkbox under the E. Let's ask
       the probability that the dog barks given that it is winter.
     icon: {fileID: 0}
-    position: {x: 0, y: 0}
-    size: {x: 0, y: 0}
+    position: {x: 0.22, y: 0.92}
+    size: {x: 0.275, y: 0.275}
   - message: As you update your probability question, the question will appear towards
       the bottom.
     icon: {fileID: 0}
-    position: {x: 0, y: 0}
-    size: {x: 0, y: 0}
+    position: {x: 0.63, y: 0.0375}
+    size: {x: 1.5, y: 0.3}
   - message: 'To add the negation of a node, hold SHIFT while clicking. Let''s ask
       the probability that the dog barks given that it is winter and the cafe is
       close. '
     icon: {fileID: 0}
-    position: {x: 0, y: 0}
-    size: {x: 0, y: 0}
+    position: {x: 0.215, y: 0.245}
+    size: {x: 0.275, y: 0.275}
   - message: You can add multiple items to either the query or evidence. Let's ask
       the probability that the dog barks AND the cat hides given that it is winter
       and the cafe is closed.
     icon: {fileID: 0}
-    position: {x: 0, y: 0}
-    size: {x: 0, y: 0}
+    position: {x: 0.94, y: 0.272}
+    size: {x: 0.275, y: 0.275}
   - message: Chose the number of samples. Let's try 1000 random samples. Click the
       input field and type in 1000.
     icon: {fileID: 0}
-    position: {x: 0, y: 0}
-    size: {x: 0, y: 0}
+    position: {x: 0.275, y: 0.0275}
+    size: {x: 1.2, y: 0.3}
   - message: Let's check it out! Click "Calculate" to run the algorithm!
     icon: {fileID: 0}
-    position: {x: 0, y: 0}
-    size: {x: 0, y: 0}
+    position: {x: 0.83, y: 0.03}
+    size: {x: 1, y: 0.2}
   - message: The probability estimate is displayed here. I wonder how good of an
       estimate it is...
     icon: {fileID: 0}
-    position: {x: 0, y: 0}
-    size: {x: 0, y: 0}
+    position: {x: 0.67, y: 0.03}
+    size: {x: 2, y: 0.3}
   - message: Here you can see statistics about your recent question, including how
       many samples you've ran, how long it took the algorithm to estimate the probability,
       and how efficient the algorithm is.
     icon: {fileID: 0}
-    position: {x: 0, y: 0}
-    size: {x: 0, y: 0}
+    position: {x: 0.876, y: 0.958}
+    size: {x: 3.5, y: 1}
   - message: We used a rejection sampler to calculate this probability, but rejection
       samples are known to be wasteful given a lot of evidence or rare evidence.
       It looks like we had to reject most of the samples we made!
     icon: {fileID: 0}
-    position: {x: 0, y: 0}
-    size: {x: 0, y: 0}
+    position: {x: 0.876, y: 0.958}
+    size: {x: 2, y: 1}
   - message: Let's use an algorithm better suited for our question. Click the dropdown
       to chose a different algorithm.
     icon: {fileID: 0}
-    position: {x: 0, y: 0}
-    size: {x: 0, y: 0}
+    position: {x: 0.1, y: 0.035}
+    size: {x: 2, y: 1}
   - message: The likelihood weighting sampler! It uses every sample is draws. Go
       ahead and try it out.
     icon: {fileID: 0}
-    position: {x: 0, y: 0}
-    size: {x: 0, y: 0}
+    position: {x: 0.1, y: 0.174}
+    size: {x: 2, y: 1}
   - message: Ok, now calculate the probability.
     icon: {fileID: 0}
-    position: {x: 0, y: 0}
-    size: {x: 0, y: 0}
+    position: {x: 0.85, y: 0.03}
+    size: {x: 1, y: 0.2}
   - message: Did you get a different result? Which do you trust more?
     icon: {fileID: 0}
-    position: {x: 0, y: 0}
-    size: {x: 0, y: 0}
+    position: {x: 0.665, y: 0.0375}
+    size: {x: 1.5, y: 0.3}
   - message: 'This question used all 1000 samples. It may be more likely to be correct! '
     icon: {fileID: 0}
-    position: {x: 0, y: 0}
-    size: {x: 0, y: 0}
+    position: {x: 0.873, y: 0.954}
+    size: {x: 2, y: 1}
   - message: Maybe we can get even more accurate. Change the number of samples to
       9000.
     icon: {fileID: 0}
-    position: {x: 0, y: 0}
-    size: {x: 0, y: 0}
+    position: {x: 0.281, y: 0.031}
+    size: {x: 1.2, y: 1}
   - message: Click calculate.
     icon: {fileID: 0}
-    position: {x: 0, y: 0}
-    size: {x: 0, y: 0}
+    position: {x: 0.85, y: 0.03}
+    size: {x: 1.2, y: 1}
   - message: This answer is likely more accurate to the true probability.
     icon: {fileID: 0}
-    position: {x: 0, y: 0}
-    size: {x: 0, y: 0}
+    position: {x: 0.682, y: 0.032}
+    size: {x: 2, y: 1}
   - message: Notice that the first 1000 draws you made are still used in the probability
       calculations.
     icon: {fileID: 0}
-    position: {x: 0, y: 0}
-    size: {x: 0, y: 0}
+    position: {x: 0.861, y: 0.954}
+    size: {x: 2, y: 1}
   - message: Let's change it up a bit. Click the checkbox off for Cafe Not Open.
     icon: {fileID: 0}
-    position: {x: 0, y: 0}
-    size: {x: 0, y: 0}
+    position: {x: 0.214, y: 0.231}
+    size: {x: 0.275, y: 0.275}
   - message: Calculate the probability again.
     icon: {fileID: 0}
-    position: {x: 0, y: 0}
-    size: {x: 0, y: 0}
+    position: {x: 0.85, y: 0.03}
+    size: {x: 1.2, y: 1}
   - message: 'Notice that the samples were reset. This is because all samples in
       a likelihood weighting sampler are only relevant to specific evidence. '
     icon: {fileID: 0}
-    position: {x: 0, y: 0}
-    size: {x: 0, y: 0}
+    position: {x: 0.867, y: 0.95}
+    size: {x: 2, y: 1}
   - message: We just got a new weather report! It is expected to rain 45% of the
       time during winter! Move the slider to adjust the probability.
     icon: {fileID: 0}
-    position: {x: 0, y: 0}
-    size: {x: 0, y: 0}
+    position: {x: 0.5, y: 0.51}
+    size: {x: 1.1, y: 1}
   - message: Oops - the weather report was inaccurate. Set it back to 0.3 in the
       input field. You can change probailities as you please!
     icon: {fileID: 0}
-    position: {x: 0, y: 0}
-    size: {x: 0, y: 0}
+    position: {x: 0.582, y: 0.508}
+    size: {x: 0.3, y: 0.3}
   - message: Let's look at the rejection sampler again
     icon: {fileID: 0}
-    position: {x: 0, y: 0}
-    size: {x: 0, y: 0}
-  - message: 
+    position: {x: 0.1, y: 0.03}
+    size: {x: 1.25, y: 1}
+  - message: Click Rejection Sampler
     icon: {fileID: 0}
-    position: {x: 0, y: 0}
-    size: {x: 0, y: 0}
+    position: {x: 0.1, y: 0.235}
+    size: {x: 1.25, y: 1}
   - message: Click calculate
     icon: {fileID: 0}
-    position: {x: 0, y: 0}
-    size: {x: 0, y: 0}
+    position: {x: 0.85, y: 0.03}
+    size: {x: 1.2, y: 1}
   - message: A rejection sampler can keep all of the previously generated samples.
       All samplers have benefits and drawbacks!
     icon: {fileID: 0}
-    position: {x: 0, y: 0}
-    size: {x: 0, y: 0}
+    position: {x: 0.876, y: 0.954}
+    size: {x: 2, y: 1}
   - message: Let's clear the existing query
     icon: {fileID: 0}
-    position: {x: 0, y: 0}
-    size: {x: 0, y: 0}
+    position: {x: 0.684, y: 0.264}
+    size: {x: 0.275, y: 0.275}
   - message: Let's clear the existing query
     icon: {fileID: 0}
-    position: {x: 0, y: 0}
-    size: {x: 0, y: 0}
+    position: {x: 0.942, y: 0.26}
+    size: {x: 0.275, y: 0.275}
   - message: Let's clear the existing query
     icon: {fileID: 0}
-    position: {x: 0, y: 0}
-    size: {x: 0, y: 0}
+    position: {x: 0.226, y: 0.903}
+    size: {x: 0.275, y: 0.275}
   - message: Now let's ask the real question - how likely is it for aliens to show
       up?
     icon: {fileID: 0}
-    position: {x: 0, y: 0}
-    size: {x: 0, y: 0}
+    position: {x: 0.42, y: 0.262}
+    size: {x: 0.275, y: 0.275}
   - message: Click calculate
     icon: {fileID: 0}
-    position: {x: 0, y: 0}
-    size: {x: 0, y: 0}
+    position: {x: 0.85, y: 0.03}
+    size: {x: 1, y: 1}
   - message: 'Not very likely. Good to know. '
     icon: {fileID: 0}
-    position: {x: 0, y: 0}
-    size: {x: 0, y: 0}
+    position: {x: 0.68, y: 0.0378}
+    size: {x: 2, y: 1}
   - message: Aliens like to visit on clear days so they can observe earth. Add NOT
       Cloudy to the evidence.
     icon: {fileID: 0}
-    position: {x: 0, y: 0}
-    size: {x: 0, y: 0}
+    position: {x: 0.593, y: 0.556}
+    size: {x: 0.275, y: 0.275}
   - message: Aliens don't want to visit on busy days because they don't want to be
       seen. Add NOT busy day to evidence.
     icon: {fileID: 0}
-    position: {x: 0, y: 0}
-    size: {x: 0, y: 0}
+    position: {x: 0.309, y: 0.567}
+    size: {x: 0.275, y: 0.275}
   - message: When the aliens come, dogs sense them and tend to bark. Add Dog Barks
       to the evidence.
     icon: {fileID: 0}
-    position: {x: 0, y: 0}
-    size: {x: 0, y: 0}
+    position: {x: 0.7, y: 0.263}
+    size: {x: 0.275, y: 0.275}
   - message: Calculate the probability.
     icon: {fileID: 0}
-    position: {x: 0, y: 0}
-    size: {x: 0, y: 0}
+    position: {x: 0.85, y: 0.3}
+    size: {x: 1.25, y: 1}
   - message: This is the most likely scenario for the aliens to have appeared.
     icon: {fileID: 0}
-    position: {x: 0, y: 0}
-    size: {x: 0, y: 0}
+    position: {x: 0.68, y: 0.038}
+    size: {x: 2, y: 1}
   - message: Notice that we have the node Alien Visitation's parents, children, and
       children's parents all selected. This is the Markov blanket! No other node(s)
       added to the graph will impact this probability.
     icon: {fileID: 0}
-    position: {x: 0, y: 0}
-    size: {x: 0, y: 0}
+    position: {x: 0.4, y: 0.4}
+    size: {x: 3, y: 3}
   - message: Go ahead, add more evidence. Positive or negative, it doesn't matter.
     icon: {fileID: 0}
-    position: {x: 0, y: 0}
-    size: {x: 0, y: 0}
+    position: {x: 0.995, y: 0.262}
+    size: {x: 0.275, y: 0.275}
   - message: Another one.
     icon: {fileID: 0}
-    position: {x: 0, y: 0}
-    size: {x: 0, y: 0}
+    position: {x: 0.217, y: 0.231}
+    size: {x: 0.275, y: 0.275}
   - message: Go crazy. Have faith in the Markov blanket.
     icon: {fileID: 0}
-    position: {x: 0, y: 0}
-    size: {x: 0, y: 0}
+    position: {x: 0.711, y: 0.853}
+    size: {x: 0.275, y: 0.275}
   - message: Let's calculate the probability!
     icon: {fileID: 0}
-    position: {x: 0, y: 0}
-    size: {x: 0, y: 0}
+    position: {x: 0.85, y: 0.03}
+    size: {x: 1.25, y: 1}
   - message: How similar was it?
     icon: {fileID: 0}
-    position: {x: 0, y: 0}
-    size: {x: 0, y: 0}
+    position: {x: 0.68, y: 0.03}
+    size: {x: 2, y: 1}
   - message: Keep playing with probabilities. Ask more questions. What if we don't
       have the full Markov blanket? What other relationships exist between the nodes
       and aliens visiting?
     icon: {fileID: 0}
-    position: {x: 0, y: 0}
-    size: {x: 0, y: 0}
+    position: {x: 0.5, y: 0.5}
+    size: {x: 0.676, y: 0.967}
   - message: When you're done (not now), click To The Interviews to interogate eye-witnesses
       and determine if the aliens are friend or foe! You will have to see if the
       aliens were likely to have visited given the evidence they describe, so take
       your time understanding the interdependencies of the nodes on the graph!
     icon: {fileID: 0}
-    position: {x: 0, y: 0}
+    position: {x: 0.676, y: 0.967}
     size: {x: 0, y: 0}
   - message: If you need a refresher, hover over the ? box to hear some of this again.
     icon: {fileID: 0}
-    position: {x: 0, y: 0}
+    position: {x: 0.02, y: 0.964}
     size: {x: 0, y: 0}
 --- !u!4 &1320082883
 Transform:
@@ -54057,7 +54057,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
