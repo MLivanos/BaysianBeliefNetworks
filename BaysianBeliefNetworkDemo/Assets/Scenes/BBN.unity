@@ -38475,19 +38475,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12c056d61a6fc495584d223c64ba1f77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentStep: 40
   overlayCanvas: {fileID: 583895121}
   tutorialText: {fileID: 1854325580}
   highlightArea: {fileID: 259421780}
   tutorialSteps:
-  - message: Scroll/Pinch to zoom in and out
-    icon: {fileID: 0}
-    position: {x: 0.5, y: 0.65}
-    size: {x: 0, y: 0}
-  - message: Right click and move the mouse to scroll around
-    icon: {fileID: 0}
-    position: {x: 0.5, y: 0.65}
-    size: {x: 0, y: 0}
   - message: To add a node to the query, click the checkbox under the Q. Let's learn
       about the probability that the dog barks.
     icon: {fileID: 0}
@@ -38576,10 +38567,6 @@ MonoBehaviour:
     icon: {fileID: 0}
     position: {x: 0.281, y: 0.031}
     size: {x: 1.2, y: 1}
-  - message: Type in 9000
-    icon: {fileID: 0}
-    position: {x: 0.281, y: 0.031}
-    size: {x: 1.2, y: 1}
   - message: Click calculate.
     icon: {fileID: 0}
     position: {x: 0.85, y: 0.03}
@@ -38610,7 +38597,12 @@ MonoBehaviour:
       time during winter! Move the slider to adjust the probability.
     icon: {fileID: 0}
     position: {x: 0.5, y: 0.51}
-    size: {x: 1.1, y: 1}
+    size: {x: 1.6, y: 1}
+  - message: Oops - the weather report was inaccurate. Set it back to 0.3 in the
+      input field. You can change probailities as you please!
+    icon: {fileID: 0}
+    position: {x: 0.582, y: 0.508}
+    size: {x: 0.3, y: 0.3}
   - message: Oops - the weather report was inaccurate. Set it back to 0.3 in the
       input field. You can change probailities as you please!
     icon: {fileID: 0}
@@ -38688,13 +38680,21 @@ MonoBehaviour:
     icon: {fileID: 0}
     position: {x: 0.68, y: 0.038}
     size: {x: 2, y: 1}
-  - message: Notice that we have the node Alien Visitation's parents, children, and
-      children's parents all selected. This is the Markov blanket!
+  - message: Notice that we have the node Alien Visitation's parents...
     icon: {fileID: 0}
-    position: {x: 2, y: 2}
-    size: {x: 0.1, y: 0.1}
-  - message: A node is conditionally independent from all other nodes given its Markov
-      blanket. No other node(s) added to the graph will impact this probability.
+    position: {x: 0.35, y: 0.5}
+    size: {x: 4, y: 2}
+  - message: ...children...
+    icon: {fileID: 0}
+    position: {x: 0.6, y: 0.25}
+    size: {x: 2, y: 2}
+  - message: ...and children's other parents
+    icon: {fileID: 0}
+    position: {x: 0.5, y: 0.5}
+    size: {x: 2, y: 2}
+  - message: This is the Markov blanket! A node is conditionally independent from
+      all other nodes given its Markov blanket. No other node(s) added to the graph
+      will impact this probability.
     icon: {fileID: 0}
     position: {x: 2, y: 2}
     size: {x: 0.1, y: 0.1}
@@ -38738,6 +38738,14 @@ MonoBehaviour:
   - message: If you need a refresher, hover over the ? box to hear some of this again.
     icon: {fileID: 0}
     position: {x: 0.02, y: 0.964}
+    size: {x: 0, y: 0}
+  - message: Scroll/Pinch to zoom in and out
+    icon: {fileID: 0}
+    position: {x: 0.5, y: 0.65}
+    size: {x: 0, y: 0}
+  - message: Right click and move the mouse to scroll around
+    icon: {fileID: 0}
+    position: {x: 0.5, y: 0.65}
     size: {x: 0, y: 0}
 --- !u!4 &1320082883
 Transform:

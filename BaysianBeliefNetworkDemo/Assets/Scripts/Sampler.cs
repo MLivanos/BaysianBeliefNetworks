@@ -83,7 +83,7 @@ public abstract class Sampler : MonoBehaviour
         int[] negativeEvidenceOrder = GetNodeOrder(negativeNodes);
         foreach(bool[] sample in group)
         {
-            if(FilerSample(sample, positiveEvidenceOrder, true) && FilerSample(sample, negativeEvidenceOrder, false))
+            if(FilterSample(sample, positiveEvidenceOrder, true) && FilterSample(sample, negativeEvidenceOrder, false))
             {
                 samplesWithEvidence.Add(sample);
             }
@@ -91,7 +91,7 @@ public abstract class Sampler : MonoBehaviour
         return samplesWithEvidence;
     }
 
-    protected bool FilerSample(bool[] sample, int[] indices, bool isTrue)
+    protected bool FilterSample(bool[] sample, int[] indices, bool isTrue)
     {
         foreach(int index in indices)
         {
