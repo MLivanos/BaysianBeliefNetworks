@@ -14,12 +14,13 @@ public class TutorialStep
 
 public class TutorialManager : MonoBehaviour
 {
+    public int currentStep = 0;
     [SerializeField] private GameObject overlayCanvas;
     [SerializeField] private TMP_Text tutorialText;
     [SerializeField] private RectTransform highlightArea;
     [SerializeField] private List<TutorialStep> tutorialSteps = new List<TutorialStep>();
     private Vector2 originalHighlightSize;
-    private int currentStep = 0;
+    // TODO: Make private before merge. Public for testing purposes
 
     private void Start()
     {
@@ -40,9 +41,13 @@ public class TutorialManager : MonoBehaviour
             Vector3 mousePos = Input.mousePosition;
             Debug.Log(mousePos.x / Screen.width);
             Debug.Log(mousePos.y / Screen.height);
-            NextStep();
+            NextStep(true);
         }
-        else if (Input.GetKeyDown("space"))
+        else if (Input.GetKeyDown(KeyCode.B))
+        {
+            NextStep(false);
+        }
+        else if (Input.GetKeyDown(KeyCode.X))
         {
             EndTutorial();
         }
@@ -51,13 +56,13 @@ public class TutorialManager : MonoBehaviour
     private void StartTutorial()
     {
         overlayCanvas.SetActive(true);
-        currentStep = 0;
+        //currentStep = 0;
         ShowStep();
     }
 
-    private void NextStep()
+    private void NextStep(bool forward)
     {
-        currentStep++;
+        currentStep += forward ? 1 : -1;
         ShowStep();
     }
 
