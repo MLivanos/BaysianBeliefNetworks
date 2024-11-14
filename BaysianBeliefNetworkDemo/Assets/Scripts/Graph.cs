@@ -284,10 +284,6 @@ public class Graph : MonoBehaviour
     {
         foreach (Node node in allNodes)
         {
-            if(node.name != "DogNode" && node.name != "CatNode")
-            {
-                continue;
-            }
             Debug.Log("=======");
             Debug.Log("Testing node: " + node.name);
             // Test all combinations of true/false for each parent
