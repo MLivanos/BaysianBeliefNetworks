@@ -13,6 +13,7 @@ public class Graph : MonoBehaviour
     [SerializeField] private TMP_Text sampleInfo;
     [SerializeField] private GameObject gibbsOptions;
     [SerializeField] private GameObject hamiltonianOptions;
+    [SerializeField] private bool test;
     private Sampler currentSampler;
     private Sampler[] samplers;
     private string queryText;
@@ -22,6 +23,8 @@ public class Graph : MonoBehaviour
     private List<Node> positiveEvidence;
     private List<Node> negativeEvidence;
     bool isNegative;
+    bool hasTested;
+    float lastProbability;
 
     private void Start()
     {
@@ -50,7 +53,7 @@ public class Graph : MonoBehaviour
             Node node = currentNodes[0];
             foreach(Node child in node.GetChildren())
             {
-                if (!currentNodes.Contains(child))
+                if (!allNodes.Contains(child))
                 {
                     allNodes.Add(child);
                     currentNodes.Add(child);
@@ -90,6 +93,10 @@ public class Graph : MonoBehaviour
         if(Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.RightShift))
         {
             isNegative = false;
+        }
+        if (test && !hasTested)
+        {
+            TestGraph();
         }
     }
 
@@ -200,6 +207,7 @@ public class Graph : MonoBehaviour
         return queryText;
     }
 
+    // TODO: Returns void - for testing purposes only
     public void Sample()
     {
         float startTime = Time.realtimeSinceStartup;
@@ -220,6 +228,7 @@ public class Graph : MonoBehaviour
         );
         sampleInfo.text = sampleInfoText;
         UpdateText(probability);
+        lastProbability = probability;
     }
 
     public void ChangeSampler(int index)
@@ -270,4 +279,67 @@ public class Graph : MonoBehaviour
     {
         return allNodes;
     }
+
+    private void TestGraph()
+    {
+        foreach (Node node in allNodes)
+        {
+            if(node.name != "DogNode" && node.name != "CatNode")
+            {
+                continue;
+            }
+            Debug.Log("=======");
+            Debug.Log("Testing node: " + node.name);
+            // Test all combinations of true/false for each parent
+            List<Node> parents = node.GetParents().ToList();
+            positiveQuery.Add(node);
+            TestNodeWithAllParentCombinations(node, parents, new Dictionary<Node, bool>(), 0);
+            positiveQuery.Clear();
+            Debug.Log("=======");
+        }
+        hasTested = true;
+    }
+
+    // Recursive function to test all combinations of parent values
+    private void TestNodeWithAllParentCombinations(Node node, List<Node> parents, Dictionary<Node, bool> evidence, int parentIndex)
+    {
+        if (parentIndex == parents.Count)
+        {
+            // All parents have been assigned a true/false value, now test this combination
+            foreach (var kvp in evidence)
+            {
+                if (kvp.Value)
+                {
+                    positiveEvidence.Add(kvp.Key);
+                }
+                else
+                {
+                    negativeEvidence.Add(kvp.Key);
+                }
+                Debug.Log($"Given: {(kvp.Value ? "" : "Not ")}{kvp.Key.GetName()}");
+            }
+
+            // Sample the probability with this evidence combination
+            Sample();
+            Debug.Log($"P({node.name}) = {lastProbability}");
+
+            // Clear evidence for next combination
+            positiveEvidence.Clear();
+            negativeEvidence.Clear();
+        }
+        else
+        {
+            // For each parent, recursively assign true/false and test
+            Node currentParent = parents[parentIndex];
+
+            // Set current parent to true
+            evidence[currentParent] = true;
+            TestNodeWithAllParentCombinations(node, parents, evidence, parentIndex + 1);
+
+            // Set current parent to false
+            evidence[currentParent] = false;
+            TestNodeWithAllParentCombinations(node, parents, evidence, parentIndex + 1);
+        }
+    }
+
 }
