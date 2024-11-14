@@ -49765,7 +49765,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7927df2d7a261450184bd32882ab2f72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  node: {fileID: 0}
+  node: {fileID: 1869244370}
 --- !u!1 &1687848409
 GameObject:
   m_ObjectHideFlags: 0
@@ -59556,7 +59556,7 @@ MonoBehaviour:
   sampleInfo: {fileID: 998808399}
   gibbsOptions: {fileID: 1798059107}
   hamiltonianOptions: {fileID: 175815275}
-  test: 1
+  test: 0
 --- !u!4 &2029756919
 Transform:
   m_ObjectHideFlags: 0

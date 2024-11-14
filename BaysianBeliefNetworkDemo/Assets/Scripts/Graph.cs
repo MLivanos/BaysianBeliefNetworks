@@ -159,10 +159,6 @@ public class Graph : MonoBehaviour
         if (queryTextDisplay == null)
         {
             queryTextDisplay = GameObject.Find("QueryText").GetComponent<TMP_Text>();
-            /*positiveQuery = new List<Node>();
-            negativeQuery = new List<Node>();
-            positiveEvidence = new List<Node>();
-            negativeEvidence = new List<Node>();*/
         }
         queryText = "P(";
         queryText += GetPartialQuery(positiveQuery);
@@ -207,7 +203,6 @@ public class Graph : MonoBehaviour
         return queryText;
     }
 
-    // TODO: Returns void - for testing purposes only
     public void Sample()
     {
         float startTime = Time.realtimeSinceStartup;
