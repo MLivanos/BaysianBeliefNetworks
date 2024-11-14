@@ -11,7 +11,6 @@ public abstract class Sampler : MonoBehaviour
     protected int numberOfNodes;
     protected int numberOfSamples = 10000;
     protected List<bool[]> samples = new List<bool[]>();
-    protected string[] names = new string[10];
     protected Dictionary<Node, bool> evidence;
     protected float timeElapsed;
 
@@ -33,11 +32,11 @@ public abstract class Sampler : MonoBehaviour
         return -1.0f;
     }
 
-    protected void AddChildren(List<Node> currentNodes, List<Node> children)
+    protected void AddChildren(List<Node> currentNodes, List<Node> children, HashSet<Node> processedNodes)
     {
         foreach(Node child in children)
         {
-            if (!currentNodes.Contains(child))
+            if (!currentNodes.Contains(child) && !processedNodes.Contains(child))
             {
                 currentNodes.Add(child);
             }
@@ -52,9 +51,11 @@ public abstract class Sampler : MonoBehaviour
         currentNodes = graph.GetRootNodes().ToList();
         int orderIndex = 0;
         int index = 0;
+        HashSet<Node> processedNodes = new HashSet<Node>();
         while(currentNodes.Count > 0)
         {
             Node node = currentNodes[0];
+            processedNodes.Add(node);
             currentNodes.RemoveAt(0);
             if (node.IsReadyToCalculateProbability())
             {
@@ -65,7 +66,7 @@ public abstract class Sampler : MonoBehaviour
                     orderIndex ++;
                 }
                 index ++;
-                AddChildren(currentNodes, node.GetChildren());
+                AddChildren(currentNodes, node.GetChildren(), processedNodes);
             }
         }
         return nodeOrder;
