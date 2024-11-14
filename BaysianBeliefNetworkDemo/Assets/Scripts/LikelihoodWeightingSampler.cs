@@ -20,18 +20,17 @@ public class LikelihoodWeightingSampler : Sampler
             int index = 0;
             bool[] truthValues = new bool[numberOfNodes];
             currentNodes = graph.GetRootNodes().ToList();
-
+            HashSet<Node> processedNodes = new HashSet<Node>();
             while (currentNodes.Count > 0)
             {
                 Node node = currentNodes[0];
+                processedNodes.Add(node);
                 currentNodes.RemoveAt(0);
-
                 if (node.IsReadyToCalculateProbability())
                 {
                     weight *= ProcessNodeEvidence(node);
-                    names[index] = node.GetName();
                     truthValues[index] = node.IsTrue();
-                    AddChildren(currentNodes, node.GetChildren());
+                    AddChildren(currentNodes, node.GetChildren(), processedNodes);
                     index++;
                 }
             }
@@ -68,7 +67,7 @@ public class LikelihoodWeightingSampler : Sampler
 
     public override float CalculateProbability()
     {
-        return sumOfWeightsInQuery / sumOfWeights;
+        return sumOfWeights > 0 ? sumOfWeightsInQuery / sumOfWeights : -1;
     }
 
     public override void Reset()

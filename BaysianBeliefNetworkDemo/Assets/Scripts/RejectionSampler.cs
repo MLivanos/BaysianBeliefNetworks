@@ -15,16 +15,17 @@ public class RejectionSampler : Sampler
             int index = 0;
             bool[] truthValues = new bool[numberOfNodes];
             currentNodes = graph.GetRootNodes().ToList();
+            HashSet<Node> processedNodes = new HashSet<Node>();
             while(currentNodes.Count > 0)
             {
                 Node node = currentNodes[0];
+                processedNodes.Add(node);
                 currentNodes.RemoveAt(0);
                 if (node.IsReadyToCalculateProbability())
                 {
                     node.IsTrue(node.Query(Random.value));
-                    names[index] = node.GetName();
                     truthValues[index] = node.IsTrue();
-                    AddChildren(currentNodes, node.GetChildren());
+                    AddChildren(currentNodes, node.GetChildren(), processedNodes);
                     index++;
                 }
             }
@@ -44,7 +45,7 @@ public class RejectionSampler : Sampler
             Debug.Log("N/A (evidence never occured)");
             return -1.0f;
         }
-        return (float)filteredSamplesInQuery.Count / filteredSamples.Count;
+        return (float)filteredSamplesInQuery.Count / (float)filteredSamples.Count;
     }
 
     public override int GetNumberOfAcceptedSamples()
