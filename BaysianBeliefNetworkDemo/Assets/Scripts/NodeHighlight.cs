@@ -14,6 +14,7 @@ public class NodeHighlight : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     private Color baseArrowColor;
     private Color baseLineColor;
+    private GameObject highlight;
     private List<RawImage> incomingArrows = new List<RawImage>();
     private List<RawImage> outgoingArrows = new List<RawImage>();
     private Coroutine[] pulseCoroutines = new Coroutine[2];
@@ -23,6 +24,8 @@ public class NodeHighlight : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     {
         AddChildrenToList(incomingArrowObjects, incomingArrows);
         AddChildrenToList(outgoingArrowObjects, outgoingArrows);
+        highlight = transform.Find("Highlight").gameObject;
+        highlight.SetActive(false);
         baseArrowColor = new Color(0.012f, 0.894f, 1f, 1f);
         baseLineColor = new Color(0.012f, 0.894f, 1f, 0.784f);
     }
@@ -40,6 +43,7 @@ public class NodeHighlight : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public void OnPointerEnter(PointerEventData eventData)
     {
         isHighlighted = true;
+        highlight.SetActive(true);
         pulseCoroutines[0] = StartCoroutine(PulseArrows(incomingPulseColor, incomingArrows));
         pulseCoroutines[1] = StartCoroutine(PulseArrows(outgoingPulseColor, outgoingArrows));
     }
@@ -47,6 +51,7 @@ public class NodeHighlight : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public void OnPointerExit(PointerEventData eventData)
     {
         isHighlighted = false;
+        highlight.SetActive(false);
         StopCoroutine(pulseCoroutines[0]);
         StopCoroutine(pulseCoroutines[1]);
         ResetArrowColors(incomingArrows);
