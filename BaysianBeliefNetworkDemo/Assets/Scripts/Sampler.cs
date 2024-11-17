@@ -18,7 +18,7 @@ public abstract class Sampler : MonoBehaviour
     protected Dictionary<Node, bool> evidence;
     protected float timeElapsed;
 
-    private void Start()
+    protected void Start()
     {
         graph = GetComponent<Graph>();
         currentNodes = graph.GetAllNodes();
