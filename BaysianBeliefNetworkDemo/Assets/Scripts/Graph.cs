@@ -205,8 +205,17 @@ public class Graph : MonoBehaviour
 
     public void Sample()
     {
+        StartCoroutine(RunSamples());
+    }
+
+    private IEnumerator RunSamples()
+    {
         float startTime = Time.realtimeSinceStartup;
-        currentSampler.RunSamples();
+        Coroutine samples = StartCoroutine(currentSampler.RunSamples());
+        while (currentSampler.Busy())
+        {
+            yield return null;
+        }
         float probability = currentSampler.CalculateProbability();
         currentSampler.AddTime(Time.realtimeSinceStartup - startTime);
         

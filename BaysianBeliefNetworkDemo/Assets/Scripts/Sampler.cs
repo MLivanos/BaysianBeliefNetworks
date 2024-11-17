@@ -17,6 +17,7 @@ public abstract class Sampler : MonoBehaviour
     protected List<bool[]> samples = new List<bool[]>();
     protected Dictionary<Node, bool> evidence;
     protected float timeElapsed;
+    private bool busy;
 
     protected void Start()
     {
@@ -25,14 +26,22 @@ public abstract class Sampler : MonoBehaviour
         numberOfNodes = currentNodes.Count;
     }
 
-    public void RunSamples()
+    public IEnumerator RunSamples()
     {
+        busy = true;
         GatherEvidence();
+        float timer = Time.realtimeSinceStartup;
         for (int i=0; i<numberOfSamples; i++)
         {
+            if(Time.realtimeSinceStartup - timer > 0.1f)
+            {
+                yield return null;
+                timer = Time.realtimeSinceStartup;
+            }
             Sample();
             sampleCount++;
         }
+        busy = false;
     }
 
     public abstract void Sample();
@@ -164,5 +173,10 @@ public abstract class Sampler : MonoBehaviour
     public void AddTime(float time)
     {
         timeElapsed += time;
+    }
+
+    public bool Busy()
+    {
+        return busy;
     }
 }
