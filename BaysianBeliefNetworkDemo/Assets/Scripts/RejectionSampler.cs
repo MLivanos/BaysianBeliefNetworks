@@ -27,7 +27,6 @@ public class RejectionSampler : Sampler
             }
         }
         samples.Add(truthValues);
-        sampleCount += 1;
     }
 
     public override float CalculateProbability()
