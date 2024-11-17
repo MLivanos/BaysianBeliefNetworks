@@ -206,7 +206,8 @@ public class Graph : MonoBehaviour
     public void Sample()
     {
         float startTime = Time.realtimeSinceStartup;
-        float probability = currentSampler.Sample();
+        currentSampler.RunSamples();
+        float probability = currentSampler.CalculateProbability();
         currentSampler.AddTime(Time.realtimeSinceStartup - startTime);
         
         int numberOfSamples = currentSampler.GetNumberOfSamples();

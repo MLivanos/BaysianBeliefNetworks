@@ -12,25 +12,19 @@ public class HamiltonianSampler : Sampler
     private Dictionary<Node, float> currentPositions;
     private Dictionary<Node, float> currentMomentum;
     
-    public override float Sample()
+    public override void Sample()
     {
         int reinitializationInterval = (int)(1 / Mathf.Max(0.00001f,randomInitializationPercentage));
-        for (int i = 0; i < numberOfSamples; i++)
+        if (sampleCount%reinitializationInterval == 0)
         {
-            if (i%reinitializationInterval == 0)
-            {
-                currentPositions = InitializePositions();
-                currentMomentum = InitializeMomentum();
-            }
-            Dictionary<Node, float> proposedPosition = new Dictionary<Node, float>(currentPositions);
-            Dictionary<Node, float> proposedMomentum = new Dictionary<Node, float>(currentMomentum);
-
-            LeapFrogIntegration(proposedPosition, proposedMomentum);
-            MetropolisAcceptanceTest(proposedPosition, proposedMomentum);
+            currentPositions = InitializePositions();
+            currentMomentum = InitializeMomentum();
         }
+        Dictionary<Node, float> proposedPosition = new Dictionary<Node, float>(currentPositions);
+        Dictionary<Node, float> proposedMomentum = new Dictionary<Node, float>(currentMomentum);
 
-        sampleCount += numberOfSamples;
-        return CalculateProbability();
+        LeapFrogIntegration(proposedPosition, proposedMomentum);
+        MetropolisAcceptanceTest(proposedPosition, proposedMomentum);
     }
 
     private void LeapFrogIntegration(Dictionary<Node, float> proposedPosition, Dictionary<Node, float> proposedMomentum)

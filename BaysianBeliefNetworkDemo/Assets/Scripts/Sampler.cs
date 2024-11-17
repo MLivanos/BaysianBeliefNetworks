@@ -2,9 +2,13 @@ using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Jobs;
+using Unity.Collections;
 
 public abstract class Sampler : MonoBehaviour
 {
+    [SerializeField] protected bool parallelizable;
+    [SerializeField] protected bool reinstantiable;
     protected Graph graph;
     protected List<Node> currentNodes;
     protected int sampleCount;
@@ -19,13 +23,19 @@ public abstract class Sampler : MonoBehaviour
         graph = GetComponent<Graph>();
         currentNodes = graph.GetAllNodes();
         numberOfNodes = currentNodes.Count;
-        GatherEvidence();
     }
 
-    public virtual float Sample()
+    public void RunSamples()
     {
-        return -1.0f;
+        GatherEvidence();
+        for (int i=0; i<numberOfSamples; i++)
+        {
+            Sample();
+            sampleCount++;
+        }
     }
+
+    public abstract void Sample();
 
     public virtual float CalculateProbability()
     {

@@ -8,36 +8,27 @@ public class GibbsSampler : Sampler
     private float burnInPercentage=0.1f;
     private float randomInitializationPercentage=0.1f;
 
-    public override float Sample()
+    public override void Sample()
     {
         int reinitializationInterval = (int)(1 / Mathf.Max(0.00001f,randomInitializationPercentage));
-        GatherEvidence();
-        InitializeState(currentNodes);
-
-        for (int i = 0; i < numberOfSamples; i++)
+        if (sampleCount%reinitializationInterval == 0)
         {
-            if (i%reinitializationInterval == 0)
-            {
-                InitializeState(currentNodes);
-            }
-            foreach (Node node in currentNodes)
-            {
-                if (IsInEvidence(node))
-                {
-                    node.IsTrue(evidence[node]);
-                }
-                else
-                {
-                    float probTrue = CalculateConditionalProbability(node);
-                    node.IsTrue(Random.value < probTrue);
-                }
-            }
-            bool[] truthValues = currentNodes.Select(n => n.IsTrue()).ToArray();
-            samples.Add(truthValues);
+            InitializeState(currentNodes);
         }
-
-        sampleCount += numberOfSamples;
-        return CalculateProbability();
+        foreach (Node node in currentNodes)
+        {
+            if (IsInEvidence(node))
+            {
+                node.IsTrue(evidence[node]);
+            }
+            else
+            {
+                float probTrue = CalculateConditionalProbability(node);
+                node.IsTrue(Random.value < probTrue);
+            }
+        }
+        bool[] truthValues = currentNodes.Select(n => n.IsTrue()).ToArray();
+        samples.Add(truthValues);
     }
 
     private void InitializeState(List<Node> nodes)
