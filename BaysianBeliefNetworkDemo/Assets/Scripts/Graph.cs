@@ -9,6 +9,7 @@ using TMPro;
 
 public class Graph : MonoBehaviour
 {
+    [SerializeField] private GameObject graphUI;
     [SerializeField] private List<Node> rootNodes;
     [SerializeField] private TMP_Text queryTextDisplay;
     [SerializeField] private TMP_Text sampleInfo;
@@ -355,6 +356,24 @@ public class Graph : MonoBehaviour
             // Set current parent to false
             evidence[currentParent] = false;
             TestNodeWithAllParentCombinations(node, parents, evidence, parentIndex + 1);
+        }
+    }
+
+    public void ClearGraph()
+    {
+        UncheckAllCheckboxes(graphUI);
+    }
+
+    private void UncheckAllCheckboxes(GameObject root)
+    {
+        Toggle toggle = root.GetComponent<Toggle>();
+        if (toggle != null)
+        {
+            toggle.isOn = false;
+        }
+        foreach (Transform child in root.transform)
+        {
+            UncheckAllCheckboxes(child.gameObject);
         }
     }
 
