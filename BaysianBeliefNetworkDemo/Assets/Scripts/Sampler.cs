@@ -2,9 +2,13 @@ using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Jobs;
+using Unity.Collections;
 
 public abstract class Sampler : MonoBehaviour
 {
+    [SerializeField] protected bool parallelizable;
+    [SerializeField] protected bool reinstantiable;
     protected Graph graph;
     protected List<Node> currentNodes;
     protected int sampleCount;
@@ -13,19 +17,36 @@ public abstract class Sampler : MonoBehaviour
     protected List<bool[]> samples = new List<bool[]>();
     protected Dictionary<Node, bool> evidence;
     protected float timeElapsed;
+    private bool busy;
+    private int currentIteration;
 
-    private void Start()
+    protected void Start()
     {
         graph = GetComponent<Graph>();
         currentNodes = graph.GetAllNodes();
         numberOfNodes = currentNodes.Count;
-        GatherEvidence();
     }
 
-    public virtual float Sample()
+    public IEnumerator RunSamples()
     {
-        return -1.0f;
+        busy = true;
+        GatherEvidence();
+        float timer = Time.realtimeSinceStartup;
+        for (currentIteration=0; currentIteration<numberOfSamples; currentIteration++)
+        {
+            if(Time.realtimeSinceStartup - timer > 0.1f)
+            {
+                if (!busy) break;
+                yield return null;
+                timer = Time.realtimeSinceStartup;
+            }
+            Sample();
+            sampleCount++;
+        }
+        busy = false;
     }
+
+    public abstract void Sample();
 
     public virtual float CalculateProbability()
     {
@@ -154,5 +175,20 @@ public abstract class Sampler : MonoBehaviour
     public void AddTime(float time)
     {
         timeElapsed += time;
+    }
+
+    public bool Busy()
+    {
+        return busy;
+    }
+
+    public float GetProgress()
+    {
+        return (float)currentIteration / numberOfSamples;
+    }
+
+    public void Interupt()
+    {
+        busy = false;
     }
 }

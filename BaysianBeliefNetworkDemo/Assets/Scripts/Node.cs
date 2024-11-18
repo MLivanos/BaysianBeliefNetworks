@@ -94,5 +94,10 @@ public class Node : MonoBehaviour
     {
         jointProbabilityDistribution[index] = probability;
     }
+
+    public float[] GetCPT()
+    {
+        return jointProbabilityDistribution;
+    }
 }
 

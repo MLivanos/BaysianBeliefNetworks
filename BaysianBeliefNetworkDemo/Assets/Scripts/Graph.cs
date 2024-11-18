@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class Graph : MonoBehaviour
@@ -11,8 +12,10 @@ public class Graph : MonoBehaviour
     [SerializeField] private List<Node> rootNodes;
     [SerializeField] private TMP_Text queryTextDisplay;
     [SerializeField] private TMP_Text sampleInfo;
+    [SerializeField] private TMP_Text calculateText;
     [SerializeField] private GameObject gibbsOptions;
     [SerializeField] private GameObject hamiltonianOptions;
+    [SerializeField] private Slider progressBar;
     [SerializeField] private bool test;
     private Sampler currentSampler;
     private Sampler[] samplers;
@@ -205,10 +208,33 @@ public class Graph : MonoBehaviour
 
     public void Sample()
     {
+        if (currentSampler.Busy()) currentSampler.Interupt();
+        else StartCoroutine(RunSamples());
+    }
+
+    private IEnumerator RunSamples()
+    {
         float startTime = Time.realtimeSinceStartup;
-        float probability = currentSampler.Sample();
+        progressBar.gameObject.SetActive(true);
+        queryTextDisplay.gameObject.SetActive(false);
+        calculateText.text = "Stop";
+        Coroutine samples = StartCoroutine(currentSampler.RunSamples());
+        while (currentSampler.Busy())
+        {
+            progressBar.value = currentSampler.GetProgress();
+            yield return null;
+        }
+        float probability = currentSampler.CalculateProbability();
+        lastProbability = probability;
         currentSampler.AddTime(Time.realtimeSinceStartup - startTime);
-        
+        UpdateUI();
+    }
+
+    private void UpdateUI()
+    {
+        progressBar.gameObject.SetActive(false);
+        queryTextDisplay.gameObject.SetActive(true);
+        calculateText.text = "Calculate";
         int numberOfSamples = currentSampler.GetNumberOfSamples();
         int numberOfAcceptedSamples = currentSampler.GetNumberOfAcceptedSamples();
         float acceptanceRatio = 100f * numberOfAcceptedSamples / numberOfSamples;
@@ -222,8 +248,7 @@ public class Graph : MonoBehaviour
             timeElapsed
         );
         sampleInfo.text = sampleInfoText;
-        UpdateText(probability);
-        lastProbability = probability;
+        UpdateText(lastProbability);
     }
 
     public void ChangeSampler(int index)
