@@ -18,6 +18,7 @@ public abstract class Sampler : MonoBehaviour
     protected Dictionary<Node, bool> evidence;
     protected float timeElapsed;
     private bool busy;
+    private int currentIteration;
 
     protected void Start()
     {
@@ -31,7 +32,7 @@ public abstract class Sampler : MonoBehaviour
         busy = true;
         GatherEvidence();
         float timer = Time.realtimeSinceStartup;
-        for (int i=0; i<numberOfSamples; i++)
+        for (currentIteration=0; currentIteration<numberOfSamples; currentIteration++)
         {
             if(Time.realtimeSinceStartup - timer > 0.1f)
             {
@@ -178,5 +179,10 @@ public abstract class Sampler : MonoBehaviour
     public bool Busy()
     {
         return busy;
+    }
+
+    public float GetProgress()
+    {
+        return (float)currentIteration / numberOfSamples;
     }
 }
