@@ -93357,6 +93357,7 @@ MonoBehaviour:
   - {fileID: 547416265}
   queryTextDisplay: {fileID: 1507928419}
   sampleInfo: {fileID: 998808399}
+  calculateText: {fileID: 637719285}
   gibbsOptions: {fileID: 1798059107}
   hamiltonianOptions: {fileID: 175815275}
   progressBar: {fileID: 1652601026}

@@ -36,6 +36,7 @@ public abstract class Sampler : MonoBehaviour
         {
             if(Time.realtimeSinceStartup - timer > 0.1f)
             {
+                if (!busy) break;
                 yield return null;
                 timer = Time.realtimeSinceStartup;
             }
@@ -184,5 +185,10 @@ public abstract class Sampler : MonoBehaviour
     public float GetProgress()
     {
         return (float)currentIteration / numberOfSamples;
+    }
+
+    public void Interupt()
+    {
+        busy = false;
     }
 }

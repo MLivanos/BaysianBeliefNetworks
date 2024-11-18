@@ -12,6 +12,7 @@ public class Graph : MonoBehaviour
     [SerializeField] private List<Node> rootNodes;
     [SerializeField] private TMP_Text queryTextDisplay;
     [SerializeField] private TMP_Text sampleInfo;
+    [SerializeField] private TMP_Text calculateText;
     [SerializeField] private GameObject gibbsOptions;
     [SerializeField] private GameObject hamiltonianOptions;
     [SerializeField] private Slider progressBar;
@@ -207,7 +208,8 @@ public class Graph : MonoBehaviour
 
     public void Sample()
     {
-        StartCoroutine(RunSamples());
+        if (currentSampler.Busy()) currentSampler.Interupt();
+        else StartCoroutine(RunSamples());
     }
 
     private IEnumerator RunSamples()
@@ -215,6 +217,7 @@ public class Graph : MonoBehaviour
         float startTime = Time.realtimeSinceStartup;
         progressBar.gameObject.SetActive(true);
         queryTextDisplay.gameObject.SetActive(false);
+        calculateText.text = "Stop";
         Coroutine samples = StartCoroutine(currentSampler.RunSamples());
         while (currentSampler.Busy())
         {
@@ -231,6 +234,7 @@ public class Graph : MonoBehaviour
     {
         progressBar.gameObject.SetActive(false);
         queryTextDisplay.gameObject.SetActive(true);
+        calculateText.text = "Calculate";
         int numberOfSamples = currentSampler.GetNumberOfSamples();
         int numberOfAcceptedSamples = currentSampler.GetNumberOfAcceptedSamples();
         float acceptanceRatio = 100f * numberOfAcceptedSamples / numberOfSamples;
