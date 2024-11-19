@@ -290,7 +290,7 @@ public class Graph : MonoBehaviour
     public bool[] VisualizeSample()
     {
         GibbsSampler sampler = GetComponent<GibbsSampler>();
-        sampler.SetNumberOfSamples(1);
+        sampler.GatherEvidence();
         sampler.Sample();
         bool[] truthValues = sampler.GetLastSample();
         return truthValues;
@@ -375,6 +375,16 @@ public class Graph : MonoBehaviour
         {
             UncheckAllCheckboxes(child.gameObject);
         }
+    }
+
+    public Dictionary<string,int> GetNodeOrder()
+    {
+        Dictionary<string,int> order = new Dictionary<string,int>();
+        for(int i=0; i<allNodes.Count; i++)
+        {
+            order[allNodes[i].name] = i;
+        }
+        return order;
     }
 
 }
