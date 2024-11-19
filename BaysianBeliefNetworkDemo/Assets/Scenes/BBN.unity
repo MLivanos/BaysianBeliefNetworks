@@ -51947,7 +51947,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
-  m_FillAmount: 0
+  m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -88504,6 +88504,11 @@ MonoBehaviour:
   progressText: {fileID: 924792379}
   decimalPrecision: 1
   significantFigures: 0
+  colorGradients:
+  - startColor: {r: 0, g: 0, b: 1, a: 1}
+    endColor: {r: 1, g: 0.5019608, b: 0, a: 1}
+    start: 0
+    end: 60
 --- !u!114 &1928283198
 MonoBehaviour:
   m_ObjectHideFlags: 0
