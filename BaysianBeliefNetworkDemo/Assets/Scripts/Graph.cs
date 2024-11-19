@@ -9,6 +9,7 @@ using TMPro;
 
 public class Graph : MonoBehaviour
 {
+    [SerializeField] private GameObject graphUI;
     [SerializeField] private List<Node> rootNodes;
     [SerializeField] private TMP_Text queryTextDisplay;
     [SerializeField] private TMP_Text sampleInfo;
@@ -289,7 +290,7 @@ public class Graph : MonoBehaviour
     public bool[] VisualizeSample()
     {
         GibbsSampler sampler = GetComponent<GibbsSampler>();
-        sampler.SetNumberOfSamples(1);
+        sampler.GatherEvidence();
         sampler.Sample();
         bool[] truthValues = sampler.GetLastSample();
         return truthValues;
@@ -356,6 +357,34 @@ public class Graph : MonoBehaviour
             evidence[currentParent] = false;
             TestNodeWithAllParentCombinations(node, parents, evidence, parentIndex + 1);
         }
+    }
+
+    public void ClearGraph()
+    {
+        UncheckAllCheckboxes(graphUI);
+    }
+
+    private void UncheckAllCheckboxes(GameObject root)
+    {
+        Toggle toggle = root.GetComponent<Toggle>();
+        if (toggle != null)
+        {
+            toggle.isOn = false;
+        }
+        foreach (Transform child in root.transform)
+        {
+            UncheckAllCheckboxes(child.gameObject);
+        }
+    }
+
+    public Dictionary<string,int> GetNodeOrder()
+    {
+        Dictionary<string,int> order = new Dictionary<string,int>();
+        for(int i=0; i<allNodes.Count; i++)
+        {
+            order[allNodes[i].name] = i;
+        }
+        return order;
     }
 
 }

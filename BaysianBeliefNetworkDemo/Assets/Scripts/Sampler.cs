@@ -125,7 +125,7 @@ public abstract class Sampler : MonoBehaviour
         return true;
     }
 
-    protected void GatherEvidence()
+    public void GatherEvidence()
     {
         evidence = new Dictionary<Node, bool>();
         List<Node> positiveEvidence = graph.GetPositiveEvidence();

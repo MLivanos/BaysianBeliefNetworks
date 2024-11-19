@@ -21,7 +21,15 @@ public class SimulationManager : MonoBehaviour
     public GameObject aliens;
     public GameObject rain;
     public GameObject snow;
-    
+    public GameObject lights;
+    public GameObject cafeLights;
+    public GameObject wind;
+    public GameObject clouds;
+    public GameObject rainClouds;
+    public GameObject thunder;
+    public Light directionalLight;
+    private Transform tree;
+    Dictionary<string, int> eventIndices = new Dictionary<string, int>();
     
     private bool[] truthValues;
     private bool sceneSet;
@@ -29,6 +37,8 @@ public class SimulationManager : MonoBehaviour
     private void Start()
     {
         graph = GameObject.Find("Graph").GetComponent<Graph>();
+        Dictionary<string, int> nodeOrder = graph.GetNodeOrder();
+        AssignIndices(nodeOrder);
         SetTruthValues(graph.VisualizeSample());
     }
 
@@ -42,54 +52,49 @@ public class SimulationManager : MonoBehaviour
 
     public void SetTruthValues(bool[] sample)
     {
-        /*
-        Order:
-        0 Winter
-        1 Spring
-        2 Summer
-        3 Fall
-        4 Rain
-        5 Busy
-        6 Alien
-        7 Dog
-        8 Cat
-        9 Cafe
-        */
         truthValues = sample;
         SetSeason();
         SetCafe();
-        SetRain();
+        SetWeather();
         SetDog();
         SetCat();
         SetAliens();
         SetBusy();
+        SetTree();
+        SetPowerOutage();
     }
 
     private void SetSeason()
     {
-        if (truthValues[0])
+        GameObject seasonItems;
+        if (truthValues[eventIndices["Winter"]])
         {
+            seasonItems = winter;
             winter.SetActive(true);
         }
-        else if (truthValues[1])
+        else if (truthValues[eventIndices["Spring"]])
         {
+            seasonItems = spring;
             spring.SetActive(true);
         }
-        else if (truthValues[2])
+        else if (truthValues[eventIndices["Summer"]])
         {
+            seasonItems = summer;
             summer.SetActive(true);
         }
         else
         {
+            seasonItems = fall;
             fall.SetActive(true);
         }
+        tree = seasonItems.transform.Find("Tree");
     }
 
     private void SetCafe()
     {
-        if (truthValues[9])
+        if (truthValues[eventIndices["Cafe"]])
         {
-            if (truthValues[5])
+            if (truthValues[eventIndices["Busy"]])
             {
                 busyCafe.SetActive(true);
             }
@@ -99,11 +104,15 @@ public class SimulationManager : MonoBehaviour
         {
             cafeClosed.SetActive(true);
         }
+        if(truthValues[eventIndices["Power"]])
+        {
+            cafeLights.SetActive(true);
+        }
     }
 
     private void SetBusy()
     {
-        if (truthValues[5])
+        if (truthValues[eventIndices["Busy"]])
         {
             busy.SetActive(true);
         }
@@ -113,21 +122,41 @@ public class SimulationManager : MonoBehaviour
         }
     }
 
-    private void SetRain()
+    private void SetWeather()
     {
-        if (truthValues[4] && truthValues[0])
+        if (!truthValues[eventIndices["Rain"]] && truthValues[eventIndices["Cloudy"]])
+        {
+            directionalLight.intensity = 0f;
+            clouds.SetActive(true);
+        }
+        else if (truthValues[eventIndices["Rain"]] && truthValues[eventIndices["Winter"]])
         {
             snow.SetActive(true);
         }
-        else if (truthValues[4])
+        else if (truthValues[eventIndices["Rain"]])
         {
+            rainClouds.SetActive(true);
             rain.SetActive(true);
+        }
+        else
+        {
+            lights.SetActive(false);
+        }
+        if (truthValues[eventIndices["Wind"]])
+        {
+            wind.SetActive(true);
+            rain.transform.eulerAngles = new Vector3(10f,0f,0f);
+            snow.transform.eulerAngles = new Vector3(10f,0f,0f);
+        }
+        if (truthValues[eventIndices["Thunder"]])
+        {
+            thunder.SetActive(true);
         }
     }
 
     private void SetCat()
     {
-        if (truthValues[8])
+        if (truthValues[eventIndices["Cat"]])
         {
             catHide.SetActive(true);
         }
@@ -139,14 +168,56 @@ public class SimulationManager : MonoBehaviour
 
     private void SetDog()
     {
-        dog.barking = truthValues[7];
+        dog.barking = truthValues[eventIndices["Dog"]];
     }
 
     private void SetAliens()
     {
-        if(truthValues[6])
+        if(truthValues[eventIndices["Alien"]])
         {
             aliens.SetActive(true);
+        }
+    }
+
+    private void AssignIndices(Dictionary<string, int> nodeOrder)
+    {
+        eventIndices = new Dictionary<string, int>
+        {
+            { "Winter", nodeOrder["WinterNode"] },
+            { "Spring", nodeOrder["SpringNode"] },
+            { "Summer", nodeOrder["SummerNode"] },
+            { "Fall", nodeOrder["FallNode"] },
+            { "APD", nodeOrder["AtmosphericPressureDropNode"] },
+            { "Cloudy", nodeOrder["CloudNode"] },
+            { "Rain", nodeOrder["RainNode"] },
+            { "Wind", nodeOrder["HighWindNode"] },
+            { "Power", nodeOrder["PowerOutageNode"] },
+            { "Tree", nodeOrder["TreeNode"] },
+            { "Busy", nodeOrder["BusyNode"] },
+            { "Thunder", nodeOrder["ThunderNode"] },
+            { "Cafe", nodeOrder["CafeNode"] },
+            { "Alien", nodeOrder["AlienNode"] },
+            { "Dog", nodeOrder["DogNode"] },
+            { "Cat", nodeOrder["CatNode"] }
+        };
+    }
+
+    private void SetPowerOutage()
+    {
+        if (truthValues[eventIndices["Power"]])
+        {
+            cafeLights.SetActive(false);
+            lights.SetActive(false);
+        }
+    }
+
+    private void SetTree()
+    {
+        tree.eulerAngles = new Vector3(0f,0f,0f);
+        if (truthValues[eventIndices["Tree"]])
+        {
+            // TODO: Make pretty
+            tree.eulerAngles = new Vector3(0f,0f,90f);
         }
     }
 }
