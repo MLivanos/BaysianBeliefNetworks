@@ -10,7 +10,6 @@ public class GibbsSampler : Sampler
 
     public override void Sample()
     {
-        Debug.Log("In Sample");
         int reinitializationInterval = (int)(1 / Mathf.Max(0.00001f,randomInitializationPercentage));
         if (sampleCount%reinitializationInterval == 0)
         {
@@ -30,7 +29,6 @@ public class GibbsSampler : Sampler
         }
         bool[] truthValues = currentNodes.Select(n => n.IsTrue()).ToArray();
         samples.Add(truthValues);
-        Debug.Log("Added Sample");
     }
 
     private void InitializeState(List<Node> nodes)

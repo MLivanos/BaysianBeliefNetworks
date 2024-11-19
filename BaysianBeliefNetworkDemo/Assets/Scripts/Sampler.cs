@@ -164,7 +164,6 @@ public abstract class Sampler : MonoBehaviour
 
     public bool[] GetLastSample()
     {
-        Debug.Log("Called");
         return samples[samples.Count - 1];
     }
 
