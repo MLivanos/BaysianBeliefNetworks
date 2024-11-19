@@ -40,11 +40,6 @@ public class CircularProgressBar : MonoBehaviour
         progress = progressDisplay.fillAmount*(maxValue-minValue) + minValue;
     }
 
-    private void Update()
-    {
-        UpdateProgress(progress - Time.deltaTime);
-    }
-
     public void UpdateProgress(float newProgress)
     {
         progress = Mathf.Clamp(newProgress, minValue, maxValue);
