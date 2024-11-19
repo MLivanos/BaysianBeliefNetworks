@@ -49,6 +49,11 @@ public class CircularProgressBar : MonoBehaviour
         progressText.text = displayText;
     }
 
+    public void IncrementProgress(float increment)
+    {
+        UpdateProgress(progress + increment);
+    }
+
     private float RoundToSignificantFigures(float num, int digits)
     {
         if(num == 0) return 0;

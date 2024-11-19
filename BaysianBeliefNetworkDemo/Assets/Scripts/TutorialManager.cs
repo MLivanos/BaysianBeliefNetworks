@@ -14,6 +14,7 @@ public class TutorialStep
 
 public class TutorialManager : MonoBehaviour
 {
+    [SerializeField] private GameManager gameManager;
     [SerializeField] private GameObject overlayCanvas;
     [SerializeField] private TMP_Text tutorialText;
     [SerializeField] private RectTransform highlightArea;
@@ -27,10 +28,8 @@ public class TutorialManager : MonoBehaviour
         if (debug) PlayerPrefs.SetInt("TutorialCompleted", 0);
         PlayerPrefs.Save();
         originalHighlightSize = highlightArea.localScale;
-        if (PlayerPrefs.GetInt("TutorialCompleted", 0) == 0)
-        {
-            StartTutorial();
-        }
+        if (PlayerPrefs.GetInt("TutorialCompleted", 0) == 0) StartTutorial();
+        else EndTutorial();
     }
 
     private void Update()
@@ -83,8 +82,10 @@ public class TutorialManager : MonoBehaviour
 
     private void EndTutorial()
     {
+        gameManager.PromptGameMode();
         overlayCanvas.SetActive(false);
         PlayerPrefs.SetInt("TutorialCompleted", 1);
         PlayerPrefs.Save();
+        gameObject.SetActive(false);
     }
 }
