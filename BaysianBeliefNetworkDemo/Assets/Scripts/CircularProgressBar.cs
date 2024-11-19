@@ -20,7 +20,7 @@ public class ColorRange
 
     public Color GetColor(float value)
     {
-        return Color.Lerp(startColor, endColor, value/end);
+        return Color.Lerp(startColor, endColor, 1f-(end-value)/(end-start));
     }
 }
 

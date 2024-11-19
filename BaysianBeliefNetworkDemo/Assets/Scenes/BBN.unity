@@ -88506,9 +88506,25 @@ MonoBehaviour:
   significantFigures: 0
   colorGradients:
   - startColor: {r: 0, g: 0, b: 1, a: 1}
-    endColor: {r: 1, g: 0.5019608, b: 0, a: 1}
-    start: 0
+    endColor: {r: 0, g: 0, b: 1, a: 1}
+    start: 48
     end: 60
+  - startColor: {r: 0.54901963, g: 0.007843138, b: 1, a: 1}
+    endColor: {r: 0.08235294, g: 0, b: 1, a: 1}
+    start: 36
+    end: 48
+  - startColor: {r: 0.54901963, g: 0.007843138, b: 1, a: 1}
+    endColor: {r: 0.54901963, g: 0.007843138, b: 1, a: 1}
+    start: 24
+    end: 36
+  - startColor: {r: 1, g: 0.5019608, b: 0.007843138, a: 1}
+    endColor: {r: 0.54901963, g: 0.007843138, b: 1, a: 1}
+    start: 12
+    end: 24
+  - startColor: {r: 1, g: 0.5019608, b: 0.007843138, a: 1}
+    endColor: {r: 1, g: 0.5019608, b: 0.007843138, a: 1}
+    start: 0
+    end: 12
 --- !u!114 &1928283198
 MonoBehaviour:
   m_ObjectHideFlags: 0
