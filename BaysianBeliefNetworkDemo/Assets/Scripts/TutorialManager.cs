@@ -18,13 +18,13 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private TMP_Text tutorialText;
     [SerializeField] private RectTransform highlightArea;
     [SerializeField] private List<TutorialStep> tutorialSteps = new List<TutorialStep>();
+    [SerializeField] private bool debug;
     private int currentStep = 0;
     private Vector2 originalHighlightSize;
     
     private void Start()
     {
-        // TODO: Remove next two lines after testing
-        PlayerPrefs.SetInt("TutorialCompleted", 0);
+        if (debug) PlayerPrefs.SetInt("TutorialCompleted", 0);
         PlayerPrefs.Save();
         originalHighlightSize = highlightArea.localScale;
         if (PlayerPrefs.GetInt("TutorialCompleted", 0) == 0)
