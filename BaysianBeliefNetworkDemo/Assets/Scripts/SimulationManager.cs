@@ -29,7 +29,7 @@ public class SimulationManager : MonoBehaviour
     public GameObject thunder;
     public Light directionalLight;
     private Transform tree;
-    Dictionary<string, int> eventIndices = new Dictionary<string, int>();
+    Dictionary<string, int> eventIndices;
     
     private bool[] truthValues;
     private bool sceneSet;
@@ -37,8 +37,7 @@ public class SimulationManager : MonoBehaviour
     private void Start()
     {
         graph = GameObject.Find("Graph").GetComponent<Graph>();
-        Dictionary<string, int> nodeOrder = graph.GetNodeOrder();
-        AssignIndices(nodeOrder);
+        eventIndices = graph.AssignIndices();
         SetTruthValues(graph.VisualizeSample());
     }
 
@@ -177,29 +176,6 @@ public class SimulationManager : MonoBehaviour
         {
             aliens.SetActive(true);
         }
-    }
-
-    private void AssignIndices(Dictionary<string, int> nodeOrder)
-    {
-        eventIndices = new Dictionary<string, int>
-        {
-            { "Winter", nodeOrder["WinterNode"] },
-            { "Spring", nodeOrder["SpringNode"] },
-            { "Summer", nodeOrder["SummerNode"] },
-            { "Fall", nodeOrder["FallNode"] },
-            { "APD", nodeOrder["AtmosphericPressureDropNode"] },
-            { "Cloudy", nodeOrder["CloudNode"] },
-            { "Rain", nodeOrder["RainNode"] },
-            { "Wind", nodeOrder["HighWindNode"] },
-            { "Power", nodeOrder["PowerOutageNode"] },
-            { "Tree", nodeOrder["TreeNode"] },
-            { "Busy", nodeOrder["BusyNode"] },
-            { "Thunder", nodeOrder["ThunderNode"] },
-            { "Cafe", nodeOrder["CafeNode"] },
-            { "Alien", nodeOrder["AlienNode"] },
-            { "Dog", nodeOrder["DogNode"] },
-            { "Cat", nodeOrder["CatNode"] }
-        };
     }
 
     private void SetPowerOutage()

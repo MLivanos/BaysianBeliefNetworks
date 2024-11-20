@@ -391,4 +391,28 @@ public class Graph : MonoBehaviour
         return order;
     }
 
+    public Dictionary<string, int> AssignIndices()
+    {
+        Dictionary<string, int> nodeOrder = GetNodeOrder();
+        Dictionary<string, int> eventIndices = new Dictionary<string, int>
+        {
+            { "Winter", nodeOrder["WinterNode"] },
+            { "Spring", nodeOrder["SpringNode"] },
+            { "Summer", nodeOrder["SummerNode"] },
+            { "Fall", nodeOrder["FallNode"] },
+            { "APD", nodeOrder["AtmosphericPressureDropNode"] },
+            { "Cloudy", nodeOrder["CloudNode"] },
+            { "Rain", nodeOrder["RainNode"] },
+            { "Wind", nodeOrder["HighWindNode"] },
+            { "Power", nodeOrder["PowerOutageNode"] },
+            { "Tree", nodeOrder["TreeNode"] },
+            { "Busy", nodeOrder["BusyNode"] },
+            { "Thunder", nodeOrder["ThunderNode"] },
+            { "Cafe", nodeOrder["CafeNode"] },
+            { "Alien", nodeOrder["AlienNode"] },
+            { "Dog", nodeOrder["DogNode"] },
+            { "Cat", nodeOrder["CatNode"] }
+        };
+        return eventIndices;
+    }
 }
