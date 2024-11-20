@@ -101,7 +101,8 @@ public class Graph : MonoBehaviour
         }
         if (test && !hasTested)
         {
-            TestGraph();
+            GetComponent<GraphTester>().TestGraph();
+            hasTested = true;
         }
     }
 
@@ -112,36 +113,41 @@ public class Graph : MonoBehaviour
 
     public void AddToEvidence(Node node, VariableChecks checks)
     {
-        List<Node> relevantList = isNegative ? negativeEvidence : positiveEvidence;
-        relevantList.Add(node);
+        AddToEvidence(node, !isNegative);
         if (positiveQuery.Any(n => n == node) || negativeQuery.Any(n => n == node))
         {
             checks.SwitchQuery();
         }
-        // These samplers clamp evidence, so prior samples are invalid
+    }
+
+    public void AddToQuery(Node node, VariableChecks checks)
+    {
+        AddToQuery(node, !isNegative);
+        if (positiveEvidence.Any(n => n == node) || negativeEvidence.Any(n => n == node))
+        {
+            checks.SwitchEvidence();
+        }
+    }
+
+    public void AddToQuery(Node node, bool isTrue)
+    {
+        List<Node> relevantList = isTrue ? positiveQuery : negativeQuery;
+        relevantList.Add(node);
+        GetComponent<LikelihoodWeightingSampler>().Reset();
+    }
+
+    public void AddToEvidence(Node node, bool isTrue)
+    {
+        List<Node> relevantList = isTrue ? positiveEvidence : negativeEvidence;
+        relevantList.Add(node);
         GetComponent<LikelihoodWeightingSampler>().Reset();
         GetComponent<GibbsSampler>().Reset();
         GetComponent<HamiltonianSampler>().Reset();
     }
 
-    public void AddToQuery(Node node, VariableChecks checks)
-    {
-        List<Node> relevantList = isNegative ? negativeQuery : positiveQuery;
-        relevantList.Add(node);
-        if (positiveEvidence.Any(n => n == node) || negativeEvidence.Any(n => n == node))
-        {
-            checks.SwitchEvidence();
-        }
-        GetComponent<LikelihoodWeightingSampler>().Reset();
-    }
-
     public void RemoveFromEvidence(Node node)
     {
-        List<Node> relevantList = positiveEvidence;
-        if (negativeEvidence.Any(n => n == node))
-        {
-            relevantList = negativeEvidence;
-        }
+        List<Node> relevantList = negativeEvidence.Any(n => n == node) ? negativeEvidence : positiveEvidence;
         relevantList.Remove(node);
         GetComponent<LikelihoodWeightingSampler>().Reset();
         GetComponent<GibbsSampler>().Reset();
@@ -150,11 +156,7 @@ public class Graph : MonoBehaviour
 
     public void RemoveFromQuery(Node node)
     {
-        List<Node> relevantList = positiveQuery;
-        if (negativeQuery.Any(n => n == node))
-        {
-            relevantList = negativeQuery;
-        }
+        List<Node> relevantList = negativeQuery.Any(n => n == node) ? negativeQuery : positiveQuery;
         relevantList.Remove(node);
         GetComponent<LikelihoodWeightingSampler>().Reset();
     }
@@ -291,6 +293,11 @@ public class Graph : MonoBehaviour
         }
     }
 
+    public float GetLastProbability()
+    {
+        return lastProbability;
+    }
+
     public bool[] VisualizeSample()
     {
         GibbsSampler sampler = GetComponent<GibbsSampler>();
@@ -305,67 +312,13 @@ public class Graph : MonoBehaviour
         return allNodes;
     }
 
-    private void TestGraph()
-    {
-        foreach (Node node in allNodes)
-        {
-            Debug.Log("=======");
-            Debug.Log("Testing node: " + node.name);
-            // Test all combinations of true/false for each parent
-            List<Node> parents = node.GetParents().ToList();
-            positiveQuery.Add(node);
-            TestNodeWithAllParentCombinations(node, parents, new Dictionary<Node, bool>(), 0);
-            positiveQuery.Clear();
-            Debug.Log("=======");
-        }
-        hasTested = true;
-    }
-
-    // Recursive function to test all combinations of parent values
-    private void TestNodeWithAllParentCombinations(Node node, List<Node> parents, Dictionary<Node, bool> evidence, int parentIndex)
-    {
-        if (parentIndex == parents.Count)
-        {
-            // All parents have been assigned a true/false value, now test this combination
-            foreach (var kvp in evidence)
-            {
-                if (kvp.Value)
-                {
-                    positiveEvidence.Add(kvp.Key);
-                }
-                else
-                {
-                    negativeEvidence.Add(kvp.Key);
-                }
-                Debug.Log($"Given: {(kvp.Value ? "" : "Not ")}{kvp.Key.GetName()}");
-            }
-
-            // Sample the probability with this evidence combination
-            Sample();
-            Debug.Log($"P({node.name}) = {lastProbability}");
-
-            // Clear evidence for next combination
-            positiveEvidence.Clear();
-            negativeEvidence.Clear();
-        }
-        else
-        {
-            // For each parent, recursively assign true/false and test
-            Node currentParent = parents[parentIndex];
-
-            // Set current parent to true
-            evidence[currentParent] = true;
-            TestNodeWithAllParentCombinations(node, parents, evidence, parentIndex + 1);
-
-            // Set current parent to false
-            evidence[currentParent] = false;
-            TestNodeWithAllParentCombinations(node, parents, evidence, parentIndex + 1);
-        }
-    }
-
     public void ClearGraph()
     {
         UncheckAllCheckboxes(graphUI);
+        positiveQuery.Clear();
+        negativeQuery.Clear();
+        positiveEvidence.Clear();
+        negativeEvidence.Clear();
     }
 
     private void UncheckAllCheckboxes(GameObject root)
