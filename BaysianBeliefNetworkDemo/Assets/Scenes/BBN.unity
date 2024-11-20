@@ -95563,6 +95563,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2029756919}
   - component: {fileID: 2029756918}
+  - component: {fileID: 2029756925}
   - component: {fileID: 2029756920}
   - component: {fileID: 2029756921}
   - component: {fileID: 2029756922}
@@ -95588,16 +95589,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 526090628}
-  graphUI: {fileID: 1428064585}
   rootNodes:
   - {fileID: 252608305}
   - {fileID: 547416265}
-  queryTextDisplay: {fileID: 1507928419}
-  sampleInfo: {fileID: 998808399}
-  calculateText: {fileID: 637719285}
   gibbsOptions: {fileID: 1798059107}
   hamiltonianOptions: {fileID: 175815275}
   progressBar: {fileID: 1652601026}
+  graphUI: {fileID: 1428064585}
   test: 0
 --- !u!4 &2029756919
 Transform:
@@ -95682,6 +95680,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0c31aebfa1954a72803eb94497f4708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2029756925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2029756917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 483302859730045c2961fcfc008084a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  queryTextDisplay: {fileID: 1507928419}
+  sampleInfo: {fileID: 998808399}
+  calculateText: {fileID: 637719285}
+  progressBar: {fileID: 1652601026}
 --- !u!1 &2031132774
 GameObject:
   m_ObjectHideFlags: 0

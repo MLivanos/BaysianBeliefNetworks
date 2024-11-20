@@ -10,15 +10,12 @@ using TMPro;
 public class Graph : MonoBehaviour
 {
     [SerializeField] private GameManager gameManager;
-    [SerializeField] private GameObject graphUI;
     [SerializeField] private List<Node> rootNodes;
-    [SerializeField] private TMP_Text queryTextDisplay;
-    [SerializeField] private TMP_Text sampleInfo;
-    [SerializeField] private TMP_Text calculateText;
     [SerializeField] private GameObject gibbsOptions;
     [SerializeField] private GameObject hamiltonianOptions;
-    [SerializeField] private Slider progressBar;
+    [SerializeField] private GameObject graphUI;
     [SerializeField] private bool test;
+    private GraphUIManager graphUIManager;
     private Sampler currentSampler;
     private Sampler[] samplers;
     private string queryText;
@@ -28,7 +25,6 @@ public class Graph : MonoBehaviour
     private List<Node> positiveEvidence;
     private List<Node> negativeEvidence;
     bool isNegative;
-    bool hasTested;
     float lastProbability;
 
     private void Start()
@@ -43,6 +39,7 @@ public class Graph : MonoBehaviour
         samplers[1] = GetComponent<LikelihoodWeightingSampler>();
         samplers[2] = GetComponent<GibbsSampler>();
         samplers[3] = GetComponent<HamiltonianSampler>();
+        graphUIManager = GetComponent<GraphUIManager>();
 
         currentSampler = samplers[0];
     }
@@ -99,10 +96,10 @@ public class Graph : MonoBehaviour
         {
             isNegative = false;
         }
-        if (test && !hasTested)
+        if (test)
         {
             GetComponent<GraphTester>().TestGraph();
-            hasTested = true;
+            test = false;
         }
     }
 
@@ -161,55 +158,6 @@ public class Graph : MonoBehaviour
         GetComponent<LikelihoodWeightingSampler>().Reset();
     }
 
-    public void UpdateText(float probabilityValue=-1.0f)
-    {
-        if (queryTextDisplay == null)
-        {
-            queryTextDisplay = GameObject.Find("QueryText").GetComponent<TMP_Text>();
-        }
-        queryText = "P(";
-        queryText += GetPartialQuery(positiveQuery);
-        if (positiveQuery.Count > 0 && negativeQuery.Count > 0)
-        {
-            queryText += ",";
-        }
-        queryText += GetPartialQuery(negativeQuery, true);
-        if (positiveEvidence.Count + negativeEvidence.Count > 0)
-        {
-            queryText += "|";
-        }
-        queryText += GetPartialQuery(positiveEvidence);
-        if (positiveEvidence.Count > 0 && negativeEvidence.Count > 0)
-        {
-            queryText += ",";
-        }
-        queryText += GetPartialQuery(negativeEvidence, true);
-        queryText += ")";
-        if (probabilityValue >= 0.0f)
-        {
-            queryText += "≈" + probabilityValue.ToString("0.00000");
-        }
-        queryTextDisplay.text = queryText;
-    }
-
-    private string GetPartialQuery(List<Node> nodeList, bool isNegative=false)
-    {
-        string queryText = "";
-        for(int i=0; i < nodeList.Count; i++)
-        {
-            if (isNegative)
-            {
-                queryText += "¬";
-            }
-            queryText += nodeList[i].GetAbriviation();
-            if (i < nodeList.Count - 1)
-            {
-                queryText += ",";
-            }
-        }
-        return queryText;
-    }
-
     public void Sample()
     {
         if (!gameManager.CanSample()) return;
@@ -220,13 +168,11 @@ public class Graph : MonoBehaviour
     private IEnumerator RunSamples()
     {
         float startTime = Time.realtimeSinceStartup;
-        progressBar.gameObject.SetActive(true);
-        queryTextDisplay.gameObject.SetActive(false);
-        calculateText.text = "Stop";
+        graphUIManager.DisplayProgressBar();
         Coroutine samples = StartCoroutine(currentSampler.RunSamples());
         while (currentSampler.Busy())
         {
-            progressBar.value = currentSampler.GetProgress();
+            graphUIManager.UpdateProgressBar(currentSampler.GetProgress());
             yield return null;
         }
         float timeElapsed = Time.realtimeSinceStartup - startTime;
@@ -234,28 +180,12 @@ public class Graph : MonoBehaviour
         lastProbability = probability;
         currentSampler.AddTime(timeElapsed);
         gameManager.UpdateTimer(-timeElapsed);
-        UpdateUI();
+        graphUIManager.UpdateUI(currentSampler.GetNumberOfSamples(), currentSampler.GetNumberOfAcceptedSamples(), currentSampler.GetTimeElapsed());
     }
 
-    private void UpdateUI()
+    public void UpdateText(float probability=-1f)
     {
-        progressBar.gameObject.SetActive(false);
-        queryTextDisplay.gameObject.SetActive(true);
-        calculateText.text = "Calculate";
-        int numberOfSamples = currentSampler.GetNumberOfSamples();
-        int numberOfAcceptedSamples = currentSampler.GetNumberOfAcceptedSamples();
-        float acceptanceRatio = 100f * numberOfAcceptedSamples / numberOfSamples;
-        float timeElapsed = currentSampler.GetTimeElapsed();
-
-        string sampleInfoText = string.Format(
-            "{0}\n{1} ({2:F2}%)\n{3:F2}s",
-            numberOfSamples,
-            numberOfAcceptedSamples,
-            acceptanceRatio,
-            timeElapsed
-        );
-        sampleInfo.text = sampleInfoText;
-        UpdateText(lastProbability);
+        graphUIManager.UpdateText(probability);
     }
 
     public void ChangeSampler(int index)
