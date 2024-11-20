@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject warningPanel;
     [SerializeField] private CircularProgressBar timeLimit;
     [SerializeField] private float[] difficultyTimes;
-    private int difficulty;
+    private static int difficulty = -1;
 
     private void Start()
     {
@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
 
     public void PromptGameMode()
     {
-        difficultySettings.SetActive(true);
+        if (difficulty == -1) difficultySettings.SetActive(true);
     }
 
     public void ChangeGamemode(int gamemodeNumber)
