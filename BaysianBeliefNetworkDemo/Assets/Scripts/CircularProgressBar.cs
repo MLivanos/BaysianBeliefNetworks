@@ -46,7 +46,7 @@ public class CircularProgressBar : MonoBehaviour
         progress = Mathf.Clamp(newProgress, minValue, maxValue);
         progressDisplay.fillAmount = (progress - minValue)/(maxValue-minValue);
         UpdateColor();
-        string displayText = significantFigures > 0 ? RoundToSignificantFigures(newProgress, significantFigures).ToString() : newProgress.ToString("#"+ new string('0', decimalPrecision));
+        string displayText = significantFigures > 0 ? RoundToSignificantFigures(progress, significantFigures).ToString() : progress.ToString("#"+ new string('0', decimalPrecision));
         progressText.text = displayText;
     }
 
@@ -92,8 +92,18 @@ public class CircularProgressBar : MonoBehaviour
         Reset();
     }
 
+    public float GetMaxValue()
+    {
+        return maxValue;
+    }
+
     private void Reset()
     {
         UpdateProgress(progress);
+    }
+
+    public float GetProgress()
+    {
+        return progress;
     }
 }

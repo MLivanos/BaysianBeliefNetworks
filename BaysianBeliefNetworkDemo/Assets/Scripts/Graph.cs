@@ -210,6 +210,7 @@ public class Graph : MonoBehaviour
 
     public void Sample()
     {
+        if (!gameManager.CanSample()) return;
         if (currentSampler.Busy()) currentSampler.Interupt();
         else StartCoroutine(RunSamples());
     }
