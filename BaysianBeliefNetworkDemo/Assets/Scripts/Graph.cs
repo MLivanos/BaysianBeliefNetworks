@@ -9,6 +9,7 @@ using TMPro;
 
 public class Graph : MonoBehaviour
 {
+    [SerializeField] private GameManager gameManager;
     [SerializeField] private GameObject graphUI;
     [SerializeField] private List<Node> rootNodes;
     [SerializeField] private TMP_Text queryTextDisplay;
@@ -209,6 +210,7 @@ public class Graph : MonoBehaviour
 
     public void Sample()
     {
+        if (!gameManager.CanSample()) return;
         if (currentSampler.Busy()) currentSampler.Interupt();
         else StartCoroutine(RunSamples());
     }
@@ -225,9 +227,11 @@ public class Graph : MonoBehaviour
             progressBar.value = currentSampler.GetProgress();
             yield return null;
         }
+        float timeElapsed = Time.realtimeSinceStartup - startTime;
         float probability = currentSampler.CalculateProbability();
         lastProbability = probability;
-        currentSampler.AddTime(Time.realtimeSinceStartup - startTime);
+        currentSampler.AddTime(timeElapsed);
+        gameManager.UpdateTimer(-timeElapsed);
         UpdateUI();
     }
 
