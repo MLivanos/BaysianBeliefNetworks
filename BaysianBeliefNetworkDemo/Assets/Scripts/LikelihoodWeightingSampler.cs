@@ -7,46 +7,37 @@ public class LikelihoodWeightingSampler : Sampler
     private float sumOfWeights;
     private float sumOfWeightsInQuery;
 
-    public override float Sample()
+    public override void Sample()
     {
-        GatherEvidence();
-        List<Node> currentNodes;
         int[] positiveQueryOrder = GetNodeOrder(graph.GetPositiveQuery());
         int[] negativeQueryOrder = GetNodeOrder(graph.GetNegativeQuery());
 
-        for (int i = 0; i < numberOfSamples; i++)
+        float weight = 1;
+        int index = 0;
+        bool[] truthValues = new bool[numberOfNodes];
+        currentNodes = graph.GetRootNodes().ToList();
+        HashSet<Node> processedNodes = new HashSet<Node>();
+        while (currentNodes.Count > 0)
         {
-            float weight = 1;
-            int index = 0;
-            bool[] truthValues = new bool[numberOfNodes];
-            currentNodes = graph.GetRootNodes().ToList();
-
-            while (currentNodes.Count > 0)
+            Node node = currentNodes[0];
+            processedNodes.Add(node);
+            currentNodes.RemoveAt(0);
+            if (node.IsReadyToCalculateProbability())
             {
-                Node node = currentNodes[0];
-                currentNodes.RemoveAt(0);
-
-                if (node.IsReadyToCalculateProbability())
-                {
-                    weight *= ProcessNodeEvidence(node);
-                    names[index] = node.GetName();
-                    truthValues[index] = node.IsTrue();
-                    AddChildren(currentNodes, node.GetChildren());
-                    index++;
-                }
+                weight *= ProcessNodeEvidence(node);
+                truthValues[index] = node.IsTrue();
+                AddChildren(currentNodes, node.GetChildren(), processedNodes);
+                index++;
             }
-
-            if (FilterSample(truthValues, positiveQueryOrder, true) && FilterSample(truthValues, negativeQueryOrder, false))
-            {
-                sumOfWeightsInQuery += weight;
-            }
-
-            sumOfWeights += weight;
-            samples.Add(truthValues);
         }
 
-        sampleCount += numberOfSamples;
-        return CalculateProbability();
+        if (FilterSample(truthValues, positiveQueryOrder, true) && FilterSample(truthValues, negativeQueryOrder, false))
+        {
+            sumOfWeightsInQuery += weight;
+        }
+
+        sumOfWeights += weight;
+        samples.Add(truthValues);
     }
 
     private float ProcessNodeEvidence(Node node)
@@ -68,7 +59,7 @@ public class LikelihoodWeightingSampler : Sampler
 
     public override float CalculateProbability()
     {
-        return sumOfWeightsInQuery / sumOfWeights;
+        return sumOfWeights > 0 ? sumOfWeightsInQuery / sumOfWeights : -1;
     }
 
     public override void Reset()

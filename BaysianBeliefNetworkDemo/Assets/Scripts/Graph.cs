@@ -4,15 +4,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class Graph : MonoBehaviour
 {
+    [SerializeField] private GameManager gameManager;
+    [SerializeField] private GameObject graphUI;
     [SerializeField] private List<Node> rootNodes;
     [SerializeField] private TMP_Text queryTextDisplay;
     [SerializeField] private TMP_Text sampleInfo;
+    [SerializeField] private TMP_Text calculateText;
     [SerializeField] private GameObject gibbsOptions;
     [SerializeField] private GameObject hamiltonianOptions;
+    [SerializeField] private Slider progressBar;
     [SerializeField] private bool test;
     private Sampler currentSampler;
     private Sampler[] samplers;
@@ -159,10 +164,6 @@ public class Graph : MonoBehaviour
         if (queryTextDisplay == null)
         {
             queryTextDisplay = GameObject.Find("QueryText").GetComponent<TMP_Text>();
-            /*positiveQuery = new List<Node>();
-            negativeQuery = new List<Node>();
-            positiveEvidence = new List<Node>();
-            negativeEvidence = new List<Node>();*/
         }
         queryText = "P(";
         queryText += GetPartialQuery(positiveQuery);
@@ -207,13 +208,38 @@ public class Graph : MonoBehaviour
         return queryText;
     }
 
-    // TODO: Returns void - for testing purposes only
     public void Sample()
     {
+        if (!gameManager.CanSample()) return;
+        if (currentSampler.Busy()) currentSampler.Interupt();
+        else StartCoroutine(RunSamples());
+    }
+
+    private IEnumerator RunSamples()
+    {
         float startTime = Time.realtimeSinceStartup;
-        float probability = currentSampler.Sample();
-        currentSampler.AddTime(Time.realtimeSinceStartup - startTime);
-        
+        progressBar.gameObject.SetActive(true);
+        queryTextDisplay.gameObject.SetActive(false);
+        calculateText.text = "Stop";
+        Coroutine samples = StartCoroutine(currentSampler.RunSamples());
+        while (currentSampler.Busy())
+        {
+            progressBar.value = currentSampler.GetProgress();
+            yield return null;
+        }
+        float timeElapsed = Time.realtimeSinceStartup - startTime;
+        float probability = currentSampler.CalculateProbability();
+        lastProbability = probability;
+        currentSampler.AddTime(timeElapsed);
+        gameManager.UpdateTimer(-timeElapsed);
+        UpdateUI();
+    }
+
+    private void UpdateUI()
+    {
+        progressBar.gameObject.SetActive(false);
+        queryTextDisplay.gameObject.SetActive(true);
+        calculateText.text = "Calculate";
         int numberOfSamples = currentSampler.GetNumberOfSamples();
         int numberOfAcceptedSamples = currentSampler.GetNumberOfAcceptedSamples();
         float acceptanceRatio = 100f * numberOfAcceptedSamples / numberOfSamples;
@@ -227,8 +253,7 @@ public class Graph : MonoBehaviour
             timeElapsed
         );
         sampleInfo.text = sampleInfoText;
-        UpdateText(probability);
-        lastProbability = probability;
+        UpdateText(lastProbability);
     }
 
     public void ChangeSampler(int index)
@@ -269,7 +294,7 @@ public class Graph : MonoBehaviour
     public bool[] VisualizeSample()
     {
         GibbsSampler sampler = GetComponent<GibbsSampler>();
-        sampler.SetNumberOfSamples(1);
+        sampler.GatherEvidence();
         sampler.Sample();
         bool[] truthValues = sampler.GetLastSample();
         return truthValues;
@@ -284,10 +309,6 @@ public class Graph : MonoBehaviour
     {
         foreach (Node node in allNodes)
         {
-            if(node.name != "DogNode" && node.name != "CatNode")
-            {
-                continue;
-            }
             Debug.Log("=======");
             Debug.Log("Testing node: " + node.name);
             // Test all combinations of true/false for each parent
@@ -340,6 +361,34 @@ public class Graph : MonoBehaviour
             evidence[currentParent] = false;
             TestNodeWithAllParentCombinations(node, parents, evidence, parentIndex + 1);
         }
+    }
+
+    public void ClearGraph()
+    {
+        UncheckAllCheckboxes(graphUI);
+    }
+
+    private void UncheckAllCheckboxes(GameObject root)
+    {
+        Toggle toggle = root.GetComponent<Toggle>();
+        if (toggle != null)
+        {
+            toggle.isOn = false;
+        }
+        foreach (Transform child in root.transform)
+        {
+            UncheckAllCheckboxes(child.gameObject);
+        }
+    }
+
+    public Dictionary<string,int> GetNodeOrder()
+    {
+        Dictionary<string,int> order = new Dictionary<string,int>();
+        for(int i=0; i<allNodes.Count; i++)
+        {
+            order[allNodes[i].name] = i;
+        }
+        return order;
     }
 
 }
