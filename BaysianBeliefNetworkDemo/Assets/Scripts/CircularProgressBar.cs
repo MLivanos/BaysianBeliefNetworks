@@ -34,10 +34,11 @@ public class CircularProgressBar : MonoBehaviour
     [SerializeField] private int significantFigures;
     [SerializeField] private List<ColorRange> colorGradients;
     private float progress;
+    private bool lockProgress;
 
     private void Start()
     {
-        progress = progressDisplay.fillAmount*(maxValue-minValue) + minValue;
+        UpdateProgress(progressDisplay.fillAmount*(maxValue-minValue) + minValue);
     }
 
     public void UpdateProgress(float newProgress)
@@ -73,5 +74,26 @@ public class CircularProgressBar : MonoBehaviour
                 return;
             }
         }
+    }
+
+    public bool IsLocked()
+    {
+        return lockProgress;
+    }
+
+    public void SetLock(bool lockStatus)
+    {
+        lockProgress = true;
+    }
+
+    public void SetMaxValue(float value)
+    {
+        maxValue = value;
+        Reset();
+    }
+
+    private void Reset()
+    {
+        UpdateProgress(progress);
     }
 }
