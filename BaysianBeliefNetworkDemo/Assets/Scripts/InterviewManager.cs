@@ -35,6 +35,12 @@ public class InterviewManager : MonoBehaviour
 
     private void Start()
     {
+        StartCoroutine(InstantiateManager());
+    }
+
+    private IEnumerator InstantiateManager()
+    {
+        yield return null;
         eventIndices = GameObject.Find("Graph").GetComponent<Graph>().AssignIndices();
         List<Node> nodes = GameObject.Find("Graph").GetComponent<Graph>().GetAllNodes();
         AddSeasonNodes(nodes);
@@ -43,6 +49,38 @@ public class InterviewManager : MonoBehaviour
         AddHumanActivityNodes(nodes);
         AddAnimalNodes(nodes);
         seasonIndex = nonSeasonEvents.Count;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            DrawRandomEvents(1);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            DrawRandomEvents(2);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            DrawRandomEvents(3);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            DrawRandomEvents(4);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            DrawRandomEvents(5);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            DrawRandomEvents(6);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha7))
+        {
+            DrawRandomEvents(7);
+        }
     }
 
     private void AddSeasonNodes(List<Node> nodes)
@@ -90,7 +128,7 @@ public class InterviewManager : MonoBehaviour
 
     private (List<Node>, List<List<string>>) DrawRandomEventType(bool canBeSeason)
     {
-        int index = (int)Mathf.Round(Random.Range(0, seasonIndex - (canBeSeason ? 0 : 1)));
+        int index = (int)Mathf.Round(Random.Range(0, seasonIndex + 0.49f - (canBeSeason ? 0 : 1)));
         if (index == seasonIndex) return seasons;
         return nonSeasonEvents[index];
     }
