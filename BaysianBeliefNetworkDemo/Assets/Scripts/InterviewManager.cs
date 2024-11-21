@@ -23,6 +23,9 @@ public class InterviewManager : MonoBehaviour
     [SerializeField] private List<string> cafeDescriptions;
     [SerializeField] private List<string> dogDescriptions;
     [SerializeField] private List<string> catDescriptions;
+    [SerializeField] private List<string> friendlyDescriptions;
+    [SerializeField] private List<string> aggressiveDescriptions;
+    [SerializeField] private float friednlyBias;
     private (List<Node>, List<List<string>>) seasons;
     private (List<Node>, List<List<string>>) weather;
     private (List<Node>, List<List<string>>) consequences;
@@ -135,9 +138,14 @@ public class InterviewManager : MonoBehaviour
 
     private (Node, string) DrawRandomEvent((List<Node>, List<List<string>>) eventType)
     {
-        int index = (int)Mathf.Round(Random.Range(0, eventType.Item1.Count));
-        int stringIndex = (int)Mathf.Round(Random.Range(0, eventType.Item2.Count));
+        int index = GetRandomIndex(eventType.Item1);
+        int stringIndex = GetRandomIndex(eventType.Item2[index]);
         return (eventType.Item1[index], eventType.Item2[index][stringIndex]);
+    }
+
+    private int GetRandomIndex<T>(List<T> l)
+    {
+        return (int)Mathf.Round(Random.Range(0, l.Count - 0.51f));
     }
 
     private void DrawRandomEvents(int numberOfEvents)
@@ -153,5 +161,9 @@ public class InterviewManager : MonoBehaviour
             (node, description) = DrawRandomEvent(eventType);
             Debug.Log(description);
         }
+        bool friednly = Random.value <= friednlyBias;
+        List<string> relevantList = friednly ? friendlyDescriptions : aggressiveDescriptions;
+        int index = GetRandomIndex(relevantList);
+        Debug.Log(relevantList[index]);
     }
 }

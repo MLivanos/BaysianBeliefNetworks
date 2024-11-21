@@ -77008,6 +77008,43 @@ MonoBehaviour:
   - I tried pspsps-ing, but nothing would bring Cheeto out
   - I found Cheeto, the cat, trembling under cover
   - Cheeto, the cat, knocked over a bike trying to hide
+  friendlyDescriptions:
+  - The aliens helped me carry my groceries inside!
+  - An alien fixed the flat tire on my car!
+  - They mowed my lawn while I was at work!
+  - An alien gave me a thumbs-up and a big grin!
+  - "The aliens planted flowers in my garden while I wasn\u2019t looking! "
+  - The aliens took my dog on a walk!
+  - An alien donated to charity when they didn't think anyone was looking!
+  - An alien cleaned my windows with their laser thingy.
+  - An alien picked up all the litter on my street and zoomed off.
+  - An alien waved goodbye before flying off into the sunset!
+  - An alien helped an elderly person walk across the street!
+  - The aliens fed a stray cat!
+  - The aliens filled in a pothole!
+  - An alien fed a stranger's meter before it expired!
+  - An alien raked all the leaves off my neighbor's driveway!
+  - The aliens repainted the community center!
+  aggressiveDescriptions:
+  - The aliens cut me off in traffic!
+  - An alien zapped my mailbox with a laser beam!
+  - The alien spaceship knocked over my trashcans, and they didn't even bother to
+    pick them up!
+  - An alien stole my parking spot at the grocery store!
+  - "The aliens abducted my garden gnome and didn\u2019t bring it back!"
+  - An alien stuck their tongue out at me through the window of their spaceship!
+  - The aliens scribbled graffiti on my fence in alien writing!
+  - The aliens stole candy from a baby!
+  - An alien didn't leave a tip at a restaurant!
+  - An alien threw space trash out the side of their window!
+  - The aliens ran a red light!
+  - The aliens didn't yield to pedestrians!
+  - An alien on a scooter didn't even look before they passed the sidewalk
+  - An alien TP'ed my house!
+  - The aliens were texting while riding scooters!
+  - The aliens hit my car with their spaceship and didn't leave a note!
+  - The aliens zapped my car with a shrink ray!
+  friednlyBias: 0.65
 --- !u!4 &1650653589
 Transform:
   m_ObjectHideFlags: 0
