@@ -9,13 +9,14 @@ public class LikelihoodWeightingSampler : Sampler
 
     public override void Sample()
     {
-        int[] positiveQueryOrder = GetNodeOrder(graph.GetPositiveQuery());
-        int[] negativeQueryOrder = GetNodeOrder(graph.GetNegativeQuery());
+        Sample(GetNodeOrder(graph.GetPositiveQuery()), GetNodeOrder(graph.GetNegativeQuery()), graph.GetRootNodes().ToList());
+    }
 
+    public void Sample(int[] positiveQueryOrder, int[] negativeQueryOrder, List<Node> currentNodes)
+    {
         float weight = 1;
         int index = 0;
         bool[] truthValues = new bool[numberOfNodes];
-        currentNodes = graph.GetRootNodes().ToList();
         HashSet<Node> processedNodes = new HashSet<Node>();
         while (currentNodes.Count > 0)
         {
