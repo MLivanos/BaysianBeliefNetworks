@@ -44418,8 +44418,8 @@ RectTransform:
   - {fileID: 1413175648}
   - {fileID: 596198191}
   - {fileID: 1098249759}
-  - {fileID: 685937159}
   - {fileID: 1928283196}
+  - {fileID: 685937159}
   - {fileID: 1060621089}
   - {fileID: 1798059108}
   - {fileID: 175815276}
@@ -70797,8 +70797,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 192.8, y: -228.37283}
-  m_SizeDelta: {x: 277.6, y: 50}
+  m_AnchoredPosition: {x: 185.36198, y: -225}
+  m_SizeDelta: {x: 246.5, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1507928419
 MonoBehaviour:
@@ -70851,12 +70851,12 @@ MonoBehaviour:
   m_fontSize: 16
   m_fontSizeBase: 16
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 8
+  m_fontSizeMax: 18
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -82723,7 +82723,7 @@ PrefabInstance:
     - target: {fileID: 7759458015875234159, guid: 752c97d0cb1aa4948ba10b8979a6efe8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7759458015875234159, guid: 752c97d0cb1aa4948ba10b8979a6efe8,
         type: 3}
@@ -90954,7 +90954,7 @@ RectTransform:
   - {fileID: 1160214107}
   - {fileID: 924792378}
   m_Father: {fileID: 972312766}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -95594,7 +95594,6 @@ MonoBehaviour:
   - {fileID: 547416265}
   gibbsOptions: {fileID: 1798059107}
   hamiltonianOptions: {fileID: 175815275}
-  progressBar: {fileID: 1652601026}
   graphUI: {fileID: 1428064585}
   test: 0
 --- !u!4 &2029756919
