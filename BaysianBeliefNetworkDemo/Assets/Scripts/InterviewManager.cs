@@ -55,6 +55,7 @@ public class InterviewManager : MonoBehaviour
         AddHumanActivityNodes(nodes);
         AddAnimalNodes(nodes);
         seasonIndex = nonSeasonEvents.Count;
+        Debug.Log(GetAlienProbability());
     }
 
     private void Update()
@@ -170,6 +171,7 @@ public class InterviewManager : MonoBehaviour
             slidingWindow.Add(CalculateProbability());
         }
         slidingWindow.Add(0f);
+        float ciWidth = 0f;
         for(int i = windowSize - 1; i < maxIterations; i++)
         {
             slidingWindow[i % windowSize] = CalculateProbability();
@@ -177,7 +179,7 @@ public class InterviewManager : MonoBehaviour
             float std = Mathf.Sqrt(slidingWindow.Select(p => (p - mean) * (p - mean)).Average());
 
             float standardError = std / Mathf.Sqrt(windowSize);
-            float ciWidth = z * standardError;
+            ciWidth = z * standardError;
 
             if (ciWidth < slidingWindow[i % windowSize] * (1 - precision))
             {
@@ -212,5 +214,12 @@ public class InterviewManager : MonoBehaviour
         Debug.Log(evidence);
         Debug.Log(friednly);
         Debug.Log(CalculateProbability(0.98f, 15, 3));
+    }
+
+    private float GetAlienProbability()
+    {
+        sampler.ClearEvidence();
+        sampler.Reset();
+        return CalculateProbability(0.995f, 50, 5, 2.576f);
     }
 }
