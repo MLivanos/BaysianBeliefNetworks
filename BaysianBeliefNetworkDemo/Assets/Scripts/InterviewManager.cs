@@ -32,12 +32,15 @@ public class InterviewManager : MonoBehaviour
     private (List<Node>, List<List<string>>) humanActivity;
     private (List<Node>, List<List<string>>) animalBehavior;
     private List<(List<Node>, List<List<string>>)> nonSeasonEvents = new List<(List<Node>, List<List<string>>)>();
-    private Sampler sampler;
+    private LikelihoodWeightingSampler sampler;
+    private Graph graph;
     private Dictionary<string, int> eventIndices;
     int seasonIndex;
 
     private void Start()
     {
+        graph = GameObject.Find("Graph").GetComponent<Graph>();
+        sampler = graph.gameObject.GetComponent<LikelihoodWeightingSampler>();
         StartCoroutine(InstantiateManager());
     }
 
@@ -56,7 +59,7 @@ public class InterviewManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        /*if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             DrawRandomEvents(1);
         }
@@ -83,7 +86,7 @@ public class InterviewManager : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Alpha7))
         {
             DrawRandomEvents(7);
-        }
+        }*/
     }
 
     private void AddSeasonNodes(List<Node> nodes)
@@ -148,22 +151,38 @@ public class InterviewManager : MonoBehaviour
         return (int)Mathf.Round(Random.Range(0, l.Count - 0.51f));
     }
 
+    private float CalculateProbability()
+    {
+        int[] positiveQuery = new int[1] {eventIndices["Alien"]};
+        int[] negativeQuery = new int[0];
+        for (int i = 0; i < 100000; i++)
+        {
+            sampler.Sample(positiveQuery, negativeQuery, graph.GetRootNodes().ToList());
+        }
+        return sampler.CalculateProbability();
+    }
+
     private void DrawRandomEvents(int numberOfEvents)
     {
+        sampler.ClearEvidence();
+        sampler.Reset();
         bool hasSeason = false;
-        Debug.Log(greetings[(int)Mathf.Round(Random.Range(0, greetings.Count))]);
         Node node;
         string description;
+        string evidence = "";
         for(int i=0; i<numberOfEvents; i++)
         {
             (List<Node>, List<List<string>>) eventType = DrawRandomEventType(!hasSeason);
             if (eventType == seasons) hasSeason = true;
             (node, description) = DrawRandomEvent(eventType);
-            Debug.Log(description);
+            sampler.AddToEvidence(node, true);
+            evidence += node.GetAbriviation() + ",";
         }
         bool friednly = Random.value <= friednlyBias;
         List<string> relevantList = friednly ? friendlyDescriptions : aggressiveDescriptions;
         int index = GetRandomIndex(relevantList);
-        Debug.Log(relevantList[index]);
+        Debug.Log(evidence);
+        Debug.Log(friednly);
+        Debug.Log(CalculateProbability());
     }
 }

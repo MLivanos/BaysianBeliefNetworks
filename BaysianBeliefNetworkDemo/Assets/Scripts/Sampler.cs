@@ -15,7 +15,7 @@ public abstract class Sampler : MonoBehaviour
     protected int numberOfNodes;
     protected int numberOfSamples = 10000;
     protected List<bool[]> samples = new List<bool[]>();
-    protected Dictionary<Node, bool> evidence;
+    protected Dictionary<Node, bool> evidence = new Dictionary<Node, bool>();
     protected float timeElapsed;
     private bool busy;
     private int currentIteration;
@@ -68,7 +68,6 @@ public abstract class Sampler : MonoBehaviour
     {
         List<Node> currentNodes;
         int[] nodeOrder = new int[nodeList.Count];
-        bool[] truthValues = new bool[10];
         currentNodes = graph.GetRootNodes().ToList();
         int orderIndex = 0;
         int index = 0;
@@ -138,6 +137,16 @@ public abstract class Sampler : MonoBehaviour
         {
             evidence.Add(node, false);
         }
+    }
+
+    public void AddToEvidence(Node node, bool positive)
+    {
+        evidence.Add(node, positive);
+    }
+
+    public void ClearEvidence()
+    {
+        evidence = new Dictionary<Node, bool>();
     }
 
     protected bool IsInEvidence(Node node)
