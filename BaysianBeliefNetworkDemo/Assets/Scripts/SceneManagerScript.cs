@@ -21,4 +21,9 @@ public class SceneManagerScript : MonoBehaviour
     {
         SceneManager.LoadScene("BBN");
     }
+
+    public void GoToInterviews()
+    {
+        SceneManager.LoadScene("Interviews");
+    }
 }

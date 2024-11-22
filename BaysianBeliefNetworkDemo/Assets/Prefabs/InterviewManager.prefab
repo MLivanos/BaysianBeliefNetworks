@@ -1,0 +1,256 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6572116375759035472
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6572116375759035478}
+  - component: {fileID: 6572116375759035479}
+  m_Layer: 0
+  m_Name: InterviewManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6572116375759035478
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6572116375759035472}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1256.5573, y: 6.982631, z: 1.3934027}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6572116375759035479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6572116375759035472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ec36f491c76f4141966b0806a49f757, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  greetings:
+  - "You\u2019re never going to believe this, but it\u2019s true!"
+  - I have to tell you what I saw.
+  - This is going to sound crazy, but hear me out.
+  - "I swear on my grandma\u2019s casserole recipe, it happened!"
+  - "Okay, don\u2019t laugh, but I saw something wild."
+  - My neighbor said I was imagining things, but I know what I saw
+  - I don't care if you beleive me or not, but this is what happened
+  - "You\u2019re gonna think I\u2019ve been watching too many alien movies"
+  - My mom said I must have been sleep deprived from exam season, but I know what
+    I saw
+  - I never beleived the stories until I experienced it myself
+  winterDescriptions:
+  - I was coming home from my Christmas eve party
+  - I had just packed up for winter break
+  - There was a light flurry
+  - It was the second day of Hanukkah
+  - The New Year's firework show was about to begin
+  - I slipped on some ice and saw it when I looked up
+  - The holiday lights outside flickered
+  - I was celebrating winter solstace
+  - I was sipping hot cocoa by the fireplace when it happened
+  - My breath froze in the air as I stepped outside
+  springDescriptions:
+  - The cherry blossoms were in full bloom when it happened
+  - I was planting my spring flowers
+  - Spring pollen was everywhere - right before I sneezed something caught my eye
+  - It was after our Easter celebration
+  - I was cleaning out my garage for spring cleaning when I saw it
+  - I was appriciating how the squirrels had just come out of hibernation
+  - "My springtime allergies were acting up, but I knew I wasn\u2019t imagining this"
+  - I was just getting back from spring break
+  - The spring harvest was fully underway
+  - I finished packing for my spring break trip
+  summerDescriptions:
+  - I was lounging by the pool when it appeared
+  - The ice cream truck was just pulling away when I saw it
+  - The heat was unbearable, but what I saw gave me chills
+  - I was at the Fourth of July barbecue when I saw something strange
+  - I could hear the sound of cicadas all around me
+  - I was getting ready to go to the water park
+  - It was the first day of summer break, I was so excited
+  - I was going to hit the beach
+  - I just left the summer solstace festival
+  - I was getting ready for a summer camping trip
+  fallDescriptions:
+  - I thought it might have been a halloween costume, but no
+  - The leaves were crunching underfoot when I saw it
+  - I was carving a pumpkin when it appeared
+  - I just started a scary movie, but I got more of a scare than I bargained for
+  - I was raking the leaves for the third time that week
+  - The turkey was in the oven
+  - The smell of pie hit the air
+  - Pumpkin spice season was fully on the way
+  - I was getting ready for trick-or-treaters
+  - There was a crisp autumn breeze
+  apdDescriptions:
+  - My ears popped, and then I noticed it
+  - My old football injury started hurting again
+  - I was checking my barometer and noticed a drop, and then it appeared
+  - I got this wierd headache out of nowhere
+  - My bad knee was giving me trouble again
+  - I had to sit down from a dizzy spell
+  windDescriptions:
+  - The wind nearly knocked me over
+  - I could see the leaves dancing in the wind
+  - A gust of wind blew in the air
+  - The wind was howling, and I could barely hear myself think
+  - My hat blew off, so I went chasing it
+  - The trees were swaying like crazy
+  - I heard the wind slam a door shut
+  - The wind knocked down the trash cans
+  - The gusts were so strong, they seemed alive
+  - The wind tore through the street
+  cloudyDescriptions:
+  - The clouds were thick and gray, making it hard to see at first
+  - I was watching shapes in the clouds when I saw something strange
+  - "The sun hadn\u2019t come out all day, and then I saw it"
+  - It was so overcast, I almost missed it
+  - The sky looked ominous, and I had a feeling something was about to happen
+  - The whole world seemed gray, but this stood out
+  - The sky was so gloomy
+  - Just another cloudy day, I thought
+  - The sky was gray and dreary
+  - I was watching shapes in the clouds when I saw something strange
+  rainDescriptions:
+  - The rain was pouring down, but I could still make it out.
+  - I was watching the rain fall out the window
+  - I was huddled under my umbrella
+  - The raindrops on the window distorted the view, but I knew what I saw
+  - I saw it through the downpour
+  - "I stepped in a puddle and looked up\u2014there it was"
+  - I slipped on a puddle, and then I looked up
+  - The rain had just started when I saw it
+  - I was just putting on my raincoat
+  - I could hear the pleasant sound of rain hitting the ground outside
+  powerDescriptions:
+  - The lights had just cut out
+  - I tried the breaker, but the power must have been out
+  - I had to light some candles just to see
+  - The streetlights went out
+  - The emergency generator had just kicked in
+  - The wifi cut out right before my homework was due
+  - The TV turned off right before the big reveal
+  - I was fumbling for a flashlight when it appeared
+  - The whole street went dark, and then I noticed it outside
+  - I was about to call the power company when the lights went out
+  treeDescriptions:
+  - I heard the crash of a nearby tree
+  - A tree fell and I narrowly avoided it
+  - A downed tree was blocking the road
+  - I saw a cleanup crew dismantling a fallen tree
+  - I tripped over a fallen tree
+  - I was trying to climb over the tree that had fallen
+  - I was taking photos of the downed tree when I noticed something else
+  - I was calling someone to report the downed tree
+  - A falling tree had just knocked over my fence
+  busyDescriptions:
+  - I was running late for work when I saw it
+  - I thought the traffic would never let up
+  - The streets were crowded
+  - It was the day of the festival and so many people were in town
+  - It was rush hour and everyone was scrambling to get home
+  - I was shoulder-to-shoulder with people on the bus
+  - I couldn't even find a seat on the bus
+  - Lines for businesses were out the door
+  - My barre studio was all booked up
+  - Class just got out and I had to push my way through the crowd to get to the next
+    one
+  thunderDescriptions:
+  - The thunder cracked, and it appeared out of nowhere
+  - The sky lit up, and I saw it for a split second
+  - The thunder was so loud, it almost drowned out my scream
+  - Lightning flashed, and it gave me a clear look
+  - The thunder shook the ground
+  - "I counted the seconds between thunderclaps\u2014and then it appeared"
+  - I had just come in after I heard the thunder
+  - When the thunder rolled in, I knew we were in for a storm
+  - Its rare we get thunder here, but today was the exception
+  - The crack of thunder scared me, but what I saw next shook me to my core
+  cafeDescriptions:
+  - "I hardly got any sleep, so I was headed to the caf\xE9 for a pick-me-up"
+  - I just ordered my favorite matcha latte
+  - I ordered my regular - coffe, black, no cream, no sugar
+  - "I was glad the caf\xE9 was still open"
+  - I was chatting with the barrista
+  - "The neon \"Open\" sign of the caf\xE9 shown brightly"
+  - "I was about to enter the caf\xE9"
+  - "I had just gotten out of the caf\xE9"
+  - "The \u201COpen\u201D sign at the caf\xE9 had just turned on when I saw it"
+  - The cafe music was playing softly when I saw it through the window
+  dogDescriptions:
+  - "My dog wouldn\u2019t stop barking, and then I noticed it too"
+  - "The barking woke me up, and that\u2019s when I saw it"
+  - I was trying to calm the dog down when I noticed what she saw
+  - My dog is usually so calm, but something really shook her up
+  - I wanted to see what the neighbor's dog was so upset about
+  - I could hear dogs throughout the neighborhood
+  - "My dog was barking like he\u2019d seen a ghost"
+  - I thought my dog was barking at the mailman
+  - Usually the neighbor's dog is so quiet, but she was barking like a madman
+  - I heard the howl of the neighborhood dogs
+  catDescriptions:
+  - I saw Cheeto, the cat, darting away
+  - Cheeto, the cat, ducked under a building
+  - I almost tripped over Cheeto, the cat, - he wss running from something
+  - I noticed Cheeto, the cat, hiding, looking scared
+  - I couldn't find Cheeto, the cat, no matter where I looked
+  - Cheeto hadn't come out for a cat treat - it wasn't like him
+  - Normally I see Cheeto, the cat, on my walk, but not today
+  - I tried pspsps-ing, but nothing would bring Cheeto out
+  - I found Cheeto, the cat, trembling under cover
+  - Cheeto, the cat, knocked over a bike trying to hide
+  friendlyDescriptions:
+  - The aliens helped me carry my groceries inside!
+  - An alien fixed the flat tire on my car!
+  - They mowed my lawn while I was at work!
+  - An alien gave me a thumbs-up and a big grin!
+  - "The aliens planted flowers in my garden while I wasn\u2019t looking! "
+  - The aliens took my dog on a walk!
+  - An alien donated to charity when they didn't think anyone was looking!
+  - An alien cleaned my windows with their laser thingy.
+  - An alien picked up all the litter on my street and zoomed off.
+  - An alien waved goodbye before flying off into the sunset!
+  - An alien helped an elderly person walk across the street!
+  - The aliens fed a stray cat!
+  - The aliens filled in a pothole!
+  - An alien fed a stranger's meter before it expired!
+  - An alien raked all the leaves off my neighbor's driveway!
+  - The aliens repainted the community center!
+  aggressiveDescriptions:
+  - The aliens cut me off in traffic!
+  - An alien zapped my mailbox with a laser beam!
+  - The alien spaceship knocked over my trashcans, and they didn't even bother to
+    pick them up!
+  - An alien stole my parking spot at the grocery store!
+  - "The aliens abducted my garden gnome and didn\u2019t bring it back!"
+  - An alien stuck their tongue out at me through the window of their spaceship!
+  - The aliens scribbled graffiti on my fence in alien writing!
+  - The aliens stole candy from a baby!
+  - An alien didn't leave a tip at a restaurant!
+  - An alien threw space trash out the side of their window!
+  - The aliens ran a red light!
+  - The aliens didn't yield to pedestrians!
+  - An alien on a scooter didn't even look before they passed the sidewalk
+  - An alien TP'ed my house!
+  - The aliens were texting while riding scooters!
+  - The aliens hit my car with their spaceship and didn't leave a note!
+  - The aliens zapped my car with a shrink ray!
+  friednlyBias: 0.65

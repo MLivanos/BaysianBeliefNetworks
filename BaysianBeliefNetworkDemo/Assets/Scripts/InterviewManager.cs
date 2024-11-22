@@ -58,38 +58,6 @@ public class InterviewManager : MonoBehaviour
         Debug.Log(GetAlienProbability());
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            DrawRandomEvents(1);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            DrawRandomEvents(2);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            DrawRandomEvents(3);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            DrawRandomEvents(4);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            DrawRandomEvents(5);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha6))
-        {
-            DrawRandomEvents(6);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha7))
-        {
-            DrawRandomEvents(7);
-        }
-    }
-
     private void AddSeasonNodes(List<Node> nodes)
     {
         List<List<string>> seasonDescriptions = new List<List<string>>
