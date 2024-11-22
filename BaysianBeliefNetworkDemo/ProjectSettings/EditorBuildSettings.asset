@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AnimatedDemo.unity
     guid: 5307e022791ff4d7f951d24fb398ef79
+  - enabled: 1
+    path: Assets/Scenes/TitleScreen.unity
+    guid: b7c2c2031c9364b208aabab7d11c38d2
+  - enabled: 1
+    path: Assets/Scenes/Interviews.unity
+    guid: 15db7a89a1ebf48c48d93d311cca2ab8
   m_configObjects: {}
