@@ -59,7 +59,7 @@ public class InterviewManager : MonoBehaviour
 
     private void Update()
     {
-        /*if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             DrawRandomEvents(1);
         }
@@ -86,7 +86,7 @@ public class InterviewManager : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Alpha7))
         {
             DrawRandomEvents(7);
-        }*/
+        }
     }
 
     private void AddSeasonNodes(List<Node> nodes)
@@ -151,15 +151,40 @@ public class InterviewManager : MonoBehaviour
         return (int)Mathf.Round(Random.Range(0, l.Count - 0.51f));
     }
 
-    private float CalculateProbability()
+    private float CalculateProbability(int numberOfSamples=10000)
     {
         int[] positiveQuery = new int[1] {eventIndices["Alien"]};
         int[] negativeQuery = new int[0];
-        for (int i = 0; i < 100000; i++)
+        for (int i = 0; i < numberOfSamples; i++)
         {
             sampler.Sample(positiveQuery, negativeQuery, graph.GetRootNodes().ToList());
         }
         return sampler.CalculateProbability();
+    }
+
+    private float CalculateProbability(float precision, int maxIterations, int windowSize, float z=1.96f)
+    {
+        List<float> slidingWindow = new List<float>();
+        for (int i = 0; i < windowSize - 1; i++)
+        {
+            slidingWindow.Add(CalculateProbability());
+        }
+        slidingWindow.Add(0f);
+        for(int i = windowSize - 1; i < maxIterations; i++)
+        {
+            slidingWindow[i % windowSize] = CalculateProbability();
+            float mean = slidingWindow.Average();
+            float std = Mathf.Sqrt(slidingWindow.Select(p => (p - mean) * (p - mean)).Average());
+
+            float standardError = std / Mathf.Sqrt(windowSize);
+            float ciWidth = z * standardError;
+
+            if (ciWidth < slidingWindow[i % windowSize] * (1 - precision))
+            {
+                return slidingWindow[i % windowSize];
+            }
+        }
+        return slidingWindow[(maxIterations-1)%windowSize];
     }
 
     private void DrawRandomEvents(int numberOfEvents)
@@ -169,12 +194,15 @@ public class InterviewManager : MonoBehaviour
         bool hasSeason = false;
         Node node;
         string description;
+        List<Node> positiveEvidence = new List<Node>();
+        List<Node> negativeEvidence = new List<Node>();
         string evidence = "";
         for(int i=0; i<numberOfEvents; i++)
         {
             (List<Node>, List<List<string>>) eventType = DrawRandomEventType(!hasSeason);
             if (eventType == seasons) hasSeason = true;
             (node, description) = DrawRandomEvent(eventType);
+            positiveEvidence.Add(node);
             sampler.AddToEvidence(node, true);
             evidence += node.GetAbriviation() + ",";
         }
@@ -183,6 +211,6 @@ public class InterviewManager : MonoBehaviour
         int index = GetRandomIndex(relevantList);
         Debug.Log(evidence);
         Debug.Log(friednly);
-        Debug.Log(CalculateProbability());
+        Debug.Log(CalculateProbability(0.98f, 15, 3));
     }
 }
