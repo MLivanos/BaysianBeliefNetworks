@@ -1,0 +1,133 @@
+fileFormatVersion: 2
+guid: 3c882421672ac3245890001cf2dbde3a
+timeCreated: 1622431308
+licenseType: Store
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: SM_Prop_Arcade_Claw_01_Claw_1
+    100004: SM_Prop_Arcade_Claw_01_Claw_2
+    100006: SM_Prop_Arcade_Claw_01_Claw_3
+    100008: SM_Prop_Arcade_Claw_01_Claw_Base
+    100010: SM_Prop_Arcade_Claw_01_Door
+    100012: SM_Prop_Arcade_Claw_01_Glass
+    100014: SM_Prop_Arcade_Claw_01_Insert
+    100016: SM_Prop_Arcade_Claw_01_Rail
+    100018: SM_Prop_Arcade_Claw_01_Stick
+    400000: //RootNode
+    400002: SM_Prop_Arcade_Claw_01_Claw_1
+    400004: SM_Prop_Arcade_Claw_01_Claw_2
+    400006: SM_Prop_Arcade_Claw_01_Claw_3
+    400008: SM_Prop_Arcade_Claw_01_Claw_Base
+    400010: SM_Prop_Arcade_Claw_01_Door
+    400012: SM_Prop_Arcade_Claw_01_Glass
+    400014: SM_Prop_Arcade_Claw_01_Insert
+    400016: SM_Prop_Arcade_Claw_01_Rail
+    400018: SM_Prop_Arcade_Claw_01_Stick
+    2300000: //RootNode
+    2300002: SM_Prop_Arcade_Claw_01_Claw_1
+    2300004: SM_Prop_Arcade_Claw_01_Claw_2
+    2300006: SM_Prop_Arcade_Claw_01_Claw_3
+    2300008: SM_Prop_Arcade_Claw_01_Claw_Base
+    2300010: SM_Prop_Arcade_Claw_01_Door
+    2300012: SM_Prop_Arcade_Claw_01_Glass
+    2300014: SM_Prop_Arcade_Claw_01_Insert
+    2300016: SM_Prop_Arcade_Claw_01_Rail
+    2300018: SM_Prop_Arcade_Claw_01_Stick
+    3300000: //RootNode
+    3300002: SM_Prop_Arcade_Claw_01_Claw_1
+    3300004: SM_Prop_Arcade_Claw_01_Claw_2
+    3300006: SM_Prop_Arcade_Claw_01_Claw_3
+    3300008: SM_Prop_Arcade_Claw_01_Claw_Base
+    3300010: SM_Prop_Arcade_Claw_01_Door
+    3300012: SM_Prop_Arcade_Claw_01_Glass
+    3300014: SM_Prop_Arcade_Claw_01_Insert
+    3300016: SM_Prop_Arcade_Claw_01_Rail
+    3300018: SM_Prop_Arcade_Claw_01_Stick
+    4300000: SM_Prop_Arcade_Claw_01
+    4300002: SM_Prop_Arcade_Claw_01_Door
+    4300004: SM_Prop_Arcade_Claw_01_Stick
+    4300006: SM_Prop_Arcade_Claw_01_Rail
+    4300008: SM_Prop_Arcade_Claw_01_Claw_Base
+    4300010: SM_Prop_Arcade_Claw_01_Claw_1
+    4300012: SM_Prop_Arcade_Claw_01_Claw_2
+    4300014: SM_Prop_Arcade_Claw_01_Claw_3
+    4300016: SM_Prop_Arcade_Claw_01_Insert
+    4300018: SM_Prop_Arcade_Claw_01_Glass
+    9500000: //RootNode
+  materials:
+    importMaterials: 0
+    materialName: 1
+    materialSearch: 2
+  animations:
+    legacyGenerateAnimations: 0
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 0
+    importBlendShapes: 0
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 0
+    keepQuads: 0
+    weldVertices: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 5
+    normalImportMode: 1
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
