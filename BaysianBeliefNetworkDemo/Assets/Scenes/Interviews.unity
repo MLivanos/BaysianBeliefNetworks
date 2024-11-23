@@ -549,7 +549,8 @@ MonoBehaviour:
   - {fileID: 1236699549}
   - {fileID: 102402100}
   - {fileID: 422711987}
-  speed: 2
+  speed: 1
+  rotationSpeed: 100
 --- !u!1 &102402099
 GameObject:
   m_ObjectHideFlags: 0
