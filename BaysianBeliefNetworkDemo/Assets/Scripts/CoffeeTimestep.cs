@@ -7,12 +7,7 @@ public class CoffeeTimestep : CyclicalTimestepBehavior
     [SerializeField] private RectTransform coffeeTransform;
     [SerializeField] private ParticleSystem steam;
 
-    private void Update()
-    {
-        if (Input.GetKeyDown("space")) Step();
-    }
-
-    protected override void Step()
+    public override void Step()
     {
         base.Step();
         if (step < 1)
