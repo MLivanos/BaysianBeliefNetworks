@@ -549,8 +549,9 @@ MonoBehaviour:
   - {fileID: 1236699549}
   - {fileID: 102402100}
   - {fileID: 422711987}
-  finalWaypoint: {fileID: 1995258250}
-  speed: 1.5
+  lookAheadNode: {fileID: 1995258250}
+  animator: {fileID: 9100000, guid: bab85728ad516438d8affe626d3df82b, type: 2}
+  speed: 0
   rotationSpeed: 135
 --- !u!1 &102402099
 GameObject:
@@ -576,7 +577,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 102402099}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.75, y: 0, z: 6.074}
+  m_LocalPosition: {x: -3.25, y: 0, z: 6.074}
   m_LocalScale: {x: 0.20000005, y: 0.2, z: 0.20000005}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2128,7 +2129,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 422711986}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: -5, y: 0, z: 5.8579993}
+  m_LocalPosition: {x: -4.64, y: 0, z: 6.31}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

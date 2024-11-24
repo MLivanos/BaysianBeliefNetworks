@@ -1,26 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
+using UnityEditor.Animations;
 
 public class IntervieweeSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject[] intervieweePrefabs;
     [SerializeField] private Transform[] waypoints;
-    [SerializeField] private Transform finalWaypoint;
+    [SerializeField] private Transform lookAheadNode;
+    [SerializeField] private AnimatorController animator;
     [SerializeField] private float speed;
     [SerializeField] private float rotationSpeed;
     GameObject currentInterviewee;
     private int currentWaypointIndex = 0;
     private float proximityCriterion = 0.05f;
-
-    private void Start()
-    {
-        SpawnInterviewee();
-    }
+    private bool hasInterviewee;
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        if (!hasInterviewee)
         {
             SpawnInterviewee();
         }
@@ -28,18 +27,57 @@ public class IntervieweeSpawner : MonoBehaviour
 
     public void SpawnInterviewee()
     {
+        hasInterviewee = true;
         currentInterviewee = Instantiate(intervieweePrefabs[(int)Mathf.Round(Random.Range(0, intervieweePrefabs.Length-0.51f))], transform.position, transform.rotation);
+        currentInterviewee.GetComponent<Animator>().runtimeAnimatorController = animator as RuntimeAnimatorController;
         StartCoroutine(SetupInterviewee());
     }
 
     private IEnumerator SetupInterviewee()
     {
+        Animator animator = currentInterviewee.GetComponent<Animator>();
+
+        yield return SitAtBooth(animator);
+        yield return new WaitForSeconds(2.5f);
+        yield return LeaveBooth(animator);
+
+        Destroy(currentInterviewee);
+        hasInterviewee = false;
+    }
+
+    private IEnumerator SitAtBooth(Animator animator)
+    {
+        animator.SetBool("isWalking", true);
         currentWaypointIndex = 0;
         yield return StartCoroutine(MoveInterviewee(false));
-        yield return StartCoroutine(RotateToView());
+        animator.SetBool("isWalking", false);
+
+        yield return StartCoroutine(RotateToView(lookAheadNode.position));
+
+        yield return WaitForAnimationState(animator, "idleSit");
+        animator.SetBool("isSitting", true);
+    }
+
+    private IEnumerator LeaveBooth(Animator animator)
+    {
+        animator.SetBool("isSitting", false);
         currentWaypointIndex -= 2;
+        yield return WaitForAnimationState(animator, "endSit");
+        yield return StartCoroutine(RotateToView(waypoints[currentWaypointIndex].position));
+
+        animator.SetBool("isWalking", true);
+        yield return WaitForAnimationState(animator, "walking");
         yield return StartCoroutine(MoveInterviewee(true));
     }
+
+    private IEnumerator WaitForAnimationState(Animator animator, string stateName, int layer = 0)
+    {
+        while (!animator.GetCurrentAnimatorStateInfo(layer).IsName(stateName))
+        {
+            yield return null;
+        }
+    }
+
 
     private IEnumerator MoveInterviewee(bool reverse)
     {
@@ -50,9 +88,9 @@ public class IntervieweeSpawner : MonoBehaviour
         }
     }
 
-    private IEnumerator RotateToView()
+    private IEnumerator RotateToView(Vector3 position)
     {
-        Vector3 direction = finalWaypoint.position - currentInterviewee.transform.position;
+        Vector3 direction = position - currentInterviewee.transform.position;
         while (Quaternion.Angle(currentInterviewee.transform.rotation, Quaternion.LookRotation(direction)) > proximityCriterion)
         {
             RotateCharacter(direction);
@@ -106,9 +144,9 @@ public class IntervieweeSpawner : MonoBehaviour
             }
         }
 
-        if (finalWaypoint == null) return;
+        if (lookAheadNode == null) return;
 
         Gizmos.color = Color.blue;
-        Gizmos.DrawSphere(finalWaypoint.position, 0.2f);
+        Gizmos.DrawSphere(lookAheadNode.position, 0.2f);
     }
 }
