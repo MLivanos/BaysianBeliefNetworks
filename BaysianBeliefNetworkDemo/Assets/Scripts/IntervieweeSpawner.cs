@@ -29,26 +29,38 @@ public class IntervieweeSpawner : MonoBehaviour
     public void SpawnInterviewee()
     {
         currentInterviewee = Instantiate(intervieweePrefabs[(int)Mathf.Round(Random.Range(0, intervieweePrefabs.Length-0.51f))], transform.position, transform.rotation);
-        StartCoroutine(MoveInterviewee());
+        StartCoroutine(SetupInterviewee());
     }
 
-    private IEnumerator MoveInterviewee()
+    private IEnumerator SetupInterviewee()
     {
         currentWaypointIndex = 0;
-        while (currentWaypointIndex < waypoints.Length)
+        yield return StartCoroutine(MoveInterviewee(false));
+        yield return StartCoroutine(RotateToView());
+        currentWaypointIndex -= 2;
+        yield return StartCoroutine(MoveInterviewee(true));
+    }
+
+    private IEnumerator MoveInterviewee(bool reverse)
+    {
+        while (currentWaypointIndex < waypoints.Length && currentWaypointIndex >= 0)
         {
-            MoveStep();
+            MoveStep(reverse);
             yield return null;
         }
-        Vector3 direction = (finalWaypoint.position - currentInterviewee.transform.position);
-        while (proximityCriterion < direction.magnitude)
+    }
+
+    private IEnumerator RotateToView()
+    {
+        Vector3 direction = finalWaypoint.position - currentInterviewee.transform.position;
+        while (Quaternion.Angle(currentInterviewee.transform.rotation, Quaternion.LookRotation(direction)) > proximityCriterion)
         {
             RotateCharacter(direction);
             yield return null;
         }
     }
 
-    private void MoveStep()
+    private void MoveStep(bool reverse)
     {
         Vector3 currentPosition = currentInterviewee.transform.position;
         Vector3 targetPosition = waypoints[currentWaypointIndex].position;
@@ -61,7 +73,7 @@ public class IntervieweeSpawner : MonoBehaviour
         RotateCharacter(direction);
         if (Vector3.Distance(currentInterviewee.transform.position,targetPosition) < proximityCriterion)
         {
-            currentWaypointIndex++;
+            currentWaypointIndex += reverse ? -1 : 1;
         }
     }
 
