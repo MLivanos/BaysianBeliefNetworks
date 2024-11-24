@@ -30,6 +30,7 @@ public class IntervieweeSpawner : MonoBehaviour
         hasInterviewee = true;
         currentInterviewee = Instantiate(intervieweePrefabs[(int)Mathf.Round(Random.Range(0, intervieweePrefabs.Length-0.51f))], transform.position, transform.rotation);
         currentInterviewee.GetComponent<Animator>().runtimeAnimatorController = animator as RuntimeAnimatorController;
+        currentInterviewee.GetComponent<Animator>().applyRootMotion = false;
         StartCoroutine(SetupInterviewee());
     }
 
@@ -96,6 +97,7 @@ public class IntervieweeSpawner : MonoBehaviour
             RotateCharacter(direction);
             yield return null;
         }
+        currentInterviewee.transform.rotation = Quaternion.LookRotation(direction);
     }
 
     private void MoveStep(bool reverse)
@@ -109,7 +111,7 @@ public class IntervieweeSpawner : MonoBehaviour
             speed * Time.deltaTime
         );
         RotateCharacter(direction);
-        if (Vector3.Distance(currentInterviewee.transform.position,targetPosition) < proximityCriterion)
+        if (IsAtTarget(currentInterviewee.transform.position,targetPosition))
         {
             currentWaypointIndex += reverse ? -1 : 1;
         }
@@ -148,5 +150,13 @@ public class IntervieweeSpawner : MonoBehaviour
 
         Gizmos.color = Color.blue;
         Gizmos.DrawSphere(lookAheadNode.position, 0.2f);
+    }
+
+    private bool IsAtTarget(Vector3 currentPosition, Vector3 targetPosition)
+    {
+        float adjustedProximity = proximityCriterion + speed * Time.deltaTime;
+        bool atTarget = Vector3.Distance(currentPosition, targetPosition) < adjustedProximity;
+        if (atTarget) currentInterviewee.transform.position = targetPosition;
+        return atTarget;
     }
 }
