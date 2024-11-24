@@ -6,11 +6,17 @@ public class IntervieweeSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject[] intervieweePrefabs;
     [SerializeField] private Transform[] waypoints;
+    [SerializeField] private Transform finalWaypoint;
     [SerializeField] private float speed;
     [SerializeField] private float rotationSpeed;
     GameObject currentInterviewee;
     private int currentWaypointIndex = 0;
     private float proximityCriterion = 0.05f;
+
+    private void Start()
+    {
+        SpawnInterviewee();
+    }
 
     private void Update()
     {
@@ -34,6 +40,12 @@ public class IntervieweeSpawner : MonoBehaviour
             MoveStep();
             yield return null;
         }
+        Vector3 direction = (finalWaypoint.position - currentInterviewee.transform.position);
+        while (proximityCriterion < direction.magnitude)
+        {
+            RotateCharacter(direction);
+            yield return null;
+        }
     }
 
     private void MoveStep()
@@ -46,7 +58,15 @@ public class IntervieweeSpawner : MonoBehaviour
             targetPosition, 
             speed * Time.deltaTime
         );
+        RotateCharacter(direction);
+        if (Vector3.Distance(currentInterviewee.transform.position,targetPosition) < proximityCriterion)
+        {
+            currentWaypointIndex++;
+        }
+    }
 
+    private void RotateCharacter(Vector3 direction)
+    {
         if (direction != Vector3.zero)
         {
             Quaternion targetRotation = Quaternion.LookRotation(direction);
@@ -56,15 +76,11 @@ public class IntervieweeSpawner : MonoBehaviour
                 rotationSpeed * Time.deltaTime
             );
         }
-        if (Vector3.Distance(currentInterviewee.transform.position,targetPosition) < proximityCriterion)
-        {
-            currentWaypointIndex++;
-        }
     }
 
     void OnDrawGizmos()
     {
-        if (waypoints == null || waypoints.Length == 0) return;
+        if (waypoints == null) return;
 
         for (int i = 0; i < waypoints.Length; i++)
         {
@@ -77,5 +93,10 @@ public class IntervieweeSpawner : MonoBehaviour
                 Gizmos.DrawLine(waypoints[i].position, waypoints[i + 1].position);
             }
         }
+
+        if (finalWaypoint == null) return;
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawSphere(finalWaypoint.position, 0.2f);
     }
 }
