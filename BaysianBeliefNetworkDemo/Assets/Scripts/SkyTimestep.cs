@@ -13,23 +13,24 @@ public class SkyTimestep : CyclicalTimestepBehavior
     private void Start()
     {
         skyMaterial = skyRenderer.material;
-        UpdateSky(0);
+        UpdateSky();
     }
 
     public override void Step()
     {
         base.Step();
-        UpdateSky(step);
+        UpdateSky();
     }
 
-    private void UpdateSky(int index)
+    private void UpdateSky()
     {
-        skyMaterial.SetColor("_ColorTop", skyColors[index]);
-        RenderSettings.ambientIntensity = skyboxIntensities[index];
+        skyMaterial.SetColor("_ColorTop", skyColors[step]);
 
-        directionalLight.intensity = lightIntensities[index];
+        RenderSettings.ambientIntensity = skyboxIntensities[step];
+
+        directionalLight.intensity = lightIntensities[step];
         Vector3 lightRotation = directionalLight.transform.eulerAngles;
-        lightRotation.x = sunAngles[index];
+        lightRotation.x = sunAngles[step];
         directionalLight.transform.eulerAngles = lightRotation;
     }
 }

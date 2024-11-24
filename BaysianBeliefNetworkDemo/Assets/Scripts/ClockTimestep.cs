@@ -16,6 +16,7 @@ public class ClockTime
 public class ClockTimestep : CyclicalTimestepBehavior
 {
     [SerializeField] private ClockTime[] times;
+    [SerializeField] private GameObject[] lights;
     [SerializeField] private Transform hourHand;
     [SerializeField] private Transform minuteHand;
     [SerializeField] private float hourOffset;
@@ -33,6 +34,7 @@ public class ClockTimestep : CyclicalTimestepBehavior
         base.Step();
         SetTime();
         ModifyTime();
+        SwitchLights();
     }
 
     private void SetTime()
@@ -56,5 +58,14 @@ public class ClockTimestep : CyclicalTimestepBehavior
         newMinute %= 60;
         times[step].minute = newMinute;
         times[step].hour = times[step].hour + overflow;
+    }
+
+    private void SwitchLights()
+    {
+        bool on = step > 3;
+        foreach (GameObject light in lights)
+        {
+            light.SetActive(on);  
+        }
     }
 }
