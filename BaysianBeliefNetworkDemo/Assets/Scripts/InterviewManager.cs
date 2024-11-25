@@ -68,7 +68,7 @@ public class InterviewManager : MonoBehaviour
         nonSeasonEvents = new List<List<NodeDescriptions>> {weather, consequences, humanActivity, animalBehavior};
         seasonIndex = nonSeasonEvents.Count;
         //Debug.Log(GetAlienProbability());
-        DrawRandomEvents(2);
+        //DrawRandomEvents(2);
     }
 
     private void AddToNodeTypeList(List<NodeDescriptions> list, Node node, string eventName)
