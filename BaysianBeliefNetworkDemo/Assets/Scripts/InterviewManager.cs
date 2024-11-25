@@ -16,45 +16,18 @@ public class NodeDescriptions
 public class InterviewManager : MonoBehaviour
 {
     [SerializeField] private List<string> greetings;
-    [SerializeField] private NodeDescriptions winterNodeDescriptions;
-    [SerializeField] private NodeDescriptions springNodeDescriptions;
-    [SerializeField] private NodeDescriptions summerNodeDescriptions;
-    [SerializeField] private NodeDescriptions fallNodeDescriptions;
-    [SerializeField] private NodeDescriptions apdNodeDescriptions;
-    [SerializeField] private NodeDescriptions windNodeDescriptions;
-    [SerializeField] private NodeDescriptions cloudyNodeDescriptions;
-    [SerializeField] private NodeDescriptions rainNodeDescriptions;
-    [SerializeField] private NodeDescriptions powerNodeDescriptions;
-    [SerializeField] private NodeDescriptions treeNodeDescriptions;
-    [SerializeField] private NodeDescriptions busyNodeDescriptions;
-    [SerializeField] private NodeDescriptions thunderNodeDescriptions;
-    [SerializeField] private NodeDescriptions cafeNodeDescriptions;
-    [SerializeField] private NodeDescriptions dogNodeDescriptions;
-    [SerializeField] private NodeDescriptions catNodeDescriptions;
-    [SerializeField] private List<string> winterDescriptions;
-    [SerializeField] private List<string> springDescriptions;
-    [SerializeField] private List<string> summerDescriptions;
-    [SerializeField] private List<string> fallDescriptions;
-    [SerializeField] private List<string> apdDescriptions;
-    [SerializeField] private List<string> windDescriptions;
-    [SerializeField] private List<string> cloudyDescriptions;
-    [SerializeField] private List<string> rainDescriptions;
-    [SerializeField] private List<string> powerDescriptions;
-    [SerializeField] private List<string> treeDescriptions;
-    [SerializeField] private List<string> busyDescriptions;
-    [SerializeField] private List<string> thunderDescriptions;
-    [SerializeField] private List<string> cafeDescriptions;
-    [SerializeField] private List<string> dogDescriptions;
-    [SerializeField] private List<string> catDescriptions;
+    [SerializeField] private List<string> eventNames;
+    [SerializeField] private List<NodeDescriptions> descriptions;
     [SerializeField] private List<string> friendlyDescriptions;
     [SerializeField] private List<string> aggressiveDescriptions;
     [SerializeField] private float friednlyBias;
-    private (List<Node>, List<List<string>>) seasons;
-    private (List<Node>, List<List<string>>) weather;
-    private (List<Node>, List<List<string>>) consequences;
-    private (List<Node>, List<List<string>>) humanActivity;
-    private (List<Node>, List<List<string>>) animalBehavior;
-    private List<(List<Node>, List<List<string>>)> nonSeasonEvents = new List<(List<Node>, List<List<string>>)>();
+    private Dictionary<string, NodeDescriptions> eventDictionary;
+    private List<NodeDescriptions> seasons = new List<NodeDescriptions>();
+    private List<NodeDescriptions> weather = new List<NodeDescriptions>();
+    private List<NodeDescriptions> consequences = new List<NodeDescriptions>();
+    private List<NodeDescriptions> humanActivity = new List<NodeDescriptions>();
+    private List<NodeDescriptions> animalBehavior = new List<NodeDescriptions>();
+    private List<List<NodeDescriptions>> nonSeasonEvents = new List<List<NodeDescriptions>>();
     private LikelihoodWeightingSampler sampler;
     private Graph graph;
     private Dictionary<string, int> eventIndices;
@@ -62,7 +35,11 @@ public class InterviewManager : MonoBehaviour
 
     private void Start()
     {
-        winterNodeDescriptions.eventDescriptions = winterDescriptions;
+        eventDictionary = new Dictionary<string, NodeDescriptions>();
+        for (int i = 0; i < eventNames.Count; i++)
+        {
+            eventDictionary[eventNames[i]] = descriptions[i];
+        }
         graph = GameObject.Find("Graph").GetComponent<Graph>();
         sampler = graph.gameObject.GetComponent<LikelihoodWeightingSampler>();
         StartCoroutine(InstantiateManager());
@@ -73,70 +50,45 @@ public class InterviewManager : MonoBehaviour
         yield return null;
         eventIndices = GameObject.Find("Graph").GetComponent<Graph>().AssignIndices();
         List<Node> nodes = GameObject.Find("Graph").GetComponent<Graph>().GetAllNodes();
-        AddSeasonNodes(nodes);
-        AddWeatherNodes(nodes);
-        AddConsequenceNodes(nodes);
-        AddHumanActivityNodes(nodes);
-        AddAnimalNodes(nodes);
+        AddToNodeTypeList(seasons, nodes[eventIndices["Winter"]], "Winter");
+        AddToNodeTypeList(seasons, nodes[eventIndices["Spring"]], "Spring");
+        AddToNodeTypeList(seasons, nodes[eventIndices["Summer"]], "Summer");
+        AddToNodeTypeList(seasons, nodes[eventIndices["Fall"]], "Fall");
+        AddToNodeTypeList(weather, nodes[eventIndices["APD"]], "APD");
+        AddToNodeTypeList(weather, nodes[eventIndices["Wind"]], "Wind");
+        AddToNodeTypeList(weather, nodes[eventIndices["Rain"]], "Rain");
+        AddToNodeTypeList(weather, nodes[eventIndices["Cloudy"]], "Cloudy");
+        AddToNodeTypeList(weather, nodes[eventIndices["Thunder"]], "Thunder");
+        AddToNodeTypeList(consequences, nodes[eventIndices["Power"]], "Power");
+        AddToNodeTypeList(consequences, nodes[eventIndices["Tree"]], "Tree");
+        AddToNodeTypeList(humanActivity, nodes[eventIndices["Busy"]], "Busy");
+        AddToNodeTypeList(humanActivity, nodes[eventIndices["Cafe"]], "Cafe");
+        AddToNodeTypeList(animalBehavior, nodes[eventIndices["Dog"]], "Dog");
+        AddToNodeTypeList(animalBehavior, nodes[eventIndices["Cat"]], "Cat");
+        nonSeasonEvents = new List<List<NodeDescriptions>> {weather, consequences, humanActivity, animalBehavior};
         seasonIndex = nonSeasonEvents.Count;
-        Debug.Log(GetAlienProbability());
+        //Debug.Log(GetAlienProbability());
+        DrawRandomEvents(2);
     }
 
-    private void AddSeasonNodes(List<Node> nodes)
+    private void AddToNodeTypeList(List<NodeDescriptions> list, Node node, string eventName)
     {
-        List<List<string>> seasonDescriptions = new List<List<string>>
-            {winterDescriptions,springDescriptions,summerDescriptions,fallDescriptions};
-        List<Node> seasonNodes = new List<Node>
-            {nodes[eventIndices["Winter"]], nodes[eventIndices["Spring"]], nodes[eventIndices["Summer"]], nodes[eventIndices["Fall"]]};
-        seasons = (seasonNodes, seasonDescriptions);
+        eventDictionary[eventName].node = node;
+        list.Add(eventDictionary[eventName]);
     }
 
-    private void AddWeatherNodes(List<Node> nodes)
-    {
-        List<List<string>> weatherDescriptions = new List<List<string>>
-            {apdDescriptions, cloudyDescriptions, rainDescriptions, windDescriptions, thunderDescriptions};
-        List<Node> weatherNodes = new List<Node>
-            {nodes[eventIndices["APD"]], nodes[eventIndices["Cloudy"]], nodes[eventIndices["Rain"]], nodes[eventIndices["Wind"]], nodes[eventIndices["Thunder"]]};
-        weather = (weatherNodes, weatherDescriptions);
-        nonSeasonEvents.Add(weather);
-    }
-
-    private void AddConsequenceNodes(List<Node> nodes)
-    {
-        List<Node> animalBehaviorNodes = new List<Node> {nodes[eventIndices["Power"]], nodes[eventIndices["Tree"]]};
-        List<List<string>> consequenceDescriptions = new List<List<string>> {powerDescriptions, treeDescriptions};
-        consequences = (animalBehaviorNodes, consequenceDescriptions);
-        nonSeasonEvents.Add(consequences);
-    }
-
-    private void AddHumanActivityNodes(List<Node> nodes)
-    {
-        List<Node> humanNodes = new List<Node> {nodes[eventIndices["Busy"]], nodes[eventIndices["Cafe"]]};
-        List<List<string>> humanDescriptions = new List<List<string>> {busyDescriptions, cafeDescriptions};
-        humanActivity = (humanNodes, humanDescriptions);
-        nonSeasonEvents.Add(humanActivity);
-    }
-
-    private void AddAnimalNodes(List<Node> nodes)
-    {
-        List<Node> animalNodes = new List<Node> {nodes[eventIndices["Dog"]], nodes[eventIndices["Cat"]]};
-        List<List<string>> animalDescriptions = new List<List<string>> {dogDescriptions, catDescriptions};
-        animalBehavior = (animalNodes, animalDescriptions);
-        nonSeasonEvents.Add(animalBehavior);
-    }
-
-    private (List<Node>, List<List<string>>) DrawRandomEventType(bool canBeSeason)
+    private List<NodeDescriptions> DrawRandomEventType(bool canBeSeason)
     {
         int index = (int)Mathf.Round(Random.Range(0, seasonIndex + 0.49f - (canBeSeason ? 0 : 1)));
         if (index == seasonIndex) return seasons;
         return nonSeasonEvents[index];
     }
 
-    private (Node, string) DrawRandomEvent((List<Node>, List<List<string>>) eventType)
+    private (Node, string) DrawRandomEvent(List<NodeDescriptions> eventType)
     {
-        int index = GetRandomIndex(eventType.Item1);
-        int stringIndex = GetRandomIndex(eventType.Item2[index]);
-        return (eventType.Item1[index], eventType.Item2[index][stringIndex]);
+        int index = GetRandomIndex(eventType);
+        int stringIndex = GetRandomIndex(eventType[index].eventDescriptions);
+        return (eventType[index].node, eventType[index].eventDescriptions[stringIndex]);
     }
 
     private int GetRandomIndex<T>(List<T> l)
@@ -193,7 +145,7 @@ public class InterviewManager : MonoBehaviour
         string evidence = "";
         for(int i=0; i<numberOfEvents; i++)
         {
-            (List<Node>, List<List<string>>) eventType = DrawRandomEventType(!hasSeason);
+            List<NodeDescriptions> eventType = DrawRandomEventType(!hasSeason);
             if (eventType == seasons) hasSeason = true;
             (node, description) = DrawRandomEvent(eventType);
             positiveEvidence.Add(node);
