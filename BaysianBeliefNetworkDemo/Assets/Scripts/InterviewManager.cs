@@ -20,7 +20,7 @@ public class InterviewManager : MonoBehaviour
     [SerializeField] private List<NodeDescriptions> descriptions;
     [SerializeField] private List<string> friendlyDescriptions;
     [SerializeField] private List<string> aggressiveDescriptions;
-    [SerializeField] private float friednlyBias;
+    [SerializeField] private float friendlyBias;
     private Dictionary<string, NodeDescriptions> eventDictionary;
     private List<NodeDescriptions> seasons = new List<NodeDescriptions>();
     private List<NodeDescriptions> weather = new List<NodeDescriptions>();
@@ -31,7 +31,13 @@ public class InterviewManager : MonoBehaviour
     private LikelihoodWeightingSampler sampler;
     private Graph graph;
     private Dictionary<string, int> eventIndices;
-    int seasonIndex;
+    private string lastEventDescription = "";
+    private string lastEventEvidence = "";
+    private bool lastEventAggression;
+    private bool hasSeason;
+    private int eventCount = 0;
+    private HashSet<string> evidenceCollected = new HashSet<string>();
+    private int seasonIndex;
 
     private void Start()
     {
@@ -68,7 +74,7 @@ public class InterviewManager : MonoBehaviour
         nonSeasonEvents = new List<List<NodeDescriptions>> {weather, consequences, humanActivity, animalBehavior};
         seasonIndex = nonSeasonEvents.Count;
         //Debug.Log(GetAlienProbability());
-        //DrawRandomEvents(2);
+        DrawRandomEvents(2);
     }
 
     private void AddToNodeTypeList(List<NodeDescriptions> list, Node node, string eventName)
@@ -135,35 +141,81 @@ public class InterviewManager : MonoBehaviour
 
     private void DrawRandomEvents(int numberOfEvents)
     {
-        sampler.ClearEvidence();
-        sampler.Reset();
-        bool hasSeason = false;
-        Node node;
-        string description;
-        List<Node> positiveEvidence = new List<Node>();
-        List<Node> negativeEvidence = new List<Node>();
-        string evidence = "";
-        for(int i=0; i<numberOfEvents; i++)
-        {
-            List<NodeDescriptions> eventType = DrawRandomEventType(!hasSeason);
-            if (eventType == seasons) hasSeason = true;
-            (node, description) = DrawRandomEvent(eventType);
-            positiveEvidence.Add(node);
-            sampler.AddToEvidence(node, true);
-            evidence += node.GetAbriviation() + ",";
-        }
-        bool friednly = Random.value <= friednlyBias;
-        List<string> relevantList = friednly ? friendlyDescriptions : aggressiveDescriptions;
-        int index = GetRandomIndex(relevantList);
-        Debug.Log(evidence);
-        Debug.Log(friednly);
-        Debug.Log(CalculateProbability(0.98f, 15, 3));
+        ResetEventState();
+        AppendGreeting();
+        GenerateRandomEvents(numberOfEvents);
+        AddAggressionDescription();
+        LogEventDetails();
     }
 
-    private float GetAlienProbability()
+    private void ResetEventState()
     {
         sampler.ClearEvidence();
         sampler.Reset();
+
+        hasSeason = false;
+        eventCount = 0;
+        evidenceCollected.Clear();
+        lastEventDescription = string.Empty;
+        lastEventEvidence = string.Empty;
+    }
+
+    private void AppendGreeting()
+    {
+        lastEventDescription += greetings[GetRandomIndex(greetings)];
+    }
+
+    private void GenerateRandomEvents(int numberOfEvents)
+    {
+        while (eventCount < numberOfEvents)
+        {
+            List<NodeDescriptions> eventType = DrawRandomEventType(!hasSeason);
+            bool eventOccurs = DetermineIfEventOccurs(eventType);
+
+            (Node node, string description) = DrawRandomEvent(eventType);
+            AddEventToDescription(node, description, eventOccurs);
+        }
+    }
+
+    private bool DetermineIfEventOccurs(List<NodeDescriptions> eventType)
+    {
+        if (eventType == seasons)
+        {
+            hasSeason = true;
+            return true;
+        }
+        return Random.value > 0.5f;
+    }
+
+    private void AddEventToDescription(Node node, string description, bool eventOccurs)
+    {
+        if (evidenceCollected.Contains(node.GetName())) return;
+
+        lastEventDescription += description + "\n";
+        evidenceCollected.Add(node.GetName());
+
+        sampler.AddToEvidence(node, eventOccurs);
+        lastEventEvidence += eventOccurs ? "" : "¬";
+        lastEventEvidence += node.GetAbriviation() + ",";
+        eventCount++;
+    }
+
+    private void AddAggressionDescription()
+    {
+        lastEventAggression = Random.value > friendlyBias;
+        List<string> relevantList = lastEventAggression ? aggressiveDescriptions : friendlyDescriptions;
+        lastEventDescription += relevantList[GetRandomIndex(relevantList)];
+    }
+
+    private void LogEventDetails()
+    {
+        Debug.Log(lastEventEvidence);
+        Debug.Log(lastEventAggression);
+        Debug.Log(CalculateProbability(0.98f, 15, 3));
+    }
+    private float GetAlienProbability()
+    {
+        ResetEventState();
         return CalculateProbability(0.995f, 50, 5, 2.576f);
     }
 }

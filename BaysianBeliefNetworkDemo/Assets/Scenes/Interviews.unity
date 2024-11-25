@@ -6164,6 +6164,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
         type: 3}
+      propertyPath: friendlyBias
+      value: 0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
       propertyPath: eventNames.Array.size
       value: 15
       objectReference: {fileID: 0}
