@@ -5,9 +5,32 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+[System.Serializable]
+public class NodeDescriptions
+{
+    public Node node;
+    public List<string> eventDescriptions;
+    public List<string> eventNegationDescriptions;
+}
+
 public class InterviewManager : MonoBehaviour
 {
     [SerializeField] private List<string> greetings;
+    [SerializeField] private NodeDescriptions winterNodeDescriptions;
+    [SerializeField] private NodeDescriptions springNodeDescriptions;
+    [SerializeField] private NodeDescriptions summerNodeDescriptions;
+    [SerializeField] private NodeDescriptions fallNodeDescriptions;
+    [SerializeField] private NodeDescriptions apdNodeDescriptions;
+    [SerializeField] private NodeDescriptions windNodeDescriptions;
+    [SerializeField] private NodeDescriptions cloudyNodeDescriptions;
+    [SerializeField] private NodeDescriptions rainNodeDescriptions;
+    [SerializeField] private NodeDescriptions powerNodeDescriptions;
+    [SerializeField] private NodeDescriptions treeNodeDescriptions;
+    [SerializeField] private NodeDescriptions busyNodeDescriptions;
+    [SerializeField] private NodeDescriptions thunderNodeDescriptions;
+    [SerializeField] private NodeDescriptions cafeNodeDescriptions;
+    [SerializeField] private NodeDescriptions dogNodeDescriptions;
+    [SerializeField] private NodeDescriptions catNodeDescriptions;
     [SerializeField] private List<string> winterDescriptions;
     [SerializeField] private List<string> springDescriptions;
     [SerializeField] private List<string> summerDescriptions;
@@ -39,6 +62,7 @@ public class InterviewManager : MonoBehaviour
 
     private void Start()
     {
+        winterNodeDescriptions.eventDescriptions = winterDescriptions;
         graph = GameObject.Find("Graph").GetComponent<Graph>();
         sampler = graph.gameObject.GetComponent<LikelihoodWeightingSampler>();
         StartCoroutine(InstantiateManager());

@@ -24,6 +24,6 @@ public class SceneManagerScript : MonoBehaviour
 
     public void GoToInterviews()
     {
-        SceneManager.LoadScene("Interviews");
+        SceneManager.LoadScene("Interviews", LoadSceneMode.Single);
     }
 }

@@ -97,7 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 698194a5478d04f6f8afc6e5ebd64ea2,
+    type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -4075,8 +4076,8 @@ Light:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 10
   m_Range: 10
-  m_SpotAngle: 71.387276
-  m_InnerSpotAngle: 52.04663
+  m_SpotAngle: 95.26456
+  m_InnerSpotAngle: 82.29118
   m_CookieSize: 10
   m_Shadows:
     m_Type: 0
@@ -5348,7 +5349,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 30, y: -30, z: 0}
 --- !u!114 &912140987
 MonoBehaviour:
@@ -5440,7 +5441,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 425504, guid: dcf86cbc986e8ca40a2bfa2fff49fc0f, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 425504, guid: dcf86cbc986e8ca40a2bfa2fff49fc0f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6104,12 +6105,12 @@ PrefabInstance:
     - target: {fileID: 6572116375759035472, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6572116375759035478, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6572116375759035478, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
         type: 3}
@@ -6160,6 +6161,61 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: winterNodeDescriptions.eventDescriptions.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: winterNodeDescriptions.eventDescriptions.Array.data[0]
+      value: I was coming home from my Christmas eve party
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: winterNodeDescriptions.eventDescriptions.Array.data[1]
+      value: I had just packed up for winter break
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: winterNodeDescriptions.eventDescriptions.Array.data[2]
+      value: There was a light flurry
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: winterNodeDescriptions.eventDescriptions.Array.data[3]
+      value: It was the second day of Hanukkah
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: winterNodeDescriptions.eventDescriptions.Array.data[4]
+      value: The New Year's firework show was about to begin
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: winterNodeDescriptions.eventDescriptions.Array.data[5]
+      value: I slipped on some ice and saw it when I looked up
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: winterNodeDescriptions.eventDescriptions.Array.data[6]
+      value: The holiday lights outside flickered
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: winterNodeDescriptions.eventDescriptions.Array.data[7]
+      value: I was celebrating winter solstace
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: winterNodeDescriptions.eventDescriptions.Array.data[8]
+      value: I was sipping hot cocoa by the fireplace when it happened
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: winterNodeDescriptions.eventDescriptions.Array.data[9]
+      value: My breath froze in the air as I stepped outside
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcfb0bdf3c88d4d33aa91993c7372f1a, type: 3}
@@ -6882,7 +6938,7 @@ Transform:
   - {fileID: 1227365528}
   - {fileID: 73824567}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1227365527
 PrefabInstance:
@@ -9529,7 +9585,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4935810935809208, guid: 5ca101ca31ead9643ba39d9b37975c02, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4935810935809208, guid: 5ca101ca31ead9643ba39d9b37975c02, type: 3}
       propertyPath: m_LocalScale.x
@@ -22489,7 +22545,7 @@ Transform:
   - {fileID: 1773173375}
   - {fileID: 243277465}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &7433941591684366915
 Transform:
