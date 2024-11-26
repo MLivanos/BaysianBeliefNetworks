@@ -21,6 +21,7 @@ public class InterviewManager : MonoBehaviour
     [SerializeField] private List<string> friendlyDescriptions;
     [SerializeField] private List<string> aggressiveDescriptions;
     [SerializeField] private float friendlyBias;
+    private InterviewCalculator calculator;
     private Dictionary<string, NodeDescriptions> eventDictionary;
     private List<NodeDescriptions> seasons = new List<NodeDescriptions>();
     private List<NodeDescriptions> weather = new List<NodeDescriptions>();
@@ -28,9 +29,7 @@ public class InterviewManager : MonoBehaviour
     private List<NodeDescriptions> humanActivity = new List<NodeDescriptions>();
     private List<NodeDescriptions> animalBehavior = new List<NodeDescriptions>();
     private List<List<NodeDescriptions>> nonSeasonEvents = new List<List<NodeDescriptions>>();
-    private LikelihoodWeightingSampler sampler;
     private Graph graph;
-    private Dictionary<string, int> eventIndices;
     private string lastEventDescription = "";
     private string lastEventEvidence = "";
     private bool lastEventAggression;
@@ -47,14 +46,14 @@ public class InterviewManager : MonoBehaviour
             eventDictionary[eventNames[i]] = descriptions[i];
         }
         graph = GameObject.Find("Graph").GetComponent<Graph>();
-        sampler = graph.gameObject.GetComponent<LikelihoodWeightingSampler>();
+        calculator = GetComponent<InterviewCalculator>();
         StartCoroutine(InstantiateManager());
     }
 
     private IEnumerator InstantiateManager()
     {
         yield return null;
-        eventIndices = GameObject.Find("Graph").GetComponent<Graph>().AssignIndices();
+        Dictionary<string, int> eventIndices = graph.GetComponent<Graph>().AssignIndices();
         List<Node> nodes = GameObject.Find("Graph").GetComponent<Graph>().GetAllNodes();
         AddToNodeTypeList(seasons, nodes[eventIndices["Winter"]], "Winter");
         AddToNodeTypeList(seasons, nodes[eventIndices["Spring"]], "Spring");
@@ -73,6 +72,7 @@ public class InterviewManager : MonoBehaviour
         AddToNodeTypeList(animalBehavior, nodes[eventIndices["Cat"]], "Cat");
         nonSeasonEvents = new List<List<NodeDescriptions>> {weather, consequences, humanActivity, animalBehavior};
         seasonIndex = nonSeasonEvents.Count;
+        calculator.Initialize(graph.GetRootNodes(), eventIndices, graph.gameObject.GetComponent<LikelihoodWeightingSampler>());
         //Debug.Log(GetAlienProbability());
         DrawRandomEvents(2);
     }
@@ -102,43 +102,6 @@ public class InterviewManager : MonoBehaviour
         return (int)Mathf.Round(Random.Range(0, l.Count - 0.51f));
     }
 
-    private float CalculateProbability(int numberOfSamples=10000)
-    {
-        int[] positiveQuery = new int[1] {eventIndices["Alien"]};
-        int[] negativeQuery = new int[0];
-        for (int i = 0; i < numberOfSamples; i++)
-        {
-            sampler.Sample(positiveQuery, negativeQuery, graph.GetRootNodes().ToList());
-        }
-        return sampler.CalculateProbability();
-    }
-
-    private float CalculateProbability(float precision, int maxIterations, int windowSize, float z=1.96f)
-    {
-        List<float> slidingWindow = new List<float>();
-        for (int i = 0; i < windowSize - 1; i++)
-        {
-            slidingWindow.Add(CalculateProbability());
-        }
-        slidingWindow.Add(0f);
-        float ciWidth = 0f;
-        for(int i = windowSize - 1; i < maxIterations; i++)
-        {
-            slidingWindow[i % windowSize] = CalculateProbability();
-            float mean = slidingWindow.Average();
-            float std = Mathf.Sqrt(slidingWindow.Select(p => (p - mean) * (p - mean)).Average());
-
-            float standardError = std / Mathf.Sqrt(windowSize);
-            ciWidth = z * standardError;
-
-            if (ciWidth < slidingWindow[i % windowSize] * (1 - precision))
-            {
-                return slidingWindow[i % windowSize];
-            }
-        }
-        return slidingWindow[(maxIterations-1)%windowSize];
-    }
-
     private void DrawRandomEvents(int numberOfEvents)
     {
         ResetEventState();
@@ -150,9 +113,7 @@ public class InterviewManager : MonoBehaviour
 
     private void ResetEventState()
     {
-        sampler.ClearEvidence();
-        sampler.Reset();
-
+        calculator.Reset();
         hasSeason = false;
         eventCount = 0;
         evidenceCollected.Clear();
@@ -194,7 +155,7 @@ public class InterviewManager : MonoBehaviour
         lastEventDescription += description + "\n";
         evidenceCollected.Add(node.GetName());
 
-        sampler.AddToEvidence(node, eventOccurs);
+        calculator.AddToEvidence(node, eventOccurs);
         lastEventEvidence += eventOccurs ? "" : "¬";
         lastEventEvidence += node.GetAbriviation() + ",";
         eventCount++;
@@ -211,11 +172,11 @@ public class InterviewManager : MonoBehaviour
     {
         Debug.Log(lastEventEvidence);
         Debug.Log(lastEventAggression);
-        Debug.Log(CalculateProbability(0.98f, 15, 3));
+        Debug.Log(calculator.CalculateProbability(0.98f, 15, 3));
     }
     private float GetAlienProbability()
     {
         ResetEventState();
-        return CalculateProbability(0.995f, 50, 5, 2.576f);
+        return calculator.CalculateProbability(0.995f, 50, 5, 2.576f);
     }
 }
