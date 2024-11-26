@@ -56,28 +56,24 @@ public class InterviewManager : MonoBehaviour
     {
         stage++;
         stage %= numberOfStages;
+        Debug.Log(System.Environment.StackTrace);
         switch (stage)
         {
             case 0:
-                Debug.Log("Spawning interviewee");
                 intervieweeSpawner.SpawnInterviewee();
                 break;
             case 1:
-                Debug.Log("Prompting user");
                 DrawRandomEvents(3);
                 playerResponse = true;
                 Advance();
                 break;
             case 2:
-                Debug.Log("Despawning interviewee");
                 intervieweeSpawner.DespawnInterviewee();
                 break;
             case 3:
-                Debug.Log("Moving Time");
                 timestepManager.Step();
                 break;
             case 4:
-                Debug.Log("Recording events");
                 float eventProbability = calculator.CalculateProbability(0.98f, 15, 3);
                 recorder.AddEntry(lastEventEvidence, eventProbability, playerResponse, lastEventAggression);
                 break;
