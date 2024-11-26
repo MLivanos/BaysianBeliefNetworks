@@ -12,63 +12,57 @@ public class IntervieweeSpawner : MonoBehaviour
     [SerializeField] private AnimatorController animator;
     [SerializeField] private float speed;
     [SerializeField] private float rotationSpeed;
-    GameObject currentInterviewee;
+    private InterviewManager interviewManager;
+    private GameObject currentInterviewee;
+    private Animator intervieweeAnimator;
     private int currentWaypointIndex = 0;
     private float proximityCriterion = 0.05f;
-    private bool hasInterviewee;
 
-    private void Update()
+    public void Initialize(InterviewManager manager)
     {
-        if (!hasInterviewee)
-        {
-            SpawnInterviewee();
-        }
+        interviewManager = manager;
     }
 
     public void SpawnInterviewee()
     {
-        hasInterviewee = true;
         currentInterviewee = Instantiate(intervieweePrefabs[(int)Mathf.Round(Random.Range(0, intervieweePrefabs.Length-0.51f))], transform.position, transform.rotation);
         currentInterviewee.GetComponent<Animator>().runtimeAnimatorController = animator as RuntimeAnimatorController;
         currentInterviewee.GetComponent<Animator>().applyRootMotion = false;
-        StartCoroutine(SetupInterviewee());
+        intervieweeAnimator = currentInterviewee.GetComponent<Animator>();
+        StartCoroutine(SitAtBooth());
     }
 
-    private IEnumerator SetupInterviewee()
+    public void DespawnInterviewee()
     {
-        Animator animator = currentInterviewee.GetComponent<Animator>();
-
-        yield return SitAtBooth(animator);
-        yield return new WaitForSeconds(2.5f);
-        yield return LeaveBooth(animator);
-
-        Destroy(currentInterviewee);
-        hasInterviewee = false;
+        StartCoroutine(LeaveBooth());
     }
 
-    private IEnumerator SitAtBooth(Animator animator)
+    private IEnumerator SitAtBooth()
     {
-        animator.SetBool("isWalking", true);
+        intervieweeAnimator.SetBool("isWalking", true);
         currentWaypointIndex = 0;
         yield return StartCoroutine(MoveInterviewee(false));
-        animator.SetBool("isWalking", false);
+        intervieweeAnimator.SetBool("isWalking", false);
 
         yield return StartCoroutine(RotateToView(lookAheadNode.position));
 
-        yield return WaitForAnimationState(animator, "idleSit");
-        animator.SetBool("isSitting", true);
+        yield return WaitForAnimationState(intervieweeAnimator, "idleSit");
+        intervieweeAnimator.SetBool("isSitting", true);
+        interviewManager.Advance();
     }
 
-    private IEnumerator LeaveBooth(Animator animator)
+    private IEnumerator LeaveBooth()
     {
-        animator.SetBool("isSitting", false);
+        intervieweeAnimator.SetBool("isSitting", false);
         currentWaypointIndex -= 2;
-        yield return WaitForAnimationState(animator, "endSit");
+        yield return WaitForAnimationState(intervieweeAnimator, "endSit");
         yield return StartCoroutine(RotateToView(waypoints[currentWaypointIndex].position));
 
-        animator.SetBool("isWalking", true);
-        yield return WaitForAnimationState(animator, "walking");
+        intervieweeAnimator.SetBool("isWalking", true);
+        yield return WaitForAnimationState(intervieweeAnimator, "walking");
         yield return StartCoroutine(MoveInterviewee(true));
+        interviewManager.Advance();
+        Destroy(currentInterviewee);
     }
 
     private IEnumerator WaitForAnimationState(Animator animator, string stateName, int layer = 0)

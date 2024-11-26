@@ -23,13 +23,19 @@ public class RecorderEntry
 
 public class Recorder : MonoBehaviour
 {
-    private List<RecorderEntry> entries;
+    private InterviewManager interviewManager; 
+    private List<RecorderEntry> entries = new List<RecorderEntry>();
     private float alienProbability;
     private bool aliensReal;
     private bool aliensAggressive;
     private bool playerBelieves;
     private bool playerBelievesAggressive;
     private bool complete;
+
+    public void Initialize(InterviewManager manager)
+    {
+        interviewManager = manager;
+    }
 
     public void LogAlienProbability(float probability)
     {
@@ -40,6 +46,7 @@ public class Recorder : MonoBehaviour
     {
         RecorderEntry entry = new RecorderEntry(evidence, probability, probability >= alienProbability, response, aggressivity);
         entries.Add(entry);
+        interviewManager.Advance();
     }
 
     public void DetermineBehavior(float realityThreshold)
