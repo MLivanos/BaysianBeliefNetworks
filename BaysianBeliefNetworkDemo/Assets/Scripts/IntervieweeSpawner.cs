@@ -61,8 +61,8 @@ public class IntervieweeSpawner : MonoBehaviour
         intervieweeAnimator.SetBool("isWalking", true);
         yield return WaitForAnimationState(intervieweeAnimator, "walking");
         yield return StartCoroutine(MoveInterviewee(true));
-        interviewManager.Advance();
         Destroy(currentInterviewee);
+        interviewManager.Advance();
     }
 
     private IEnumerator WaitForAnimationState(Animator animator, string stateName, int layer = 0)
