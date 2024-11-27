@@ -33,16 +33,17 @@ public class InterviewManager : MonoBehaviour
     private List<NodeDescriptions> animalBehavior = new List<NodeDescriptions>();
     private List<List<NodeDescriptions>> nonSeasonEvents = new List<List<NodeDescriptions>>();
     private Graph graph;
+    private InterviewUIManager uiManager;
     private string lastEventDescription = "";
     private string lastEventEvidence = "";
     private bool lastEventAggression;
+    private bool lastEventBelieved;
     private bool hasSeason;
     private int eventCount = 0;
     private HashSet<string> evidenceCollected = new HashSet<string>();
     private int seasonIndex;
     private int stage=-1;
     private int numberOfStages = 5;
-    private bool playerResponse;
 
     private void Start()
     {
@@ -56,16 +57,15 @@ public class InterviewManager : MonoBehaviour
     {
         stage++;
         stage %= numberOfStages;
-        Debug.Log(System.Environment.StackTrace);
         switch (stage)
         {
             case 0:
                 intervieweeSpawner.SpawnInterviewee();
                 break;
             case 1:
-                DrawRandomEvents(3);
-                playerResponse = true;
-                Advance();
+                DrawRandomEvents(2);
+                uiManager.DisplayEyewitnessAccount(lastEventDescription);
+                uiManager.DisplayEvidence(lastEventEvidence);
                 break;
             case 2:
                 intervieweeSpawner.DespawnInterviewee();
@@ -75,7 +75,7 @@ public class InterviewManager : MonoBehaviour
                 break;
             case 4:
                 float eventProbability = calculator.CalculateProbability(0.98f, 15, 3);
-                recorder.AddEntry(lastEventEvidence, eventProbability, playerResponse, lastEventAggression);
+                recorder.AddEntry(lastEventEvidence, eventProbability, lastEventBelieved, lastEventAggression);
                 break;
             default:
                 break;
@@ -87,6 +87,11 @@ public class InterviewManager : MonoBehaviour
         graph = GameObject.Find("Graph").GetComponent<Graph>();
         calculator = GetComponent<InterviewCalculator>();
         recorder = GetComponent<Recorder>();
+        uiManager = GetComponent<InterviewUIManager>();
+        intervieweeSpawner.Initialize(this);
+        recorder.Initialize(this);
+        timestepManager.Initialize(this);
+        uiManager.Initialize(this);
     }
 
     private void PopulateEventDictionary()
@@ -121,9 +126,6 @@ public class InterviewManager : MonoBehaviour
         nonSeasonEvents = new List<List<NodeDescriptions>> {weather, consequences, humanActivity, animalBehavior};
         seasonIndex = nonSeasonEvents.Count;
         calculator.Initialize(graph.GetRootNodes(), eventIndices, graph.gameObject.GetComponent<LikelihoodWeightingSampler>());
-        intervieweeSpawner.Initialize(this);
-        recorder.Initialize(this);
-        timestepManager.Initialize(this);
         recorder.LogAlienProbability(GetAlienProbability());
     }
 
@@ -158,7 +160,6 @@ public class InterviewManager : MonoBehaviour
         AppendGreeting();
         GenerateRandomEvents(numberOfEvents);
         AddAggressionDescription();
-        LogEventDetails();
     }
 
     private void ResetEventState()
@@ -173,7 +174,7 @@ public class InterviewManager : MonoBehaviour
 
     private void AppendGreeting()
     {
-        lastEventDescription += greetings[GetRandomIndex(greetings)];
+        lastEventDescription += greetings[GetRandomIndex(greetings)] + "\n";
     }
 
     private void GenerateRandomEvents(int numberOfEvents)
@@ -186,6 +187,7 @@ public class InterviewManager : MonoBehaviour
             (Node node, string description) = DrawRandomEvent(eventType);
             AddEventToDescription(node, description, eventOccurs);
         }
+        lastEventEvidence = lastEventEvidence.Substring(0, lastEventEvidence.Length-1);
     }
 
     private bool DetermineIfEventOccurs(List<NodeDescriptions> eventType)
@@ -218,15 +220,14 @@ public class InterviewManager : MonoBehaviour
         lastEventDescription += relevantList[GetRandomIndex(relevantList)];
     }
 
-    private void LogEventDetails()
-    {
-        Debug.Log(lastEventEvidence);
-        Debug.Log(lastEventAggression);
-    }
-
     private float GetAlienProbability()
     {
         ResetEventState();
         return calculator.CalculateProbability(0.995f, 50, 5, 2.576f);
+    }
+
+    public void SetBelief(bool belief)
+    {
+        lastEventBelieved = belief;
     }
 }

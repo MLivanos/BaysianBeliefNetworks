@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1647753
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6318,7 +6318,7 @@ PrefabInstance:
     - target: {fileID: 6572116375759035472, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6572116375759035478, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
         type: 3}
@@ -7367,6 +7367,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7734169bb16ff4d85b2c176fef5eb4f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1086258972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1086258969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6341b0c251e3e48a8a621dde16567fd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eyewitnessAccountText: {fileID: 1349173957}
+  evidenceText: {fileID: 1386637135}
+  slideInBehavior: {fileID: 1100417654}
+  eyewitnessPanel: {fileID: 1647752}
 --- !u!1 &1091864831
 GameObject:
   m_ObjectHideFlags: 0
@@ -8515,7 +8531,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1250637105}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1086258972}
+        m_TargetAssemblyTypeName: InterviewUIManager, Assembly-CSharp
+        m_MethodName: SendBelief
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1250637105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8961,7 +8989,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You ask how my day was...
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a85a5fb20be32c74e8b4a078e736f5ab, type: 2}
   m_sharedMaterial: {fileID: -8262044034710385518, guid: a85a5fb20be32c74e8b4a078e736f5ab,
@@ -10115,7 +10143,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1446970985}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1086258972}
+        m_TargetAssemblyTypeName: InterviewUIManager, Assembly-CSharp
+        m_MethodName: SendBelief
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1446970985
 MonoBehaviour:
   m_ObjectHideFlags: 0
