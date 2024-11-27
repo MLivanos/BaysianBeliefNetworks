@@ -142,11 +142,12 @@ public class InterviewManager : MonoBehaviour
         return nonSeasonEvents[index];
     }
 
-    private (Node, string) DrawRandomEvent(List<NodeDescriptions> eventType)
+    private (Node, string) DrawRandomEvent(List<NodeDescriptions> eventType, bool occurs)
     {
         int index = GetRandomIndex(eventType);
-        int stringIndex = GetRandomIndex(eventType[index].eventDescriptions);
-        return (eventType[index].node, eventType[index].eventDescriptions[stringIndex]);
+        List<string> eventList = occurs ? eventType[index].eventDescriptions : eventType[index].eventNegationDescriptions; 
+        int stringIndex = GetRandomIndex(eventList);
+        return (eventType[index].node, eventList[stringIndex]);
     }
 
     private int GetRandomIndex<T>(List<T> l)
@@ -184,7 +185,7 @@ public class InterviewManager : MonoBehaviour
             List<NodeDescriptions> eventType = DrawRandomEventType(!hasSeason);
             bool eventOccurs = DetermineIfEventOccurs(eventType);
 
-            (Node node, string description) = DrawRandomEvent(eventType);
+            (Node node, string description) = DrawRandomEvent(eventType, eventOccurs);
             AddEventToDescription(node, description, eventOccurs);
         }
         lastEventEvidence = lastEventEvidence.Substring(0, lastEventEvidence.Length-1);
