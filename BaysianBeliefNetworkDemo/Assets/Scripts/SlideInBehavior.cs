@@ -17,8 +17,6 @@ public class SlideInBehavior : MonoBehaviour
 
         startPosition = SetStaticAxes(startPosition);
         endPosition = SetStaticAxes(endPosition);
-
-        objectTransform.position = startPosition;
     }
 
     private Vector3 SetStaticAxes(Vector3 position)
