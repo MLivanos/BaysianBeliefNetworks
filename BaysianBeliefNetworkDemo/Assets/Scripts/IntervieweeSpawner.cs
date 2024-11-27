@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEditor;
 using UnityEditor.Animations;
 
-public class IntervieweeSpawner : MonoBehaviour
+public class IntervieweeSpawner : InterviewEventSystem
 {
     [SerializeField] private GameObject[] intervieweePrefabs;
     [SerializeField] private Transform[] waypoints;
@@ -12,16 +12,10 @@ public class IntervieweeSpawner : MonoBehaviour
     [SerializeField] private AnimatorController animator;
     [SerializeField] private float speed;
     [SerializeField] private float rotationSpeed;
-    private InterviewManager interviewManager;
     private GameObject currentInterviewee;
     private Animator intervieweeAnimator;
     private int currentWaypointIndex = 0;
     private float proximityCriterion = 0.05f;
-
-    public void Initialize(InterviewManager manager)
-    {
-        interviewManager = manager;
-    }
 
     public void SpawnInterviewee()
     {

@@ -21,9 +21,8 @@ public class RecorderEntry
     }
 }
 
-public class Recorder : MonoBehaviour
+public class Recorder : InterviewEventSystem
 {
-    private InterviewManager interviewManager; 
     private List<RecorderEntry> entries = new List<RecorderEntry>();
     private float alienProbability;
     private bool aliensReal;
@@ -31,11 +30,6 @@ public class Recorder : MonoBehaviour
     private bool playerBelieves;
     private bool playerBelievesAggressive;
     private bool complete;
-
-    public void Initialize(InterviewManager manager)
-    {
-        interviewManager = manager;
-    }
 
     public void LogAlienProbability(float probability)
     {
