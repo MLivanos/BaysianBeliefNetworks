@@ -10,15 +10,12 @@ using TMPro;
 public class Graph : MonoBehaviour
 {
     [SerializeField] private GameManager gameManager;
-    [SerializeField] private GameObject graphUI;
     [SerializeField] private List<Node> rootNodes;
-    [SerializeField] private TMP_Text queryTextDisplay;
-    [SerializeField] private TMP_Text sampleInfo;
-    [SerializeField] private TMP_Text calculateText;
     [SerializeField] private GameObject gibbsOptions;
     [SerializeField] private GameObject hamiltonianOptions;
-    [SerializeField] private Slider progressBar;
+    [SerializeField] private GameObject graphUI;
     [SerializeField] private bool test;
+    private GraphUIManager graphUIManager;
     private Sampler currentSampler;
     private Sampler[] samplers;
     private string queryText;
@@ -28,7 +25,6 @@ public class Graph : MonoBehaviour
     private List<Node> positiveEvidence;
     private List<Node> negativeEvidence;
     bool isNegative;
-    bool hasTested;
     float lastProbability;
 
     private void Start()
@@ -43,6 +39,7 @@ public class Graph : MonoBehaviour
         samplers[1] = GetComponent<LikelihoodWeightingSampler>();
         samplers[2] = GetComponent<GibbsSampler>();
         samplers[3] = GetComponent<HamiltonianSampler>();
+        graphUIManager = GetComponent<GraphUIManager>();
 
         currentSampler = samplers[0];
     }
@@ -99,9 +96,10 @@ public class Graph : MonoBehaviour
         {
             isNegative = false;
         }
-        if (test && !hasTested)
+        if (test)
         {
-            TestGraph();
+            GetComponent<GraphTester>().TestGraph();
+            test = false;
         }
     }
 
@@ -112,36 +110,41 @@ public class Graph : MonoBehaviour
 
     public void AddToEvidence(Node node, VariableChecks checks)
     {
-        List<Node> relevantList = isNegative ? negativeEvidence : positiveEvidence;
-        relevantList.Add(node);
+        AddToEvidence(node, !isNegative);
         if (positiveQuery.Any(n => n == node) || negativeQuery.Any(n => n == node))
         {
             checks.SwitchQuery();
         }
-        // These samplers clamp evidence, so prior samples are invalid
+    }
+
+    public void AddToQuery(Node node, VariableChecks checks)
+    {
+        AddToQuery(node, !isNegative);
+        if (positiveEvidence.Any(n => n == node) || negativeEvidence.Any(n => n == node))
+        {
+            checks.SwitchEvidence();
+        }
+    }
+
+    public void AddToQuery(Node node, bool isTrue)
+    {
+        List<Node> relevantList = isTrue ? positiveQuery : negativeQuery;
+        relevantList.Add(node);
+        GetComponent<LikelihoodWeightingSampler>().Reset();
+    }
+
+    public void AddToEvidence(Node node, bool isTrue)
+    {
+        List<Node> relevantList = isTrue ? positiveEvidence : negativeEvidence;
+        relevantList.Add(node);
         GetComponent<LikelihoodWeightingSampler>().Reset();
         GetComponent<GibbsSampler>().Reset();
         GetComponent<HamiltonianSampler>().Reset();
     }
 
-    public void AddToQuery(Node node, VariableChecks checks)
-    {
-        List<Node> relevantList = isNegative ? negativeQuery : positiveQuery;
-        relevantList.Add(node);
-        if (positiveEvidence.Any(n => n == node) || negativeEvidence.Any(n => n == node))
-        {
-            checks.SwitchEvidence();
-        }
-        GetComponent<LikelihoodWeightingSampler>().Reset();
-    }
-
     public void RemoveFromEvidence(Node node)
     {
-        List<Node> relevantList = positiveEvidence;
-        if (negativeEvidence.Any(n => n == node))
-        {
-            relevantList = negativeEvidence;
-        }
+        List<Node> relevantList = negativeEvidence.Any(n => n == node) ? negativeEvidence : positiveEvidence;
         relevantList.Remove(node);
         GetComponent<LikelihoodWeightingSampler>().Reset();
         GetComponent<GibbsSampler>().Reset();
@@ -150,62 +153,9 @@ public class Graph : MonoBehaviour
 
     public void RemoveFromQuery(Node node)
     {
-        List<Node> relevantList = positiveQuery;
-        if (negativeQuery.Any(n => n == node))
-        {
-            relevantList = negativeQuery;
-        }
+        List<Node> relevantList = negativeQuery.Any(n => n == node) ? negativeQuery : positiveQuery;
         relevantList.Remove(node);
         GetComponent<LikelihoodWeightingSampler>().Reset();
-    }
-
-    public void UpdateText(float probabilityValue=-1.0f)
-    {
-        if (queryTextDisplay == null)
-        {
-            queryTextDisplay = GameObject.Find("QueryText").GetComponent<TMP_Text>();
-        }
-        queryText = "P(";
-        queryText += GetPartialQuery(positiveQuery);
-        if (positiveQuery.Count > 0 && negativeQuery.Count > 0)
-        {
-            queryText += ",";
-        }
-        queryText += GetPartialQuery(negativeQuery, true);
-        if (positiveEvidence.Count + negativeEvidence.Count > 0)
-        {
-            queryText += "|";
-        }
-        queryText += GetPartialQuery(positiveEvidence);
-        if (positiveEvidence.Count > 0 && negativeEvidence.Count > 0)
-        {
-            queryText += ",";
-        }
-        queryText += GetPartialQuery(negativeEvidence, true);
-        queryText += ")";
-        if (probabilityValue >= 0.0f)
-        {
-            queryText += "≈" + probabilityValue.ToString("0.00000");
-        }
-        queryTextDisplay.text = queryText;
-    }
-
-    private string GetPartialQuery(List<Node> nodeList, bool isNegative=false)
-    {
-        string queryText = "";
-        for(int i=0; i < nodeList.Count; i++)
-        {
-            if (isNegative)
-            {
-                queryText += "¬";
-            }
-            queryText += nodeList[i].GetAbriviation();
-            if (i < nodeList.Count - 1)
-            {
-                queryText += ",";
-            }
-        }
-        return queryText;
     }
 
     public void Sample()
@@ -218,13 +168,11 @@ public class Graph : MonoBehaviour
     private IEnumerator RunSamples()
     {
         float startTime = Time.realtimeSinceStartup;
-        progressBar.gameObject.SetActive(true);
-        queryTextDisplay.gameObject.SetActive(false);
-        calculateText.text = "Stop";
+        graphUIManager.DisplayProgressBar();
         Coroutine samples = StartCoroutine(currentSampler.RunSamples());
         while (currentSampler.Busy())
         {
-            progressBar.value = currentSampler.GetProgress();
+            graphUIManager.UpdateProgressBar(currentSampler.GetProgress());
             yield return null;
         }
         float timeElapsed = Time.realtimeSinceStartup - startTime;
@@ -232,28 +180,12 @@ public class Graph : MonoBehaviour
         lastProbability = probability;
         currentSampler.AddTime(timeElapsed);
         gameManager.UpdateTimer(-timeElapsed);
-        UpdateUI();
+        graphUIManager.UpdateUI(currentSampler.GetNumberOfSamples(), currentSampler.GetNumberOfAcceptedSamples(), currentSampler.GetTimeElapsed());
     }
 
-    private void UpdateUI()
+    public void UpdateText(float probability=-1f)
     {
-        progressBar.gameObject.SetActive(false);
-        queryTextDisplay.gameObject.SetActive(true);
-        calculateText.text = "Calculate";
-        int numberOfSamples = currentSampler.GetNumberOfSamples();
-        int numberOfAcceptedSamples = currentSampler.GetNumberOfAcceptedSamples();
-        float acceptanceRatio = 100f * numberOfAcceptedSamples / numberOfSamples;
-        float timeElapsed = currentSampler.GetTimeElapsed();
-
-        string sampleInfoText = string.Format(
-            "{0}\n{1} ({2:F2}%)\n{3:F2}s",
-            numberOfSamples,
-            numberOfAcceptedSamples,
-            acceptanceRatio,
-            timeElapsed
-        );
-        sampleInfo.text = sampleInfoText;
-        UpdateText(lastProbability);
+        graphUIManager.UpdateText(probability);
     }
 
     public void ChangeSampler(int index)
@@ -291,6 +223,11 @@ public class Graph : MonoBehaviour
         }
     }
 
+    public float GetLastProbability()
+    {
+        return lastProbability;
+    }
+
     public bool[] VisualizeSample()
     {
         GibbsSampler sampler = GetComponent<GibbsSampler>();
@@ -305,67 +242,13 @@ public class Graph : MonoBehaviour
         return allNodes;
     }
 
-    private void TestGraph()
-    {
-        foreach (Node node in allNodes)
-        {
-            Debug.Log("=======");
-            Debug.Log("Testing node: " + node.name);
-            // Test all combinations of true/false for each parent
-            List<Node> parents = node.GetParents().ToList();
-            positiveQuery.Add(node);
-            TestNodeWithAllParentCombinations(node, parents, new Dictionary<Node, bool>(), 0);
-            positiveQuery.Clear();
-            Debug.Log("=======");
-        }
-        hasTested = true;
-    }
-
-    // Recursive function to test all combinations of parent values
-    private void TestNodeWithAllParentCombinations(Node node, List<Node> parents, Dictionary<Node, bool> evidence, int parentIndex)
-    {
-        if (parentIndex == parents.Count)
-        {
-            // All parents have been assigned a true/false value, now test this combination
-            foreach (var kvp in evidence)
-            {
-                if (kvp.Value)
-                {
-                    positiveEvidence.Add(kvp.Key);
-                }
-                else
-                {
-                    negativeEvidence.Add(kvp.Key);
-                }
-                Debug.Log($"Given: {(kvp.Value ? "" : "Not ")}{kvp.Key.GetName()}");
-            }
-
-            // Sample the probability with this evidence combination
-            Sample();
-            Debug.Log($"P({node.name}) = {lastProbability}");
-
-            // Clear evidence for next combination
-            positiveEvidence.Clear();
-            negativeEvidence.Clear();
-        }
-        else
-        {
-            // For each parent, recursively assign true/false and test
-            Node currentParent = parents[parentIndex];
-
-            // Set current parent to true
-            evidence[currentParent] = true;
-            TestNodeWithAllParentCombinations(node, parents, evidence, parentIndex + 1);
-
-            // Set current parent to false
-            evidence[currentParent] = false;
-            TestNodeWithAllParentCombinations(node, parents, evidence, parentIndex + 1);
-        }
-    }
-
     public void ClearGraph()
     {
         UncheckAllCheckboxes(graphUI);
+        positiveQuery.Clear();
+        negativeQuery.Clear();
+        positiveEvidence.Clear();
+        negativeEvidence.Clear();
     }
 
     private void UncheckAllCheckboxes(GameObject root)
@@ -391,4 +274,28 @@ public class Graph : MonoBehaviour
         return order;
     }
 
+    public Dictionary<string, int> AssignIndices()
+    {
+        Dictionary<string, int> nodeOrder = GetNodeOrder();
+        Dictionary<string, int> eventIndices = new Dictionary<string, int>
+        {
+            { "Winter", nodeOrder["WinterNode"] },
+            { "Spring", nodeOrder["SpringNode"] },
+            { "Summer", nodeOrder["SummerNode"] },
+            { "Fall", nodeOrder["FallNode"] },
+            { "APD", nodeOrder["AtmosphericPressureDropNode"] },
+            { "Cloudy", nodeOrder["CloudNode"] },
+            { "Rain", nodeOrder["RainNode"] },
+            { "Wind", nodeOrder["HighWindNode"] },
+            { "Power", nodeOrder["PowerOutageNode"] },
+            { "Tree", nodeOrder["TreeNode"] },
+            { "Busy", nodeOrder["BusyNode"] },
+            { "Thunder", nodeOrder["ThunderNode"] },
+            { "Cafe", nodeOrder["CafeNode"] },
+            { "Alien", nodeOrder["AlienNode"] },
+            { "Dog", nodeOrder["DogNode"] },
+            { "Cat", nodeOrder["CatNode"] }
+        };
+        return eventIndices;
+    }
 }

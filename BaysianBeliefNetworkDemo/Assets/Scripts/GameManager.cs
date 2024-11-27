@@ -8,21 +8,30 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject warningPanel;
     [SerializeField] private CircularProgressBar timeLimit;
     [SerializeField] private float[] difficultyTimes;
-    private int difficulty;
+    private static int difficulty = -1;
+    private static float timeProgress;
 
     private void Start()
     {
+        if (difficulty > 1)
+        {
+            timeLimit.UpdateProgress(timeProgress);
+        }
         DontDestroyOnLoad(gameObject);
     }
 
     public void UpdateTimer(float decrement)
     {
-        if (timeLimit.gameObject.activeSelf) timeLimit.IncrementProgress(decrement);
+        if (timeLimit.gameObject.activeSelf)
+        {
+            timeLimit.IncrementProgress(decrement);
+            timeProgress = timeLimit.GetProgress();
+        }
     }
 
     public void PromptGameMode()
     {
-        difficultySettings.SetActive(true);
+        if (difficulty == -1) difficultySettings.SetActive(true);
     }
 
     public void ChangeGamemode(int gamemodeNumber)
