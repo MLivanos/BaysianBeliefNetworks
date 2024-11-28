@@ -18,6 +18,7 @@ public class NodeHighlight : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 {
     [SerializeField] private EdgeHighlightSettings[] edgeHighlightSettings = new EdgeHighlightSettings[1];
     [SerializeField] private List<Image> markovBlanket;
+    [SerializeField] private GameObject legend;
     [SerializeField] private Color incomingPulseColor = Color.white;
     [SerializeField] private Color outgoingPulseColor = Color.white;
     [SerializeField] private float pulseSpeed = 1.5f;
@@ -48,11 +49,9 @@ public class NodeHighlight : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        isHighlighted = true;
-        highlight.SetActive(true);
-
+        ToggleObjects(true);
+        
         pulseCoroutines.Add(StartCoroutine(Pulse(new Color(1f,1f,1f,0.69f), new Color(1f,1f,1f,0.1f), markovBlanket, 1)));
-
         foreach (EdgeHighlightSettings settings in edgeHighlightSettings)
         {
             pulseCoroutines.Add(StartCoroutine(Pulse(baseArrowColor, incomingPulseColor, settings.incoming, settings.generation)));
@@ -62,8 +61,8 @@ public class NodeHighlight : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        isHighlighted = false;
-        highlight.SetActive(false);
+        ToggleObjects(false);
+
         foreach (Coroutine routine in pulseCoroutines)
         {
             StopCoroutine(routine);
@@ -74,6 +73,13 @@ public class NodeHighlight : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         {
             markovHighlight.color = Color.clear;
         }
+    }
+
+    private void ToggleObjects(bool toggleOn)
+    {
+        isHighlighted = toggleOn;
+        highlight.SetActive(toggleOn);
+        legend.SetActive(toggleOn);
     }
 
     private void ResetArrowColors()
