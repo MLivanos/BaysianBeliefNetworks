@@ -51,7 +51,7 @@ public class NodeHighlight : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         isHighlighted = true;
         highlight.SetActive(true);
 
-        pulseCoroutines.Add(StartCoroutine(Pulse(Color.white, new Color(1f,1f,1f,0.1f), markovBlanket, 1)));
+        pulseCoroutines.Add(StartCoroutine(Pulse(new Color(1f,1f,1f,0.69f), new Color(1f,1f,1f,0.1f), markovBlanket, 1)));
 
         foreach (EdgeHighlightSettings settings in edgeHighlightSettings)
         {
