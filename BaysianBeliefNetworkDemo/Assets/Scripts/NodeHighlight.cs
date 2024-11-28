@@ -17,6 +17,7 @@ public class EdgeHighlightSettings
 public class NodeHighlight : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private EdgeHighlightSettings[] edgeHighlightSettings = new EdgeHighlightSettings[1];
+    [SerializeField] private List<Image> markovBlanket;
     [SerializeField] private Color incomingPulseColor = Color.white;
     [SerializeField] private Color outgoingPulseColor = Color.white;
     [SerializeField] private float pulseSpeed = 1.5f;
@@ -49,10 +50,13 @@ public class NodeHighlight : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     {
         isHighlighted = true;
         highlight.SetActive(true);
+
+        pulseCoroutines.Add(StartCoroutine(Pulse(Color.white, new Color(1f,1f,1f,0.1f), markovBlanket, 1)));
+
         foreach (EdgeHighlightSettings settings in edgeHighlightSettings)
         {
-            pulseCoroutines.Add(StartCoroutine(PulseArrows(incomingPulseColor, settings.incoming, settings.generation)));
-            pulseCoroutines.Add(StartCoroutine(PulseArrows(outgoingPulseColor, settings.outgoing, settings.generation)));
+            pulseCoroutines.Add(StartCoroutine(Pulse(baseArrowColor, incomingPulseColor, settings.incoming, settings.generation)));
+            pulseCoroutines.Add(StartCoroutine(Pulse(baseArrowColor, outgoingPulseColor, settings.outgoing, settings.generation)));
         }
     }
 
@@ -66,6 +70,10 @@ public class NodeHighlight : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         }
         ResetArrowColors();
         ResetArrowColors();
+        foreach (Image markovHighlight in markovBlanket)
+        {
+            markovHighlight.color = Color.clear;
+        }
     }
 
     private void ResetArrowColors()
@@ -80,7 +88,21 @@ public class NodeHighlight : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         }
     }
 
-    private IEnumerator PulseArrows(Color pulseColor, List<RawImage> arrows, int generation)
+    private IEnumerator Pulse(Color baseColor, Color pulseColor, List<Image> imageList, int generation)
+    {
+        List<MaskableGraphic> elements = new List<MaskableGraphic>();
+        elements.AddRange(imageList);
+        yield return Pulse(baseColor, pulseColor, elements, generation);
+    }
+
+    private IEnumerator Pulse(Color baseColor, Color pulseColor, List<RawImage> imageList, int generation)
+    {
+        List<MaskableGraphic> elements = new List<MaskableGraphic>();
+        elements.AddRange(imageList);
+        yield return Pulse(baseColor, pulseColor, elements, generation);
+    }
+
+    private IEnumerator Pulse(Color baseColor, Color pulseColor, List<MaskableGraphic> elements, int generation)
     {
         while (isHighlighted)
         {
@@ -88,10 +110,10 @@ public class NodeHighlight : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
             while (elapsedTime < pulseSpeed)
             {
                 float t = Mathf.PingPong(elapsedTime, pulseSpeed/2);
-                Color lerpedColor = Color.Lerp(baseArrowColor, pulseColor, t/generation);
-                foreach (RawImage arrow in arrows)
+                Color lerpedColor = Color.Lerp(baseColor, pulseColor, t/generation);
+                foreach (MaskableGraphic element in elements)
                 {
-                    arrow.color = lerpedColor;
+                    element.color = lerpedColor;
                 }
                 elapsedTime += Time.deltaTime;
                 yield return null;
