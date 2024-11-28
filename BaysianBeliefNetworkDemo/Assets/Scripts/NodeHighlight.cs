@@ -17,8 +17,6 @@ public class EdgeHighlightSettings
 public class NodeHighlight : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private EdgeHighlightSettings[] edgeHighlightSettings = new EdgeHighlightSettings[1];
-    [SerializeField] private GameObject[] incomingArrowObjects;
-    [SerializeField] private GameObject[] outgoingArrowObjects;
     [SerializeField] private Color incomingPulseColor = Color.white;
     [SerializeField] private Color outgoingPulseColor = Color.white;
     [SerializeField] private float pulseSpeed = 1.5f;
@@ -26,29 +24,15 @@ public class NodeHighlight : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     private Color baseArrowColor;
     private Color baseLineColor;
     private GameObject highlight;
-    private List<RawImage> incomingArrows = new List<RawImage>();
-    private List<RawImage> outgoingArrows = new List<RawImage>();
     private List<Coroutine> pulseCoroutines = new List<Coroutine>();
     private bool isHighlighted = false;
 
     private void Start()
     {
-        AddChildrenToList(incomingArrowObjects, incomingArrows);
-        AddChildrenToList(outgoingArrowObjects, outgoingArrows);
         highlight = transform.Find("Highlight").gameObject;
         highlight.SetActive(false);
         baseArrowColor = new Color(0.012f, 0.894f, 1f, 1f);
         baseLineColor = new Color(0.012f, 0.894f, 1f, 0.784f);
-        Transfer();
-    }
-
-    private void Transfer()
-    {
-        EdgeHighlightSettings nhs = new EdgeHighlightSettings();
-        nhs.incoming = incomingArrows;
-        nhs.outgoing = outgoingArrows;
-        nhs.generation = 1;
-        edgeHighlightSettings[0] = nhs;
     }
 
     private void AddChildrenToList(GameObject[] arrowObjects, List<RawImage> arrowList)
