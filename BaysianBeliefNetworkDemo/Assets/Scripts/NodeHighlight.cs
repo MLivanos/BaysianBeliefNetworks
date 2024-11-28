@@ -1,13 +1,24 @@
+using System;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
+[Serializable]
+public class EdgeHighlightSettings
+{
+    public List<RawImage> incoming;
+    public List<RawImage> outgoing;
+    public int generation = 1;
+}
+
 public class NodeHighlight : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    [SerializeField] private GameObject[] incomingArrowObjects;
-    [SerializeField] private GameObject[] outgoingArrowObjects;
+    [SerializeField] private EdgeHighlightSettings[] edgeHighlightSettings = new EdgeHighlightSettings[1];
+    [SerializeField] private List<Image> markovBlanket;
+    [SerializeField] private GameObject legend;
     [SerializeField] private Color incomingPulseColor = Color.white;
     [SerializeField] private Color outgoingPulseColor = Color.white;
     [SerializeField] private float pulseSpeed = 1.5f;
@@ -15,15 +26,11 @@ public class NodeHighlight : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     private Color baseArrowColor;
     private Color baseLineColor;
     private GameObject highlight;
-    private List<RawImage> incomingArrows = new List<RawImage>();
-    private List<RawImage> outgoingArrows = new List<RawImage>();
-    private Coroutine[] pulseCoroutines = new Coroutine[2];
+    private List<Coroutine> pulseCoroutines = new List<Coroutine>();
     private bool isHighlighted = false;
 
     private void Start()
     {
-        AddChildrenToList(incomingArrowObjects, incomingArrows);
-        AddChildrenToList(outgoingArrowObjects, outgoingArrows);
         highlight = transform.Find("Highlight").gameObject;
         highlight.SetActive(false);
         baseArrowColor = new Color(0.012f, 0.894f, 1f, 1f);
@@ -42,36 +49,66 @@ public class NodeHighlight : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        isHighlighted = true;
-        highlight.SetActive(true);
-        pulseCoroutines[0] = StartCoroutine(PulseArrows(incomingPulseColor, incomingArrows));
-        pulseCoroutines[1] = StartCoroutine(PulseArrows(outgoingPulseColor, outgoingArrows));
+        ToggleObjects(true);
+        
+        pulseCoroutines.Add(StartCoroutine(Pulse(new Color(1f,1f,1f,0.69f), new Color(1f,1f,1f,0.1f), markovBlanket, 1)));
+        foreach (EdgeHighlightSettings settings in edgeHighlightSettings)
+        {
+            pulseCoroutines.Add(StartCoroutine(Pulse(baseArrowColor, incomingPulseColor, settings.incoming, settings.generation)));
+            pulseCoroutines.Add(StartCoroutine(Pulse(baseArrowColor, outgoingPulseColor, settings.outgoing, settings.generation)));
+        }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        isHighlighted = false;
-        highlight.SetActive(false);
-        StopCoroutine(pulseCoroutines[0]);
-        StopCoroutine(pulseCoroutines[1]);
-        ResetArrowColors(incomingArrows);
-        ResetArrowColors(outgoingArrows);
+        ToggleObjects(false);
+
+        foreach (Coroutine routine in pulseCoroutines)
+        {
+            StopCoroutine(routine);
+        }
+        ResetArrowColors();
+        ResetArrowColors();
+        foreach (Image markovHighlight in markovBlanket)
+        {
+            markovHighlight.color = Color.clear;
+        }
     }
 
-    private void ResetArrowColors(List<RawImage> arrows)
+    private void ToggleObjects(bool toggleOn)
     {
-        foreach (RawImage element in arrows)
+        isHighlighted = toggleOn;
+        highlight.SetActive(toggleOn);
+        legend.SetActive(toggleOn);
+    }
+
+    private void ResetArrowColors()
+    {
+        foreach (EdgeHighlightSettings settings in edgeHighlightSettings)
         {
-            if(element.gameObject.name == "Line"){
-                element.color = baseLineColor;
-            }
-            else{
-                element.color = baseArrowColor;
+            foreach (RawImage element in (settings.incoming).Concat(settings.outgoing).ToList())
+            {
+                if(element.gameObject.name == "Line") element.color = baseLineColor;
+                else element.color = baseArrowColor;
             }
         }
     }
 
-    private IEnumerator PulseArrows(Color pulseColor, List<RawImage> arrows)
+    private IEnumerator Pulse(Color baseColor, Color pulseColor, List<Image> imageList, int generation)
+    {
+        List<MaskableGraphic> elements = new List<MaskableGraphic>();
+        elements.AddRange(imageList);
+        yield return Pulse(baseColor, pulseColor, elements, generation);
+    }
+
+    private IEnumerator Pulse(Color baseColor, Color pulseColor, List<RawImage> imageList, int generation)
+    {
+        List<MaskableGraphic> elements = new List<MaskableGraphic>();
+        elements.AddRange(imageList);
+        yield return Pulse(baseColor, pulseColor, elements, generation);
+    }
+
+    private IEnumerator Pulse(Color baseColor, Color pulseColor, List<MaskableGraphic> elements, int generation)
     {
         while (isHighlighted)
         {
@@ -79,10 +116,10 @@ public class NodeHighlight : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
             while (elapsedTime < pulseSpeed)
             {
                 float t = Mathf.PingPong(elapsedTime, pulseSpeed/2);
-                Color lerpedColor = Color.Lerp(baseArrowColor, pulseColor, t);
-                foreach (RawImage arrow in arrows)
+                Color lerpedColor = Color.Lerp(baseColor, pulseColor, t/generation);
+                foreach (MaskableGraphic element in elements)
                 {
-                    arrow.color = lerpedColor;
+                    element.color = lerpedColor;
                 }
                 elapsedTime += Time.deltaTime;
                 yield return null;
