@@ -1613,12 +1613,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!1 &33127923 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7246226903703482687, guid: 9cbd09b4c649b46139e2f71101452362,
-    type: 3}
-  m_PrefabInstance: {fileID: 6957359023563210399}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &36246051
 GameObject:
   m_ObjectHideFlags: 0
@@ -3363,12 +3357,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 78573169}
   m_CullTransparentMesh: 1
---- !u!1 &81458763 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7246226903703482687, guid: 9cbd09b4c649b46139e2f71101452362,
-    type: 3}
-  m_PrefabInstance: {fileID: 654076990}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &83592899
 GameObject:
   m_ObjectHideFlags: 0
@@ -5234,12 +5222,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 115555548}
   m_CullTransparentMesh: 1
---- !u!1 &116533997 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7246226903703482687, guid: 9cbd09b4c649b46139e2f71101452362,
-    type: 3}
-  m_PrefabInstance: {fileID: 709904380}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &116899041
 GameObject:
   m_ObjectHideFlags: 0
@@ -5641,12 +5623,6 @@ RectTransform:
   m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &127406240 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7246226903703482687, guid: 9cbd09b4c649b46139e2f71101452362,
-    type: 3}
-  m_PrefabInstance: {fileID: 21817768}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &128611146
 GameObject:
   m_ObjectHideFlags: 0
@@ -9034,10 +9010,19 @@ MonoBehaviour:
     - {fileID: 497901459}
     - {fileID: 1906575248}
     generation: 1
-  incomingArrowObjects: []
-  outgoingArrowObjects:
-  - {fileID: 1549787567}
-  - {fileID: 1610448016}
+  - incoming: []
+    outgoing:
+    - {fileID: 454359455}
+    - {fileID: 145858131}
+    - {fileID: 1695485074}
+    - {fileID: 1500237363}
+    - {fileID: 666271756}
+    - {fileID: 413858481}
+    - {fileID: 1770405674}
+    - {fileID: 1972868443}
+    - {fileID: 1571586245}
+    - {fileID: 289227877}
+    generation: 2
   incomingPulseColor: {r: 0.85490197, g: 0.64705884, b: 0.1254902, a: 1}
   outgoingPulseColor: {r: 0, g: 0, b: 1, a: 1}
   pulseSpeed: 2
@@ -9496,12 +9481,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &220172775 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7246226903703482687, guid: 9cbd09b4c649b46139e2f71101452362,
-    type: 3}
-  m_PrefabInstance: {fileID: 486339478}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &222274338
 GameObject:
   m_ObjectHideFlags: 0
@@ -9763,12 +9742,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 223681560}
   m_CullTransparentMesh: 1
---- !u!1 &226477630 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7246226903703482687, guid: 9cbd09b4c649b46139e2f71101452362,
-    type: 3}
-  m_PrefabInstance: {fileID: 728173111}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &228890954 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4465845015412069258, guid: 9cbd09b4c649b46139e2f71101452362,
@@ -11525,12 +11498,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 271899026}
   m_CullTransparentMesh: 1
---- !u!1 &273642943 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7246226903703482687, guid: 9cbd09b4c649b46139e2f71101452362,
-    type: 3}
-  m_PrefabInstance: {fileID: 1607149527}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &273978600
 GameObject:
   m_ObjectHideFlags: 0
@@ -12677,13 +12644,21 @@ MonoBehaviour:
     - {fileID: 2081301949}
     - {fileID: 1023184052}
     generation: 1
-  incomingArrowObjects:
-  - {fileID: 33127923}
-  - {fileID: 823394967}
-  outgoingArrowObjects:
-  - {fileID: 842707629}
-  - {fileID: 116533997}
-  - {fileID: 448485291}
+  - incoming:
+    - {fileID: 749440619}
+    - {fileID: 1355673000}
+    outgoing:
+    - {fileID: 1284690190}
+    - {fileID: 1094457199}
+    - {fileID: 662270874}
+    - {fileID: 510284304}
+    - {fileID: 1985404060}
+    - {fileID: 256956497}
+    - {fileID: 904378595}
+    - {fileID: 290430756}
+    - {fileID: 929682119}
+    - {fileID: 479222545}
+    generation: 2
   incomingPulseColor: {r: 0.85490197, g: 0.64705884, b: 0.1254902, a: 1}
   outgoingPulseColor: {r: 0, g: 0, b: 1, a: 1}
   pulseSpeed: 2
@@ -14370,12 +14345,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &338409627 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7246226903703482687, guid: 9cbd09b4c649b46139e2f71101452362,
-    type: 3}
-  m_PrefabInstance: {fileID: 1905810592}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &338545131
 GameObject:
   m_ObjectHideFlags: 0
@@ -19931,12 +19900,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!1 &448485291 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7246226903703482687, guid: 9cbd09b4c649b46139e2f71101452362,
-    type: 3}
-  m_PrefabInstance: {fileID: 57270052}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &450120598
 GameObject:
   m_ObjectHideFlags: 0
@@ -20754,10 +20717,13 @@ MonoBehaviour:
     - {fileID: 1770405674}
     - {fileID: 1972868443}
     generation: 1
-  incomingArrowObjects:
-  - {fileID: 1499425547}
-  outgoingArrowObjects:
-  - {fileID: 715708624}
+  - incoming:
+    - {fileID: 497901459}
+    - {fileID: 1906575248}
+    outgoing:
+    - {fileID: 706994969}
+    - {fileID: 1921314066}
+    generation: 2
   incomingPulseColor: {r: 0.85490197, g: 0.64705884, b: 0.1254902, a: 1}
   outgoingPulseColor: {r: 0, g: 0, b: 1, a: 1}
   pulseSpeed: 2
@@ -23379,12 +23345,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 518390649}
   m_CullTransparentMesh: 1
---- !u!1 &519263495 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7246226903703482687, guid: 9cbd09b4c649b46139e2f71101452362,
-    type: 3}
-  m_PrefabInstance: {fileID: 698789695}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519467789
 GameObject:
   m_ObjectHideFlags: 0
@@ -25844,14 +25804,29 @@ MonoBehaviour:
     - {fileID: 1985404060}
     - {fileID: 256956497}
     generation: 1
-  incomingArrowObjects:
-  - {fileID: 273642943}
-  - {fileID: 1694595172}
-  - {fileID: 116533997}
-  - {fileID: 81458763}
-  outgoingArrowObjects:
-  - {fileID: 127406240}
-  - {fileID: 519263495}
+  - incoming:
+    - {fileID: 749440619}
+    - {fileID: 1355673000}
+    - {fileID: 963030738}
+    - {fileID: 1683924343}
+    - {fileID: 1643614814}
+    - {fileID: 219538887}
+    - {fileID: 1373113280}
+    - {fileID: 261059682}
+    - {fileID: 1194534730}
+    - {fileID: 1438422896}
+    - {fileID: 1841802054}
+    - {fileID: 228890954}
+    outgoing:
+    - {fileID: 454359455}
+    - {fileID: 145858131}
+    - {fileID: 1695485074}
+    - {fileID: 1500237363}
+    - {fileID: 285651269}
+    - {fileID: 1721773011}
+    - {fileID: 1571586245}
+    - {fileID: 289227877}
+    generation: 2
   incomingPulseColor: {r: 0.85490197, g: 0.64705884, b: 0.1254902, a: 1}
   outgoingPulseColor: {r: 0, g: 0, b: 1, a: 1}
   pulseSpeed: 2
@@ -33634,12 +33609,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 710610550}
   m_CullTransparentMesh: 1
---- !u!1 &715708624 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7246226903703482687, guid: 9cbd09b4c649b46139e2f71101452362,
-    type: 3}
-  m_PrefabInstance: {fileID: 1502229638}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &715993084
 GameObject:
   m_ObjectHideFlags: 0
@@ -35075,12 +35044,19 @@ MonoBehaviour:
     - {fileID: 1284690190}
     - {fileID: 1094457199}
     generation: 1
-  incomingArrowObjects:
-  - {fileID: 1945922545}
-  - {fileID: 1850924648}
-  - {fileID: 842707629}
-  outgoingArrowObjects:
-  - {fileID: 81458763}
+  - incoming:
+    - {fileID: 749440619}
+    - {fileID: 1355673000}
+    - {fileID: 963030738}
+    - {fileID: 1683924343}
+    - {fileID: 1373113280}
+    - {fileID: 261059682}
+    outgoing:
+    - {fileID: 662270874}
+    - {fileID: 510284304}
+    - {fileID: 1985404060}
+    - {fileID: 256956497}
+    generation: 2
   incomingPulseColor: {r: 0.85490197, g: 0.64705884, b: 0.1254902, a: 1}
   outgoingPulseColor: {r: 0, g: 0, b: 1, a: 1}
   pulseSpeed: 2
@@ -38196,12 +38172,6 @@ RectTransform:
   m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &823394967 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7246226903703482687, guid: 9cbd09b4c649b46139e2f71101452362,
-    type: 3}
-  m_PrefabInstance: {fileID: 1997336941}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &824211329
 GameObject:
   m_ObjectHideFlags: 0
@@ -39275,12 +39245,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 0
---- !u!1 &842707629 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7246226903703482687, guid: 9cbd09b4c649b46139e2f71101452362,
-    type: 3}
-  m_PrefabInstance: {fileID: 708620470}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &843480214
 GameObject:
   m_ObjectHideFlags: 0
@@ -42777,11 +42741,15 @@ MonoBehaviour:
     - {fileID: 706994969}
     - {fileID: 1921314066}
     generation: 1
-  incomingArrowObjects:
-  - {fileID: 1010703904}
-  - {fileID: 715708624}
-  outgoingArrowObjects:
-  - {fileID: 226477630}
+  - incoming:
+    - {fileID: 662270874}
+    - {fileID: 510284304}
+    - {fileID: 1005619820}
+    - {fileID: 423981005}
+    - {fileID: 1033029650}
+    - {fileID: 543435522}
+    outgoing: []
+    generation: 2
   incomingPulseColor: {r: 0.85490197, g: 0.64705884, b: 0.1254902, a: 1}
   outgoingPulseColor: {r: 0, g: 0, b: 1, a: 1}
   pulseSpeed: 2
@@ -43880,11 +43848,23 @@ MonoBehaviour:
     - {fileID: 285651269}
     - {fileID: 1721773011}
     generation: 1
-  incomingArrowObjects:
-  - {fileID: 220172775}
-  - {fileID: 519263495}
-  outgoingArrowObjects:
-  - {fileID: 1814166215}
+  - incoming:
+    - {fileID: 990540132}
+    - {fileID: 1449457408}
+    - {fileID: 2072207386}
+    - {fileID: 558092175}
+    - {fileID: 15021957}
+    - {fileID: 1969400500}
+    - {fileID: 1284690190}
+    - {fileID: 1094457199}
+    - {fileID: 2081301949}
+    - {fileID: 1023184052}
+    - {fileID: 1695485074}
+    - {fileID: 1500237363}
+    outgoing:
+    - {fileID: 436044286}
+    - {fileID: 299172761}
+    generation: 2
   incomingPulseColor: {r: 0.85490197, g: 0.64705884, b: 0.1254902, a: 1}
   outgoingPulseColor: {r: 0, g: 0, b: 1, a: 1}
   pulseSpeed: 2
@@ -46257,12 +46237,6 @@ RectTransform:
   m_AnchoredPosition: {x: -37.500122, y: -150.49689}
   m_SizeDelta: {x: 727.5, y: 187.50003}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1010703904 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7246226903703482687, guid: 9cbd09b4c649b46139e2f71101452362,
-    type: 3}
-  m_PrefabInstance: {fileID: 1209096107}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1012479465
 GameObject:
   m_ObjectHideFlags: 0
@@ -48330,10 +48304,15 @@ MonoBehaviour:
     - {fileID: 1199664014}
     - {fileID: 1913591171}
     generation: 1
-  incomingArrowObjects:
-  - {fileID: 1792622642}
-  outgoingArrowObjects:
-  - {fileID: 1342195216}
+  - incoming:
+    - {fileID: 662270874}
+    - {fileID: 510284304}
+    - {fileID: 1033029650}
+    - {fileID: 543435522}
+    outgoing:
+    - {fileID: 436044286}
+    - {fileID: 299172761}
+    generation: 2
   incomingPulseColor: {r: 0.85490197, g: 0.64705884, b: 0.1254902, a: 1}
   outgoingPulseColor: {r: 0, g: 0, b: 1, a: 1}
   pulseSpeed: 2
@@ -48769,12 +48748,19 @@ MonoBehaviour:
     - {fileID: 929682119}
     - {fileID: 479222545}
     generation: 1
-  incomingArrowObjects:
-  - {fileID: 338409627}
-  - {fileID: 448485291}
-  outgoingArrowObjects:
-  - {fileID: 220172775}
-  - {fileID: 1973529853}
+  - incoming:
+    - {fileID: 963030738}
+    - {fileID: 1683924343}
+    - {fileID: 1373113280}
+    - {fileID: 261059682}
+    - {fileID: 662270874}
+    - {fileID: 510284304}
+    - {fileID: 1033029650}
+    - {fileID: 543435522}
+    outgoing:
+    - {fileID: 285651269}
+    - {fileID: 1721773011}
+    generation: 2
   incomingPulseColor: {r: 0.85490197, g: 0.64705884, b: 0.1254902, a: 1}
   outgoingPulseColor: {r: 0, g: 0, b: 1, a: 1}
   pulseSpeed: 2
@@ -59922,10 +59908,17 @@ MonoBehaviour:
     - {fileID: 1921314066}
     outgoing: []
     generation: 1
-  incomingArrowObjects:
-  - {fileID: 1973529853}
-  - {fileID: 226477630}
-  outgoingArrowObjects: []
+  - incoming:
+    - {fileID: 2081301949}
+    - {fileID: 1023184052}
+    - {fileID: 1695485074}
+    - {fileID: 1500237363}
+    - {fileID: 666271756}
+    - {fileID: 413858481}
+    - {fileID: 1770405674}
+    - {fileID: 1972868443}
+    outgoing: []
+    generation: 2
   incomingPulseColor: {r: 0.85490197, g: 0.64705884, b: 0.1254902, a: 1}
   outgoingPulseColor: {r: 0, g: 0, b: 1, a: 1}
   pulseSpeed: 2
@@ -61695,12 +61688,21 @@ MonoBehaviour:
     - {fileID: 2072207386}
     - {fileID: 558092175}
     generation: 1
-  incomingArrowObjects:
-  - {fileID: 1341484664}
-  outgoingArrowObjects:
-  - {fileID: 823394967}
-  - {fileID: 1850924648}
-  - {fileID: 1694595172}
+  - incoming: []
+    outgoing:
+    - {fileID: 1841802054}
+    - {fileID: 228890954}
+    - {fileID: 15021957}
+    - {fileID: 1969400500}
+    - {fileID: 2081301949}
+    - {fileID: 1023184052}
+    - {fileID: 1284690190}
+    - {fileID: 1094457199}
+    - {fileID: 1985404060}
+    - {fileID: 256956497}
+    - {fileID: 662270874}
+    - {fileID: 510284304}
+    generation: 2
   incomingPulseColor: {r: 0.85490197, g: 0.64705884, b: 0.1254902, a: 1}
   outgoingPulseColor: {r: 0, g: 0, b: 1, a: 1}
   pulseSpeed: 2
@@ -63162,18 +63164,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1335982134}
   m_CullTransparentMesh: 1
---- !u!1 &1341484664 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7246226903703482687, guid: 9cbd09b4c649b46139e2f71101452362,
-    type: 3}
-  m_PrefabInstance: {fileID: 2097337153790915962}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1342195216 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7246226903703482687, guid: 9cbd09b4c649b46139e2f71101452362,
-    type: 3}
-  m_PrefabInstance: {fileID: 1874400558}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1342800386
 GameObject:
   m_ObjectHideFlags: 0
@@ -68974,11 +68964,15 @@ MonoBehaviour:
     - {fileID: 436044286}
     - {fileID: 299172761}
     generation: 1
-  incomingArrowObjects:
-  - {fileID: 1814166215}
-  - {fileID: 1342195216}
-  outgoingArrowObjects:
-  - {fileID: 2025577648}
+  - incoming:
+    - {fileID: 454359455}
+    - {fileID: 145858131}
+    - {fileID: 1985404060}
+    - {fileID: 256956497}
+    - {fileID: 904378595}
+    - {fileID: 290430756}
+    outgoing: []
+    generation: 2
   incomingPulseColor: {r: 0.85490197, g: 0.64705884, b: 0.1254902, a: 1}
   outgoingPulseColor: {r: 0, g: 0, b: 1, a: 1}
   pulseSpeed: 2
@@ -69083,10 +69077,11 @@ MonoBehaviour:
     - {fileID: 1005619820}
     - {fileID: 423981005}
     generation: 1
-  incomingArrowObjects:
-  - {fileID: 1610448016}
-  outgoingArrowObjects:
-  - {fileID: 1499425547}
+  - incoming: []
+    outgoing:
+    - {fileID: 1770405674}
+    - {fileID: 1972868443}
+    generation: 2
   incomingPulseColor: {r: 0.85490197, g: 0.64705884, b: 0.1254902, a: 1}
   outgoingPulseColor: {r: 0, g: 0, b: 1, a: 1}
   pulseSpeed: 2
@@ -71071,12 +71066,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1498316343}
   m_CullTransparentMesh: 1
---- !u!1 &1499425547 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7246226903703482687, guid: 9cbd09b4c649b46139e2f71101452362,
-    type: 3}
-  m_PrefabInstance: {fileID: 379190938}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1500237363 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4465845015412069258, guid: 9cbd09b4c649b46139e2f71101452362,
@@ -71866,14 +71855,25 @@ MonoBehaviour:
     - {fileID: 454359455}
     - {fileID: 145858131}
     generation: 1
-  incomingArrowObjects:
-  - {fileID: 1549787567}
-  - {fileID: 127406240}
-  outgoingArrowObjects:
-  - {fileID: 338409627}
-  - {fileID: 2044727013}
-  - {fileID: 1010703904}
-  - {fileID: 1792622642}
+  - incoming:
+    - {fileID: 990540132}
+    - {fileID: 1449457408}
+    - {fileID: 2072207386}
+    - {fileID: 558092175}
+    - {fileID: 15021957}
+    - {fileID: 1969400500}
+    - {fileID: 1284690190}
+    - {fileID: 1094457199}
+    outgoing:
+    - {fileID: 1199664014}
+    - {fileID: 1913591171}
+    - {fileID: 904378595}
+    - {fileID: 290430756}
+    - {fileID: 706994969}
+    - {fileID: 1921314066}
+    - {fileID: 929682119}
+    - {fileID: 479222545}
+    generation: 2
   incomingPulseColor: {r: 0.85490197, g: 0.64705884, b: 0.1254902, a: 1}
   outgoingPulseColor: {r: 0, g: 0, b: 1, a: 1}
   pulseSpeed: 2
@@ -72883,12 +72883,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1549787567 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7246226903703482687, guid: 9cbd09b4c649b46139e2f71101452362,
-    type: 3}
-  m_PrefabInstance: {fileID: 532427888}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1549885345
 GameObject:
   m_ObjectHideFlags: 0
@@ -75723,12 +75717,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1609215676}
   m_CullTransparentMesh: 1
---- !u!1 &1610448016 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7246226903703482687, guid: 9cbd09b4c649b46139e2f71101452362,
-    type: 3}
-  m_PrefabInstance: {fileID: 2088197385}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1611019255
 GameObject:
   m_ObjectHideFlags: 0
@@ -80647,12 +80635,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1694595172 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7246226903703482687, guid: 9cbd09b4c649b46139e2f71101452362,
-    type: 3}
-  m_PrefabInstance: {fileID: 1250810584}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1695485074 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3728865574368668326, guid: 9cbd09b4c649b46139e2f71101452362,
@@ -84576,12 +84558,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1792521787}
   m_CullTransparentMesh: 1
---- !u!1 &1792622642 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7246226903703482687, guid: 9cbd09b4c649b46139e2f71101452362,
-    type: 3}
-  m_PrefabInstance: {fileID: 1146958568}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1794985783
 GameObject:
   m_ObjectHideFlags: 0
@@ -86362,12 +86338,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1813427364}
   m_CullTransparentMesh: 1
---- !u!1 &1814166215 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7246226903703482687, guid: 9cbd09b4c649b46139e2f71101452362,
-    type: 3}
-  m_PrefabInstance: {fileID: 616078123}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1814178498
 GameObject:
   m_ObjectHideFlags: 0
@@ -87849,10 +87819,17 @@ MonoBehaviour:
     - {fileID: 289227877}
     outgoing: []
     generation: 1
-  incomingArrowObjects:
-  - {fileID: 2025577648}
-  - {fileID: 2044727013}
-  outgoingArrowObjects: []
+  - incoming:
+    - {fileID: 285651269}
+    - {fileID: 1721773011}
+    - {fileID: 1199664014}
+    - {fileID: 1913591171}
+    - {fileID: 662270874}
+    - {fileID: 510284304}
+    - {fileID: 1033029650}
+    - {fileID: 543435522}
+    outgoing: []
+    generation: 2
   incomingPulseColor: {r: 0.85490197, g: 0.64705884, b: 0.1254902, a: 1}
   outgoingPulseColor: {r: 0, g: 0, b: 1, a: 1}
   pulseSpeed: 2
@@ -88069,12 +88046,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1850001069}
   m_CullTransparentMesh: 1
---- !u!1 &1850924648 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7246226903703482687, guid: 9cbd09b4c649b46139e2f71101452362,
-    type: 3}
-  m_PrefabInstance: {fileID: 852813461}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1854325578
 GameObject:
   m_ObjectHideFlags: 0
@@ -92833,12 +92804,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1942313052}
   m_CullTransparentMesh: 1
---- !u!1 &1945922545 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7246226903703482687, guid: 9cbd09b4c649b46139e2f71101452362,
-    type: 3}
-  m_PrefabInstance: {fileID: 2087937919}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1949001446
 GameObject:
   m_ObjectHideFlags: 0
@@ -93936,12 +93901,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1973529853 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7246226903703482687, guid: 9cbd09b4c649b46139e2f71101452362,
-    type: 3}
-  m_PrefabInstance: {fileID: 1389931258}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1974617780
 GameObject:
   m_ObjectHideFlags: 0
@@ -96584,12 +96543,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &2025577648 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7246226903703482687, guid: 9cbd09b4c649b46139e2f71101452362,
-    type: 3}
-  m_PrefabInstance: {fileID: 1102895766}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2029756917
 GameObject:
   m_ObjectHideFlags: 0
@@ -97536,12 +97489,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!1 &2044727013 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7246226903703482687, guid: 9cbd09b4c649b46139e2f71101452362,
-    type: 3}
-  m_PrefabInstance: {fileID: 1275365899}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2047363827
 GameObject:
   m_ObjectHideFlags: 0
@@ -101583,12 +101530,34 @@ MonoBehaviour:
     - {fileID: 990540132}
     - {fileID: 1449457408}
     generation: 1
-  incomingArrowObjects: []
-  outgoingArrowObjects:
-  - {fileID: 1341484664}
-  - {fileID: 33127923}
-  - {fileID: 1945922545}
-  - {fileID: 273642943}
+  - incoming: []
+    outgoing:
+    - {fileID: 1373113280}
+    - {fileID: 261059682}
+    - {fileID: 1194534730}
+    - {fileID: 1438422896}
+    - {fileID: 2072207386}
+    - {fileID: 558092175}
+    - {fileID: 1841802054}
+    - {fileID: 228890954}
+    - {fileID: 15021957}
+    - {fileID: 1969400500}
+    - {fileID: 2081301949}
+    - {fileID: 1023184052}
+    - {fileID: 1284690190}
+    - {fileID: 1094457199}
+    generation: 2
+  - incoming: []
+    outgoing:
+    - {fileID: 662270874}
+    - {fileID: 510284304}
+    - {fileID: 1985404060}
+    - {fileID: 256956497}
+    - {fileID: 904378595}
+    - {fileID: 290430756}
+    - {fileID: 929682119}
+    - {fileID: 479222545}
+    generation: 3
   incomingPulseColor: {r: 0.85490197, g: 0.64705884, b: 0.1254902, a: 1}
   outgoingPulseColor: {r: 0, g: 0, b: 1, a: 1}
   pulseSpeed: 2
