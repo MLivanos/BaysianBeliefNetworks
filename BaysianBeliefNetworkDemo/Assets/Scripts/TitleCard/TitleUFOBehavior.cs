@@ -33,12 +33,17 @@ public class TitleUFOBehavior : MonoBehaviour
     [Tooltip("The particle effect to activate on collision.")]
     public ParticleSystem landingEffect;
 
+    [Header("BackgroundImage")]
+    public FadableImage backgroundFadableImage;
+    public float fadeInTime;
+
     private Vector3 startPosition;
     private Vector3 initialPosition;
     private float elapsedMoveTime = 0f;
 
     void Start()
     {
+        backgroundFadableImage.SetAlpha(0f);
         if (landingEffect != null)
         {
             landingEffect.Stop();
@@ -57,6 +62,8 @@ public class TitleUFOBehavior : MonoBehaviour
         yield return StartCoroutine(MoveTowardsLocation(targetPosition, transform.lossyScale, moveDuration));
         yield return StartCoroutine(UFOMotions());
         yield return StartCoroutine(MoveTowardsLocation(planetLocation, minimumScale, toPlanetMotionDuration));
+        yield return new WaitForSeconds(2f);
+        yield return StartCoroutine(FadeInImage());
     }
 
     IEnumerator MoveTowardsLocation(Vector3 endingPos, Vector3 endScale, float duration)
@@ -115,5 +122,17 @@ public class TitleUFOBehavior : MonoBehaviour
         }
         yield return new WaitForSeconds(1.5f);
         landingEffect.Stop();
+    }
+
+    private IEnumerator FadeInImage()
+    {
+        float timer = 0f;
+        while(timer < fadeInTime)
+        {
+            backgroundFadableImage.SetAlpha(timer/fadeInTime);
+            timer += Time.deltaTime;
+            yield return null;
+        }
+        backgroundFadableImage.SetAlpha(1);
     }
 }
