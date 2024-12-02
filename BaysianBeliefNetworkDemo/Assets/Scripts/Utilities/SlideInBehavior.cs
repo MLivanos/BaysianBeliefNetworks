@@ -53,4 +53,9 @@ public class SlideInBehavior : MonoBehaviour
 
         objectTransform.anchoredPosition3D = end;
     }
+
+    public float GetDuration()
+    {
+        return eventDuration;
+    }
 }
