@@ -1,9 +1,46 @@
 using System.Collections;
 using UnityEngine;
 
+public interface IPositionable
+{
+    Vector3 Position { get; set; }
+}
+
+public class RectTransformPositionable : IPositionable
+{
+    private readonly RectTransform rectTransform;
+
+    public RectTransformPositionable(RectTransform rectTransform)
+    {
+        this.rectTransform = rectTransform;
+    }
+
+    public Vector3 Position
+    {
+        get => rectTransform.anchoredPosition3D;
+        set => rectTransform.anchoredPosition3D = value;
+    }
+}
+
+public class TransformPositionable : IPositionable
+{
+    private readonly Transform transform;
+
+    public TransformPositionable(Transform transform)
+    {
+        this.transform = transform;
+    }
+
+    public Vector3 Position
+    {
+        get => transform.localPosition;
+        set => transform.localPosition = value;
+    }
+}
+
 public class SlideInBehavior : MonoBehaviour
 {
-    [SerializeField] private RectTransform objectTransform;
+    [SerializeField] private Transform objectTransform;
     [SerializeField] private Vector3 startPosition;
     [SerializeField] private Vector3 endPosition;
     [SerializeField] private float eventDuration;
@@ -11,9 +48,20 @@ public class SlideInBehavior : MonoBehaviour
     [SerializeField] private bool staticY;
     [SerializeField] private bool staticZ;
 
+    private IPositionable positionable;
+
     private void Start()
     {
-        if (objectTransform == null) objectTransform = GetComponent<RectTransform>();
+        if (objectTransform == null) objectTransform = GetComponent<Transform>();
+
+        if (objectTransform is RectTransform rectTransform)
+        {
+            positionable = new RectTransformPositionable(rectTransform);
+        }
+        else
+        {
+            positionable = new TransformPositionable(objectTransform);
+        }
 
         startPosition = SetStaticAxes(startPosition);
         endPosition = SetStaticAxes(endPosition);
@@ -21,10 +69,11 @@ public class SlideInBehavior : MonoBehaviour
 
     private Vector3 SetStaticAxes(Vector3 position)
     {
+        Vector3 currentPos = positionable.Position;
         return new Vector3(
-            staticX ? objectTransform.anchoredPosition3D.x : position.x,
-            staticY ? objectTransform.anchoredPosition3D.y : position.y,
-            staticZ ? objectTransform.anchoredPosition3D.z : position.z
+            staticX ? currentPos.x : position.x,
+            staticY ? currentPos.y : position.y,
+            staticZ ? currentPos.z : position.z
         );
     }
 
@@ -45,13 +94,13 @@ public class SlideInBehavior : MonoBehaviour
         Vector3 end = slideIn ? endPosition : startPosition;
         while (timer < eventDuration)
         {
-            objectTransform.anchoredPosition3D = Vector3.Lerp(start, end, timer / eventDuration);
+            positionable.Position = Vector3.Lerp(start, end, timer / eventDuration);
 
             timer += Time.deltaTime;
             yield return null;
         }
 
-        objectTransform.anchoredPosition3D = end;
+        positionable.Position = end;
     }
 
     public float GetDuration()
