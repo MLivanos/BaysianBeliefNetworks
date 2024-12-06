@@ -72,31 +72,63 @@ public class OpeningCutsceneManager : MonoBehaviour
     private IEnumerator PlayTransitScene()
     {
         mainCamera.parent = train;
+        GameObject[] meshGenerators = InitializeMeshGenerators();
+
         float distanceTraveled = 0f;
-        GameObject[] meshGenerators = new GameObject[3];
-        meshGenerators[1] = Instantiate(meshGeneratorPrefab, transitScene.transform);
-        Vector3 trailingMeshGeneratorPosition = meshGenerators[1].transform.position;
-        trailingMeshGeneratorPosition.x += 49.5f;
-        Vector3 leadingMeshGeneratorPosition = meshGenerators[1].transform.position;
-        leadingMeshGeneratorPosition.x -= 49.5f;
-        meshGenerators[0] = Instantiate(meshGeneratorPrefab, trailingMeshGeneratorPosition, meshGenerators[1].transform.rotation, transitScene.transform);
-        meshGenerators[2] = Instantiate(meshGeneratorPrefab, leadingMeshGeneratorPosition, meshGenerators[1].transform.rotation, transitScene.transform);
-        while(true)
+
+        while (true)
         {
-            train.Translate(Vector3.back * trainSpeed * Time.deltaTime);
-            cloudRing.Rotate(Vector3.up * cloudRotationSpeed * Time.deltaTime);
-            distanceTraveled += trainSpeed * Time.deltaTime;
+            MoveTrainAndRotateClouds(ref distanceTraveled);
             if (distanceTraveled >= 50f)
             {
-                Destroy(meshGenerators[0]);
-                meshGenerators[0] = meshGenerators[1];
-                meshGenerators[1] = meshGenerators[2];
-                Vector3 newMeshPosition = meshGenerators[1].transform.position;
-                newMeshPosition.x -= 49.5f;
-                meshGenerators[2] = Instantiate(meshGeneratorPrefab, newMeshPosition, meshGenerators[1].transform.rotation);
-                distanceTraveled -= 49.5f;
+                UpdateMeshGenerators(ref meshGenerators, ref distanceTraveled);
             }
+
             yield return null;
         }
     }
+
+    private GameObject[] InitializeMeshGenerators()
+    {
+        GameObject[] meshGenerators = new GameObject[3];
+
+        // Create the middle generator
+        meshGenerators[1] = Instantiate(meshGeneratorPrefab, transitScene.transform);
+
+        // Calculate positions for trailing and leading generators
+        Vector3 middlePosition = meshGenerators[1].transform.position;
+        Vector3 trailingPosition = middlePosition + new Vector3(49.5f, 0f, 0f);
+        Vector3 leadingPosition = middlePosition - new Vector3(49.5f, 0f, 0f);
+
+        // Create the trailing and leading generators
+        meshGenerators[0] = Instantiate(meshGeneratorPrefab, trailingPosition, meshGenerators[1].transform.rotation, transitScene.transform);
+        meshGenerators[2] = Instantiate(meshGeneratorPrefab, leadingPosition, meshGenerators[1].transform.rotation, transitScene.transform);
+
+        return meshGenerators;
+    }
+
+    private void MoveTrainAndRotateClouds(ref float distanceTraveled)
+    {
+        train.Translate(Vector3.back * trainSpeed * Time.deltaTime);
+        cloudRing.Rotate(Vector3.up * cloudRotationSpeed * Time.deltaTime);
+        distanceTraveled += trainSpeed * Time.deltaTime;
+    }
+
+    private void UpdateMeshGenerators(ref GameObject[] meshGenerators, ref float distanceTraveled)
+    {
+        // Destroy the trailing mesh generator
+        Destroy(meshGenerators[0]);
+
+        // Shift references down the array
+        meshGenerators[0] = meshGenerators[1];
+        meshGenerators[1] = meshGenerators[2];
+
+        // Create a new leading mesh generator
+        Vector3 newMeshPosition = meshGenerators[1].transform.position - new Vector3(49.5f, 0f, 0f);
+        meshGenerators[2] = Instantiate(meshGeneratorPrefab, newMeshPosition, meshGenerators[1].transform.rotation);
+
+        // Adjust the traveled distance
+        distanceTraveled -= 50f;
+    }
+
 }
