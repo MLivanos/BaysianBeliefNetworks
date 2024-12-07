@@ -20,6 +20,7 @@ public class OpeningCutsceneManager : MonoBehaviour
     [SerializeField] private Transform cloudRing;
     [SerializeField] private float trainSpeed;
     [SerializeField] private float cloudRotationSpeed;
+    [SerializeField] private float chunkWidth;
 
     private void Start()
     {
@@ -79,7 +80,7 @@ public class OpeningCutsceneManager : MonoBehaviour
         while (true)
         {
             MoveTrainAndRotateClouds(ref distanceTraveled);
-            if (distanceTraveled >= 50f)
+            if (distanceTraveled >= chunkWidth)
             {
                 UpdateMeshGenerators(ref meshGenerators, ref distanceTraveled);
             }
@@ -97,8 +98,8 @@ public class OpeningCutsceneManager : MonoBehaviour
 
         // Calculate positions for trailing and leading generators
         Vector3 middlePosition = meshGenerators[1].transform.position;
-        Vector3 trailingPosition = middlePosition + new Vector3(49.5f, 0f, 0f);
-        Vector3 leadingPosition = middlePosition - new Vector3(49.5f, 0f, 0f);
+        Vector3 trailingPosition = middlePosition + new Vector3(chunkWidth-0.5f, 0f, 0f);
+        Vector3 leadingPosition = middlePosition - new Vector3(chunkWidth-0.5f, 0f, 0f);
 
         // Create the trailing and leading generators
         meshGenerators[0] = Instantiate(meshGeneratorPrefab, trailingPosition, meshGenerators[1].transform.rotation, transitScene.transform);
@@ -124,11 +125,11 @@ public class OpeningCutsceneManager : MonoBehaviour
         meshGenerators[1] = meshGenerators[2];
 
         // Create a new leading mesh generator
-        Vector3 newMeshPosition = meshGenerators[1].transform.position - new Vector3(49.5f, 0f, 0f);
+        Vector3 newMeshPosition = meshGenerators[1].transform.position - new Vector3(chunkWidth-0.5f, 0f, 0f);
         meshGenerators[2] = Instantiate(meshGeneratorPrefab, newMeshPosition, meshGenerators[1].transform.rotation);
 
         // Adjust the traveled distance
-        distanceTraveled -= 50f;
+        distanceTraveled -= chunkWidth;
     }
 
 }
