@@ -38,7 +38,7 @@ public class OpeningCutsceneManager : MonoBehaviour
         yield return new WaitForSeconds(5f);
         textPanel.SetActive(true);
         typewriterEffect.UpdateText(nightSkyText);
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(7f);
         float timer = 0f;
         while(timer < cameraMoveDuration)
         {
