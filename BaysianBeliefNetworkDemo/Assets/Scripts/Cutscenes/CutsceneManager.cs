@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OpeningCutsceneManager : MonoBehaviour
+public class CutsceneManager : MonoBehaviour
 {
     [SerializeField] private CutsceneBehavior[] cutscenes;
     [SerializeField] private TypewriterEffect typewriterEffect;
