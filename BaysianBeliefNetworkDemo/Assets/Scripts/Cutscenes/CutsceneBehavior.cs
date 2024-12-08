@@ -12,7 +12,7 @@ public abstract class CutsceneBehavior : MonoBehaviour
     [SerializeField] protected float ambientIntensity;
     [SerializeField] protected bool fadeInPanel;
     [SerializeField] protected float fadeInTime;
-    [SerializeField] protected float textPanelOpacity;
+    [SerializeField] protected float textPanelOpacity = 160;
     [SerializeField] protected bool needsPrewarm;
     [SerializeField] protected bool isAtTop;
     protected FadableImage fadablePanel;
