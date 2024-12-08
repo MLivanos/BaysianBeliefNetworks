@@ -28,10 +28,13 @@ public class NightSkyScene : CutsceneBehavior
         }
     }
 
+    public override void Interrupt()
+    {
+        cameraTransform.position = cameraEnds[1].position;
+    }
+
     protected override IEnumerator ExitTransition()
     {
-        // TODO: Onclick
-        yield return new WaitForSeconds(5f);
         textPanel.SetActive(false);
         whiteOutImage.gameObject.SetActive(true);
         float alpha = 0f;

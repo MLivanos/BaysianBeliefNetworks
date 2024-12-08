@@ -15,6 +15,7 @@ public abstract class CutsceneBehavior : MonoBehaviour
     protected Transform cameraTransform;
 
     protected abstract IEnumerator PlayScene();
+    public abstract void Interrupt();
     protected abstract IEnumerator ExitTransition();
 
     protected void SetupScene()
@@ -42,7 +43,7 @@ public abstract class CutsceneBehavior : MonoBehaviour
     public IEnumerator Play()
     {
         SetupScene();
-        return PlayScene();
+        yield return PlayScene();
     }
 
     public IEnumerator Exit()

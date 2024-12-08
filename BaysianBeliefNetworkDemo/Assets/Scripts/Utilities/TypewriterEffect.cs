@@ -38,7 +38,8 @@ public class TypewriterEffect : MonoBehaviour
         {
             StopCoroutine(typingCoroutine);
         }
-        textComponent.text = fullText; // Display full text immediately
+        textComponent.text = fullText;
+        typingCoroutine = null;
     }
 
     public bool IsTyping()

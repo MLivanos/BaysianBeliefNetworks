@@ -25,17 +25,57 @@ public class OpeningCutsceneManager : MonoBehaviour
     [SerializeField] private float cloudRotationSpeed;
     [SerializeField] private float chunkWidth;
 
+    private CutsceneBehavior currentCutScene;
+    private Coroutine currentCoroutine;
+    private int cutsceneIndex = 0;
+    private bool exiting;
+
     private void Start()
     {
         textPanel.SetActive(false);
-        StartCoroutine(PlayScene(cutscenes[0]));
+        currentCoroutine = StartCoroutine(PlayNextScene());
     }
 
-    private IEnumerator PlayScene(CutsceneBehavior cutscene)
+    private void Update()
     {
-        cutscene.SetupObjects(mainCamera, textPanel, typewriterEffect);
-        yield return cutscene.Play();
-        yield return cutscene.Exit();
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (typewriterEffect.IsTyping()) typewriterEffect.Interrupt();
+            else EndScene();
+        }
+    }
+
+    private IEnumerator PlayNextScene()
+    {
+        if (cutsceneIndex < cutscenes.Length)
+        {
+            currentCutScene = cutscenes[cutsceneIndex];
+            currentCutScene.SetupObjects(mainCamera, textPanel, typewriterEffect);
+            yield return currentCutScene.Play();  
+        }
+    }
+
+    private IEnumerator ExitScene()
+    {
+        currentCutScene.Interrupt();
+        if (!exiting)
+        {
+            exiting = true;
+            yield return currentCutScene.Exit();
+            exiting = false;
+            cutsceneIndex ++;
+            yield return PlayNextScene();
+        }
+    }
+
+    private void EndScene()
+    {
+        if (currentCoroutine != null)
+        {
+            StopCoroutine(currentCoroutine);
+            currentCoroutine = null;
+        }
+        currentCoroutine = StartCoroutine(ExitScene());
     }
 
     private IEnumerator PlayPhotoSlideScene()
