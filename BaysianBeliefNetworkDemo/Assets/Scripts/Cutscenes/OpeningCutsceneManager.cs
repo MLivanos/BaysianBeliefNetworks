@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class OpeningCutsceneManager : MonoBehaviour
 {
+    [SerializeField] private TypewriterEffect typewriterEffect;
+    [SerializeField] private GameObject textPanel;
+
     [SerializeField] private SlideInBehavior[] photoSlides;
     [SerializeField] private Transform mainCamera;
     [SerializeField] private Transform[] cameraEnds;
     [SerializeField] private float cameraMoveDuration;
+    [SerializeField] private string nightSkyText;
+
     [SerializeField] private SlideInBehavior busSlideIn;
     [SerializeField] private Transform[] busWheels;
     [SerializeField] private float wheelSpeed;
@@ -24,12 +29,16 @@ public class OpeningCutsceneManager : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(PlayTransitScene());
+        textPanel.SetActive(false);
+        StartCoroutine(NightSkyOpener());
     }
 
     private IEnumerator NightSkyOpener()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(5f);
+        textPanel.SetActive(true);
+        typewriterEffect.UpdateText(nightSkyText);
+        yield return new WaitForSeconds(7f);
         float timer = 0f;
         while(timer < cameraMoveDuration)
         {
