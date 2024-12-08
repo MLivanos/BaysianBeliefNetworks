@@ -41,6 +41,11 @@ public class TypewriterEffect : MonoBehaviour
         textComponent.text = fullText; // Display full text immediately
     }
 
+    public bool IsTyping()
+    {
+        return typingCoroutine != null;
+    }
+
     private IEnumerator TypeText()
     {
         textComponent.text = "";
@@ -51,8 +56,9 @@ public class TypewriterEffect : MonoBehaviour
             {
                 audioSource.PlayOneShot(typingSound);
             }
-            float waitTime = ".,!?".Contains(letter) ? timeBetweenCharacters * specialWaitTimeMultiplier : timeBetweenCharacters;
+            float waitTime = specialCharacters.Contains(letter) ? timeBetweenCharacters * specialWaitTimeMultiplier : timeBetweenCharacters;
             yield return new WaitForSeconds(waitTime);
         }
+        typingCoroutine = null;
     }
 }
