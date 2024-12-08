@@ -10,6 +10,7 @@ public abstract class CutsceneBehavior : MonoBehaviour
     [SerializeField] protected Material skyMaterial;
     [SerializeField] protected float ambientIntensity;
     [SerializeField] protected bool needsPrewarm;
+    [SerializeField] protected bool isAtTop;
     protected TypewriterEffect typewriterEffect;
     protected GameObject textPanel;
     protected Transform cameraTransform;
@@ -24,6 +25,12 @@ public abstract class CutsceneBehavior : MonoBehaviour
         SetupCamera();
         RenderSettings.ambientIntensity = ambientIntensity;
         RenderSettings.skybox = skyMaterial;
+        RectTransform rectTransform = textPanel.GetComponent<RectTransform>();
+        float anchorPosition = isAtTop ? 1f : 0f;
+        rectTransform.anchorMin = new Vector2(0.5f, anchorPosition);
+        rectTransform.anchorMax = new Vector2(0.5f, anchorPosition);
+        rectTransform.pivot = new Vector2(0.5f, anchorPosition);
+        rectTransform.anchoredPosition = Vector2.zero;
     }
 
     protected void SetupCamera()

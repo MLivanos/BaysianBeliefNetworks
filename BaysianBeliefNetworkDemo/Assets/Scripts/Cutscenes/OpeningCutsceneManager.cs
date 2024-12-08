@@ -8,7 +8,7 @@ public class OpeningCutsceneManager : MonoBehaviour
     [SerializeField] private TypewriterEffect typewriterEffect;
     [SerializeField] private GameObject textPanel;
 
-    [SerializeField] private SlideInBehavior[] photoSlides;
+    
     [SerializeField] private Transform mainCamera;
 
     [SerializeField] private SlideInBehavior busSlideIn;
@@ -77,16 +77,7 @@ public class OpeningCutsceneManager : MonoBehaviour
         }
         currentCoroutine = StartCoroutine(ExitScene());
     }
-
-    private IEnumerator PlayPhotoSlideScene()
-    {
-        foreach(SlideInBehavior photo in photoSlides)
-        {
-            photo.BeginSlideIn();
-            yield return new WaitForSeconds(photo.GetDuration());
-        }
-    }
-
+    
     private IEnumerator PlayGoodbyeScene()
     {
         busSlideIn.BeginSlideIn();
