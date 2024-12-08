@@ -53,6 +53,7 @@ public class OpeningCutsceneManager : MonoBehaviour
         currentCutScene.Interrupt();
         if (!exiting)
         {
+            if (cutsceneIndex + 1 < cutscenes.Length && cutscenes[cutsceneIndex + 1].NeedsPrewarm()) cutscenes[cutsceneIndex + 1].Prewarm(); 
             exiting = true;
             yield return currentCutScene.Exit();
             exiting = false;

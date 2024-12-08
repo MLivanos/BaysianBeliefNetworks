@@ -86,7 +86,7 @@ public abstract class CutsceneBehavior : MonoBehaviour
 
     public virtual void Prewarm()
     {
-        return;
+        scene.SetActive(true);
     }
 
     public bool NeedsPrewarm()
