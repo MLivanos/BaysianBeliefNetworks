@@ -9,16 +9,14 @@ public class NightSkyScene : CutsceneBehavior
     [SerializeField] private float firstLineWaitTime;
     [SerializeField] private Transform[] cameraEnds;
     [SerializeField] private float cameraMoveDuration;
-    [SerializeField] private string nightSkyText;
     [SerializeField] private FadableImage whiteOutImage;
     [SerializeField] private float whiteOutTimer;
 
     protected override IEnumerator PlayScene()
     {
         yield return new WaitForSeconds(preTextWaitTime);
-        textPanel.SetActive(true);
         yield return ViewPanel();
-        typewriterEffect.UpdateText(nightSkyText);
+        AnimateText();
         yield return new WaitForSeconds(firstLineWaitTime);
         float timer = 0f;
         while(timer < cameraMoveDuration)

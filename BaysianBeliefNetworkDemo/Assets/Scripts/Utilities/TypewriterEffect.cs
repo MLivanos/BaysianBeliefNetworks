@@ -62,4 +62,9 @@ public class TypewriterEffect : MonoBehaviour
         }
         typingCoroutine = null;
     }
+
+    public void Clear()
+    {
+        textComponent.text = "";
+    }
 }

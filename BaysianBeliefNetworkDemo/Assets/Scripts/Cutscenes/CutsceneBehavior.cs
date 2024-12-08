@@ -8,6 +8,7 @@ public abstract class CutsceneBehavior : MonoBehaviour
     [SerializeField] protected GameObject scene;
     [SerializeField] protected Transform cameraMark;
     [SerializeField] protected Material skyMaterial;
+    [SerializeField] protected string text;
     [SerializeField] protected float ambientIntensity;
     [SerializeField] protected bool fadeInPanel;
     [SerializeField] protected float fadeInTime;
@@ -44,6 +45,7 @@ public abstract class CutsceneBehavior : MonoBehaviour
 
     protected IEnumerator ViewPanel()
     {
+        textPanel.SetActive(true);
         if (fadeInPanel) yield return fadablePanel.Fade(fadeInTime, true, textPanelOpacity / 255f);
         else fadablePanel.SetAlpha(textPanelOpacity / 255f);
     }
@@ -53,6 +55,11 @@ public abstract class CutsceneBehavior : MonoBehaviour
         cameraTransform.parent = cameraMark;
         cameraTransform.localPosition = Vector3.zero;
         cameraTransform.localEulerAngles = Vector3.zero;
+    }
+
+    protected void AnimateText()
+    {
+        typewriterEffect.UpdateText(text);
     }
 
     public void SetupObjects(Transform mainCameraTransform, GameObject textPanelObject, TypewriterEffect textAnimation)
@@ -73,6 +80,8 @@ public abstract class CutsceneBehavior : MonoBehaviour
     {
         yield return ExitTransition();
         scene.SetActive(false);
+        typewriterEffect.Clear();
+        textPanel.SetActive(false);
     }
 
     public virtual void Prewarm()
@@ -83,5 +92,10 @@ public abstract class CutsceneBehavior : MonoBehaviour
     public bool NeedsPrewarm()
     {
         return needsPrewarm;
+    }
+
+    public AudioClip GetMusic()
+    {
+        return music;
     }
 }

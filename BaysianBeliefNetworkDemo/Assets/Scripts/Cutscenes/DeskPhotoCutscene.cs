@@ -5,7 +5,6 @@ using UnityEngine;
 public class DeskPhotoCutscene : CutsceneBehavior
 {
     [SerializeField] private SlideInBehavior[] photoSlides;
-    [SerializeField] private string deskPhotoText;
 
     protected override IEnumerator PlayScene()
     {
@@ -16,9 +15,8 @@ public class DeskPhotoCutscene : CutsceneBehavior
             photo.BeginSlideIn();
             yield return new WaitForSeconds(photo.GetDuration());
         }
-        textPanel.SetActive(true);
         yield return ViewPanel();
-        typewriterEffect.UpdateText(deskPhotoText);
+        AnimateText();
     }
 
     public override void Interrupt()
