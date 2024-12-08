@@ -4,19 +4,22 @@ using UnityEngine;
 
 public abstract class CutsceneBehavior : MonoBehaviour
 {
-    [SerializeField] private AudioClip music;
-    [SerializeField] private GameObject scene;
-    [SerializeField] private Transform cameraMark;
-    [SerializeField] private Material skyMaterial;
-    [SerializeField] private float ambientIntensity;
-    [SerializeField] private bool needsPrewarm;
-    private Transform cameraTransform;
+    [SerializeField] protected AudioClip music;
+    [SerializeField] protected GameObject scene;
+    [SerializeField] protected Transform cameraMark;
+    [SerializeField] protected Material skyMaterial;
+    [SerializeField] protected float ambientIntensity;
+    [SerializeField] protected bool needsPrewarm;
+    protected TypewriterEffect typewriterEffect;
+    protected GameObject textPanel;
+    protected Transform cameraTransform;
 
     protected abstract IEnumerator PlayScene();
     protected abstract IEnumerator ExitTransition();
 
     protected void SetupScene()
     {
+        scene.SetActive(true);
         SetupCamera();
         RenderSettings.ambientIntensity = ambientIntensity;
         RenderSettings.skybox = skyMaterial;
@@ -25,23 +28,27 @@ public abstract class CutsceneBehavior : MonoBehaviour
     protected void SetupCamera()
     {
         cameraTransform.parent = cameraMark;
-        cameraTransform.position = Vector3.zero;
-        cameraTransform.eulerAngles = Vector3.zero;
+        cameraTransform.localPosition = Vector3.zero;
+        cameraTransform.localEulerAngles = Vector3.zero;
     }
 
-    public void SetCameraTransform(Transform mainCameraTransform)
+    public void SetupObjects(Transform mainCameraTransform, GameObject textPanelObject, TypewriterEffect textAnimation)
     {
         cameraTransform = mainCameraTransform;
+        textPanel = textPanelObject;
+        typewriterEffect = textAnimation;
     }
 
-    public void Play()
+    public IEnumerator Play()
     {
-        StartCoroutine(PlayScene());
+        SetupScene();
+        return PlayScene();
     }
 
-    public void Exit()
+    public IEnumerator Exit()
     {
-        StartCoroutine(ExitTransition());
+        yield return ExitTransition();
+        scene.SetActive(false);
     }
 
     public virtual void Prewarm()

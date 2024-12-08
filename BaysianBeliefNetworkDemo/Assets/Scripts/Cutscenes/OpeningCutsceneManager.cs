@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class OpeningCutsceneManager : MonoBehaviour
 {
+    [SerializeField] private CutsceneBehavior[] cutscenes;
     [SerializeField] private TypewriterEffect typewriterEffect;
     [SerializeField] private GameObject textPanel;
 
     [SerializeField] private SlideInBehavior[] photoSlides;
     [SerializeField] private Transform mainCamera;
-    [SerializeField] private Transform[] cameraEnds;
-    [SerializeField] private float cameraMoveDuration;
-    [SerializeField] private string nightSkyText;
 
     [SerializeField] private SlideInBehavior busSlideIn;
     [SerializeField] private Transform[] busWheels;
@@ -30,22 +28,14 @@ public class OpeningCutsceneManager : MonoBehaviour
     private void Start()
     {
         textPanel.SetActive(false);
-        StartCoroutine(NightSkyOpener());
+        StartCoroutine(PlayScene(cutscenes[0]));
     }
 
-    private IEnumerator NightSkyOpener()
+    private IEnumerator PlayScene(CutsceneBehavior cutscene)
     {
-        yield return new WaitForSeconds(5f);
-        textPanel.SetActive(true);
-        typewriterEffect.UpdateText(nightSkyText);
-        yield return new WaitForSeconds(7f);
-        float timer = 0f;
-        while(timer < cameraMoveDuration)
-        {
-            mainCamera.position = Vector3.Lerp(cameraEnds[0].position, cameraEnds[1].position, timer/cameraMoveDuration);
-            timer += Time.deltaTime;
-            yield return null;
-        }
+        cutscene.SetupObjects(mainCamera, textPanel, typewriterEffect);
+        yield return cutscene.Play();
+        yield return cutscene.Exit();
     }
 
     private IEnumerator PlayPhotoSlideScene()
