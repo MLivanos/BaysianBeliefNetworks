@@ -103,6 +103,11 @@ public class SlideInBehavior : MonoBehaviour
         positionable.Position = end;
     }
 
+    public void SetAtTerminalPoint(bool begining)
+    {
+        positionable.Position = begining ? startPosition : endPosition;
+    }
+
     public float GetDuration()
     {
         return eventDuration;
