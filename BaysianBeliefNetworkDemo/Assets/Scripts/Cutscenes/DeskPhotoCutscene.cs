@@ -17,6 +17,7 @@ public class DeskPhotoCutscene : CutsceneBehavior
             yield return new WaitForSeconds(photo.GetDuration());
         }
         textPanel.SetActive(true);
+        yield return ViewPanel();
         typewriterEffect.UpdateText(deskPhotoText);
     }
 

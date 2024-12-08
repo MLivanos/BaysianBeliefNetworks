@@ -17,6 +17,7 @@ public class NightSkyScene : CutsceneBehavior
     {
         yield return new WaitForSeconds(preTextWaitTime);
         textPanel.SetActive(true);
+        yield return ViewPanel();
         typewriterEffect.UpdateText(nightSkyText);
         yield return new WaitForSeconds(firstLineWaitTime);
         float timer = 0f;

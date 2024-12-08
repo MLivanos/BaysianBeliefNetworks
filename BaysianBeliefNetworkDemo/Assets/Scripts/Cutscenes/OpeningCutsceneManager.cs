@@ -77,7 +77,7 @@ public class OpeningCutsceneManager : MonoBehaviour
         }
         currentCoroutine = StartCoroutine(ExitScene());
     }
-    
+
     private IEnumerator PlayGoodbyeScene()
     {
         busSlideIn.BeginSlideIn();
