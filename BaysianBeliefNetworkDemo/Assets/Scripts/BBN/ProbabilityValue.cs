@@ -12,8 +12,8 @@ public class ProbabilityValue : MonoBehaviour
     private Dictionary<ProbabilityDisplay, int> displayToIndex = new Dictionary<ProbabilityDisplay, int>();
     private Graph graph;
     private Node node;
-    private List<float> originalValues;
-    private List<float> currentValues;
+    private List<float> originalValues = new List<float>();
+    private List<float> currentValues = new List<float>();
     private bool modifying;
     
     private void Start()

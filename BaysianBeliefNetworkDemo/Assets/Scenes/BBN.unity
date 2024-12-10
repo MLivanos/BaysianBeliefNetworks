@@ -27712,8 +27712,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 52
-  m_fontSizeBase: 52
+  m_fontSize: 45.6
+  m_fontSizeBase: 45.6
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -49545,8 +49545,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 52
-  m_fontSizeBase: 52
+  m_fontSize: 45.6
+  m_fontSizeBase: 45.6
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -68299,6 +68299,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1417181906}
   m_CullTransparentMesh: 1
+--- !u!1 &1417486165
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1417486166}
+  - component: {fileID: 1417486167}
+  m_Layer: 0
+  m_Name: RandomEventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1417486166
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417486165}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.2525167, y: -3.7710674, z: 0.049519222}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1545110881}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1417486167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417486165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29d99d8b864eb4c4c8aa70e9258b79e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  events:
+  - {fileID: 1545110882}
 --- !u!1 &1418787604
 GameObject:
   m_ObjectHideFlags: 0
@@ -74472,6 +74519,80 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1543753350}
   m_CullTransparentMesh: 1
+--- !u!1 &1545110880
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1545110881}
+  - component: {fileID: 1545110882}
+  m_Layer: 0
+  m_Name: PowerGridFailure
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1545110881
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545110880}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1417486166}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1545110882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545110880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e217304f7f74f4bbf7931849783d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  operations:
+  - ProbabilityListA:
+    - {fileID: 223681564}
+    ProbabilityListB: []
+    indices: 00000000
+    scalar: 0.3
+    operation: 1
+  - ProbabilityListA:
+    - {fileID: 223681564}
+    ProbabilityListB: []
+    indices: 01000000
+    scalar: 0.1
+    operation: 1
+  - ProbabilityListA:
+    - {fileID: 223681564}
+    ProbabilityListB: []
+    indices: 0100000001000000
+    scalar: 0.1
+    operation: 1
+  - ProbabilityListA:
+    - {fileID: 223681564}
+    ProbabilityListB: []
+    indices: 0100000001000000
+    scalar: 0.05
+    operation: 1
+  message: Recent reports indicate that the Davis power grid is of poor health and
+    needs significant maintenance immediately.
+  eventDescription: P(Po) has increased
+  inverse: After recent repairs, the Davis power grid is once again in good health
+  inverseEventDescription: P(Po) has returned to its regular value
 --- !u!1 &1546917581
 GameObject:
   m_ObjectHideFlags: 0
@@ -104428,3 +104549,4 @@ SceneRoots:
   - {fileID: 2061259115}
   - {fileID: 1694050718}
   - {fileID: 1320082883}
+  - {fileID: 1417486166}

@@ -32,7 +32,7 @@ public class RandomEventOperation
 	    operation = Operation.ReturnToOriginal;
 	}
 
-	private void Start()
+	public void Initialize()
 	{
 	    operations = new Dictionary<Operation, System.Action>
 	    {
@@ -47,14 +47,7 @@ public class RandomEventOperation
 
 	public void ApplyOperation()
 	{
-	    if (operations.TryGetValue(operation, out var op))
-	    {
-	        op();
-	    }
-	    else
-	    {
-	        Debug.LogWarning($"Operation {operation} is not defined.");
-	    }
+	    operations[operation]();
 	}
 
 	private void ApplyToA(System.Func<int, float, float> operation)
@@ -106,6 +99,14 @@ public class RandomEvent : MonoBehaviour
 		eventDescription = eventString;
 		inverse = inverseString;
 		inverseEventDescription = inverseEventString;
+	}
+
+	public void Initialize()
+	{
+		foreach(RandomEventOperation operation in operations)
+		{
+			operation.Initialize();
+		}
 	}
 
 	public void ApplyOperations()
