@@ -110,7 +110,7 @@ public class RandomEvent : MonoBehaviour
 	{
 		foreach(RandomEventOperation operation in operations)
 		{
-			if (isInverse) operation.ApplyOperation();
+			if (!isInverse) operation.ApplyOperation();
 			else operation.ReverseOperation();
 		}
 		isInverse = !isInverse;
