@@ -26,6 +26,8 @@ public class ProbabilityValue : MonoBehaviour
             Slider slider = sliders[i];
             sliderToIndex.Add(sliders[i], i);
             displayToIndex.Add(displays[i], i);
+            originalValues.Add(sliders[i].value);
+            currentValues.Add(sliders[i].value);
             sliders[i].onValueChanged.AddListener(value => ChangeDisplay(slider, value));
             displays[i].GetInputField().onEndEdit.AddListener(value => ChangeSlider(display, value));
         }
@@ -40,6 +42,25 @@ public class ProbabilityValue : MonoBehaviour
         graph.ClearSamples();
     }
 
+    public void UpdateProbability(int index, float value)
+    {
+        ChangeDisplay(sliders[index], value);
+    }
+
+    public float GetProbability(int index)
+    {
+        return currentValues[index];
+    }
+
+    public void ReturnToOriginalValue(int index)
+    {
+        UpdateProbability(index, originalValues[index]);
+    }
+
+    public float GetOriginalValue(int index)
+    {
+        return originalValues[index];
+    }
 
     private void ChangeDisplay(Slider slider, float value)
     {
@@ -47,7 +68,7 @@ public class ProbabilityValue : MonoBehaviour
         {
             int index = sliderToIndex[slider];
             displays[index].SetValue(value);
-            ChangeProbability(value, displays[index].GetIndex());
+            UpdateNodeProbability(value, displays[index].GetIndex());
         });
     }
 
@@ -59,12 +80,12 @@ public class ProbabilityValue : MonoBehaviour
             if (float.TryParse(value, out float parsedValue))
             {
                 sliders[index].value = parsedValue;
-                ChangeProbability(parsedValue, display.GetIndex());
+                UpdateNodeProbability(parsedValue, display.GetIndex());
             }
         });
     }
 
-    private void ChangeProbability(float value, int index)
+    private void UpdateNodeProbability(float value, int index)
     {
         node.SetProbability(value, index);
     }
