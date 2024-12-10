@@ -93,6 +93,7 @@ public class Node : MonoBehaviour
     public void SetProbability(float probability, int index)
     {
         jointProbabilityDistribution[index] = probability;
+        Debug.Log(jointProbabilityDistribution[index]);
     }
 
     public float[] GetCPT()
