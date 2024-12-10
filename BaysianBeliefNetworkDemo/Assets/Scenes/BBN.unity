@@ -74579,13 +74579,13 @@ MonoBehaviour:
   - ProbabilityListA:
     - {fileID: 223681564}
     ProbabilityListB: []
-    indices: 0100000001000000
+    indices: 02000000
     scalar: 0.1
     operation: 1
   - ProbabilityListA:
     - {fileID: 223681564}
     ProbabilityListB: []
-    indices: 0100000001000000
+    indices: 03000000
     scalar: 0.05
     operation: 1
   message: Recent reports indicate that the Davis power grid is of poor health and

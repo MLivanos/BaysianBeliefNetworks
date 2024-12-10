@@ -50,6 +50,11 @@ public class RandomEventOperation
 	    operations[operation]();
 	}
 
+	public void ReverseOperation()
+	{
+		ReturnToOriginal();
+	}
+
 	private void ApplyToA(System.Func<int, float, float> operation)
 	{
 	    for (int i = 0; i < ProbabilityListA.Count; i++)
@@ -91,15 +96,7 @@ public class RandomEvent : MonoBehaviour
 	[SerializeField] private string eventDescription;
 	[SerializeField] private string inverse;
 	[SerializeField] private string inverseEventDescription;
-
-	private RandomEvent(List<RandomEventOperation> operationList, string messageString, string eventString, string inverseString, string inverseEventString)
-	{
-		operations = operationList;
-		message = messageString;
-		eventDescription = eventString;
-		inverse = inverseString;
-		inverseEventDescription = inverseEventString;
-	}
+	private bool isInverse;
 
 	public void Initialize()
 	{
@@ -113,27 +110,19 @@ public class RandomEvent : MonoBehaviour
 	{
 		foreach(RandomEventOperation operation in operations)
 		{
-			operation.ApplyOperation();
+			if (isInverse) operation.ApplyOperation();
+			else operation.ReverseOperation();
 		}
+		isInverse = !isInverse;
 	}
 
 	public string GetMessage()
 	{
-		return message;
+		return isInverse ? inverse : message;
 	}
 
 	public string GetDescription()
 	{
-		return eventDescription;
-	}
-
-	public RandomEvent GetInverse()
-	{
-		 List<RandomEventOperation> inverseOperations = new List<RandomEventOperation>();
-		foreach(RandomEventOperation operation in operations)
-		{
-			inverseOperations.Add(operation.GetOperationInverse());
-		}
-		return new RandomEvent(inverseOperations, inverse, inverseEventDescription, "", "");
+		return isInverse ? inverseEventDescription : eventDescription;
 	}
 }
