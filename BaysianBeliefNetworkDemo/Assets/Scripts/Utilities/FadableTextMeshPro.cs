@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class FadableTextMeshPro : MonoBehaviour, IFadable
+public class FadableTextMeshPro : FadableElement
 {
     private TextMeshProUGUI _text;
 
@@ -11,7 +11,7 @@ public class FadableTextMeshPro : MonoBehaviour, IFadable
         _text = GetComponent<TextMeshProUGUI>();
     }
 
-    public void SetAlpha(float alpha)
+    public override void SetAlpha(float alpha)
     {
         if (_text != null)
         {
