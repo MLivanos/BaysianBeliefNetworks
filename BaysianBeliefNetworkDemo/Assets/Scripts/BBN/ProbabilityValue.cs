@@ -10,6 +10,7 @@ public class ProbabilityValue : MonoBehaviour
     [SerializeField] private List<Slider> sliders;
     private Dictionary<Slider, int> sliderToIndex = new Dictionary<Slider, int>();
     private Dictionary<ProbabilityDisplay, int> displayToIndex = new Dictionary<ProbabilityDisplay, int>();
+    private Graph graph;
     private Node node;
     private List<float> originalValues;
     private List<float> currentValues;
@@ -17,6 +18,7 @@ public class ProbabilityValue : MonoBehaviour
     
     private void Start()
     {
+        graph = GameObject.Find("Graph").GetComponent<Graph>();
         node = displays[0].GetNode();
         for(int i=0; i<displays.Count; i++)
         {
@@ -35,6 +37,7 @@ public class ProbabilityValue : MonoBehaviour
         modifying = true;
         action();
         modifying = false;
+        graph.ClearSamples();
     }
 
 

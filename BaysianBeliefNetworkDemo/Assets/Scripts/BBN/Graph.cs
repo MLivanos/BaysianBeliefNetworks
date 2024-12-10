@@ -251,6 +251,14 @@ public class Graph : MonoBehaviour
         negativeEvidence.Clear();
     }
 
+    public void ClearSamples()
+    {
+        GetComponent<RejectionSampler>().Reset();
+        GetComponent<LikelihoodWeightingSampler>().Reset();
+        GetComponent<GibbsSampler>().Reset();
+        GetComponent<HamiltonianSampler>().Reset();
+    }
+
     private void UncheckAllCheckboxes(GameObject root)
     {
         Toggle toggle = root.GetComponent<Toggle>();

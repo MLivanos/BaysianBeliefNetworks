@@ -9928,6 +9928,7 @@ GameObject:
   - component: {fileID: 223681561}
   - component: {fileID: 223681563}
   - component: {fileID: 223681562}
+  - component: {fileID: 223681564}
   m_Layer: 5
   m_Name: PowerOutageUI
   m_TagString: Untagged
@@ -9986,6 +9987,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 223681560}
   m_CullTransparentMesh: 1
+--- !u!114 &223681564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 223681560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64ebd21b7b404244c8055d3e92fdc8e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displays:
+  - {fileID: 764837529}
+  - {fileID: 367163169}
+  - {fileID: 1113217642}
+  - {fileID: 1811545433}
+  sliders:
+  - {fileID: 1063766454}
+  - {fileID: 99662153}
+  - {fileID: 27047238}
+  - {fileID: 581221760}
 --- !u!114 &228890954 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4465845015412069258, guid: 9cbd09b4c649b46139e2f71101452362,
@@ -17907,6 +17930,7 @@ GameObject:
   - component: {fileID: 405904195}
   - component: {fileID: 405904197}
   - component: {fileID: 405904198}
+  - component: {fileID: 405904199}
   m_Layer: 5
   m_Name: CafeUI
   m_TagString: Untagged
@@ -17965,6 +17989,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   node: {fileID: 1201334750}
+--- !u!114 &405904199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 405904194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64ebd21b7b404244c8055d3e92fdc8e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displays:
+  - {fileID: 1454997990}
+  - {fileID: 85791595}
+  - {fileID: 1453068916}
+  - {fileID: 1893775275}
+  sliders:
+  - {fileID: 1519655759}
+  - {fileID: 1244632815}
+  - {fileID: 864352751}
+  - {fileID: 1480910790}
 --- !u!1 &406801542
 GameObject:
   m_ObjectHideFlags: 0
@@ -17976,6 +18022,7 @@ GameObject:
   - component: {fileID: 406801543}
   - component: {fileID: 406801545}
   - component: {fileID: 406801544}
+  - component: {fileID: 406801546}
   m_Layer: 5
   m_Name: AtmosphericPressureUI
   m_TagString: Untagged
@@ -18030,6 +18077,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 406801542}
   m_CullTransparentMesh: 1
+--- !u!114 &406801546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 406801542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64ebd21b7b404244c8055d3e92fdc8e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displays:
+  - {fileID: 1277377443}
+  sliders:
+  - {fileID: 621942159}
 --- !u!1 &410005940
 GameObject:
   m_ObjectHideFlags: 0
@@ -20650,6 +20713,7 @@ GameObject:
   - component: {fileID: 455726623}
   - component: {fileID: 455726625}
   - component: {fileID: 455726624}
+  - component: {fileID: 455726626}
   m_Layer: 5
   m_Name: ThunderUI
   m_TagString: Untagged
@@ -20706,6 +20770,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 455726622}
   m_CullTransparentMesh: 1
+--- !u!114 &455726626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 455726622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64ebd21b7b404244c8055d3e92fdc8e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displays:
+  - {fileID: 1119637547}
+  - {fileID: 1343295835}
+  sliders:
+  - {fileID: 668146901}
+  - {fileID: 1577485435}
 --- !u!1 &455902011
 GameObject:
   m_ObjectHideFlags: 0
@@ -21747,6 +21829,7 @@ GameObject:
   - component: {fileID: 469019298}
   - component: {fileID: 469019300}
   - component: {fileID: 469019301}
+  - component: {fileID: 469019302}
   m_Layer: 5
   m_Name: CloudUI
   m_TagString: Untagged
@@ -21805,6 +21888,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   node: {fileID: 41130335}
+--- !u!114 &469019302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469019297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64ebd21b7b404244c8055d3e92fdc8e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displays:
+  - {fileID: 1968086157}
+  - {fileID: 23098818}
+  - {fileID: 1812252567}
+  - {fileID: 468286353}
+  sliders:
+  - {fileID: 12076572}
+  - {fileID: 1691624603}
+  - {fileID: 1220587528}
+  - {fileID: 1430771291}
 --- !u!1 &469683984
 GameObject:
   m_ObjectHideFlags: 0
@@ -27828,6 +27933,7 @@ GameObject:
   - component: {fileID: 593002881}
   - component: {fileID: 593002883}
   - component: {fileID: 593002884}
+  - component: {fileID: 593002885}
   m_Layer: 5
   m_Name: CatUI
   m_TagString: Untagged
@@ -27886,6 +27992,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   node: {fileID: 873878187}
+--- !u!114 &593002885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 593002880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64ebd21b7b404244c8055d3e92fdc8e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displays:
+  - {fileID: 1865902751}
+  - {fileID: 915342391}
+  - {fileID: 84492373}
+  - {fileID: 1794985785}
+  sliders:
+  - {fileID: 1648611337}
+  - {fileID: 1682830632}
+  - {fileID: 1258818719}
+  - {fileID: 937722601}
 --- !u!1 &594784386
 GameObject:
   m_ObjectHideFlags: 0
@@ -35847,6 +35975,7 @@ GameObject:
   - component: {fileID: 751110581}
   - component: {fileID: 751110583}
   - component: {fileID: 751110582}
+  - component: {fileID: 751110584}
   m_Layer: 5
   m_Name: DownTreeUI
   m_TagString: Untagged
@@ -35903,6 +36032,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 751110580}
   m_CullTransparentMesh: 1
+--- !u!114 &751110584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 751110580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64ebd21b7b404244c8055d3e92fdc8e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displays:
+  - {fileID: 1616064557}
+  - {fileID: 539306983}
+  sliders:
+  - {fileID: 642478400}
+  - {fileID: 754840223}
 --- !u!1 &751604494
 GameObject:
   m_ObjectHideFlags: 0
@@ -39197,7 +39344,19 @@ MonoBehaviour:
       m_Calls: []
   m_OnSelect:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnDeselect:
     m_PersistentCalls:
       m_Calls: []
@@ -50130,6 +50289,7 @@ GameObject:
   - component: {fileID: 1078642791}
   - component: {fileID: 1078642793}
   - component: {fileID: 1078642794}
+  - component: {fileID: 1078642795}
   m_Layer: 5
   m_Name: BusyUI
   m_TagString: Untagged
@@ -50188,6 +50348,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   node: {fileID: 2102270092}
+--- !u!114 &1078642795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1078642790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64ebd21b7b404244c8055d3e92fdc8e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displays:
+  - {fileID: 693792527}
+  - {fileID: 9640526}
+  - {fileID: 1614051666}
+  - {fileID: 1584174037}
+  sliders:
+  - {fileID: 1079764080}
+  - {fileID: 1322935707}
+  - {fileID: 633894961}
+  - {fileID: 605007334}
 --- !u!1 &1079764078
 GameObject:
   m_ObjectHideFlags: 0
@@ -56043,6 +56225,7 @@ GameObject:
   - component: {fileID: 1177382594}
   - component: {fileID: 1177382596}
   - component: {fileID: 1177382595}
+  - component: {fileID: 1177382597}
   m_Layer: 5
   m_Name: RainUI
   m_TagString: Untagged
@@ -56101,6 +56284,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1177382593}
   m_CullTransparentMesh: 1
+--- !u!114 &1177382597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1177382593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64ebd21b7b404244c8055d3e92fdc8e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displays:
+  - {fileID: 1883225271}
+  - {fileID: 1821076581}
+  - {fileID: 1428355185}
+  - {fileID: 629872362}
+  sliders:
+  - {fileID: 1231460509}
+  - {fileID: 2099538734}
+  - {fileID: 1411441328}
+  - {fileID: 105870372}
 --- !u!1 &1178963860
 GameObject:
   m_ObjectHideFlags: 0
@@ -57199,6 +57404,7 @@ GameObject:
   - component: {fileID: 1207384169}
   - component: {fileID: 1207384171}
   - component: {fileID: 1207384172}
+  - component: {fileID: 1207384173}
   m_Layer: 5
   m_Name: WinterUI
   m_TagString: Untagged
@@ -57253,6 +57459,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   node: {fileID: 252608305}
+--- !u!114 &1207384173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1207384168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64ebd21b7b404244c8055d3e92fdc8e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displays:
+  - {fileID: 170711315}
+  sliders:
+  - {fileID: 2040853108}
 --- !u!1001 &1209096107
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -63061,6 +63283,7 @@ GameObject:
   - component: {fileID: 1316193868}
   - component: {fileID: 1316193870}
   - component: {fileID: 1316193871}
+  - component: {fileID: 1316193872}
   m_Layer: 5
   m_Name: SummerUI
   m_TagString: Untagged
@@ -63118,6 +63341,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   node: {fileID: 1935005719}
+--- !u!114 &1316193872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1316193867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64ebd21b7b404244c8055d3e92fdc8e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displays:
+  - {fileID: 1002842779}
+  - {fileID: 367278985}
+  - {fileID: 1230014109}
+  sliders:
+  - {fileID: 979950422}
+  - {fileID: 1661377523}
+  - {fileID: 491965158}
 --- !u!1 &1319054874
 GameObject:
   m_ObjectHideFlags: 0
@@ -63834,6 +64077,7 @@ GameObject:
   - component: {fileID: 1327940690}
   - component: {fileID: 1327940692}
   - component: {fileID: 1327940693}
+  - component: {fileID: 1327940694}
   m_Layer: 5
   m_Name: AlienUI
   m_TagString: Untagged
@@ -63892,6 +64136,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   node: {fileID: 1958355176}
+--- !u!114 &1327940694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1327940689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64ebd21b7b404244c8055d3e92fdc8e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displays:
+  - {fileID: 654244412}
+  - {fileID: 565319514}
+  - {fileID: 1714006458}
+  - {fileID: 1985862915}
+  sliders:
+  - {fileID: 1993056253}
+  - {fileID: 2081660622}
+  - {fileID: 2109935851}
+  - {fileID: 2042072712}
 --- !u!1 &1329966221
 GameObject:
   m_ObjectHideFlags: 0
@@ -79063,6 +79329,7 @@ GameObject:
   - component: {fileID: 1645890154}
   - component: {fileID: 1645890156}
   - component: {fileID: 1645890155}
+  - component: {fileID: 1645890157}
   m_Layer: 5
   m_Name: WindUI
   m_TagString: Untagged
@@ -79119,6 +79386,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1645890153}
   m_CullTransparentMesh: 1
+--- !u!114 &1645890157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1645890153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64ebd21b7b404244c8055d3e92fdc8e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displays:
+  - {fileID: 1232255916}
+  - {fileID: 1139235160}
+  sliders:
+  - {fileID: 1247521197}
+  - {fileID: 479951032}
 --- !u!1 &1646436748
 GameObject:
   m_ObjectHideFlags: 0
@@ -81224,6 +81509,7 @@ GameObject:
   - component: {fileID: 1683404754}
   - component: {fileID: 1683404756}
   - component: {fileID: 1683404757}
+  - component: {fileID: 1683404758}
   m_Layer: 5
   m_Name: DogUI
   m_TagString: Untagged
@@ -81282,6 +81568,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   node: {fileID: 1869244370}
+--- !u!114 &1683404758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683404753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64ebd21b7b404244c8055d3e92fdc8e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displays:
+  - {fileID: 1564998327}
+  - {fileID: 836369063}
+  - {fileID: 191913290}
+  - {fileID: 811233613}
+  sliders:
+  - {fileID: 1342800388}
+  - {fileID: 624283137}
+  - {fileID: 639128939}
+  - {fileID: 2122007822}
 --- !u!114 &1683924343 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4465845015412069258, guid: 9cbd09b4c649b46139e2f71101452362,
@@ -101534,6 +101842,7 @@ GameObject:
   - component: {fileID: 2109671963}
   - component: {fileID: 2109671965}
   - component: {fileID: 2109671966}
+  - component: {fileID: 2109671967}
   m_Layer: 5
   m_Name: SpringUI
   m_TagString: Untagged
@@ -101560,8 +101869,8 @@ RectTransform:
   - {fileID: 1152331284}
   - {fileID: 751604495}
   - {fileID: 953027421}
-  - {fileID: 1996679820}
   - {fileID: 443809897}
+  - {fileID: 1996679820}
   m_Father: {fileID: 1428064586}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -101590,6 +101899,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   node: {fileID: 1487077430}
+--- !u!114 &2109671967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2109671962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64ebd21b7b404244c8055d3e92fdc8e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displays:
+  - {fileID: 828394274}
+  - {fileID: 1872071084}
+  sliders:
+  - {fileID: 1482038185}
+  - {fileID: 19018144}
 --- !u!1 &2109935849
 GameObject:
   m_ObjectHideFlags: 0
@@ -102820,6 +103147,7 @@ GameObject:
   - component: {fileID: 2141216714}
   - component: {fileID: 2141216716}
   - component: {fileID: 2141216717}
+  - component: {fileID: 2141216718}
   m_Layer: 5
   m_Name: FallUI
   m_TagString: Untagged
@@ -102878,6 +103206,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   node: {fileID: 1237729336}
+--- !u!114 &2141216718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2141216713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64ebd21b7b404244c8055d3e92fdc8e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displays:
+  - {fileID: 2031132776}
+  - {fileID: 345765649}
+  - {fileID: 430800503}
+  - {fileID: 381092391}
+  sliders:
+  - {fileID: 403026067}
+  - {fileID: 726999633}
+  - {fileID: 1581988351}
+  - {fileID: 1459797533}
 --- !u!1 &2141717605
 GameObject:
   m_ObjectHideFlags: 0
