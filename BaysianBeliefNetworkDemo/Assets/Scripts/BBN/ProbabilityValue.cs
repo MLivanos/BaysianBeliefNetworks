@@ -45,6 +45,7 @@ public class ProbabilityValue : MonoBehaviour
     public void UpdateProbability(int index, float value)
     {
         ChangeDisplay(sliders[index], value);
+        ChangeSlider(displays[index], value.ToString());
     }
 
     public float GetProbability(int index)
