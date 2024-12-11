@@ -11,19 +11,10 @@ public class ProbabilityDisplay : MonoBehaviour
     private TMP_InputField inputField;
     private TMP_Text inputText;
 
-    private void Start()
+    private void Awake()
     {
         inputField = GetComponent<TMP_InputField>() as TMP_InputField;
         inputText = inputField.textComponent;
-        if (isNode)
-        {
-            inputField.onValueChanged.AddListener(delegate {ChangeProbability(); });
-        }
-    }
-
-    private void ChangeProbability()
-    {
-        node.SetProbability(float.Parse(inputField.text), index);
     }
 
     public void SetValue(float newValue)
@@ -39,5 +30,20 @@ public class ProbabilityDisplay : MonoBehaviour
     public float GetValue()
     {
         return float.Parse(inputText.text);
+    }
+
+    public int GetIndex()
+    {
+        return index;
+    }
+
+    public Node GetNode()
+    {
+        return node;
+    }
+
+    public TMP_InputField GetInputField()
+    {
+        return inputField;
     }
 }

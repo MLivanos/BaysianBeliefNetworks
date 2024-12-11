@@ -2806,6 +2806,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 62941620}
   m_CullTransparentMesh: 1
+--- !u!1 &63814336
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 63814337}
+  - component: {fileID: 63814338}
+  m_Layer: 0
+  m_Name: Festivals
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &63814337
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 63814336}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1094.2767, y: 461.0478, z: -15.391561}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1417486166}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &63814338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 63814336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e217304f7f74f4bbf7931849783d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  operations:
+  - ProbabilityListA:
+    - {fileID: 1078642795}
+    - {fileID: 1078642795}
+    ProbabilityListB: []
+    indices: 0100000003000000
+    scalar: 1.5
+    operation: 2
+  message: A string of festivals are taking place in nearby towns, causing additional
+    traffic so long as festivals are not cancelled
+  eventDescription: P(B|~R) has increased
+  inverse: The festival season has concluded
+  inverseEventDescription: P(B|~R) has returned to normal
 --- !u!1 &63894266
 GameObject:
   m_ObjectHideFlags: 0
@@ -3114,6 +3171,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 70485851}
   m_CullTransparentMesh: 1
+--- !u!1 &70495581
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 70495582}
+  - component: {fileID: 70495583}
+  m_Layer: 0
+  m_Name: AlienCloudPenetration
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &70495582
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 70495581}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1094.2767, y: 461.0478, z: -15.391561}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1417486166}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &70495583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 70495581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e217304f7f74f4bbf7931849783d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  operations:
+  - ProbabilityListA:
+    - {fileID: 1327940694}
+    - {fileID: 1327940694}
+    ProbabilityListB: []
+    indices: 0000000002000000
+    scalar: 10
+    operation: 2
+  message: Intelligence reveals that alien ships emit radar-like signals unaffected
+    by cloud cover
+  eventDescription: P(A|Cl) increased
+  inverse: Reports of alien cloud penetration cannot be verified
+  inverseEventDescription: P(A|Cl) returns to normal
 --- !u!1 &70752494
 GameObject:
   m_ObjectHideFlags: 0
@@ -7699,6 +7813,64 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 172162342}
   m_CullTransparentMesh: 1
+--- !u!1 &175035685
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 175035686}
+  - component: {fileID: 175035687}
+  m_Layer: 0
+  m_Name: Drought
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &175035686
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175035685}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1094.2767, y: 461.0478, z: -15.391561}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1417486166}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &175035687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175035685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e217304f7f74f4bbf7931849783d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  operations:
+  - ProbabilityListA:
+    - {fileID: 469019302}
+    - {fileID: 469019302}
+    - {fileID: 469019302}
+    - {fileID: 469019302}
+    ProbabilityListB: []
+    indices: 00000000010000000200000003000000
+    scalar: 0.5
+    operation: 2
+  message: Low moisture content in the air has lead to decreased cloud formation
+  eventDescription: P(Cl) has decreased
+  inverse: Moisture levels have rebounded, leading to normal cloud formation
+  inverseEventDescription: P(Cl) has returned
 --- !u!1 &175815275
 GameObject:
   m_ObjectHideFlags: 0
@@ -9928,6 +10100,7 @@ GameObject:
   - component: {fileID: 223681561}
   - component: {fileID: 223681563}
   - component: {fileID: 223681562}
+  - component: {fileID: 223681564}
   m_Layer: 5
   m_Name: PowerOutageUI
   m_TagString: Untagged
@@ -9986,6 +10159,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 223681560}
   m_CullTransparentMesh: 1
+--- !u!114 &223681564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 223681560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64ebd21b7b404244c8055d3e92fdc8e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displays:
+  - {fileID: 764837529}
+  - {fileID: 367163169}
+  - {fileID: 1113217642}
+  - {fileID: 1811545433}
+  sliders:
+  - {fileID: 1063766454}
+  - {fileID: 99662153}
+  - {fileID: 27047238}
+  - {fileID: 581221760}
 --- !u!114 &228890954 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4465845015412069258, guid: 9cbd09b4c649b46139e2f71101452362,
@@ -12698,6 +12893,65 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &300897909
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 300897910}
+  - component: {fileID: 300897911}
+  m_Layer: 0
+  m_Name: CafeShortStaffed
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &300897910
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 300897909}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1094.2767, y: 461.0478, z: -15.391561}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1417486166}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &300897911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 300897909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e217304f7f74f4bbf7931849783d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  operations:
+  - ProbabilityListA:
+    - {fileID: 405904199}
+    - {fileID: 405904199}
+    - {fileID: 405904199}
+    - {fileID: 405904199}
+    ProbabilityListB: []
+    indices: 00000000010000000200000003000000
+    scalar: 0.5
+    operation: 2
+  message: The Cafe has been short staffed for some time and has to close early more
+    frequently
+  eventDescription: P(Co) decreased
+  inverse: The Cafe has filled vacant positions and is operating as normal
+  inverseEventDescription: P(Co) returns to normal
 --- !u!1 &307504594
 GameObject:
   m_ObjectHideFlags: 0
@@ -14682,6 +14936,68 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 338545131}
   m_CullTransparentMesh: 1
+--- !u!1 &340839424
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 340839425}
+  - component: {fileID: 340839426}
+  m_Layer: 0
+  m_Name: CatsAndDogsAreFriends
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &340839425
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 340839424}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1094.2767, y: 461.0478, z: -15.391561}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1417486166}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &340839426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 340839424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e217304f7f74f4bbf7931849783d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  operations:
+  - ProbabilityListA:
+    - {fileID: 593002885}
+    ProbabilityListB: []
+    indices: 00000000
+    scalar: 0.9
+    operation: 1
+  - ProbabilityListA:
+    - {fileID: 593002885}
+    ProbabilityListB: []
+    indices: 02000000
+    scalar: 0.05
+    operation: 1
+  message: Cats and dogs are becoming more accustomed to each other. When hearing
+    the bark of a dog, cats can be seen running to greet their friends.
+  eventDescription: P(C|D) is now less than P(C|~D)
+  inverse: There has been an influx of cats who are not accustomed to dogs.
+  inverseEventDescription: P(C|D) has returned to normal
 --- !u!1 &345765647
 GameObject:
   m_ObjectHideFlags: 0
@@ -17907,6 +18223,7 @@ GameObject:
   - component: {fileID: 405904195}
   - component: {fileID: 405904197}
   - component: {fileID: 405904198}
+  - component: {fileID: 405904199}
   m_Layer: 5
   m_Name: CafeUI
   m_TagString: Untagged
@@ -17965,6 +18282,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   node: {fileID: 1201334750}
+--- !u!114 &405904199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 405904194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64ebd21b7b404244c8055d3e92fdc8e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displays:
+  - {fileID: 1454997990}
+  - {fileID: 85791595}
+  - {fileID: 1453068916}
+  - {fileID: 1893775275}
+  sliders:
+  - {fileID: 1519655759}
+  - {fileID: 1244632815}
+  - {fileID: 864352751}
+  - {fileID: 1480910790}
 --- !u!1 &406801542
 GameObject:
   m_ObjectHideFlags: 0
@@ -17976,6 +18315,7 @@ GameObject:
   - component: {fileID: 406801543}
   - component: {fileID: 406801545}
   - component: {fileID: 406801544}
+  - component: {fileID: 406801546}
   m_Layer: 5
   m_Name: AtmosphericPressureUI
   m_TagString: Untagged
@@ -18030,6 +18370,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 406801542}
   m_CullTransparentMesh: 1
+--- !u!114 &406801546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 406801542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64ebd21b7b404244c8055d3e92fdc8e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displays:
+  - {fileID: 1277377443}
+  sliders:
+  - {fileID: 621942159}
 --- !u!1 &410005940
 GameObject:
   m_ObjectHideFlags: 0
@@ -20650,6 +21006,7 @@ GameObject:
   - component: {fileID: 455726623}
   - component: {fileID: 455726625}
   - component: {fileID: 455726624}
+  - component: {fileID: 455726626}
   m_Layer: 5
   m_Name: ThunderUI
   m_TagString: Untagged
@@ -20706,6 +21063,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 455726622}
   m_CullTransparentMesh: 1
+--- !u!114 &455726626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 455726622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64ebd21b7b404244c8055d3e92fdc8e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displays:
+  - {fileID: 1119637547}
+  - {fileID: 1343295835}
+  sliders:
+  - {fileID: 668146901}
+  - {fileID: 1577485435}
 --- !u!1 &455902011
 GameObject:
   m_ObjectHideFlags: 0
@@ -21747,6 +22122,7 @@ GameObject:
   - component: {fileID: 469019298}
   - component: {fileID: 469019300}
   - component: {fileID: 469019301}
+  - component: {fileID: 469019302}
   m_Layer: 5
   m_Name: CloudUI
   m_TagString: Untagged
@@ -21805,6 +22181,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   node: {fileID: 41130335}
+--- !u!114 &469019302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469019297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64ebd21b7b404244c8055d3e92fdc8e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displays:
+  - {fileID: 1968086157}
+  - {fileID: 23098818}
+  - {fileID: 1812252567}
+  - {fileID: 468286353}
+  sliders:
+  - {fileID: 12076572}
+  - {fileID: 1691624603}
+  - {fileID: 1220587528}
+  - {fileID: 1430771291}
 --- !u!1 &469683984
 GameObject:
   m_ObjectHideFlags: 0
@@ -23465,6 +23863,70 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &514598589
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 514598590}
+  - component: {fileID: 514598591}
+  m_Layer: 0
+  m_Name: RainySeason
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &514598590
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 514598589}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1094.2767, y: 461.0478, z: -15.391561}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1417486166}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &514598591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 514598589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e217304f7f74f4bbf7931849783d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  operations:
+  - ProbabilityListA:
+    - {fileID: 223681564}
+    - {fileID: 223681564}
+    ProbabilityListB: []
+    indices: 0000000002000000
+    scalar: 0.1
+    operation: 3
+  - ProbabilityListA:
+    - {fileID: 1078642795}
+    - {fileID: 1078642795}
+    ProbabilityListB: []
+    indices: 0000000002000000
+    scalar: 0.5
+    operation: 2
+  message: Following a draught, the ground is unable to keep water. Officials warn
+    that the next downpour may cause flooding
+  eventDescription: P(Po|R) has increased, P(B|R) has decreased
+  inverse: Following a healthy rainy season, floods are less likely to occur
+  inverseEventDescription: P(Po|R) and P(B|R) have returned to normal
 --- !u!1 &514737691
 GameObject:
   m_ObjectHideFlags: 0
@@ -25085,6 +25547,154 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &545076453
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 545076454}
+  - component: {fileID: 545076457}
+  - component: {fileID: 545076456}
+  - component: {fileID: 545076455}
+  m_Layer: 5
+  m_Name: Message
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &545076454
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 545076453}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1630502011}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 30.2, y: 1.3}
+  m_SizeDelta: {x: 680, y: 120}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &545076455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 545076453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feaff57a091ee4aee819d23981aa882d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &545076456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 545076453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Message
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: a85a5fb20be32c74e8b4a078e736f5ab, type: 2}
+  m_sharedMaterial: {fileID: -8262044034710385518, guid: a85a5fb20be32c74e8b4a078e736f5ab,
+    type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 28
+  m_fontSizeBase: 28
+  m_fontWeight: 400
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 18
+  m_fontSizeMax: 28
+  m_fontStyle: 1
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &545076457
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 545076453}
+  m_CullTransparentMesh: 1
 --- !u!1 &545238327
 GameObject:
   m_ObjectHideFlags: 0
@@ -27607,8 +28217,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 52
-  m_fontSizeBase: 52
+  m_fontSize: 45.6
+  m_fontSizeBase: 45.6
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -27828,6 +28438,7 @@ GameObject:
   - component: {fileID: 593002881}
   - component: {fileID: 593002883}
   - component: {fileID: 593002884}
+  - component: {fileID: 593002885}
   m_Layer: 5
   m_Name: CatUI
   m_TagString: Untagged
@@ -27886,6 +28497,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   node: {fileID: 873878187}
+--- !u!114 &593002885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 593002880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64ebd21b7b404244c8055d3e92fdc8e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displays:
+  - {fileID: 1865902751}
+  - {fileID: 915342391}
+  - {fileID: 84492373}
+  - {fileID: 1794985785}
+  sliders:
+  - {fileID: 1648611337}
+  - {fileID: 1682830632}
+  - {fileID: 1258818719}
+  - {fileID: 937722601}
 --- !u!1 &594784386
 GameObject:
   m_ObjectHideFlags: 0
@@ -28032,10 +28665,10 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.47058824, g: 0.14901961, b: 0.627451, a: 1}
-    m_PressedColor: {r: 0.4117647, g: 0.11764706, b: 0.5882353, a: 1}
-    m_SelectedColor: {r: 0.5058824, g: 0.16470589, b: 0.6627451, a: 1}
-    m_DisabledColor: {r: 0.5058824, g: 0.16470589, b: 0.6627451, a: 0.5019608}
+    m_HighlightedColor: {r: 0.69182384, g: 0.69182384, b: 0.69182384, a: 1}
+    m_PressedColor: {r: 0.5471698, g: 0.5471698, b: 0.5471698, a: 1}
+    m_SelectedColor: {r: 0.64779866, g: 0.64779866, b: 0.64779866, a: 1}
+    m_DisabledColor: {r: 0.64779866, g: 0.64779866, b: 0.64779866, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -31155,6 +31788,63 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &643396970
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 643396971}
+  - component: {fileID: 643396972}
+  m_Layer: 0
+  m_Name: TreePruning
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &643396971
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 643396970}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1094.2767, y: 461.0478, z: -15.391561}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1417486166}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &643396972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 643396970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e217304f7f74f4bbf7931849783d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  operations:
+  - ProbabilityListA:
+    - {fileID: 751110584}
+    - {fileID: 751110584}
+    ProbabilityListB: []
+    indices: 0000000001000000
+    scalar: 0.2
+    operation: 2
+  message: The town of Davis has made an effort to cut down dead trees across the
+    city
+  eventDescription: P(Dt) has decreased
+  inverse: As time goes on, new trees grow and old trees die
+  inverseEventDescription: P(Dt) has returned to normal
 --- !u!1 &647194312
 GameObject:
   m_ObjectHideFlags: 0
@@ -35847,6 +36537,7 @@ GameObject:
   - component: {fileID: 751110581}
   - component: {fileID: 751110583}
   - component: {fileID: 751110582}
+  - component: {fileID: 751110584}
   m_Layer: 5
   m_Name: DownTreeUI
   m_TagString: Untagged
@@ -35903,6 +36594,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 751110580}
   m_CullTransparentMesh: 1
+--- !u!114 &751110584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 751110580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64ebd21b7b404244c8055d3e92fdc8e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displays:
+  - {fileID: 1616064557}
+  - {fileID: 539306983}
+  sliders:
+  - {fileID: 642478400}
+  - {fileID: 754840223}
 --- !u!1 &751604494
 GameObject:
   m_ObjectHideFlags: 0
@@ -38987,6 +39696,154 @@ RectTransform:
   m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &820290949
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 820290950}
+  - component: {fileID: 820290953}
+  - component: {fileID: 820290952}
+  - component: {fileID: 820290951}
+  m_Layer: 5
+  m_Name: Event
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &820290950
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820290949}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1630502011}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 30.2, y: -38.6}
+  m_SizeDelta: {x: 680, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &820290951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820290949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feaff57a091ee4aee819d23981aa882d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &820290952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820290949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Effect
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: a85a5fb20be32c74e8b4a078e736f5ab, type: 2}
+  m_sharedMaterial: {fileID: -8262044034710385518, guid: a85a5fb20be32c74e8b4a078e736f5ab,
+    type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 28
+  m_fontSizeBase: 28
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &820290953
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820290949}
+  m_CullTransparentMesh: 1
 --- !u!1 &824211329
 GameObject:
   m_ObjectHideFlags: 0
@@ -39197,7 +40054,19 @@ MonoBehaviour:
       m_Calls: []
   m_OnSelect:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnDeselect:
     m_PersistentCalls:
       m_Calls: []
@@ -45731,6 +46600,7 @@ RectTransform:
   - {fileID: 1413175648}
   - {fileID: 596198191}
   - {fileID: 1098249759}
+  - {fileID: 1980073209}
   - {fileID: 1928283196}
   - {fileID: 1554082559}
   - {fileID: 685937159}
@@ -45742,6 +46612,7 @@ RectTransform:
   - {fileID: 583895122}
   - {fileID: 244021970}
   - {fileID: 1104587757}
+  - {fileID: 1630502011}
   - {fileID: 950137792}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -46543,6 +47414,64 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 994648383}
   m_CullTransparentMesh: 0
+--- !u!1 &995661212
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 995661213}
+  - component: {fileID: 995661214}
+  m_Layer: 0
+  m_Name: AlienAccustom
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &995661213
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995661212}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1094.2767, y: 461.0478, z: -15.391561}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1417486166}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &995661214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995661212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e217304f7f74f4bbf7931849783d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  operations:
+  - ProbabilityListA:
+    - {fileID: 1327940694}
+    - {fileID: 1327940694}
+    ProbabilityListB: []
+    indices: 0000000001000000
+    scalar: 10
+    operation: 2
+  message: As reports of Aliens are ignored by credible institutions, aliens have
+    become more bold in appearing even on busy days
+  eventDescription: P(A|B) has increased
+  inverse: Officials have started to take alien visitation claims more seriously,
+    and aliens have seemingly taken notice, returning to the shadows.
+  inverseEventDescription: P(A|B) has returned to normal
 --- !u!1 &996049005
 GameObject:
   m_ObjectHideFlags: 0
@@ -49386,8 +50315,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 52
-  m_fontSizeBase: 52
+  m_fontSize: 45.6
+  m_fontSizeBase: 45.6
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -50130,6 +51059,7 @@ GameObject:
   - component: {fileID: 1078642791}
   - component: {fileID: 1078642793}
   - component: {fileID: 1078642794}
+  - component: {fileID: 1078642795}
   m_Layer: 5
   m_Name: BusyUI
   m_TagString: Untagged
@@ -50188,6 +51118,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   node: {fileID: 2102270092}
+--- !u!114 &1078642795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1078642790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64ebd21b7b404244c8055d3e92fdc8e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displays:
+  - {fileID: 693792527}
+  - {fileID: 9640526}
+  - {fileID: 1614051666}
+  - {fileID: 1584174037}
+  sliders:
+  - {fileID: 1079764080}
+  - {fileID: 1322935707}
+  - {fileID: 633894961}
+  - {fileID: 605007334}
 --- !u!1 &1079764078
 GameObject:
   m_ObjectHideFlags: 0
@@ -50889,10 +51841,10 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.47058824, g: 0.14901961, b: 0.627451, a: 1}
-    m_PressedColor: {r: 0.4117647, g: 0.11764706, b: 0.5882353, a: 1}
-    m_SelectedColor: {r: 0.5058824, g: 0.16470589, b: 0.6627451, a: 1}
-    m_DisabledColor: {r: 0.5058824, g: 0.16470589, b: 0.6627451, a: 0.5019608}
+    m_HighlightedColor: {r: 0.69182384, g: 0.69182384, b: 0.69182384, a: 1}
+    m_PressedColor: {r: 0.5471698, g: 0.5471698, b: 0.5471698, a: 1}
+    m_SelectedColor: {r: 0.64779866, g: 0.64779866, b: 0.64779866, a: 1}
+    m_DisabledColor: {r: 0.64779866, g: 0.64779866, b: 0.64779866, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -50949,6 +51901,64 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1098249758}
   m_CullTransparentMesh: 1
+--- !u!1 &1098330919
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1098330920}
+  - component: {fileID: 1098330921}
+  m_Layer: 0
+  m_Name: AlienCloudPreference
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1098330920
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1098330919}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1094.2767, y: 461.0478, z: -15.391561}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1417486166}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1098330921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1098330919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e217304f7f74f4bbf7931849783d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  operations:
+  - ProbabilityListA:
+    - {fileID: 1327940694}
+    - {fileID: 1327940694}
+    ProbabilityListB: []
+    indices: 0000000002000000
+    scalar: 50
+    operation: 2
+  message: It is now believed that aliens are primarily interested in studying earth's
+    atmosphere, and therefore prefer to fly in the cover of clouds
+  eventDescription: P(A|Cl) has increased dramatically
+  inverse: Previous reports of alien hiding under clouds have been debunked as tests
+    from a weather balloon startup.
+  inverseEventDescription: P(A|Cl) returns to normal
 --- !u!1 &1099065366
 GameObject:
   m_ObjectHideFlags: 0
@@ -56043,6 +57053,7 @@ GameObject:
   - component: {fileID: 1177382594}
   - component: {fileID: 1177382596}
   - component: {fileID: 1177382595}
+  - component: {fileID: 1177382597}
   m_Layer: 5
   m_Name: RainUI
   m_TagString: Untagged
@@ -56101,6 +57112,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1177382593}
   m_CullTransparentMesh: 1
+--- !u!114 &1177382597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1177382593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64ebd21b7b404244c8055d3e92fdc8e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displays:
+  - {fileID: 1883225271}
+  - {fileID: 1821076581}
+  - {fileID: 1428355185}
+  - {fileID: 629872362}
+  sliders:
+  - {fileID: 1231460509}
+  - {fileID: 2099538734}
+  - {fileID: 1411441328}
+  - {fileID: 105870372}
 --- !u!1 &1178963860
 GameObject:
   m_ObjectHideFlags: 0
@@ -57199,6 +58232,7 @@ GameObject:
   - component: {fileID: 1207384169}
   - component: {fileID: 1207384171}
   - component: {fileID: 1207384172}
+  - component: {fileID: 1207384173}
   m_Layer: 5
   m_Name: WinterUI
   m_TagString: Untagged
@@ -57253,6 +58287,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   node: {fileID: 252608305}
+--- !u!114 &1207384173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1207384168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64ebd21b7b404244c8055d3e92fdc8e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displays:
+  - {fileID: 170711315}
+  sliders:
+  - {fileID: 2040853108}
 --- !u!1001 &1209096107
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -59361,6 +60411,91 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1233659831
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1233659832}
+  - component: {fileID: 1233659835}
+  - component: {fileID: 1233659834}
+  - component: {fileID: 1233659833}
+  m_Layer: 5
+  m_Name: RawImage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1233659832
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233659831}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1630502011}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -161.5, y: 0}
+  m_SizeDelta: {x: 80, y: 80}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1233659833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233659831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ff3b435acf684649ba8be882f6899df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1233659834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233659831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 2800000, guid: 7473ee64cd33e2a4b9e4fb6f1fce7d00, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &1233659835
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233659831}
+  m_CullTransparentMesh: 1
 --- !u!1 &1234109179
 GameObject:
   m_ObjectHideFlags: 0
@@ -60578,6 +61713,69 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1262271911}
   m_CullTransparentMesh: 1
+--- !u!1 &1263147207
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1263147208}
+  - component: {fileID: 1263147209}
+  m_Layer: 0
+  m_Name: CafeGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1263147208
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263147207}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1094.2767, y: 461.0478, z: -15.391561}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1417486166}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1263147209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263147207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e217304f7f74f4bbf7931849783d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  operations:
+  - ProbabilityListA:
+    - {fileID: 405904199}
+    ProbabilityListB: []
+    indices: 00000000
+    scalar: 9
+    operation: 2
+  - ProbabilityListA:
+    - {fileID: 405904199}
+    ProbabilityListB: []
+    indices: 02000000
+    scalar: 70
+    operation: 2
+  message: The cafe has adopted a backup generator system. Its welcoming glow draws
+    patrons inside even when power is out for the rest of the town.
+  eventDescription: P(Co|Po) has increased
+  inverse: The backup generators have proven too expensive to maintain and have been
+    removed from the cafe.
+  inverseEventDescription: P(Co|Po) has returned to normal
 --- !u!1 &1263361094
 GameObject:
   m_ObjectHideFlags: 0
@@ -62840,6 +64038,78 @@ MonoBehaviour:
   incomingPulseColor: {r: 0.85490197, g: 0.64705884, b: 0.1254902, a: 1}
   outgoingPulseColor: {r: 0, g: 0, b: 1, a: 1}
   pulseSpeed: 2
+--- !u!1 &1308143899
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1308143900}
+  - component: {fileID: 1308143902}
+  - component: {fileID: 1308143901}
+  m_Layer: 5
+  m_Name: RawImage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1308143900
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308143899}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1980073209}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 22, y: 22}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1308143901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308143899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 2800000, guid: df7474daad255e043a59778fa495adbf, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &1308143902
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308143899}
+  m_CullTransparentMesh: 1
 --- !u!1 &1310304056
 GameObject:
   m_ObjectHideFlags: 0
@@ -63061,6 +64331,7 @@ GameObject:
   - component: {fileID: 1316193868}
   - component: {fileID: 1316193870}
   - component: {fileID: 1316193871}
+  - component: {fileID: 1316193872}
   m_Layer: 5
   m_Name: SummerUI
   m_TagString: Untagged
@@ -63118,6 +64389,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   node: {fileID: 1935005719}
+--- !u!114 &1316193872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1316193867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64ebd21b7b404244c8055d3e92fdc8e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displays:
+  - {fileID: 1002842779}
+  - {fileID: 367278985}
+  - {fileID: 1230014109}
+  sliders:
+  - {fileID: 979950422}
+  - {fileID: 1661377523}
+  - {fileID: 491965158}
 --- !u!1 &1319054874
 GameObject:
   m_ObjectHideFlags: 0
@@ -63834,6 +65125,7 @@ GameObject:
   - component: {fileID: 1327940690}
   - component: {fileID: 1327940692}
   - component: {fileID: 1327940693}
+  - component: {fileID: 1327940694}
   m_Layer: 5
   m_Name: AlienUI
   m_TagString: Untagged
@@ -63892,6 +65184,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   node: {fileID: 1958355176}
+--- !u!114 &1327940694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1327940689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64ebd21b7b404244c8055d3e92fdc8e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displays:
+  - {fileID: 654244412}
+  - {fileID: 565319514}
+  - {fileID: 1714006458}
+  - {fileID: 1985862915}
+  sliders:
+  - {fileID: 1993056253}
+  - {fileID: 2081660622}
+  - {fileID: 2109935851}
+  - {fileID: 2042072712}
 --- !u!1 &1329966221
 GameObject:
   m_ObjectHideFlags: 0
@@ -65886,6 +67200,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1362446789}
   m_CullTransparentMesh: 1
+--- !u!1 &1363462815
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1363462816}
+  - component: {fileID: 1363462817}
+  m_Layer: 0
+  m_Name: GroundhogSeesShadow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1363462816
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1363462815}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1094.2767, y: 461.0478, z: -15.391561}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1417486166}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1363462817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1363462815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e217304f7f74f4bbf7931849783d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  operations:
+  - ProbabilityListA:
+    - {fileID: 1207384173}
+    ProbabilityListB: []
+    indices: 00000000
+    scalar: 0.12
+    operation: 3
+  message: Groundhogs have emerged from their burrows looking at their shadows. Winter
+    has been lengthened as a result.
+  eventDescription: P(W) has increased
+  inverse: After rigerous research, it has been determined that groundhog behavior
+    does not impact the length of any seasons.
+  inverseEventDescription: P(W) has returned to normal
 --- !u!1 &1364636979
 GameObject:
   m_ObjectHideFlags: 0
@@ -66878,6 +68249,72 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1397505407}
   m_CullTransparentMesh: 0
+--- !u!1 &1398087757
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1398087758}
+  - component: {fileID: 1398087759}
+  m_Layer: 0
+  m_Name: ClimateChange
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1398087758
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1398087757}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1094.2767, y: 461.0478, z: -15.391561}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1417486166}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1398087759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1398087757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e217304f7f74f4bbf7931849783d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  operations:
+  - ProbabilityListA:
+    - {fileID: 469019302}
+    - {fileID: 469019302}
+    - {fileID: 469019302}
+    - {fileID: 469019302}
+    ProbabilityListB: []
+    indices: 00000000010000000200000003000000
+    scalar: 1.5
+    operation: 2
+  - ProbabilityListA:
+    - {fileID: 406801546}
+    ProbabilityListB: []
+    indices: 00000000
+    scalar: 1.5
+    operation: 2
+  message: Climate change is taking its toll on the town of Davis. Weather patterns
+    are more sporatic and adverse weather is more common.
+  eventDescription: P(Ap), P(Cl) has increased
+  inverse: Global cooperation towards envriomental issues has lessened the effects
+    of climate change
+  inverseEventDescription: P(Ap), P(Cl) has returned to normal
 --- !u!1 &1399313521
 GameObject:
   m_ObjectHideFlags: 0
@@ -67747,10 +69184,10 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.47058824, g: 0.14901961, b: 0.627451, a: 1}
-    m_PressedColor: {r: 0.4117647, g: 0.11764706, b: 0.5882353, a: 1}
-    m_SelectedColor: {r: 0.5058824, g: 0.16470589, b: 0.6627451, a: 1}
-    m_DisabledColor: {r: 0.5058824, g: 0.16470589, b: 0.6627451, a: 0.5019608}
+    m_HighlightedColor: {r: 0.69182384, g: 0.69182384, b: 0.69182384, a: 1}
+    m_PressedColor: {r: 0.5471698, g: 0.5471698, b: 0.5471698, a: 1}
+    m_SelectedColor: {r: 0.64779866, g: 0.64779866, b: 0.64779866, a: 1}
+    m_DisabledColor: {r: 0.64779866, g: 0.64779866, b: 0.64779866, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -68033,6 +69470,100 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1417181906}
   m_CullTransparentMesh: 1
+--- !u!1 &1417486165
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1417486166}
+  - component: {fileID: 1417486167}
+  m_Layer: 0
+  m_Name: RandomEventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1417486166
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417486165}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.2525167, y: -3.7710674, z: 0.049519222}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1545110881}
+  - {fileID: 70495582}
+  - {fileID: 1098330920}
+  - {fileID: 300897910}
+  - {fileID: 63814337}
+  - {fileID: 1263147208}
+  - {fileID: 1963722934}
+  - {fileID: 340839425}
+  - {fileID: 1398087758}
+  - {fileID: 1363462816}
+  - {fileID: 643396971}
+  - {fileID: 1942901680}
+  - {fileID: 2068790154}
+  - {fileID: 995661213}
+  - {fileID: 1517491321}
+  - {fileID: 514598590}
+  - {fileID: 175035686}
+  - {fileID: 1897804682}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1417486167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417486165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29d99d8b864eb4c4c8aa70e9258b79e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  notificationPanel: {fileID: 1630502010}
+  fadableElements:
+  - {fileID: 1953642494}
+  - {fileID: 2093945423}
+  - {fileID: 545076455}
+  - {fileID: 820290951}
+  - {fileID: 1233659833}
+  fadeTime: 1
+  stayTime: 3
+  events:
+  - {fileID: 1545110882}
+  - {fileID: 70495583}
+  - {fileID: 1098330921}
+  - {fileID: 300897911}
+  - {fileID: 63814338}
+  - {fileID: 1263147209}
+  - {fileID: 1963722935}
+  - {fileID: 340839426}
+  - {fileID: 1398087759}
+  - {fileID: 1363462817}
+  - {fileID: 643396972}
+  - {fileID: 1942901681}
+  - {fileID: 2068790155}
+  - {fileID: 995661214}
+  - {fileID: 1517491322}
+  - {fileID: 514598591}
+  - {fileID: 175035687}
+  - {fileID: 1897804683}
+  messageText: {fileID: 545076456}
+  eventText: {fileID: 820290952}
+  runningTest: 0
+  testIndex: 0
 --- !u!1 &1418787604
 GameObject:
   m_ObjectHideFlags: 0
@@ -73429,6 +74960,64 @@ RectTransform:
   m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1517491320
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1517491321}
+  - component: {fileID: 1517491322}
+  m_Layer: 0
+  m_Name: AlienCuriosity
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1517491321
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1517491320}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1094.2767, y: 461.0478, z: -15.391561}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1417486166}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1517491322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1517491320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e217304f7f74f4bbf7931849783d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  operations:
+  - ProbabilityListA:
+    - {fileID: 1327940694}
+    - {fileID: 1327940694}
+    ProbabilityListB: []
+    indices: 0000000001000000
+    scalar: 50
+    operation: 2
+  message: While previously believed to avoid densely populated areas, aliens now
+    seem to gravitate towards busy streets
+  eventDescription: P(A|B) has dramatically increased
+  inverse: Recent alien sightings in busy settings have turned out to be drones taking
+    aerial shots for a coming movie
+  inverseEventDescription: P(A|B) has returned to normal
 --- !u!1 &1518548959
 GameObject:
   m_ObjectHideFlags: 0
@@ -74206,6 +75795,80 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1543753350}
   m_CullTransparentMesh: 1
+--- !u!1 &1545110880
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1545110881}
+  - component: {fileID: 1545110882}
+  m_Layer: 0
+  m_Name: PowerGridFailure
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1545110881
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545110880}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1417486166}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1545110882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545110880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e217304f7f74f4bbf7931849783d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  operations:
+  - ProbabilityListA:
+    - {fileID: 223681564}
+    ProbabilityListB: []
+    indices: 00000000
+    scalar: 0.3
+    operation: 1
+  - ProbabilityListA:
+    - {fileID: 223681564}
+    ProbabilityListB: []
+    indices: 01000000
+    scalar: 0.1
+    operation: 1
+  - ProbabilityListA:
+    - {fileID: 223681564}
+    ProbabilityListB: []
+    indices: 02000000
+    scalar: 0.1
+    operation: 1
+  - ProbabilityListA:
+    - {fileID: 223681564}
+    ProbabilityListB: []
+    indices: 03000000
+    scalar: 0.05
+    operation: 1
+  message: Recent reports indicate that the Davis power grid is of poor health and
+    needs significant maintenance immediately.
+  eventDescription: P(Po) has increased
+  inverse: After recent repairs, the Davis power grid is once again in good health
+  inverseEventDescription: P(Po) has returned to its regular value
 --- !u!1 &1546917581
 GameObject:
   m_ObjectHideFlags: 0
@@ -78623,6 +80286,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Padding: {x: -8, y: -5, z: -8, w: -5}
   m_Softness: {x: 0, y: 0}
+--- !u!1 &1630502010
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1630502011}
+  m_Layer: 5
+  m_Name: NotificationPanel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1630502011
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1630502010}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1953642493}
+  - {fileID: 2093945422}
+  - {fileID: 545076454}
+  - {fileID: 820290950}
+  - {fileID: 1233659832}
+  m_Father: {fileID: 972312766}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 400, y: 10}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1632303312
 GameObject:
   m_ObjectHideFlags: 0
@@ -79063,6 +80766,7 @@ GameObject:
   - component: {fileID: 1645890154}
   - component: {fileID: 1645890156}
   - component: {fileID: 1645890155}
+  - component: {fileID: 1645890157}
   m_Layer: 5
   m_Name: WindUI
   m_TagString: Untagged
@@ -79119,6 +80823,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1645890153}
   m_CullTransparentMesh: 1
+--- !u!114 &1645890157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1645890153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64ebd21b7b404244c8055d3e92fdc8e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displays:
+  - {fileID: 1232255916}
+  - {fileID: 1139235160}
+  sliders:
+  - {fileID: 1247521197}
+  - {fileID: 479951032}
 --- !u!1 &1646436748
 GameObject:
   m_ObjectHideFlags: 0
@@ -81224,6 +82946,7 @@ GameObject:
   - component: {fileID: 1683404754}
   - component: {fileID: 1683404756}
   - component: {fileID: 1683404757}
+  - component: {fileID: 1683404758}
   m_Layer: 5
   m_Name: DogUI
   m_TagString: Untagged
@@ -81282,6 +83005,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   node: {fileID: 1869244370}
+--- !u!114 &1683404758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683404753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64ebd21b7b404244c8055d3e92fdc8e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displays:
+  - {fileID: 1564998327}
+  - {fileID: 836369063}
+  - {fileID: 191913290}
+  - {fileID: 811233613}
+  sliders:
+  - {fileID: 1342800388}
+  - {fileID: 624283137}
+  - {fileID: 639128939}
+  - {fileID: 2122007822}
 --- !u!114 &1683924343 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4465845015412069258, guid: 9cbd09b4c649b46139e2f71101452362,
@@ -92744,6 +94489,68 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1897804681
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1897804682}
+  - component: {fileID: 1897804683}
+  m_Layer: 0
+  m_Name: FriendlyDogs
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1897804682
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1897804681}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1094.2767, y: 461.0478, z: -15.391561}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1417486166}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1897804683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1897804681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e217304f7f74f4bbf7931849783d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  operations:
+  - ProbabilityListA:
+    - {fileID: 1683404758}
+    ProbabilityListB: []
+    indices: 00000000
+    scalar: -0.2
+    operation: 3
+  - ProbabilityListA:
+    - {fileID: 1683404758}
+    ProbabilityListB: []
+    indices: 02000000
+    scalar: -0.6
+    operation: 3
+  message: A recent article claims that the dogs of Davis are some of the most friendly
+    around!
+  eventDescription: P(D|A) has decreased
+  inverse: Davis has lost its status as the town with the most friendly dogs.
+  inverseEventDescription: P(D|A) has returned to normal
 --- !u!1001 &1905810592
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -94491,6 +96298,65 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1942313052}
   m_CullTransparentMesh: 1
+--- !u!1 &1942901679
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1942901680}
+  - component: {fileID: 1942901681}
+  m_Layer: 0
+  m_Name: FamousProfessor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1942901680
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1942901679}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1094.2767, y: 461.0478, z: -15.391561}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1417486166}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1942901681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1942901679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e217304f7f74f4bbf7931849783d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  operations:
+  - ProbabilityListA:
+    - {fileID: 1078642795}
+    - {fileID: 1078642795}
+    ProbabilityListB: []
+    indices: 0200000003000000
+    scalar: 0.2
+    operation: 3
+  message: A new and very handsome instructor has gained acclaim by creating video
+    games to demonstrate class concepts. People flock to the local university to
+    see them lecture
+  eventDescription: P(B|~Su) has increased
+  inverse: The handsome instructor, grateful to all of their students and the generosity
+    of their institution, has retired.
+  inverseEventDescription: P(B|~Su) has returned to normal
 --- !u!1 &1949001446
 GameObject:
   m_ObjectHideFlags: 0
@@ -94986,6 +96852,91 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1950548181}
   m_CullTransparentMesh: 1
+--- !u!1 &1953642492
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1953642493}
+  - component: {fileID: 1953642496}
+  - component: {fileID: 1953642495}
+  - component: {fileID: 1953642494}
+  m_Layer: 5
+  m_Name: RawImage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1953642493
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1953642492}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1630502011}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 420, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1953642494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1953642492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ff3b435acf684649ba8be882f6899df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1953642495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1953642492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 2800000, guid: 389f50e6c25159e499c81ec470ee5b9e, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &1953642496
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1953642492}
+  m_CullTransparentMesh: 1
 --- !u!1 &1958355175
 GameObject:
   m_ObjectHideFlags: 0
@@ -95042,6 +96993,66 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1963722933
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1963722934}
+  - component: {fileID: 1963722935}
+  m_Layer: 0
+  m_Name: FleaInfection
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1963722934
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1963722933}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1094.2767, y: 461.0478, z: -15.391561}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1417486166}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1963722935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1963722933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e217304f7f74f4bbf7931849783d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  operations:
+  - ProbabilityListA:
+    - {fileID: 1683404758}
+    - {fileID: 1683404758}
+    - {fileID: 1683404758}
+    - {fileID: 1683404758}
+    ProbabilityListB: []
+    indices: 00000000010000000200000003000000
+    scalar: 0.9
+    operation: 1
+  message: Something has irritated the canine population of Davis. Dogs can be heard
+    barking regardless of outside influence.
+  eventDescription: P(D) is uniform regardless of evidence
+  inverse: Veterinarians have traced canine discontent with the spread of a new species
+    of harmless but annoying fleas. Medicine has been rolled out.
+  inverseEventDescription: P(D) returns to normal
 --- !u!1 &1968086155
 GameObject:
   m_ObjectHideFlags: 0
@@ -96131,6 +98142,157 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1979676278}
+  m_CullTransparentMesh: 1
+--- !u!1 &1980073208
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1980073209}
+  - component: {fileID: 1980073213}
+  - component: {fileID: 1980073212}
+  - component: {fileID: 1980073211}
+  - component: {fileID: 1980073210}
+  m_Layer: 5
+  m_Name: RandomEventButton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1980073209
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980073208}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1308143900}
+  m_Father: {fileID: 972312766}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -384.88782, y: 126.4}
+  m_SizeDelta: {x: 35, y: 35}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1980073210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980073208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1417486167}
+          m_TargetAssemblyTypeName: RandomEventSystem, Assembly-CSharp
+          m_MethodName: DrawEvent
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &1980073211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980073208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.69182384, g: 0.69182384, b: 0.69182384, a: 1}
+    m_PressedColor: {r: 0.5471698, g: 0.5471698, b: 0.5471698, a: 1}
+    m_SelectedColor: {r: 0.64779866, g: 0.64779866, b: 0.64779866, a: 1}
+    m_DisabledColor: {r: 0.64779866, g: 0.64779866, b: 0.64779866, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1980073212}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1980073212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980073208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 898e4473ea18aa942ae50f77055bcfee, type: 3}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1980073213
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980073208}
   m_CullTransparentMesh: 1
 --- !u!1 &1982733015
 GameObject:
@@ -99767,6 +101929,64 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2064121320}
   m_CullTransparentMesh: 1
+--- !u!1 &2068790153
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2068790154}
+  - component: {fileID: 2068790155}
+  m_Layer: 0
+  m_Name: SummerFestivals
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2068790154
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068790153}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1094.2767, y: 461.0478, z: -15.391561}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1417486166}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2068790155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068790153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e217304f7f74f4bbf7931849783d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  operations:
+  - ProbabilityListA:
+    - {fileID: 1078642795}
+    - {fileID: 1078642795}
+    ProbabilityListB: []
+    indices: 0000000001000000
+    scalar: 0.2
+    operation: 3
+  message: The town of Davis has announced several new Summer festivals hoping to
+    bring in intreset to an otherwise quiet season
+  eventDescription: P(B|Su) has increased
+  inverse: Davis Summer festivals have concluded. No word on if this tradition will
+    continue for another year
+  inverseEventDescription: P(B|Su) has returned to normal
 --- !u!114 &2072207386 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3728865574368668326, guid: 9cbd09b4c649b46139e2f71101452362,
@@ -100742,6 +102962,154 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 2088197385}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2093945421
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2093945422}
+  - component: {fileID: 2093945425}
+  - component: {fileID: 2093945424}
+  - component: {fileID: 2093945423}
+  m_Layer: 5
+  m_Name: Title
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2093945422
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2093945421}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1630502011}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 30.2, y: 31.7}
+  m_SizeDelta: {x: 680, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2093945423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2093945421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feaff57a091ee4aee819d23981aa882d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2093945424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2093945421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: BREAKING NEWS
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: a85a5fb20be32c74e8b4a078e736f5ab, type: 2}
+  m_sharedMaterial: {fileID: -8262044034710385518, guid: a85a5fb20be32c74e8b4a078e736f5ab,
+    type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 32
+  m_fontSizeBase: 32
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 1
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &2093945425
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2093945421}
+  m_CullTransparentMesh: 1
 --- !u!1 &2095231285
 GameObject:
   m_ObjectHideFlags: 0
@@ -101534,6 +103902,7 @@ GameObject:
   - component: {fileID: 2109671963}
   - component: {fileID: 2109671965}
   - component: {fileID: 2109671966}
+  - component: {fileID: 2109671967}
   m_Layer: 5
   m_Name: SpringUI
   m_TagString: Untagged
@@ -101560,8 +103929,8 @@ RectTransform:
   - {fileID: 1152331284}
   - {fileID: 751604495}
   - {fileID: 953027421}
-  - {fileID: 1996679820}
   - {fileID: 443809897}
+  - {fileID: 1996679820}
   m_Father: {fileID: 1428064586}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -101590,6 +103959,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   node: {fileID: 1487077430}
+--- !u!114 &2109671967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2109671962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64ebd21b7b404244c8055d3e92fdc8e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displays:
+  - {fileID: 828394274}
+  - {fileID: 1872071084}
+  sliders:
+  - {fileID: 1482038185}
+  - {fileID: 19018144}
 --- !u!1 &2109935849
 GameObject:
   m_ObjectHideFlags: 0
@@ -102820,6 +105207,7 @@ GameObject:
   - component: {fileID: 2141216714}
   - component: {fileID: 2141216716}
   - component: {fileID: 2141216717}
+  - component: {fileID: 2141216718}
   m_Layer: 5
   m_Name: FallUI
   m_TagString: Untagged
@@ -102878,6 +105266,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   node: {fileID: 1237729336}
+--- !u!114 &2141216718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2141216713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64ebd21b7b404244c8055d3e92fdc8e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displays:
+  - {fileID: 2031132776}
+  - {fileID: 345765649}
+  - {fileID: 430800503}
+  - {fileID: 381092391}
+  sliders:
+  - {fileID: 403026067}
+  - {fileID: 726999633}
+  - {fileID: 1581988351}
+  - {fileID: 1459797533}
 --- !u!1 &2141717605
 GameObject:
   m_ObjectHideFlags: 0
@@ -104078,3 +106488,4 @@ SceneRoots:
   - {fileID: 2061259115}
   - {fileID: 1694050718}
   - {fileID: 1320082883}
+  - {fileID: 1417486166}

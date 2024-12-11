@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviour
 
     public static void FadeAllObjects(GameObject go, float alpha)
     {
-        foreach (IFadable fadable in go.GetComponents<IFadable>())
+        foreach (FadableElement fadable in go.GetComponents<FadableElement>())
         {
             fadable.SetAlpha(alpha);
         }
