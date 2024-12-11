@@ -69562,8 +69562,8 @@ MonoBehaviour:
   - {fileID: 1897804683}
   messageText: {fileID: 545076456}
   eventText: {fileID: 820290952}
-  runningTest: 1
-  testIndex: 15
+  runningTest: 0
+  testIndex: 0
 --- !u!1 &1418787604
 GameObject:
   m_ObjectHideFlags: 0
@@ -80301,7 +80301,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1630502011
 RectTransform:
   m_ObjectHideFlags: 0
