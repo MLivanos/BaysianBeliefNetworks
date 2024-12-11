@@ -2806,6 +2806,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 62941620}
   m_CullTransparentMesh: 1
+--- !u!1 &63814336
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 63814337}
+  - component: {fileID: 63814338}
+  m_Layer: 0
+  m_Name: Festivals
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &63814337
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 63814336}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1094.2767, y: 461.0478, z: -15.391561}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1417486166}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &63814338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 63814336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e217304f7f74f4bbf7931849783d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  operations:
+  - ProbabilityListA:
+    - {fileID: 1078642795}
+    - {fileID: 1078642795}
+    ProbabilityListB: []
+    indices: 0100000003000000
+    scalar: 1.5
+    operation: 2
+  message: A string of festivals are taking place in nearby towns, causing additional
+    traffic so long as festivals are not cancelled
+  eventDescription: P(B|~R) has increased
+  inverse: The festival season has concluded
+  inverseEventDescription: P(B|~R) has returned to normal
 --- !u!1 &63894266
 GameObject:
   m_ObjectHideFlags: 0
@@ -3114,6 +3171,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 70485851}
   m_CullTransparentMesh: 1
+--- !u!1 &70495581
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 70495582}
+  - component: {fileID: 70495583}
+  m_Layer: 0
+  m_Name: AlienCloudPenetration
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &70495582
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 70495581}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1094.2767, y: 461.0478, z: -15.391561}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1417486166}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &70495583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 70495581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e217304f7f74f4bbf7931849783d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  operations:
+  - ProbabilityListA:
+    - {fileID: 1327940694}
+    - {fileID: 1327940694}
+    ProbabilityListB: []
+    indices: 0000000002000000
+    scalar: 10
+    operation: 2
+  message: Intelligence reveals that alien ships emit radar-like signals unaffected
+    by cloud cover
+  eventDescription: P(A|Cl) increased
+  inverse: Reports of alien cloud penetration cannot be verified
+  inverseEventDescription: P(A|Cl) returns to normal
 --- !u!1 &70752494
 GameObject:
   m_ObjectHideFlags: 0
@@ -7699,6 +7813,64 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 172162342}
   m_CullTransparentMesh: 1
+--- !u!1 &175035685
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 175035686}
+  - component: {fileID: 175035687}
+  m_Layer: 0
+  m_Name: Drought
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &175035686
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175035685}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1094.2767, y: 461.0478, z: -15.391561}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1417486166}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &175035687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175035685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e217304f7f74f4bbf7931849783d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  operations:
+  - ProbabilityListA:
+    - {fileID: 469019302}
+    - {fileID: 469019302}
+    - {fileID: 469019302}
+    - {fileID: 469019302}
+    ProbabilityListB: []
+    indices: 00000000010000000200000003000000
+    scalar: 0.5
+    operation: 2
+  message: Low moisture content in the air has lead to decreased cloud formation
+  eventDescription: P(Cl) has decreased
+  inverse: Moisture levels have rebounded, leading to normal cloud formation
+  inverseEventDescription: P(Cl) has returned
 --- !u!1 &175815275
 GameObject:
   m_ObjectHideFlags: 0
@@ -12721,6 +12893,65 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &300897909
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 300897910}
+  - component: {fileID: 300897911}
+  m_Layer: 0
+  m_Name: CafeShortStaffed
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &300897910
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 300897909}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1094.2767, y: 461.0478, z: -15.391561}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1417486166}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &300897911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 300897909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e217304f7f74f4bbf7931849783d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  operations:
+  - ProbabilityListA:
+    - {fileID: 405904199}
+    - {fileID: 405904199}
+    - {fileID: 405904199}
+    - {fileID: 405904199}
+    ProbabilityListB: []
+    indices: 00000000010000000200000003000000
+    scalar: 0.5
+    operation: 2
+  message: The Cafe has been short staffed for some time and has to close early more
+    frequently
+  eventDescription: P(Co) decreased
+  inverse: The Cafe has filled vacant positions and is operating as normal
+  inverseEventDescription: P(Co) returns to normal
 --- !u!1 &307504594
 GameObject:
   m_ObjectHideFlags: 0
@@ -14705,6 +14936,68 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 338545131}
   m_CullTransparentMesh: 1
+--- !u!1 &340839424
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 340839425}
+  - component: {fileID: 340839426}
+  m_Layer: 0
+  m_Name: CatsAndDogsAreFriends
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &340839425
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 340839424}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1094.2767, y: 461.0478, z: -15.391561}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1417486166}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &340839426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 340839424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e217304f7f74f4bbf7931849783d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  operations:
+  - ProbabilityListA:
+    - {fileID: 593002885}
+    ProbabilityListB: []
+    indices: 00000000
+    scalar: 0.9
+    operation: 1
+  - ProbabilityListA:
+    - {fileID: 593002885}
+    ProbabilityListB: []
+    indices: 02000000
+    scalar: 0.05
+    operation: 1
+  message: Cats and dogs are becoming more accustomed to each other. When hearing
+    the bark of a dog, cats can be seen running to greet their friends.
+  eventDescription: P(C|D) is now less than P(C|~D)
+  inverse: There has been an influx of cats who are not accustomed to dogs.
+  inverseEventDescription: P(C|D) has returned to normal
 --- !u!1 &345765647
 GameObject:
   m_ObjectHideFlags: 0
@@ -23570,6 +23863,70 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &514598589
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 514598590}
+  - component: {fileID: 514598591}
+  m_Layer: 0
+  m_Name: RainySeason
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &514598590
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 514598589}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1094.2767, y: 461.0478, z: -15.391561}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1417486166}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &514598591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 514598589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e217304f7f74f4bbf7931849783d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  operations:
+  - ProbabilityListA:
+    - {fileID: 223681564}
+    - {fileID: 223681564}
+    ProbabilityListB: []
+    indices: 0000000002000000
+    scalar: 0.1
+    operation: 3
+  - ProbabilityListA:
+    - {fileID: 1078642795}
+    - {fileID: 1078642795}
+    ProbabilityListB: []
+    indices: 0000000002000000
+    scalar: 0.5
+    operation: 2
+  message: Following a draught, the ground is unable to keep water. Officials warn
+    that the next downpour may cause flooding
+  eventDescription: P(Po|R) has increased, P(B|R) has decreased
+  inverse: Following a healthy rainy season, floods are less likely to occur
+  inverseEventDescription: P(Po|R) and P(B|R) have returned to normal
 --- !u!1 &514737691
 GameObject:
   m_ObjectHideFlags: 0
@@ -25225,8 +25582,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 30.2, y: 11.5}
-  m_SizeDelta: {x: 680, y: 50}
+  m_AnchoredPosition: {x: 30.2, y: 1.3}
+  m_SizeDelta: {x: 680, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &545076455
 MonoBehaviour:
@@ -25291,12 +25648,12 @@ MonoBehaviour:
   m_fontSize: 28
   m_fontSizeBase: 28
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 28
   m_fontStyle: 1
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -31431,6 +31788,63 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &643396970
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 643396971}
+  - component: {fileID: 643396972}
+  m_Layer: 0
+  m_Name: TreePruning
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &643396971
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 643396970}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1094.2767, y: 461.0478, z: -15.391561}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1417486166}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &643396972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 643396970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e217304f7f74f4bbf7931849783d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  operations:
+  - ProbabilityListA:
+    - {fileID: 751110584}
+    - {fileID: 751110584}
+    ProbabilityListB: []
+    indices: 0000000001000000
+    scalar: 0.2
+    operation: 2
+  message: The town of Davis has made an effort to cut down dead trees across the
+    city
+  eventDescription: P(Dt) has decreased
+  inverse: As time goes on, new trees grow and old trees die
+  inverseEventDescription: P(Dt) has returned to normal
 --- !u!1 &647194312
 GameObject:
   m_ObjectHideFlags: 0
@@ -47000,6 +47414,64 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 994648383}
   m_CullTransparentMesh: 0
+--- !u!1 &995661212
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 995661213}
+  - component: {fileID: 995661214}
+  m_Layer: 0
+  m_Name: AlienAccustom
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &995661213
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995661212}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1094.2767, y: 461.0478, z: -15.391561}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1417486166}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &995661214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995661212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e217304f7f74f4bbf7931849783d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  operations:
+  - ProbabilityListA:
+    - {fileID: 1327940694}
+    - {fileID: 1327940694}
+    ProbabilityListB: []
+    indices: 0000000001000000
+    scalar: 10
+    operation: 2
+  message: As reports of Aliens are ignored by credible institutions, aliens have
+    become more bold in appearing even on busy days
+  eventDescription: P(A|B) has increased
+  inverse: Officials have started to take alien visitation claims more seriously,
+    and aliens have seemingly taken notice, returning to the shadows.
+  inverseEventDescription: P(A|B) has returned to normal
 --- !u!1 &996049005
 GameObject:
   m_ObjectHideFlags: 0
@@ -51429,6 +51901,64 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1098249758}
   m_CullTransparentMesh: 1
+--- !u!1 &1098330919
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1098330920}
+  - component: {fileID: 1098330921}
+  m_Layer: 0
+  m_Name: AlienCloudPreference
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1098330920
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1098330919}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1094.2767, y: 461.0478, z: -15.391561}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1417486166}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1098330921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1098330919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e217304f7f74f4bbf7931849783d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  operations:
+  - ProbabilityListA:
+    - {fileID: 1327940694}
+    - {fileID: 1327940694}
+    ProbabilityListB: []
+    indices: 0000000002000000
+    scalar: 50
+    operation: 2
+  message: It is now believed that aliens are primarily interested in studying earth's
+    atmosphere, and therefore prefer to fly in the cover of clouds
+  eventDescription: P(A|Cl) has increased dramatically
+  inverse: Previous reports of alien hiding under clouds have been debunked as tests
+    from a weather balloon startup.
+  inverseEventDescription: P(A|Cl) returns to normal
 --- !u!1 &1099065366
 GameObject:
   m_ObjectHideFlags: 0
@@ -61183,6 +61713,69 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1262271911}
   m_CullTransparentMesh: 1
+--- !u!1 &1263147207
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1263147208}
+  - component: {fileID: 1263147209}
+  m_Layer: 0
+  m_Name: CafeGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1263147208
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263147207}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1094.2767, y: 461.0478, z: -15.391561}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1417486166}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1263147209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263147207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e217304f7f74f4bbf7931849783d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  operations:
+  - ProbabilityListA:
+    - {fileID: 405904199}
+    ProbabilityListB: []
+    indices: 00000000
+    scalar: 9
+    operation: 2
+  - ProbabilityListA:
+    - {fileID: 405904199}
+    ProbabilityListB: []
+    indices: 02000000
+    scalar: 70
+    operation: 2
+  message: The cafe has adopted a backup generator system. Its welcoming glow draws
+    patrons inside even when power is out for the rest of the town.
+  eventDescription: P(Co|Po) has increased
+  inverse: The backup generators have proven too expensive to maintain and have been
+    removed from the cafe.
+  inverseEventDescription: P(Co|Po) has returned to normal
 --- !u!1 &1263361094
 GameObject:
   m_ObjectHideFlags: 0
@@ -66607,6 +67200,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1362446789}
   m_CullTransparentMesh: 1
+--- !u!1 &1363462815
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1363462816}
+  - component: {fileID: 1363462817}
+  m_Layer: 0
+  m_Name: GroundhogSeesShadow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1363462816
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1363462815}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1094.2767, y: 461.0478, z: -15.391561}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1417486166}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1363462817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1363462815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e217304f7f74f4bbf7931849783d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  operations:
+  - ProbabilityListA:
+    - {fileID: 1207384173}
+    ProbabilityListB: []
+    indices: 00000000
+    scalar: 0.12
+    operation: 3
+  message: Groundhogs have emerged from their burrows looking at their shadows. Winter
+    has been lengthened as a result.
+  eventDescription: P(W) has increased
+  inverse: After rigerous research, it has been determined that groundhog behavior
+    does not impact the length of any seasons.
+  inverseEventDescription: P(W) has returned to normal
 --- !u!1 &1364636979
 GameObject:
   m_ObjectHideFlags: 0
@@ -67599,6 +68249,72 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1397505407}
   m_CullTransparentMesh: 0
+--- !u!1 &1398087757
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1398087758}
+  - component: {fileID: 1398087759}
+  m_Layer: 0
+  m_Name: ClimateChange
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1398087758
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1398087757}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1094.2767, y: 461.0478, z: -15.391561}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1417486166}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1398087759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1398087757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e217304f7f74f4bbf7931849783d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  operations:
+  - ProbabilityListA:
+    - {fileID: 469019302}
+    - {fileID: 469019302}
+    - {fileID: 469019302}
+    - {fileID: 469019302}
+    ProbabilityListB: []
+    indices: 00000000010000000200000003000000
+    scalar: 1.5
+    operation: 2
+  - ProbabilityListA:
+    - {fileID: 406801546}
+    ProbabilityListB: []
+    indices: 00000000
+    scalar: 1.5
+    operation: 2
+  message: Climate change is taking its toll on the town of Davis. Weather patterns
+    are more sporatic and adverse weather is more common.
+  eventDescription: P(Ap), P(Cl) has increased
+  inverse: Global cooperation towards envriomental issues has lessened the effects
+    of climate change
+  inverseEventDescription: P(Ap), P(Cl) has returned to normal
 --- !u!1 &1399313521
 GameObject:
   m_ObjectHideFlags: 0
@@ -68785,6 +69501,23 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1545110881}
+  - {fileID: 70495582}
+  - {fileID: 1098330920}
+  - {fileID: 300897910}
+  - {fileID: 63814337}
+  - {fileID: 1263147208}
+  - {fileID: 1963722934}
+  - {fileID: 340839425}
+  - {fileID: 1398087758}
+  - {fileID: 1363462816}
+  - {fileID: 643396971}
+  - {fileID: 1942901680}
+  - {fileID: 2068790154}
+  - {fileID: 995661213}
+  - {fileID: 1517491321}
+  - {fileID: 514598590}
+  - {fileID: 175035686}
+  - {fileID: 1897804682}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1417486167
@@ -68810,8 +69543,27 @@ MonoBehaviour:
   stayTime: 3
   events:
   - {fileID: 1545110882}
+  - {fileID: 70495583}
+  - {fileID: 1098330921}
+  - {fileID: 300897911}
+  - {fileID: 63814338}
+  - {fileID: 1263147209}
+  - {fileID: 1963722935}
+  - {fileID: 340839426}
+  - {fileID: 1398087759}
+  - {fileID: 1363462817}
+  - {fileID: 643396972}
+  - {fileID: 1942901681}
+  - {fileID: 2068790155}
+  - {fileID: 995661214}
+  - {fileID: 1517491322}
+  - {fileID: 514598591}
+  - {fileID: 175035687}
+  - {fileID: 1897804683}
   messageText: {fileID: 545076456}
   eventText: {fileID: 820290952}
+  runningTest: 1
+  testIndex: 15
 --- !u!1 &1418787604
 GameObject:
   m_ObjectHideFlags: 0
@@ -74208,6 +74960,64 @@ RectTransform:
   m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1517491320
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1517491321}
+  - component: {fileID: 1517491322}
+  m_Layer: 0
+  m_Name: AlienCuriosity
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1517491321
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1517491320}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1094.2767, y: 461.0478, z: -15.391561}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1417486166}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1517491322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1517491320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e217304f7f74f4bbf7931849783d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  operations:
+  - ProbabilityListA:
+    - {fileID: 1327940694}
+    - {fileID: 1327940694}
+    ProbabilityListB: []
+    indices: 0000000001000000
+    scalar: 50
+    operation: 2
+  message: While previously believed to avoid densely populated areas, aliens now
+    seem to gravitate towards busy streets
+  eventDescription: P(A|B) has dramatically increased
+  inverse: Recent alien sightings in busy settings have turned out to be drones taking
+    aerial shots for a coming movie
+  inverseEventDescription: P(A|B) has returned to normal
 --- !u!1 &1518548959
 GameObject:
   m_ObjectHideFlags: 0
@@ -79491,7 +80301,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1630502011
 RectTransform:
   m_ObjectHideFlags: 0
@@ -93679,6 +94489,68 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1897804681
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1897804682}
+  - component: {fileID: 1897804683}
+  m_Layer: 0
+  m_Name: FriendlyDogs
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1897804682
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1897804681}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1094.2767, y: 461.0478, z: -15.391561}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1417486166}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1897804683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1897804681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e217304f7f74f4bbf7931849783d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  operations:
+  - ProbabilityListA:
+    - {fileID: 1683404758}
+    ProbabilityListB: []
+    indices: 00000000
+    scalar: -0.2
+    operation: 3
+  - ProbabilityListA:
+    - {fileID: 1683404758}
+    ProbabilityListB: []
+    indices: 02000000
+    scalar: -0.6
+    operation: 3
+  message: A recent article claims that the dogs of Davis are some of the most friendly
+    around!
+  eventDescription: P(D|A) has decreased
+  inverse: Davis has lost its status as the town with the most friendly dogs.
+  inverseEventDescription: P(D|A) has returned to normal
 --- !u!1001 &1905810592
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -95426,6 +96298,65 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1942313052}
   m_CullTransparentMesh: 1
+--- !u!1 &1942901679
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1942901680}
+  - component: {fileID: 1942901681}
+  m_Layer: 0
+  m_Name: FamousProfessor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1942901680
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1942901679}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1094.2767, y: 461.0478, z: -15.391561}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1417486166}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1942901681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1942901679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e217304f7f74f4bbf7931849783d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  operations:
+  - ProbabilityListA:
+    - {fileID: 1078642795}
+    - {fileID: 1078642795}
+    ProbabilityListB: []
+    indices: 0200000003000000
+    scalar: 0.2
+    operation: 3
+  message: A new and very handsome instructor has gained acclaim by creating video
+    games to demonstrate class concepts. People flock to the local university to
+    see them lecture
+  eventDescription: P(B|~Su) has increased
+  inverse: The handsome instructor, grateful to all of their students and the generosity
+    of their institution, has retired.
+  inverseEventDescription: P(B|~Su) has returned to normal
 --- !u!1 &1949001446
 GameObject:
   m_ObjectHideFlags: 0
@@ -96062,6 +96993,66 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1963722933
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1963722934}
+  - component: {fileID: 1963722935}
+  m_Layer: 0
+  m_Name: FleaInfection
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1963722934
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1963722933}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1094.2767, y: 461.0478, z: -15.391561}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1417486166}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1963722935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1963722933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e217304f7f74f4bbf7931849783d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  operations:
+  - ProbabilityListA:
+    - {fileID: 1683404758}
+    - {fileID: 1683404758}
+    - {fileID: 1683404758}
+    - {fileID: 1683404758}
+    ProbabilityListB: []
+    indices: 00000000010000000200000003000000
+    scalar: 0.9
+    operation: 1
+  message: Something has irritated the canine population of Davis. Dogs can be heard
+    barking regardless of outside influence.
+  eventDescription: P(D) is uniform regardless of evidence
+  inverse: Veterinarians have traced canine discontent with the spread of a new species
+    of harmless but annoying fleas. Medicine has been rolled out.
+  inverseEventDescription: P(D) returns to normal
 --- !u!1 &1968086155
 GameObject:
   m_ObjectHideFlags: 0
@@ -100938,6 +101929,64 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2064121320}
   m_CullTransparentMesh: 1
+--- !u!1 &2068790153
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2068790154}
+  - component: {fileID: 2068790155}
+  m_Layer: 0
+  m_Name: SummerFestivals
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2068790154
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068790153}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1094.2767, y: 461.0478, z: -15.391561}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1417486166}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2068790155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068790153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e217304f7f74f4bbf7931849783d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  operations:
+  - ProbabilityListA:
+    - {fileID: 1078642795}
+    - {fileID: 1078642795}
+    ProbabilityListB: []
+    indices: 0000000001000000
+    scalar: 0.2
+    operation: 3
+  message: The town of Davis has announced several new Summer festivals hoping to
+    bring in intreset to an otherwise quiet season
+  eventDescription: P(B|Su) has increased
+  inverse: Davis Summer festivals have concluded. No word on if this tradition will
+    continue for another year
+  inverseEventDescription: P(B|Su) has returned to normal
 --- !u!114 &2072207386 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3728865574368668326, guid: 9cbd09b4c649b46139e2f71101452362,
