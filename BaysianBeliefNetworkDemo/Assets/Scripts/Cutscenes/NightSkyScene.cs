@@ -14,6 +14,9 @@ public class NightSkyScene : CutsceneBehavior
 
     protected override IEnumerator PlayScene()
     {
+        whiteOutImage.gameObject.SetActive(true);
+        yield return null;
+        yield return whiteOutImage.Fade(2f, false);
         yield return new WaitForSeconds(preTextWaitTime);
         yield return ViewPanel();
         AnimateText();

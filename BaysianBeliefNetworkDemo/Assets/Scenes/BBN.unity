@@ -23922,7 +23922,7 @@ MonoBehaviour:
     indices: 0000000002000000
     scalar: 0.5
     operation: 2
-  message: Following a draught, the ground is unable to keep water. Officials warn
+  message: Following a drought, the ground is unable to keep water. Officials warn
     that the next downpour may cause flooding
   eventDescription: P(Po|R) has increased, P(B|R) has decreased
   inverse: Following a healthy rainy season, floods are less likely to occur
