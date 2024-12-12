@@ -3,16 +3,22 @@ using UnityEngine;
 
 public class TransitCutscene : CutsceneBehavior
 {
+    [SerializeField] private FadableImage fadeOut;
     [SerializeField] private GameObject meshGeneratorPrefab;
     [SerializeField] private Transform train;
     [SerializeField] private Transform cloudRing;
     [SerializeField] private float trainSpeed;
     [SerializeField] private float cloudRotationSpeed;
     [SerializeField] private float chunkWidth;
+    [SerializeField] private float timeInTunnel;
+    [SerializeField] private float brightenTime;
 
 	protected override IEnumerator PlayScene()
     {
+        StartCoroutine(TransitionFade());
+        StartCoroutine(ExitTunnel());
     	cameraTransform.parent = train;
+        
         yield return ViewPanel();
         AnimateText();
         GameObject[] meshGenerators = InitializeMeshGenerators();
@@ -79,5 +85,29 @@ public class TransitCutscene : CutsceneBehavior
 
         // Adjust the traveled distance
         distanceTraveled -= chunkWidth;
+    }
+
+    private IEnumerator ExitTunnel()
+    {
+        float timer = 0f;
+        while(timer < timeInTunnel)
+        {
+            timer += Time.deltaTime;
+            yield return null;
+        }
+        timer = 0f;
+        while(timer < brightenTime)
+        {
+            RenderSettings.ambientIntensity = Mathf.Lerp(ambientIntensity, 8f, timer/brightenTime);
+            timer += Time.deltaTime;
+            yield return null;
+        }
+        RenderSettings.ambientIntensity = 8f;
+    }
+
+    private IEnumerator TransitionFade()
+    {
+        fadeOut.FadeOut(1f);
+        yield return null;
     }
 }
