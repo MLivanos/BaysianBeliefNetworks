@@ -16,10 +16,6 @@ public class TransitionToCutscenes : Transition
     protected override IEnumerator TransitionToScene()
     {
         HideObjects();
-        /*while (asyncLoad.progress < 0.5)
-        {
-            yield return null;
-        }*/
         StopPlanets();
         cloudParent.SetActive(true);
         yield return null; // Allow one frame to pass to let clouds initialize
