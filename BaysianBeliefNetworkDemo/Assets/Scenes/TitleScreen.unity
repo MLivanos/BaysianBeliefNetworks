@@ -1263,7 +1263,7 @@ MonoBehaviour:
   objectTransform: {fileID: 0}
   startPosition: {x: 0, y: 0, z: -1180}
   endPosition: {x: 0, y: 0, z: -340}
-  eventDuration: 1.5
+  eventDuration: 2
   staticX: 1
   staticY: 1
   staticZ: 0

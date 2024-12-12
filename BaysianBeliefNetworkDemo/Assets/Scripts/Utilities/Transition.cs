@@ -32,6 +32,7 @@ public abstract class Transition : MonoBehaviour
             //if (progressBar) progressBar.value = asyncLoad.progress / 0.9f;
             yield return null;
         }
+        yield return new WaitForSeconds(1f);
         //if (progressBar) progressBar.gameObject.SetActive(false);
         yield return TransitionToScene();
         asyncLoad.allowSceneActivation = true;
