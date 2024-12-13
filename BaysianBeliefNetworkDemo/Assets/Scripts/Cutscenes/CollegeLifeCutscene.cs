@@ -14,6 +14,8 @@ public class CollegeLifeCutscene : CutsceneBehavior
     [SerializeField] private RawImage leavingImage;
     [SerializeField] private float transitionTime;
     [SerializeField] private GameObject[] directionalLights;
+    [SerializeField] private SlideInBehavior cameraSlide;
+    [SerializeField] private float slideTime;
     private FadableImage collegeFadable;
     private FadableImage leavingFadable;
     private RenderTexture collegeTexture;
@@ -21,6 +23,10 @@ public class CollegeLifeCutscene : CutsceneBehavior
 
 	protected override IEnumerator PlayScene()
     {
+        yield return new WaitForSeconds(1f);
+        solidLine.GetComponent<FadableImage>().FadeIn(slideTime);
+        cameraSlide.BeginSlideIn();
+        yield return new WaitForSeconds(slideTime);
     	yield return new WaitForSeconds(timeBeforeText);
     	solidLine.SetActive(false);
     	brokenLine.SetActive(true);
