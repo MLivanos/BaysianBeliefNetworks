@@ -3,8 +3,7 @@ using UnityEngine;
 
 public class PhoneNotificationsScene : CutsceneBehavior
 {
-    [SerializeField] private AudioClip textMessageAudio;
-    [SerializeField] private AudioSource textMessageAudioSource;
+    [SerializeField] private string phoneChime;
 	[SerializeField] private SlideInBehavior[] textMessages;
     [SerializeField] private float timeBetweenTexts;
     [SerializeField] private FadableImage phoneToSleep;
@@ -16,7 +15,7 @@ public class PhoneNotificationsScene : CutsceneBehavior
         {
             textMessage.gameObject.SetActive(true);
             yield return null; // Wait one frame to allow slide in behaviors to initialize
-            textMessageAudioSource.PlayOneShot(textMessageAudio);
+            audioManager.PlayEffect(phoneChime);
             textMessage.BeginSlideIn();
             yield return new WaitForSeconds(timeBetweenTexts);
         }
