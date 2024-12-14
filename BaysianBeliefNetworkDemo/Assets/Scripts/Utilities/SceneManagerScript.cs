@@ -22,8 +22,25 @@ public class SceneManagerScript : MonoBehaviour
         SceneManager.LoadScene("BBN");
     }
 
+    public void GoToCutscenes()
+    {
+        SceneManager.LoadScene("Cutscenes", LoadSceneMode.Single);
+    }
+
     public void GoToInterviews()
     {
         SceneManager.LoadScene("Interviews", LoadSceneMode.Single);
+    }
+
+    public AsyncOperation PreloadScene(string sceneName)
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+        operation.allowSceneActivation = false;
+        return operation;
+    }
+
+    public void LoadScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
     }
 }

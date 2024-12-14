@@ -5,6 +5,9 @@ using UnityEngine;
 public class DeskPhotoCutscene : CutsceneBehavior
 {
     [SerializeField] private SlideInBehavior[] photoSlides;
+    [SerializeField] private SlideInBehavior[] photoSlideOuts;
+    [SerializeField] private SlideInBehavior transitionPicture;
+    [SerializeField] private SlideInBehavior transitionCameraSlide;
 
     protected override IEnumerator PlayScene()
     {
@@ -29,6 +32,14 @@ public class DeskPhotoCutscene : CutsceneBehavior
 
     protected override IEnumerator ExitTransition()
     {
-        yield return null;
+        foreach(SlideInBehavior photo in photoSlideOuts)
+        {
+            photo.BeginSlideIn();
+            yield return new WaitForSeconds(photo.GetDuration());
+        }
+        transitionPicture.BeginSlideIn();
+        yield return new WaitForSeconds(transitionPicture.GetDuration());
+        transitionCameraSlide.BeginSlideIn();
+        yield return new WaitForSeconds(transitionCameraSlide.GetDuration());
     }
 }

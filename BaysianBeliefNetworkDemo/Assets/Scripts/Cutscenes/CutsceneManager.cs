@@ -7,9 +7,8 @@ public class CutsceneManager : MonoBehaviour
     [SerializeField] private CutsceneBehavior[] cutscenes;
     [SerializeField] private TypewriterEffect typewriterEffect;
     [SerializeField] private GameObject textPanel;
-    
     [SerializeField] private Transform mainCamera;
-
+    private SceneManagerScript sceneManager;
     private CutsceneBehavior currentCutScene;
     private Coroutine currentCoroutine;
     private int cutsceneIndex = 0;
@@ -17,12 +16,17 @@ public class CutsceneManager : MonoBehaviour
 
     private void Start()
     {
+        sceneManager = GetComponent<SceneManagerScript>();
         textPanel.SetActive(false);
         currentCoroutine = StartCoroutine(PlayNextScene());
     }
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            sceneManager.StartGame();
+        }
         if (Input.GetMouseButtonDown(0))
         {
             if (typewriterEffect.IsTyping()) typewriterEffect.Interrupt();
@@ -37,6 +41,10 @@ public class CutsceneManager : MonoBehaviour
             currentCutScene = cutscenes[cutsceneIndex];
             currentCutScene.SetupObjects(mainCamera, textPanel, typewriterEffect);
             yield return currentCutScene.Play();  
+        }
+        else
+        {
+            sceneManager.StartGame();
         }
     }
 

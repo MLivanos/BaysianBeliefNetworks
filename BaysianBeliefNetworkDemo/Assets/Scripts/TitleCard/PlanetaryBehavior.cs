@@ -6,8 +6,8 @@ public class PlanetaryBehavior : MonoBehaviour
     [SerializeField] private float orbitalSpeed = 5f;
     [SerializeField] private Transform focalPoint;
     [SerializeField] private float orbitRadius = 10f;
-
     private float orbitalAngle;
+    private bool isStopped;
 
     void Start()
     {
@@ -21,6 +21,7 @@ public class PlanetaryBehavior : MonoBehaviour
 
     void Update()
     {
+        if (isStopped) return;
         // Rotate around the planet's own axis
         transform.Rotate(Vector3.up, rotationalSpeed * Time.deltaTime);
 
@@ -39,5 +40,10 @@ public class PlanetaryBehavior : MonoBehaviour
             // Update the position based on the focal point's position and the offset
             transform.position = focalPoint.position + orbitOffset;
         }
+    }
+
+    public void Stop()
+    {
+        isStopped = true;
     }
 }

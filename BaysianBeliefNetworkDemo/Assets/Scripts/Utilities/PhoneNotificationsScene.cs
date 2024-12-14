@@ -7,6 +7,8 @@ public class PhoneNotificationsScene : CutsceneBehavior
     [SerializeField] private AudioSource textMessageAudioSource;
 	[SerializeField] private SlideInBehavior[] textMessages;
     [SerializeField] private float timeBetweenTexts;
+    [SerializeField] private FadableImage phoneToSleep;
+    [SerializeField] private SlideInBehavior cameraSlide;
 
 	protected override IEnumerator PlayScene()
     {
@@ -27,6 +29,8 @@ public class PhoneNotificationsScene : CutsceneBehavior
 
     protected override IEnumerator ExitTransition()
     {
-    	yield return null;
+    	yield return phoneToSleep.Fade(0.5f, true);
+        cameraSlide.BeginSlideIn();
+        yield return new WaitForSeconds(cameraSlide.GetDuration());
     }
 }
