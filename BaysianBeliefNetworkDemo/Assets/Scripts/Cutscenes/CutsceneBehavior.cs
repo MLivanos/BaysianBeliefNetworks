@@ -4,7 +4,9 @@ using UnityEngine;
 
 public abstract class CutsceneBehavior : MonoBehaviour
 {
-    [SerializeField] protected string soundtrack;
+    [SerializeField] protected List<string> soundtrack;
+    [SerializeField] protected float fadeSoundTime;
+    [SerializeField] protected bool continueTrack;
     [SerializeField] protected GameObject scene;
     [SerializeField] protected Transform cameraMark;
     [SerializeField] protected Material skyMaterial;
@@ -98,5 +100,20 @@ public abstract class CutsceneBehavior : MonoBehaviour
     public bool NeedsPrewarm()
     {
         return needsPrewarm;
+    }
+
+    public List<string> GetMusic()
+    {
+        return soundtrack;
+    }
+
+    public bool ShouldConinueTrack()
+    {
+        return continueTrack;
+    }
+
+    public float GetFadeSoundTime()
+    {
+        return fadeSoundTime;
     }
 }

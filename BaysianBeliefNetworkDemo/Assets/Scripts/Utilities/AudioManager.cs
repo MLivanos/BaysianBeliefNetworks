@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -37,5 +38,17 @@ public class AudioManager : MonoBehaviour
     public void PlayEffect(string trackName)
     {
         sfx.Play(trackName);
+    }
+
+    public void FadeOutMusic(float duration)
+    {
+        music.FadeOut(duration);
+    }
+
+    public void FadeInMusic(List<string> musicToFadeIn, float duration)
+    {
+        if (musicToFadeIn.Count == 0) return;
+        music.FadeIn(duration, musicToFadeIn.GetRange(0, 1));
+        sfx.FadeIn(duration, musicToFadeIn.GetRange(1, musicToFadeIn.Count-1));
     }
 }
