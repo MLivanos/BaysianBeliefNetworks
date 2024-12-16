@@ -10,24 +10,28 @@ public class Sound
 	public string name;
 	public AudioClip clip;
 	public bool loop;
+	[Range(0f,1f)] public float volumeMultiplier = 1f;
+	[Range(0f,1f)] public float pitchMultiplier = 1f;
 	[HideInInspector] public AudioSource source;
 
-	public void Initialize(float volume, float pitch)
+	public void AttachAudioSource(float volume, float pitch)
 	{
 		source.clip = clip;
 		source.volume = volume;
 		source.pitch = pitch;
 		source.loop = loop;
+		source.spatialBlend = 0f;
+		source.spatialize = false;
 	}
 
 	public void UpdateVolume(float newVolume)
 	{
-		source.volume = newVolume;
+		source.volume = volumeMultiplier*newVolume;
 	}
 
 	public void UpdatePitch(float newPitch)
 	{
-		source.pitch = newPitch;
+		source.pitch = pitchMultiplier*newPitch;
 	}
 }
 
@@ -46,15 +50,15 @@ public class SoundGroup : MonoBehaviour
 		{
 			soundsByName.Add(sound.name, sound);
 			sound.source = gameObject.AddComponent<AudioSource>();
-			sound.Initialize(volume, pitch);
+			sound.AttachAudioSource(volume, pitch);
 		}
 	}
 
 	public void UpdateVolume(float volume)
 	{
-		foreach(Sound sound in sounds)
+		foreach(Sound sound in soundsPlaying.Values)
 		{
-			sound.Initialize(volume, pitch);
+			sound.UpdateVolume(volume);
 		}
 	}
 
@@ -75,17 +79,17 @@ public class SoundGroup : MonoBehaviour
 
 	public void StopAll()
 	{
-		foreach(string soundName in soundsPlaying.Keys)
+		foreach(Sound sound in GetPlayingSounds())
 		{
-			Stop(soundName);
+			Stop(sound.name);
 		}
 	}
 
 	public void PauseAll()
 	{
-		foreach(string soundName in soundsPlaying.Keys)
+		foreach(Sound sound in GetPlayingSounds())
 		{
-			Pause(soundName);
+			Stop(sound.name);
 		}
 	}
 
@@ -97,23 +101,29 @@ public class SoundGroup : MonoBehaviour
 	        return;
 	    }
 
-	    if (isPlaying) soundsPlaying[soundName] = sound;
+	    if (isPlaying)
+	    {
+	    	soundsPlaying[soundName] = sound;
+	    	soundsPlaying[soundName].UpdateVolume(volume);
+	    	soundsPlaying[soundName].UpdatePitch(pitch);
+	    }
 	    else if (soundsPlaying.ContainsKey(soundName)) soundsPlaying.Remove(soundName);
 	    action?.Invoke(sound.source);
 	}
 
 	public void FadeAllSounds(float duration, bool fadeIn)
 	{
-		foreach (Sound sound in soundsPlaying.Values)
+		foreach (Sound sound in GetPlayingSounds())
 		{
 		    StartCoroutine(FadeSound(sound, duration, fadeIn));
 		}
+		if (!fadeIn) soundsPlaying.Clear();
 	}
 
 	public IEnumerator FadeSound(Sound sound, float duration, bool fadeIn)
 	{
-	    float startVolume = fadeIn ? 0f : sound.source.volume;
-	    float targetVolume = fadeIn ? sound.source.volume : 0f;
+	    float startVolume = fadeIn ? 0f : volume;
+	    float targetVolume = fadeIn ? volume : 0f;
 	    float timer = 0f;
 	    while (timer < duration)
 	    {
@@ -122,6 +132,7 @@ public class SoundGroup : MonoBehaviour
 	        yield return null;
 	    }
 	    sound.UpdateVolume(targetVolume);
+	    if (!fadeIn) Stop(sound.name);
 	}
 
 	public void FadeIn(float duration)
@@ -141,5 +152,18 @@ public class SoundGroup : MonoBehaviour
 	public void FadeOut(float duration)
 	{
 		FadeAllSounds(duration, false);
+	}
+
+	public void FadeOut(float duration, List<string> soundNames)
+	{
+		foreach(string soundName in soundNames)
+		{
+			StartCoroutine(FadeSound(soundsByName[soundName], duration, false));
+		}
+	}
+
+	private List<Sound> GetPlayingSounds()
+	{
+		return new List<Sound>(soundsPlaying.Values);
 	}
 }

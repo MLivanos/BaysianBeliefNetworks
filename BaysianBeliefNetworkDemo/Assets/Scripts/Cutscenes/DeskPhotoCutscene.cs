@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DeskPhotoCutscene : CutsceneBehavior
 {
+    [SerializeField] private float sceneWaitTime;
     [SerializeField] private SlideInBehavior[] photoSlides;
     [SerializeField] private SlideInBehavior[] photoSlideOuts;
     [SerializeField] private SlideInBehavior transitionPicture;
@@ -11,8 +12,7 @@ public class DeskPhotoCutscene : CutsceneBehavior
 
     protected override IEnumerator PlayScene()
     {
-        // Skip first frame to give Start method a chance to be called
-        yield return null;
+        yield return new WaitForSeconds(sceneWaitTime);
         foreach(SlideInBehavior photo in photoSlides)
         {
             photo.BeginSlideIn();

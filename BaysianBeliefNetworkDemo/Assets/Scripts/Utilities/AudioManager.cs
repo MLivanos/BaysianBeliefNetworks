@@ -45,10 +45,20 @@ public class AudioManager : MonoBehaviour
         music.FadeOut(duration);
     }
 
+    public void FadeOutSFX(float duration)
+    {
+        sfx.FadeOut(duration);
+    }
+
     public void FadeInMusic(List<string> musicToFadeIn, float duration)
     {
         if (musicToFadeIn.Count == 0) return;
         music.FadeIn(duration, musicToFadeIn.GetRange(0, 1));
         sfx.FadeIn(duration, musicToFadeIn.GetRange(1, musicToFadeIn.Count-1));
+    }
+
+    public void PauseMusic()
+    {
+        music.PauseAll();
     }
 }
