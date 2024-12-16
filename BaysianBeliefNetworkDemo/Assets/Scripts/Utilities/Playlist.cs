@@ -10,6 +10,7 @@ public class Playlist : MonoBehaviour
 	[SerializeField] private bool shuffle;
 	[SerializeField] private bool loop = true;
 	[SerializeField] private bool playOnAwake = true;
+	private float timeElapsedWhenPaused = 0f;
 	private int trackNumber = 0;
 	private AudioManager audioManager;
 
@@ -30,7 +31,7 @@ public class Playlist : MonoBehaviour
 		{
 			audioManager.FadeInSong(trackList[trackNumber], fadeTime);
 			trackNumber++;
-			StartCoroutine(WaitForNextSong());
+			StartCoroutine(WaitForNextSong(audioManager.GetSongLength(trackList[trackNumber-1])));
 		}
 		else if (loop) Reset();
 	}
@@ -54,9 +55,22 @@ public class Playlist : MonoBehaviour
         }
     }
 
-	private IEnumerator WaitForNextSong()
+	private IEnumerator WaitForNextSong(float duration)
 	{
-		yield return new WaitForSeconds(audioManager.GetSongLength(trackList[trackNumber-1]));
+		yield return new WaitForSeconds(duration);
 		Play();
+	}
+
+	public void Pause()
+	{
+		audioManager.PauseMusic();
+		timeElapsedWhenPaused = audioManager.GetSongProgress(trackList[trackNumber-1]);
+		StopAllCoroutines();
+	}
+
+	public void Resume()
+	{
+		audioManager.PlayMusic(trackList[trackNumber-1]);
+		StartCoroutine(WaitForNextSong(audioManager.GetSongLength(trackList[trackNumber-1]) - timeElapsedWhenPaused));
 	}
 }

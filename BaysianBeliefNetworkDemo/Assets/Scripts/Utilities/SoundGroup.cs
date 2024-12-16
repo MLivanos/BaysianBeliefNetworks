@@ -10,10 +10,10 @@ public class Sound
 	public string name;
 	public AudioClip clip;
 	public bool loop;
-	public float duration;
 	[Range(0f,1f)] public float volumeMultiplier = 1f;
 	[Range(0f,1f)] public float pitchMultiplier = 1f;
 	[HideInInspector] public AudioSource source;
+	[HideInInspector] public float duration;
 
 	public void AttachAudioSource(float volume, float pitch)
 	{
@@ -91,7 +91,7 @@ public class SoundGroup : MonoBehaviour
 	{
 		foreach(Sound sound in GetPlayingSounds())
 		{
-			Stop(sound.name);
+			Pause(sound.name);
 		}
 	}
 
@@ -172,5 +172,10 @@ public class SoundGroup : MonoBehaviour
 	public float GetSongLength(string song)
 	{
 		return soundsByName[song].duration;
+	}
+
+	public float GetProgress(string song)
+	{
+		return soundsByName[song].source.time;
 	}
 }

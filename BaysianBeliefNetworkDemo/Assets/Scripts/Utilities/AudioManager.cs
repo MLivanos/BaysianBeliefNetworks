@@ -84,4 +84,9 @@ public class AudioManager : MonoBehaviour
     {
         return music.GetSongLength(song);
     }
+
+    public float GetSongProgress(string song)
+    {
+        return music.GetProgress(song);
+    }
 }

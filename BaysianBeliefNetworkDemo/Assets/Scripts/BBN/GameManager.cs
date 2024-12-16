@@ -1,15 +1,30 @@
 using System.Collections;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using TMPro;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviour, ISceneDetectorTarget
 {
+    public string HomeSceneName { get; } = "BBN";
     [SerializeField] private GameObject difficultySettings;
     [SerializeField] private GameObject warningPanel;
     [SerializeField] private CircularProgressBar timeLimit;
     [SerializeField] private float[] difficultyTimes;
+    private Playlist playlist;
     private static int difficulty = -1;
+    private GameManager instance;
     private static float timeProgress;
+
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
 
     private void Start()
     {
@@ -17,7 +32,7 @@ public class GameManager : MonoBehaviour
         {
             timeLimit.UpdateProgress(timeProgress);
         }
-        DontDestroyOnLoad(gameObject);
+        playlist = GetComponent<Playlist>();
     }
 
     public void UpdateTimer(float decrement)
@@ -97,5 +112,12 @@ public class GameManager : MonoBehaviour
         {
             FadeAllObjects(child.gameObject, alpha);
         }
+    }
+
+    public void OnSceneChange(bool isHomeScene)
+    {
+        if (!playlist) return;
+        if (isHomeScene) playlist.Resume();
+        else playlist.Pause();
     }
 }
