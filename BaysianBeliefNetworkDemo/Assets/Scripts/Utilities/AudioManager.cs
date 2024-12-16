@@ -10,6 +10,19 @@ public class AudioManager : MonoBehaviour
     private float lastMusicVolume = -1f;
     private float lastSFXVolume = -1f;
 
+    public static AudioManager instance;
+
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
+
     public void AdjustMusicVolume(float volume)
     {
         if (Mathf.Abs(volume - lastMusicVolume) < epsilon) return;
@@ -50,15 +63,25 @@ public class AudioManager : MonoBehaviour
         sfx.FadeOut(duration);
     }
 
-    public void FadeInMusic(List<string> musicToFadeIn, float duration)
+    public void FadeInMusicAndAmbient(List<string> musicToFadeIn, float duration)
     {
         if (musicToFadeIn.Count == 0) return;
         music.FadeIn(duration, musicToFadeIn.GetRange(0, 1));
         sfx.FadeIn(duration, musicToFadeIn.GetRange(1, musicToFadeIn.Count-1));
     }
 
+    public void FadeInSong(string song, float duration)
+    {
+        music.FadeIn(duration, new List<string>{song});
+    }
+
     public void PauseMusic()
     {
         music.PauseAll();
+    }
+
+    public float GetSongLength(string song)
+    {
+        return music.GetSongLength(song);
     }
 }

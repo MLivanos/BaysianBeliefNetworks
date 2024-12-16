@@ -10,6 +10,7 @@ public class Sound
 	public string name;
 	public AudioClip clip;
 	public bool loop;
+	public float duration;
 	[Range(0f,1f)] public float volumeMultiplier = 1f;
 	[Range(0f,1f)] public float pitchMultiplier = 1f;
 	[HideInInspector] public AudioSource source;
@@ -22,6 +23,7 @@ public class Sound
 		source.loop = loop;
 		source.spatialBlend = 0f;
 		source.spatialize = false;
+		duration = clip.length;
 	}
 
 	public void UpdateVolume(float newVolume)
@@ -44,7 +46,7 @@ public class SoundGroup : MonoBehaviour
 	private Dictionary<string, Sound> soundsByName = new Dictionary<string, Sound>();
 	private Dictionary<string, Sound> soundsPlaying = new Dictionary<string, Sound>();
 
-	private void Start()
+	private void Awake()
 	{
 		foreach(Sound sound in sounds)
 		{
@@ -165,5 +167,10 @@ public class SoundGroup : MonoBehaviour
 	private List<Sound> GetPlayingSounds()
 	{
 		return new List<Sound>(soundsPlaying.Values);
+	}
+
+	public float GetSongLength(string song)
+	{
+		return soundsByName[song].duration;
 	}
 }

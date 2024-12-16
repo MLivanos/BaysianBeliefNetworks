@@ -21,7 +21,7 @@ public class CutsceneManager : MonoBehaviour
         sceneManager = GetComponent<SceneManagerScript>();
         textPanel.SetActive(false);
         currentCoroutine = StartCoroutine(PlayNextScene());
-        audioManager.FadeInMusic(cutscenes[0].GetMusic(), cutscenes[0].GetFadeSoundTime());
+        audioManager.FadeInMusicAndAmbient(cutscenes[0].GetMusic(), cutscenes[0].GetFadeSoundTime());
     }
 
     private void Update()
@@ -82,7 +82,7 @@ public class CutsceneManager : MonoBehaviour
         float fadeTime = cutscenes[cutsceneIndex+1].GetFadeSoundTime();
         audioManager.FadeOutMusic(fadeTime);
         audioManager.FadeOutSFX(fadeTime);
-        audioManager.FadeInMusic(cutscenes[cutsceneIndex+1].GetMusic(), fadeTime);
+        audioManager.FadeInMusicAndAmbient(cutscenes[cutsceneIndex+1].GetMusic(), fadeTime);
     }
 
     private bool ShouldKeepTrack()
