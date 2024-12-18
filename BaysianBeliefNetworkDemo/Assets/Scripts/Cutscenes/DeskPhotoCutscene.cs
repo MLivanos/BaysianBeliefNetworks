@@ -13,8 +13,10 @@ public class DeskPhotoCutscene : CutsceneBehavior
     protected override IEnumerator PlayScene()
     {
         yield return new WaitForSeconds(sceneWaitTime);
+        int index = 1;
         foreach(SlideInBehavior photo in photoSlides)
         {
+            audioManager.PlayEffect("PhotoSlide" + index++.ToString());
             photo.BeginSlideIn();
             yield return new WaitForSeconds(photo.GetDuration());
         }
@@ -32,11 +34,14 @@ public class DeskPhotoCutscene : CutsceneBehavior
 
     protected override IEnumerator ExitTransition()
     {
+        int index = 4;
         foreach(SlideInBehavior photo in photoSlideOuts)
         {
+            audioManager.PlayEffect("PhotoSlide" + index++.ToString());
             photo.BeginSlideIn();
             yield return new WaitForSeconds(photo.GetDuration());
         }
+        audioManager.PlayEffect("PhotoSlide1");
         transitionPicture.BeginSlideIn();
         yield return new WaitForSeconds(transitionPicture.GetDuration());
         transitionCameraSlide.BeginSlideIn();
