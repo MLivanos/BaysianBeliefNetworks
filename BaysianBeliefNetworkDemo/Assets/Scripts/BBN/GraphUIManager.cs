@@ -11,11 +11,13 @@ public class GraphUIManager : MonoBehaviour
     [SerializeField] private TMP_Text sampleInfo;
     [SerializeField] private TMP_Text calculateText;
     [SerializeField] private Slider progressBar;
+    private AudioManager audioManager;
     private Graph graph;
     private string queryText;
 
     private void Start()
     {
+        audioManager = FindObjectOfType<AudioManager>();
         graph = gameObject.GetComponent<Graph>();
     }
 
@@ -100,6 +102,7 @@ public class GraphUIManager : MonoBehaviour
 
     public void UpdateProgressBar(float newProgress)
     {
+        audioManager.PlayEffect("Computation1");
         progressBar.value = newProgress;
     }
 }

@@ -27,6 +27,10 @@ public class SimulationManager : MonoBehaviour
     public GameObject clouds;
     public GameObject rainClouds;
     public GameObject thunder;
+
+    public Playlist sunnyPlaylist;
+    public Playlist overcastPlaylist;
+
     public Light directionalLight;
     private Transform tree;
     Dictionary<string, int> eventIndices;
@@ -41,17 +45,36 @@ public class SimulationManager : MonoBehaviour
         SetTruthValues(graph.VisualizeSample());
     }
 
-    private void Update()
+    public void Reset()
     {
-        if(Input.GetKeyDown("r"))
-        {
-            SetTruthValues(graph.VisualizeSample());
-        }
+        // Admittedly, a poor system. Sunk too much effort in for a refactor to actually be helpful, though
+        winter.SetActive(false);
+        spring.SetActive(false);
+        summer.SetActive(false);
+        fall.SetActive(false);
+        cafeOpen.SetActive(false);
+        busyCafe.SetActive(false);
+        cafeClosed.SetActive(false);
+        cafeLights.SetActive(false);
+        notBusy.SetActive(false);
+        busyCafe.SetActive(false);
+        catHide.SetActive(false);
+        catOut.SetActive(false);
+        aliens.SetActive(false);
+        rain.SetActive(false);
+        snow.SetActive(false);
+        thunder.SetActive(false);
+        rainClouds.SetActive(false);
+        wind.SetActive(false);
+        clouds.SetActive(false);
+        lights.SetActive(true);
+        SetTruthValues(graph.VisualizeSample());
     }
 
     public void SetTruthValues(bool[] sample)
     {
         truthValues = sample;
+        SetSoundTrack();
         SetSeason();
         SetCafe();
         SetWeather();
@@ -194,6 +217,20 @@ public class SimulationManager : MonoBehaviour
         {
             // TODO: Make pretty
             tree.eulerAngles = new Vector3(0f,0f,90f);
+        }
+    }
+
+    private void SetSoundTrack()
+    {
+        if (truthValues[eventIndices["Rain"]] || truthValues[eventIndices["Cloudy"]])
+        {
+            sunnyPlaylist.Pause();
+            overcastPlaylist.Reset();
+        }
+        else
+        {
+            overcastPlaylist.Pause();
+            sunnyPlaylist.Reset();
         }
     }
 }

@@ -23,14 +23,17 @@ public class NodeHighlight : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     [SerializeField] private Color outgoingPulseColor = Color.white;
     [SerializeField] private float pulseSpeed = 1.5f;
 
+    private AudioManager audioManager;
     private Color baseArrowColor;
     private Color baseLineColor;
     private GameObject highlight;
     private List<Coroutine> pulseCoroutines = new List<Coroutine>();
     private bool isHighlighted = false;
+    private bool hoverCoolingDown = false;
 
     private void Start()
     {
+        audioManager = FindObjectOfType<AudioManager>();
         highlight = transform.Find("Highlight").gameObject;
         highlight.SetActive(false);
         baseArrowColor = new Color(0.012f, 0.894f, 1f, 1f);
@@ -50,7 +53,7 @@ public class NodeHighlight : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public void OnPointerEnter(PointerEventData eventData)
     {
         ToggleObjects(true);
-        
+        StartCoroutine(PlayHoverCoolDown());
         pulseCoroutines.Add(StartCoroutine(Pulse(new Color(1f,1f,1f,0.69f), new Color(1f,1f,1f,0.1f), markovBlanket, 1)));
         foreach (EdgeHighlightSettings settings in edgeHighlightSettings)
         {
@@ -125,5 +128,17 @@ public class NodeHighlight : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
                 yield return null;
             }
         }
+    }
+
+    private IEnumerator PlayHoverCoolDown()
+    {
+        if (!hoverCoolingDown)
+        {
+            audioManager.PlayEffect("Hover");
+            hoverCoolingDown = true;
+            yield return new WaitForSeconds(0.2f);
+            hoverCoolingDown = false;
+        }
+        yield return null;
     }
 }

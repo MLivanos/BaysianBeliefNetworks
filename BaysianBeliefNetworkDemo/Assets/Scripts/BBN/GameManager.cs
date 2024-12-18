@@ -1,23 +1,44 @@
 using System.Collections;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using TMPro;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviour, ISceneDetectorTarget
 {
+    public string HomeSceneName { get; } = "BBN";
     [SerializeField] private GameObject difficultySettings;
     [SerializeField] private GameObject warningPanel;
     [SerializeField] private CircularProgressBar timeLimit;
     [SerializeField] private float[] difficultyTimes;
+    private AudioManager audioManager;
+    private Playlist playlist;
     private static int difficulty = -1;
+    private static GameManager instance;
     private static float timeProgress;
+
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
 
     private void Start()
     {
+        audioManager = FindObjectOfType<AudioManager>();
         if (difficulty > 1)
         {
             timeLimit.UpdateProgress(timeProgress);
         }
-        DontDestroyOnLoad(gameObject);
+        if (playlist == null)
+        {
+            playlist = GetComponent<Playlist>();
+            playlist.Play();
+        }
     }
 
     public void UpdateTimer(float decrement)
@@ -52,6 +73,7 @@ public class GameManager : MonoBehaviour
         bool canRun = difficulty < 2 || timeLimit.GetMaxValue() - timeLimit.GetProgress() < difficultyTimes[difficulty];
         if (!canRun)
         {
+            audioManager.PlayEffect("OutOfCompute");
             WarnPlayer("CRITICAL ERROR: Resource budget exceeded. Further operations are suspended");
         }
         return canRun;
@@ -97,5 +119,12 @@ public class GameManager : MonoBehaviour
         {
             FadeAllObjects(child.gameObject, alpha);
         }
+    }
+
+    public void OnSceneChange(bool isHomeScene)
+    {
+        if (!playlist) return;
+        if (isHomeScene) playlist.Resume();
+        else playlist.Pause();
     }
 }

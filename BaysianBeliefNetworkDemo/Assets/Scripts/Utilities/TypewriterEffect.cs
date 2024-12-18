@@ -6,19 +6,19 @@ using TMPro;
 public class TypewriterEffect : MonoBehaviour
 {
     [SerializeField] private float timeBetweenCharacters = 0.1f;
-    [SerializeField] private AudioClip typingSound;
-    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private string soundName;
     [SerializeField] private string specialCharacters;
     [SerializeField] private float specialWaitTimeMultiplier;
 
+    private AudioManager audioManager;
     private TextMeshProUGUI textComponent;
     private Coroutine typingCoroutine;
     private string fullText;
 
     void Start()
     {
+        audioManager = FindObjectOfType<AudioManager>();
         textComponent = GetComponent<TextMeshProUGUI>();
-        if (typingSound != null && audioSource == null) audioSource = gameObject.AddComponent<AudioSource>();
     }
 
     public void UpdateText(string newText)
@@ -53,10 +53,7 @@ public class TypewriterEffect : MonoBehaviour
         foreach (char letter in fullText)
         {
             textComponent.text += letter;
-            if (typingSound != null && audioSource != null)
-            {
-                audioSource.PlayOneShot(typingSound);
-            }
+            if (soundName != "") audioManager.PlayEffect("TextBeep");
             float waitTime = specialCharacters.Contains(letter) ? timeBetweenCharacters * specialWaitTimeMultiplier : timeBetweenCharacters;
             yield return new WaitForSeconds(waitTime);
         }

@@ -23,7 +23,7 @@ public class TransitionToInterviews : Transition
     	yield return BringWhiteToLine();
     	yield return new WaitForSeconds(timeBetweenWhiteAndDot);
     	yield return BringLineToDot();
-    	//sceneManager.GoToInterviews();
+    	sceneManager.GoToInterviews();
     }
 
     private void ShowObjects()

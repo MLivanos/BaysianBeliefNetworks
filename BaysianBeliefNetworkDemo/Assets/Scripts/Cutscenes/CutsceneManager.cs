@@ -8,6 +8,7 @@ public class CutsceneManager : MonoBehaviour
     [SerializeField] private TypewriterEffect typewriterEffect;
     [SerializeField] private GameObject textPanel;
     [SerializeField] private Transform mainCamera;
+    private AudioManager audioManager;
     private SceneManagerScript sceneManager;
     private CutsceneBehavior currentCutScene;
     private Coroutine currentCoroutine;
@@ -16,9 +17,11 @@ public class CutsceneManager : MonoBehaviour
 
     private void Start()
     {
+        audioManager = FindObjectOfType<AudioManager>();
         sceneManager = GetComponent<SceneManagerScript>();
         textPanel.SetActive(false);
         currentCoroutine = StartCoroutine(PlayNextScene());
+        audioManager.FadeInMusicAndAmbient(cutscenes[0].GetMusic(), cutscenes[0].GetFadeSoundTime());
     }
 
     private void Update()
@@ -56,6 +59,7 @@ public class CutsceneManager : MonoBehaviour
             currentCutScene.Interrupt();
             exiting = true;
             yield return currentCutScene.Exit();
+            HandleMusic();
             exiting = false;
             cutsceneIndex ++;
             yield return PlayNextScene();
@@ -70,5 +74,19 @@ public class CutsceneManager : MonoBehaviour
             currentCoroutine = null;
         }
         currentCoroutine = StartCoroutine(ExitScene());
+    }
+
+    private void HandleMusic()
+    {
+        if (ShouldKeepTrack()) return;
+        float fadeTime = cutscenes[cutsceneIndex+1].GetFadeSoundTime();
+        audioManager.FadeOutMusic(fadeTime);
+        audioManager.FadeOutSFX(fadeTime);
+        audioManager.FadeInMusicAndAmbient(cutscenes[cutsceneIndex+1].GetMusic(), fadeTime);
+    }
+
+    private bool ShouldKeepTrack()
+    {
+        return cutsceneIndex > cutscenes.Length - 2 || cutscenes[cutsceneIndex + 1].ShouldConinueTrack();
     }
 }

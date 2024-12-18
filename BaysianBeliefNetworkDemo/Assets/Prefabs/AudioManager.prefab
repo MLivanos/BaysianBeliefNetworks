@@ -1,0 +1,501 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4702156450458097625
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 839743837031023659}
+  - component: {fileID: 6833859149243140524}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &839743837031023659
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4702156450458097625}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 39.192352, y: 0.80400974, z: -34.56608}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7194357357599995289}
+  - {fileID: 2813408470848194886}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6833859149243140524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4702156450458097625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b52d5688b8fc83640bd67125d993ffe6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  music: {fileID: 8982481268090071863}
+  sfx: {fileID: 5053447448950097464}
+--- !u!1 &7697319742396129643
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7194357357599995289}
+  - component: {fileID: 5053447448950097464}
+  m_Layer: 0
+  m_Name: SFXAudio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7194357357599995289
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7697319742396129643}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 839743837031023659}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5053447448950097464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7697319742396129643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3eedce004222f0748b7bc5a399c97525, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: TextBeep
+    clip: {fileID: 8300000, guid: 02833781d50294f6fbff51aede214138, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: TextTone
+    clip: {fileID: 8300000, guid: b569aada900f14e438e0ff052d4e7f45, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: HugSound
+    clip: {fileID: 8300000, guid: b49002a66e090469eaf946684e9ef9f0, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: Crickets
+    clip: {fileID: 8300000, guid: a2ff0bdba32fc8341aa443a172bdcdd4, type: 3}
+    loop: 1
+    volumeMultiplier: 0.8
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: AmbientBus
+    clip: {fileID: 8300000, guid: ec7e3f0058e28be4ab936c332e0b0d25, type: 3}
+    loop: 0
+    volumeMultiplier: 0.9
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: BusDoors
+    clip: {fileID: 8300000, guid: fee2f101d81070840a867ab9501cc204, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 0.9
+    source: {fileID: 0}
+    duration: 0
+  - name: PhotoSlide1
+    clip: {fileID: 8300000, guid: 7222c27eee16ffd4a813bef71f06b590, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: PhotoSlide2
+    clip: {fileID: 8300000, guid: 65a619ade950b6d44a784a934b1af993, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: PhotoSlide3
+    clip: {fileID: 8300000, guid: f29094eb8d4812b4bb32ff0d4f57766d, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: PhotoSlide4
+    clip: {fileID: 8300000, guid: 9067336d0ee37d5428f2b4279004f884, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: PhotoSlide5
+    clip: {fileID: 8300000, guid: bbdb7fcf17b52f24e929d9a721328b94, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: PhotoSlide6
+    clip: {fileID: 8300000, guid: 7a08f40d8d563034ca032506bffe3c36, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: Thunder1
+    clip: {fileID: 8300000, guid: 580a98ed91be2ba45ba3df7eb56a8b7a, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: Thunder2
+    clip: {fileID: 8300000, guid: 366a7e5aa57892549930ea8e6ee1c3fc, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: Thunder3
+    clip: {fileID: 8300000, guid: 1e86a8f35b142374a869f9cac8d4b145, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: Thunder4
+    clip: {fileID: 8300000, guid: 61494125f3dda784698ad58ddea3e707, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: Thunder5
+    clip: {fileID: 8300000, guid: c8f7e7e253617c84b9963843e3c37545, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: Thunder6
+    clip: {fileID: 8300000, guid: ca7dc597553fa6c4fb67a8b2ab41e3dc, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: AmbientWind
+    clip: {fileID: 8300000, guid: 44b7d3d411d307f40b407d7fcce7fb00, type: 3}
+    loop: 1
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: AmbientRain
+    clip: {fileID: 8300000, guid: b3dc9f6e59f1a73438e5013134a6f999, type: 3}
+    loop: 1
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: AmbientCicadas
+    clip: {fileID: 8300000, guid: 99edc42bd09ab4c4aa3f47b23c5903ba, type: 3}
+    loop: 1
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: ClickOn
+    clip: {fileID: 8300000, guid: bc5ae3146f90845c4a58ef381ca325ad, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: ClickOff
+    clip: {fileID: 8300000, guid: d29ff47b33fcc43318ab11ab4f080a1f, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: Hover
+    clip: {fileID: 8300000, guid: 8ae69a865125a4d649a803a400439b45, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: OutOfCompute
+    clip: {fileID: 8300000, guid: 8e8468c915f6243b0836a57e32a35a07, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: Computation1
+    clip: {fileID: 8300000, guid: 5a442b2c692c0410abceac7ba5ad3b7b, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: Computation2
+    clip: {fileID: 8300000, guid: 387544f048a124cd0960d5a50fcbd9db, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: ButtonPress
+    clip: {fileID: 8300000, guid: bc5ae3146f90845c4a58ef381ca325ad, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  volume: 1
+  pitch: 1
+--- !u!1 &7901061059001884411
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2813408470848194886}
+  - component: {fileID: 8982481268090071863}
+  m_Layer: 0
+  m_Name: MusicAudio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2813408470848194886
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7901061059001884411}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 839743837031023659}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8982481268090071863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7901061059001884411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3eedce004222f0748b7bc5a399c97525, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: AmbientNothingness
+    clip: {fileID: 8300000, guid: 058f335a7488bdd4d93e998774cb0dcd, type: 3}
+    loop: 1
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: LofiAlone
+    clip: {fileID: 8300000, guid: c2869a60815d8ec4e95734abaa0416e8, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: LofiBrokenLoop
+    clip: {fileID: 8300000, guid: f04e0596c9925f14ca22da731136fb4d, type: 3}
+    loop: 1
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: LofiCalm
+    clip: {fileID: 8300000, guid: 8927adf9bdbf54043a2da6d13811ad2e, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: LofiFloating
+    clip: {fileID: 8300000, guid: 49c4fd3e56b4b834dad74d08173ab38e, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: LofiMelancholicDrive
+    clip: {fileID: 8300000, guid: fb6294223505a8b4eb23fe7ba034415a, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: LofiRaindrops
+    clip: {fileID: 8300000, guid: 40d0b1605243ad045853eb6e1be69c94, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: LofiWinterChill
+    clip: {fileID: 8300000, guid: 53653b0c81d2ad044b263197806a71e5, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: LofiCafeDeBard
+    clip: {fileID: 8300000, guid: 52fe59857dbc2e04782ed0a734dc1335, type: 3}
+    loop: 1
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: LofiJoyride
+    clip: {fileID: 8300000, guid: 9b1de8f934c7ab2469ff6c71b7580252, type: 3}
+    loop: 1
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: LofiMilkyTea
+    clip: {fileID: 8300000, guid: 9fd97b8058cab8444b5b927f0011222c, type: 3}
+    loop: 1
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: SynthpopFoodCourt
+    clip: {fileID: 8300000, guid: b5e9486ee2f184446b56eae41756d9b0, type: 3}
+    loop: 1
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: LofiInTheHazeUnderscore
+    clip: {fileID: 8300000, guid: a1a9e8e3dbda23048b21c45b5c87dfa2, type: 3}
+    loop: 1
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: LofiInTheHaze
+    clip: {fileID: 8300000, guid: 9036af44047212648a4fb462e5adb839, type: 3}
+    loop: 1
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: LofiFadeAway
+    clip: {fileID: 8300000, guid: efaada5cf0c7a474ab6df4ab07272210, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: SynthpopMostWanted
+    clip: {fileID: 8300000, guid: cfcce41a7217c824ba9cafadff5fd6a0, type: 3}
+    loop: 1
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: SynthpopMostWantedIntense
+    clip: {fileID: 8300000, guid: 24db2f809649b844887a27f8f26bc14b, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: ChiptuneFun
+    clip: {fileID: 8300000, guid: be3b4208bbafac04bbc36c9013aac040, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: ChiptuneVanquish
+    clip: {fileID: 8300000, guid: b61ebd53cd64adc478501f122a478f5c, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: ChiptuneUrgent
+    clip: {fileID: 8300000, guid: eff76449b6923a247a8fc863ab98a471, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: ChiptuneSummer
+    clip: {fileID: 8300000, guid: 20045a5846f757d42967e0d68d6ab1e3, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: ChiptuneHappy
+    clip: {fileID: 8300000, guid: 3408534f27f9e03438ad88bf4b1400d7, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: ChiptuneRicochet
+    clip: {fileID: 8300000, guid: 2199f59ea83717c4fa90dcc7a3edbd28, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  volume: 1
+  pitch: 1

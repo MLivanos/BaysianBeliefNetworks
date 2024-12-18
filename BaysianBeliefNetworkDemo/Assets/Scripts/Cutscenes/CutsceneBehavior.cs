@@ -4,7 +4,9 @@ using UnityEngine;
 
 public abstract class CutsceneBehavior : MonoBehaviour
 {
-    [SerializeField] protected AudioClip music;
+    [SerializeField] protected List<string> soundtrack;
+    [SerializeField] protected float fadeSoundTime;
+    [SerializeField] protected bool continueTrack;
     [SerializeField] protected GameObject scene;
     [SerializeField] protected Transform cameraMark;
     [SerializeField] protected Material skyMaterial;
@@ -15,6 +17,7 @@ public abstract class CutsceneBehavior : MonoBehaviour
     [SerializeField] protected float textPanelOpacity = 160;
     [SerializeField] protected bool needsPrewarm;
     [SerializeField] protected bool isAtTop;
+    protected AudioManager audioManager;
     protected FadableImage fadablePanel;
     protected TypewriterEffect typewriterEffect;
     protected GameObject textPanel;
@@ -23,6 +26,11 @@ public abstract class CutsceneBehavior : MonoBehaviour
     protected abstract IEnumerator PlayScene();
     public abstract void Interrupt();
     protected abstract IEnumerator ExitTransition();
+
+    private void Awake()
+    {
+        audioManager = FindObjectOfType<AudioManager>();
+    }
 
     protected void SetupScene()
     {
@@ -94,8 +102,18 @@ public abstract class CutsceneBehavior : MonoBehaviour
         return needsPrewarm;
     }
 
-    public AudioClip GetMusic()
+    public List<string> GetMusic()
     {
-        return music;
+        return soundtrack;
+    }
+
+    public bool ShouldConinueTrack()
+    {
+        return continueTrack;
+    }
+
+    public float GetFadeSoundTime()
+    {
+        return fadeSoundTime;
     }
 }
