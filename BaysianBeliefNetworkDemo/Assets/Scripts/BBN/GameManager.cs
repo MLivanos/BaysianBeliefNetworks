@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour, ISceneDetectorTarget
     [SerializeField] private float[] difficultyTimes;
     private Playlist playlist;
     private static int difficulty = -1;
-    private GameManager instance;
+    private static GameManager instance;
     private static float timeProgress;
 
     private void Awake()
@@ -32,7 +32,11 @@ public class GameManager : MonoBehaviour, ISceneDetectorTarget
         {
             timeLimit.UpdateProgress(timeProgress);
         }
-        playlist = GetComponent<Playlist>();
+        if (playlist == null)
+        {
+            playlist = GetComponent<Playlist>();
+            playlist.Play();
+        }
     }
 
     public void UpdateTimer(float decrement)

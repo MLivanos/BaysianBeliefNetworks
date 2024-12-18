@@ -99,24 +99,28 @@ MonoBehaviour:
     volumeMultiplier: 1
     pitchMultiplier: 1
     source: {fileID: 0}
+    duration: 0
   - name: TextTone
     clip: {fileID: 8300000, guid: b569aada900f14e438e0ff052d4e7f45, type: 3}
     loop: 0
     volumeMultiplier: 1
     pitchMultiplier: 1
     source: {fileID: 0}
+    duration: 0
   - name: HugSound
     clip: {fileID: 8300000, guid: b49002a66e090469eaf946684e9ef9f0, type: 3}
     loop: 0
     volumeMultiplier: 1
     pitchMultiplier: 1
     source: {fileID: 0}
+    duration: 0
   - name: Crickets
     clip: {fileID: 8300000, guid: a2ff0bdba32fc8341aa443a172bdcdd4, type: 3}
     loop: 1
     volumeMultiplier: 0.8
     pitchMultiplier: 1
     source: {fileID: 0}
+    duration: 0
   volume: 1
   pitch: 1
 --- !u!1 &7901061059001884411
@@ -170,77 +174,153 @@ MonoBehaviour:
     volumeMultiplier: 1
     pitchMultiplier: 1
     source: {fileID: 0}
-  - name: ChiptuneFun
-    clip: {fileID: 8300000, guid: be3b4208bbafac04bbc36c9013aac040, type: 3}
-    loop: 1
-    volumeMultiplier: 1
-    pitchMultiplier: 1
-    source: {fileID: 0}
+    duration: 0
   - name: LofiAlone
     clip: {fileID: 8300000, guid: c2869a60815d8ec4e95734abaa0416e8, type: 3}
     loop: 0
     volumeMultiplier: 1
     pitchMultiplier: 1
     source: {fileID: 0}
+    duration: 0
   - name: LofiBrokenLoop
     clip: {fileID: 8300000, guid: f04e0596c9925f14ca22da731136fb4d, type: 3}
     loop: 1
     volumeMultiplier: 1
     pitchMultiplier: 1
     source: {fileID: 0}
+    duration: 0
   - name: LofiCalm
     clip: {fileID: 8300000, guid: 8927adf9bdbf54043a2da6d13811ad2e, type: 3}
     loop: 0
     volumeMultiplier: 1
     pitchMultiplier: 1
     source: {fileID: 0}
+    duration: 0
   - name: LofiFloating
     clip: {fileID: 8300000, guid: 49c4fd3e56b4b834dad74d08173ab38e, type: 3}
     loop: 0
     volumeMultiplier: 1
     pitchMultiplier: 1
     source: {fileID: 0}
+    duration: 0
   - name: LofiMelancholicDrive
     clip: {fileID: 8300000, guid: fb6294223505a8b4eb23fe7ba034415a, type: 3}
     loop: 0
     volumeMultiplier: 1
     pitchMultiplier: 1
     source: {fileID: 0}
+    duration: 0
   - name: LofiRaindrops
-    clip: {fileID: 8300000, guid: fb6294223505a8b4eb23fe7ba034415a, type: 3}
+    clip: {fileID: 8300000, guid: 40d0b1605243ad045853eb6e1be69c94, type: 3}
     loop: 0
     volumeMultiplier: 1
     pitchMultiplier: 1
     source: {fileID: 0}
+    duration: 0
   - name: LofiWinterChill
     clip: {fileID: 8300000, guid: 53653b0c81d2ad044b263197806a71e5, type: 3}
     loop: 0
     volumeMultiplier: 1
     pitchMultiplier: 1
     source: {fileID: 0}
+    duration: 0
+  - name: LofiCafeDeBard
+    clip: {fileID: 8300000, guid: 52fe59857dbc2e04782ed0a734dc1335, type: 3}
+    loop: 1
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: LofiJoyride
+    clip: {fileID: 8300000, guid: 9b1de8f934c7ab2469ff6c71b7580252, type: 3}
+    loop: 1
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: LofiMilkyTea
+    clip: {fileID: 8300000, guid: 9fd97b8058cab8444b5b927f0011222c, type: 3}
+    loop: 1
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
   - name: SynthpopFoodCourt
     clip: {fileID: 8300000, guid: b5e9486ee2f184446b56eae41756d9b0, type: 3}
     loop: 1
     volumeMultiplier: 1
     pitchMultiplier: 1
     source: {fileID: 0}
+    duration: 0
   - name: LofiInTheHazeUnderscore
     clip: {fileID: 8300000, guid: a1a9e8e3dbda23048b21c45b5c87dfa2, type: 3}
     loop: 1
     volumeMultiplier: 1
     pitchMultiplier: 1
     source: {fileID: 0}
+    duration: 0
   - name: LofiInTheHaze
     clip: {fileID: 8300000, guid: 9036af44047212648a4fb462e5adb839, type: 3}
     loop: 1
     volumeMultiplier: 1
     pitchMultiplier: 1
     source: {fileID: 0}
+    duration: 0
   - name: SynthpopMostWanted
     clip: {fileID: 8300000, guid: cfcce41a7217c824ba9cafadff5fd6a0, type: 3}
     loop: 1
     volumeMultiplier: 1
     pitchMultiplier: 1
     source: {fileID: 0}
+    duration: 0
+  - name: SynthpopMostWantedIntense
+    clip: {fileID: 8300000, guid: 24db2f809649b844887a27f8f26bc14b, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: ChiptuneFun
+    clip: {fileID: 8300000, guid: be3b4208bbafac04bbc36c9013aac040, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: ChiptuneVanquish
+    clip: {fileID: 8300000, guid: b61ebd53cd64adc478501f122a478f5c, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: ChiptuneUrgent
+    clip: {fileID: 8300000, guid: eff76449b6923a247a8fc863ab98a471, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: ChiptuneSummer
+    clip: {fileID: 8300000, guid: 20045a5846f757d42967e0d68d6ab1e3, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: ChiptuneHappy
+    clip: {fileID: 8300000, guid: 3408534f27f9e03438ad88bf4b1400d7, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: ChiptuneRicochet
+    clip: {fileID: 8300000, guid: 2199f59ea83717c4fa90dcc7a3edbd28, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
   volume: 1
   pitch: 1

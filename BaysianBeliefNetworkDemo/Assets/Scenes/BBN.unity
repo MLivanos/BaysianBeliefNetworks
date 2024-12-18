@@ -25035,7 +25035,8 @@ MonoBehaviour:
   fadeTime: 0
   shuffle: 0
   loop: 1
-  playOnAwake: 1
+  playOnAwake: 0
+  autoPlay: 1
 --- !u!1 &527523535
 GameObject:
   m_ObjectHideFlags: 0
@@ -59448,36 +59449,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AudioManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 8982481268090071863, guid: abaea1a53b374c34096b54d49dae9a97,
-        type: 3}
-      propertyPath: sounds.Array.size
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 8982481268090071863, guid: abaea1a53b374c34096b54d49dae9a97,
-        type: 3}
-      propertyPath: sounds.Array.data[13].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 24db2f809649b844887a27f8f26bc14b, type: 3}
-    - target: {fileID: 8982481268090071863, guid: abaea1a53b374c34096b54d49dae9a97,
-        type: 3}
-      propertyPath: sounds.Array.data[13].loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8982481268090071863, guid: abaea1a53b374c34096b54d49dae9a97,
-        type: 3}
-      propertyPath: sounds.Array.data[13].name
-      value: SynthpopMostWantedIntense
-      objectReference: {fileID: 0}
-    - target: {fileID: 8982481268090071863, guid: abaea1a53b374c34096b54d49dae9a97,
-        type: 3}
-      propertyPath: sounds.Array.data[13].pitchMultiplier
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8982481268090071863, guid: abaea1a53b374c34096b54d49dae9a97,
-        type: 3}
-      propertyPath: sounds.Array.data[13].volumeMultiplier
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
