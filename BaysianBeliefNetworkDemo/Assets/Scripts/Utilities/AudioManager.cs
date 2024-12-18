@@ -89,4 +89,9 @@ public class AudioManager : MonoBehaviour
     {
         return music.GetProgress(song);
     }
+
+    public void SetMusicTime(string song, float time)
+    {
+        music.SetTime(song, time);
+    }
 }

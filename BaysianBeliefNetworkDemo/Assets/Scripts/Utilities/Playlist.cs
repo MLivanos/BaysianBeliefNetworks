@@ -10,9 +10,12 @@ public class Playlist : MonoBehaviour
 	[SerializeField] private bool shuffle;
 	[SerializeField] private bool loop = true;
 	[SerializeField] private bool playOnAwake = true;
+	[SerializeField] private bool autoPlay = true;
+	private Coroutine waitForNextSong;
 	private float timeElapsedWhenPaused = 0f;
 	private int trackNumber = 0;
 	private AudioManager audioManager;
+	private bool isPlaying = false;
 
 	private void Awake()
 	{
@@ -26,18 +29,22 @@ public class Playlist : MonoBehaviour
 
 	public void Play()
 	{
+		Debug.Log("Play called");
+		isPlaying = true;
 		if (trackNumber > 0) audioManager.FadeOutMusic(fadeTime);
 		if (trackNumber < trackList.Count)
 		{
+			if (waitForNextSong != null) StopCoroutine(waitForNextSong);
 			audioManager.FadeInSong(trackList[trackNumber], fadeTime);
 			trackNumber++;
-			StartCoroutine(WaitForNextSong(audioManager.GetSongLength(trackList[trackNumber-1])));
+			if (autoPlay) waitForNextSong = StartCoroutine(WaitForNextSong(audioManager.GetSongLength(trackList[trackNumber-1])));
 		}
 		else if (loop) Reset();
 	}
 
 	public void Reset()
 	{
+		Pause();
 		trackNumber = 0;
 		if (shuffle) Shuffle(trackList);
 		Play();
@@ -63,14 +70,24 @@ public class Playlist : MonoBehaviour
 
 	public void Pause()
 	{
+		if (!isPlaying) return;
+		if (waitForNextSong != null) StopCoroutine(waitForNextSong);
 		audioManager.PauseMusic();
 		timeElapsedWhenPaused = audioManager.GetSongProgress(trackList[trackNumber-1]);
 		StopAllCoroutines();
+		isPlaying = false;
 	}
 
 	public void Resume()
 	{
+		if (waitForNextSong != null) StopCoroutine(waitForNextSong);
+		isPlaying = true;
 		audioManager.PlayMusic(trackList[trackNumber-1]);
-		StartCoroutine(WaitForNextSong(audioManager.GetSongLength(trackList[trackNumber-1]) - timeElapsedWhenPaused));
+		if (autoPlay) StartCoroutine(WaitForNextSong(audioManager.GetSongLength(trackList[trackNumber-1]) - timeElapsedWhenPaused));
+	}
+
+	public void OnDestroy()
+	{
+		Pause();
 	}
 }

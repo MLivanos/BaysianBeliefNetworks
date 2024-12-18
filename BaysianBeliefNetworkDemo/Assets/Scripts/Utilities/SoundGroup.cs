@@ -178,4 +178,9 @@ public class SoundGroup : MonoBehaviour
 	{
 		return soundsByName[song].source.time;
 	}
+
+	public void SetTime(string song, float time)
+	{
+		soundsByName[song].source.time = time;
+	}
 }
