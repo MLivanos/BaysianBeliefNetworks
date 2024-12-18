@@ -2,6 +2,7 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
 #
+
 [Ll]ibrary/
 [Tt]emp/
 [Oo]bj/
@@ -9,14 +10,22 @@
 [Bb]uilds/
 [Ll]ogs/
 [Uu]ser[Ss]ettings/
-[Hh]idden[Ff]iles/
+
+# Ignore everything in HiddenFiles
+BaysianBeliefNetworkDemo/Assets/[Hh]idden[Ff]iles/**
+
+# Re-include .meta files (even in subdirectories)
+!BaysianBeliefNetworkDemo/Assets/[Hh]idden[Ff]iles/*.meta
+!BaysianBeliefNetworkDemo/Assets/[Hh]idden[Ff]iles/**/
+!BaysianBeliefNetworkDemo/Assets/[Hh]idden[Ff]iles/**/*.meta
+
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
 /[Mm]emoryCaptures/
 
 # Recordings can get excessive in size
-/[Rr]ecordings/
+[Rr]ecordings/
 
 # Uncomment this line if you wish to ignore the asset store tools plugin
 # /[Aa]ssets/AssetStoreTools*
