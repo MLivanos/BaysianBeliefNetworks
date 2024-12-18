@@ -73,6 +73,11 @@ public class AudioManager : MonoBehaviour
         muted = !muted;
     }
 
+    public bool IsMute()
+    {
+        return muted;
+    }
+
     private void UpdateVolumeLevels()
     {
         music.UpdateVolume(masterVolume * musicVolume);
