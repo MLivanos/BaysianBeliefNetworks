@@ -121,6 +121,167 @@ MonoBehaviour:
     pitchMultiplier: 1
     source: {fileID: 0}
     duration: 0
+  - name: AmbientBus
+    clip: {fileID: 8300000, guid: ec7e3f0058e28be4ab936c332e0b0d25, type: 3}
+    loop: 0
+    volumeMultiplier: 0.9
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: BusDoors
+    clip: {fileID: 8300000, guid: fee2f101d81070840a867ab9501cc204, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 0.9
+    source: {fileID: 0}
+    duration: 0
+  - name: PhotoSlide1
+    clip: {fileID: 8300000, guid: 7222c27eee16ffd4a813bef71f06b590, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: PhotoSlide2
+    clip: {fileID: 8300000, guid: 65a619ade950b6d44a784a934b1af993, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: PhotoSlide3
+    clip: {fileID: 8300000, guid: f29094eb8d4812b4bb32ff0d4f57766d, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: PhotoSlide4
+    clip: {fileID: 8300000, guid: 9067336d0ee37d5428f2b4279004f884, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: PhotoSlide5
+    clip: {fileID: 8300000, guid: bbdb7fcf17b52f24e929d9a721328b94, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: PhotoSlide6
+    clip: {fileID: 8300000, guid: 7a08f40d8d563034ca032506bffe3c36, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: Thunder1
+    clip: {fileID: 8300000, guid: 580a98ed91be2ba45ba3df7eb56a8b7a, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: Thunder2
+    clip: {fileID: 8300000, guid: 366a7e5aa57892549930ea8e6ee1c3fc, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: Thunder3
+    clip: {fileID: 8300000, guid: 1e86a8f35b142374a869f9cac8d4b145, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: Thunder4
+    clip: {fileID: 8300000, guid: 61494125f3dda784698ad58ddea3e707, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: Thunder5
+    clip: {fileID: 8300000, guid: c8f7e7e253617c84b9963843e3c37545, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: Thunder6
+    clip: {fileID: 8300000, guid: ca7dc597553fa6c4fb67a8b2ab41e3dc, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: AmbientWind
+    clip: {fileID: 8300000, guid: 44b7d3d411d307f40b407d7fcce7fb00, type: 3}
+    loop: 1
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: AmbientRain
+    clip: {fileID: 8300000, guid: b3dc9f6e59f1a73438e5013134a6f999, type: 3}
+    loop: 1
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: AmbientCicadas
+    clip: {fileID: 8300000, guid: 99edc42bd09ab4c4aa3f47b23c5903ba, type: 3}
+    loop: 1
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: ClickOn
+    clip: {fileID: 8300000, guid: bc5ae3146f90845c4a58ef381ca325ad, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: ClickOff
+    clip: {fileID: 8300000, guid: d29ff47b33fcc43318ab11ab4f080a1f, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: Hover
+    clip: {fileID: 8300000, guid: 8ae69a865125a4d649a803a400439b45, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: OutOfCompute
+    clip: {fileID: 8300000, guid: 8e8468c915f6243b0836a57e32a35a07, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: Computation1
+    clip: {fileID: 8300000, guid: 5a442b2c692c0410abceac7ba5ad3b7b, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: Computation2
+    clip: {fileID: 8300000, guid: 387544f048a124cd0960d5a50fcbd9db, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
   volume: 1
   pitch: 1
 --- !u!1 &7901061059001884411

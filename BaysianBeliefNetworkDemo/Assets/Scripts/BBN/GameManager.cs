@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour, ISceneDetectorTarget
     [SerializeField] private GameObject warningPanel;
     [SerializeField] private CircularProgressBar timeLimit;
     [SerializeField] private float[] difficultyTimes;
+    private AudioManager audioManager;
     private Playlist playlist;
     private static int difficulty = -1;
     private static GameManager instance;
@@ -28,6 +29,7 @@ public class GameManager : MonoBehaviour, ISceneDetectorTarget
 
     private void Start()
     {
+        audioManager = FindObjectOfType<AudioManager>();
         if (difficulty > 1)
         {
             timeLimit.UpdateProgress(timeProgress);
@@ -71,6 +73,7 @@ public class GameManager : MonoBehaviour, ISceneDetectorTarget
         bool canRun = difficulty < 2 || timeLimit.GetMaxValue() - timeLimit.GetProgress() < difficultyTimes[difficulty];
         if (!canRun)
         {
+            audioManager.PlayEffect("OutOfCompute");
             WarnPlayer("CRITICAL ERROR: Resource budget exceeded. Further operations are suspended");
         }
         return canRun;

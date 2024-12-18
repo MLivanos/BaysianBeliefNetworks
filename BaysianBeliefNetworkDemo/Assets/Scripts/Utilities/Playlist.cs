@@ -29,7 +29,6 @@ public class Playlist : MonoBehaviour
 
 	public void Play()
 	{
-		Debug.Log("Play called");
 		isPlaying = true;
 		if (trackNumber > 0) audioManager.FadeOutMusic(fadeTime);
 		if (trackNumber < trackList.Count)

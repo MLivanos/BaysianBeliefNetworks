@@ -10,9 +10,11 @@ public class VariableChecks : MonoBehaviour
     private Toggle evidenceToggle;
     private GameObject graphObject;
     private Graph graph;
+    private AudioManager audioManager;
 
     private void Start()
     {
+        audioManager = FindObjectOfType<AudioManager>();
         queryToggle = transform.Find("QueryCheckbox").GetComponent<Toggle>();
         evidenceToggle = transform.Find("EvidenceCheckbox").GetComponent<Toggle>();
         graphObject = GameObject.Find("Graph");
@@ -25,10 +27,12 @@ public class VariableChecks : MonoBehaviour
     {
         if (queryToggle.isOn)
         {
+            audioManager.PlayEffect("ClickOn");
             graph.AddToQuery(node, this);
         }
         else
         {
+            audioManager.PlayEffect("ClickOff");
             graph.RemoveFromQuery(node);
         }
         graph.UpdateText();
@@ -38,10 +42,12 @@ public class VariableChecks : MonoBehaviour
     {
         if (evidenceToggle.isOn)
         {
+            audioManager.PlayEffect("ClickOn");
             graph.AddToEvidence(node, this);
         }
         else
         {
+            audioManager.PlayEffect("ClickOff");
             graph.RemoveFromEvidence(node);
         }
         graph.UpdateText();
@@ -49,11 +55,16 @@ public class VariableChecks : MonoBehaviour
 
     public void SwitchEvidence()
     {
-        evidenceToggle.isOn = !evidenceToggle.isOn;
+        SwitchToggle(evidenceToggle);
     }
 
     public void SwitchQuery()
     {
-        queryToggle.isOn = !queryToggle.isOn;
+        SwitchToggle(queryToggle);
+    }
+
+    private void SwitchToggle(Toggle toggle)
+    {
+        toggle.isOn = !toggle.isOn;
     }
 }

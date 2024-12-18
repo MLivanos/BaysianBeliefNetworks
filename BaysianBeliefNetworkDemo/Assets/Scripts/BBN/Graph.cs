@@ -16,6 +16,7 @@ public class Graph : MonoBehaviour
     [SerializeField] private GameObject graphUI;
     [SerializeField] private bool test;
     private GraphUIManager graphUIManager;
+    private AudioManager audioManager;
     private Sampler currentSampler;
     private Sampler[] samplers;
     private string queryText;
@@ -29,6 +30,7 @@ public class Graph : MonoBehaviour
 
     private void Start()
     {
+        audioManager = FindObjectOfType<AudioManager>();
         positiveQuery = new List<Node>();
         negativeQuery = new List<Node>();
         positiveEvidence = new List<Node>();
@@ -76,10 +78,7 @@ public class Graph : MonoBehaviour
             Node node = currentNodes[0];
             foreach(Node child in node.GetChildren())
             {
-                if (!currentNodes.Contains(child))
-                {
-                    currentNodes.Add(child);
-                }
+                if (!currentNodes.Contains(child)) currentNodes.Add(child);
             }
             currentNodes.RemoveAt(0);
             SceneManager.MoveGameObjectToScene(node.gameObject, SceneManager.GetActiveScene());
@@ -88,14 +87,8 @@ public class Graph : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
-        {
-            isNegative = true;
-        }
-        if(Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.RightShift))
-        {
-            isNegative = false;
-        }
+        if(Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift)) isNegative = true;
+        if(Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.RightShift)) isNegative = false;
         if (test)
         {
             GetComponent<GraphTester>().TestGraph();
@@ -111,19 +104,13 @@ public class Graph : MonoBehaviour
     public void AddToEvidence(Node node, VariableChecks checks)
     {
         AddToEvidence(node, !isNegative);
-        if (positiveQuery.Any(n => n == node) || negativeQuery.Any(n => n == node))
-        {
-            checks.SwitchQuery();
-        }
+        if (positiveQuery.Any(n => n == node) || negativeQuery.Any(n => n == node)) checks.SwitchQuery();
     }
 
     public void AddToQuery(Node node, VariableChecks checks)
     {
         AddToQuery(node, !isNegative);
-        if (positiveEvidence.Any(n => n == node) || negativeEvidence.Any(n => n == node))
-        {
-            checks.SwitchEvidence();
-        }
+        if (positiveEvidence.Any(n => n == node) || negativeEvidence.Any(n => n == node)) checks.SwitchEvidence();
     }
 
     public void AddToQuery(Node node, bool isTrue)
@@ -167,6 +154,7 @@ public class Graph : MonoBehaviour
 
     private IEnumerator RunSamples()
     {
+        audioManager.PlayEffect("Computation2");
         float startTime = Time.realtimeSinceStartup;
         graphUIManager.DisplayProgressBar();
         Coroutine samples = StartCoroutine(currentSampler.RunSamples());
@@ -262,10 +250,7 @@ public class Graph : MonoBehaviour
     private void UncheckAllCheckboxes(GameObject root)
     {
         Toggle toggle = root.GetComponent<Toggle>();
-        if (toggle != null)
-        {
-            toggle.isOn = false;
-        }
+        if (toggle != null) toggle.isOn = false;
         foreach (Transform child in root.transform)
         {
             UncheckAllCheckboxes(child.gameObject);
