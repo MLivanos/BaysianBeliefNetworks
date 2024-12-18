@@ -266,6 +266,13 @@ MonoBehaviour:
     pitchMultiplier: 1
     source: {fileID: 0}
     duration: 0
+  - name: LofiFadeAway
+    clip: {fileID: 8300000, guid: efaada5cf0c7a474ab6df4ab07272210, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
   - name: SynthpopMostWanted
     clip: {fileID: 8300000, guid: cfcce41a7217c824ba9cafadff5fd6a0, type: 3}
     loop: 1
