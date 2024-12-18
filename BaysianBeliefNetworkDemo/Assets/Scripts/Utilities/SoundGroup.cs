@@ -56,8 +56,9 @@ public class SoundGroup : MonoBehaviour
 		}
 	}
 
-	public void UpdateVolume(float volume)
+	public void UpdateVolume(float newVolume)
 	{
+		volume = newVolume;
 		foreach(Sound sound in soundsPlaying.Values)
 		{
 			sound.UpdateVolume(volume);

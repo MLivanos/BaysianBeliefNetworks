@@ -6,9 +6,19 @@ public class AudioManager : MonoBehaviour
 {
     [SerializeField] private SoundGroup music;
     [SerializeField] private SoundGroup sfx;
-    private float epsilon = 0.1f;
-    private float lastMusicVolume = -1f;
-    private float lastSFXVolume = -1f;
+    [Range(0f, 1f)] private float masterVolume = 1f;
+    [Range(0f, 1f)] private float musicVolume = 1f;
+    [Range(0f, 1f)] private float sfxVolume = 1f;
+
+    private const string MasterVolumeKey = "MasterVolume";
+    private const string MusicVolumeKey = "MusicVolume";
+    private const string SFXVolumeKey = "SFXVolume";
+
+    private float lastMusicVolume = 1f;
+    private float lastSFXVolume = 1f;
+    private float epsilon = 0.01f;
+
+    private bool muted = false;
 
     public static AudioManager instance;
 
@@ -23,24 +33,67 @@ public class AudioManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    private void Start()
+    {
+        LoadVolumeSettings();
+        UpdateVolumeLevels();
+    }
+
     public void AdjustMusicVolume(float volume)
     {
         if (Mathf.Abs(volume - lastMusicVolume) < epsilon) return;
+        musicVolume = volume;
         lastMusicVolume = volume;
-        music.UpdateVolume(volume);
+        UpdateVolumeLevels();
     }
 
     public void AdjustSFXVolume(float volume)
     {
         if (Mathf.Abs(volume - lastSFXVolume) < epsilon) return;
+        sfxVolume = volume;
         lastSFXVolume = volume;
-        sfx.UpdateVolume(volume);
+        UpdateVolumeLevels();
     }
 
     public void AdjustMasterVolume(float volume)
     {
-        AdjustMusicVolume(volume);
-        AdjustSFXVolume(volume);
+        if (Mathf.Abs(volume - masterVolume) < epsilon) return;
+        masterVolume = volume;
+        UpdateVolumeLevels();
+    }
+
+    public void Mute()
+    {
+        if (muted) UpdateVolumeLevels(); // If already muted, unmute
+        else // Otherwise, mute
+        {
+            music.UpdateVolume(0f);
+            sfx.UpdateVolume(0f);
+        }
+        muted = !muted;
+    }
+
+    private void UpdateVolumeLevels()
+    {
+        music.UpdateVolume(masterVolume * musicVolume);
+        sfx.UpdateVolume(masterVolume * sfxVolume);
+
+        SaveVolumeSettings();
+    }
+
+    private void SaveVolumeSettings()
+    {
+        PlayerPrefs.SetFloat(MasterVolumeKey, masterVolume);
+        PlayerPrefs.SetFloat(MusicVolumeKey, musicVolume);
+        PlayerPrefs.SetFloat(SFXVolumeKey, sfxVolume);
+        PlayerPrefs.Save();
+    }
+
+    private void LoadVolumeSettings()
+    {
+        masterVolume = PlayerPrefs.GetFloat(MasterVolumeKey, 1f);
+        musicVolume = PlayerPrefs.GetFloat(MusicVolumeKey, 1f);
+        sfxVolume = PlayerPrefs.GetFloat(SFXVolumeKey, 1f);
     }
 
     public void PlayMusic(string trackName)

@@ -17861,6 +17861,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 386855432}
+  - component: {fileID: 386855433}
+  - component: {fileID: 386855434}
   m_Layer: 5
   m_Name: AudioPanel
   m_TagString: Untagged
@@ -17888,6 +17890,66 @@ RectTransform:
   m_AnchoredPosition: {x: -296.39905, y: 87.48523}
   m_SizeDelta: {x: -250, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &386855433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 386855431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 965840904}
+          m_TargetAssemblyTypeName: HoverPanelToggler, Assembly-CSharp
+          m_MethodName: HandlePointerEnter
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 965840904}
+          m_TargetAssemblyTypeName: HoverPanelToggler, Assembly-CSharp
+          m_MethodName: HandlePointerExit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &386855434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 386855431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d064ca9951f32e648aba1a93344beb90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  masterSlider: {fileID: 804848634}
+  musicSlider: {fileID: 1744175618}
+  sfxSlider: {fileID: 810787516}
 --- !u!1 &388135077
 GameObject:
   m_ObjectHideFlags: 0
@@ -47748,10 +47810,10 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 386855431}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
+        - m_Target: {fileID: 965840904}
+          m_TargetAssemblyTypeName: HoverPanelToggler, Assembly-CSharp
+          m_MethodName: HandlePointerEnter
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -47776,10 +47838,10 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 386855431}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
+        - m_Target: {fileID: 965840904}
+          m_TargetAssemblyTypeName: HoverPanelToggler, Assembly-CSharp
+          m_MethodName: HandlePointerExit
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -47847,7 +47909,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 965840902}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1348797323}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: Mute
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &965840902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47895,10 +47969,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 965840898}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Script: {fileID: 11500000, guid: 9f193afe79d0766489da70005ea276c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Delegates: []
+  panelTransform: {fileID: 386855432}
+  buttonTransform: {fileID: 965840899}
+  timeMargin: 0.1
 --- !u!1 &972312762
 GameObject:
   m_ObjectHideFlags: 0
@@ -52587,7 +52663,7 @@ GameObject:
   - component: {fileID: 1076017835}
   - component: {fileID: 1076017834}
   m_Layer: 5
-  m_Name: MusicTitle (1)
+  m_Name: SFXTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

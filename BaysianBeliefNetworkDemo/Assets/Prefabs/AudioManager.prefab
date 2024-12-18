@@ -282,6 +282,13 @@ MonoBehaviour:
     pitchMultiplier: 1
     source: {fileID: 0}
     duration: 0
+  - name: ButtonPress
+    clip: {fileID: 8300000, guid: bc5ae3146f90845c4a58ef381ca325ad, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
   volume: 1
   pitch: 1
 --- !u!1 &7901061059001884411
