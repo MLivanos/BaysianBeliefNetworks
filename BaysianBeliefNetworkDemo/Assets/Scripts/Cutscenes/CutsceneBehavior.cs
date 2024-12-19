@@ -29,7 +29,7 @@ public abstract class CutsceneBehavior : MonoBehaviour
 
     private void Awake()
     {
-        audioManager = FindObjectOfType<AudioManager>();
+        audioManager = AudioManager.instance;
     }
 
     protected void SetupScene()
