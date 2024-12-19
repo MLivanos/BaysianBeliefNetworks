@@ -108,6 +108,5 @@ public class Recorder : InterviewEventSystem
         endState.aliensAreAggressive = aliensAggressive;
         endState.predictedReal = playerBelieves;
         endState.predictedAggressive = playerBelievesAggressive;
-        DontDestroyOnLoad(endGameState);
     }
 }
