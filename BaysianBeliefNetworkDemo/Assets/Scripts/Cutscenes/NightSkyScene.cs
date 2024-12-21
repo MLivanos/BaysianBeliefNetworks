@@ -78,5 +78,6 @@ public class NightSkyScene : CutsceneBehavior
             timer += Time.deltaTime;
             yield return null;
         }
+        cameraTransform.position = cameraEnds[1].position;
     }
 }
