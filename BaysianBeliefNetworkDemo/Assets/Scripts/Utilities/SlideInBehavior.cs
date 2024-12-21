@@ -87,7 +87,7 @@ public class SlideInBehavior : MonoBehaviour
         StartCoroutine(Slide(false));
     }
 
-    private IEnumerator Slide(bool slideIn)
+    public IEnumerator Slide(bool slideIn)
     {
         float timer = 0f;
         Vector3 start = slideIn ? startPosition : endPosition;
