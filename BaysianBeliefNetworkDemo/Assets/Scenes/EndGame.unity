@@ -2551,6 +2551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48448f86a0295114e8b4ea211183bd29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxBrightness: 0.02
 --- !u!114 &75558157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46496,7 +46497,7 @@ MonoBehaviour:
   - {fileID: 0}
   texts: []
   blinker: {fileID: 75558156}
-  blinkerFrequency: 0.5
+  blinkerFrequency: 4
 --- !u!4 &1367043909
 Transform:
   m_ObjectHideFlags: 0

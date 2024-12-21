@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class FadableLight : FadableElement
 {
+	[SerializeField] private float maxBrightness;
 	private Light light;
 	private bool interuptFlag = false;
 
@@ -37,7 +38,7 @@ public class FadableLight : FadableElement
 
 	public IEnumerator Blink(float blinkFrequency, bool start)
 	{
-		yield return Fade(1f/((blinkFrequency+0.001f)/2f), start);
-		yield return Fade(1f/((blinkFrequency+0.001f)/2f), !start);
+		yield return Fade(1f/((blinkFrequency+0.001f)/2f), start, maxBrightness);
+		yield return Fade(1f/((blinkFrequency+0.001f)/2f), !start, maxBrightness);
 	}
 }
