@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class SummitSlide : EndGameSlide
+public class SummitSlide : CutsceneBehavior
 {
 	[SerializeField] private SlideInBehavior zoomIn;
+	[SerializeField] private SlideInBehavior transitionSlide;
 	[SerializeField] private Transform paperView;
 	[SerializeField] private Transform panelView;
 	[SerializeField] private float waitBeforeZoomIn;
@@ -15,7 +16,13 @@ public class SummitSlide : EndGameSlide
 	private void Start()
 	{
 		cameraTransform = GameObject.Find("Main Camera").transform;
+		SetupCamera();
 		StartCoroutine(PlayScene());
+	}
+
+	private void Update()
+	{
+		if (Input.GetMouseButtonDown(0)) StartCoroutine(ExitTransition());
 	}
 
 	protected override IEnumerator PlayScene()
@@ -29,6 +36,7 @@ public class SummitSlide : EndGameSlide
 
 	protected override IEnumerator ExitTransition()
 	{
+		transitionSlide.BeginSlideIn();
 		yield return RotateUntilMatch(cameraTransform, paperView);
 		yield return null;
 	}
@@ -53,5 +61,10 @@ public class SummitSlide : EndGameSlide
 	    }
 
 	    objectToRotate.rotation = targetObject.rotation;
+	}
+
+	public override void Interrupt()
+	{
+		
 	}
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class PlayerBeliefSlide : EndGameSlide
+public class PlayerBeliefSlide : CutsceneBehavior
 {
 	[SerializeField] private List<FadableElement> magnifyingEffect;
 	[SerializeField] private List<SlideInBehavior> pages;
@@ -27,6 +27,11 @@ public class PlayerBeliefSlide : EndGameSlide
 		yield return new WaitForSeconds(beforeMagnificationTime);
 		yield return Magnify();
 		yield return HighlightWords();
+	}
+
+	public override void Interrupt()
+	{
+
 	}
 
 	protected override IEnumerator ExitTransition()
