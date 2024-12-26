@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class SummitSlide : CutsceneBehavior
+public class SummitSlide : EndGameCutscene
 {
 	[SerializeField] private SlideInBehavior zoomIn;
 	[SerializeField] private SlideInBehavior transitionSlide;
@@ -12,18 +12,6 @@ public class SummitSlide : CutsceneBehavior
 	[SerializeField] private float waitBeforeZoomIn;
 	[SerializeField] private float waitBeforeRotateUp;
 	[SerializeField] private float rotationSpeed;
-
-	private void Start()
-	{
-		cameraTransform = GameObject.Find("Main Camera").transform;
-		SetupCamera();
-		StartCoroutine(PlayScene());
-	}
-
-	private void Update()
-	{
-		if (Input.GetMouseButtonDown(0)) StartCoroutine(ExitTransition());
-	}
 
 	protected override IEnumerator PlayScene()
 	{

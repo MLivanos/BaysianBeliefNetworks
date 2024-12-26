@@ -3,38 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public abstract class EndGameSlide : MonoBehaviour
+public abstract class EndGameCutscene : CutsceneBehavior
 {
-	[SerializeField] protected List<string> tracks;
-	[SerializeField] protected List<GameObject> scenes;
-	[SerializeField] protected List<string> texts;
+	public int code;
+}
+
+public class EndGameSlide : MonoBehaviour
+{
+	[SerializeField] protected List<EndGameCutscene> scenes;
 	protected AudioManager audioManager;
-	protected Transform cameraTransform;
-	protected int code;
-
-	protected abstract IEnumerator PlayScene();
-    protected abstract IEnumerator ExitTransition();
-
-	private void Start()
+	
+	public void Run(int sceneCode)
 	{
-		audioManager = AudioManager.instance;
+		scenes[sceneCode].code = sceneCode;
+		scenes[sceneCode].Play();
 	}
-
-	public void Setup(int sceneCode)
-	{
-		code = sceneCode;
-		audioManager.PlayMusic(tracks[code]);
-		scenes[code].SetActive(true);
-		cameraTransform.parent = scenes[code].transform.Find("CameraMark");
-	}
-
-	public IEnumerator Play()
-    {
-        yield return PlayScene();
-    }
-
-    public IEnumerator Exit()
-    {
-        yield return ExitTransition();
-    }
 }

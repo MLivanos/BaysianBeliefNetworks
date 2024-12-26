@@ -5,6 +5,7 @@ using TMPro;
 
 public class EndGameManager : MonoBehaviour
 {
+    [SerializeField] protected List<string> tracks;
     [SerializeField] private TMP_Text text;
     [SerializeField] private List<string> responses;
     [SerializeField] private bool test;
@@ -32,7 +33,6 @@ public class EndGameManager : MonoBehaviour
             if (i%4 == 0) endGameState.predictedReal = !endGameState.predictedReal;
             if (i%8 == 0) endGameState.predictedAggressive = !endGameState.predictedAggressive;
             response = responses[endGameState.GetPerformanceCode()];
-            text.text = response;
             yield return new WaitForSeconds(1f);
         }
     }

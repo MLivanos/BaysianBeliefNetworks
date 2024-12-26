@@ -2,15 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AggressiveAlienScene : EndGameCutscene
+public class BasicCutscene : EndGameCutscene
 {
-	[SerializeField] private FadableLight blinker;
-	[SerializeField] private float blinkerFrequency;
-
+	[SerializeField] private bool hasText;
+	[SerializeField] private float timeBeforeText;
 	protected override IEnumerator PlayScene()
 	{
-		StartCoroutine(blinker.BlinkForever(blinkerFrequency, true));
-		yield return null;
+		yield return new WaitForSeconds(timeBeforeText);
+		if (hasText) yield return ViewPanel();
 	}
 
 	protected override IEnumerator ExitTransition()

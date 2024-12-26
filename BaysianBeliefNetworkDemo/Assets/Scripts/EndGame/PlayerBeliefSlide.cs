@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class PlayerBeliefSlide : CutsceneBehavior
+public class PlayerBeliefSlide : EndGameCutscene
 {
+	[SerializeField] private List<string> paperText;
+	[SerializeField] private TMP_Text realityText;
+	[SerializeField] private TMP_Text behaviorText;
 	[SerializeField] private List<FadableElement> magnifyingEffect;
 	[SerializeField] private List<SlideInBehavior> pages;
 	[SerializeField] private List<RectTransform> highlighters;
@@ -13,11 +16,6 @@ public class PlayerBeliefSlide : CutsceneBehavior
 	[SerializeField] private float beforeMagnificationTime;
 	[SerializeField] private float highLightTime;
 	private List<float> highlighterWidth = new List<float>();
-
-	private void Start()
-	{
-		StartCoroutine(PlayScene());
-	}
 
 	protected override IEnumerator PlayScene()
 	{
