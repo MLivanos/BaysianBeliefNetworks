@@ -5,18 +5,42 @@ using TMPro;
 
 public class EndGameManager : MonoBehaviour
 {
+    [SerializeField] protected List<EndGameSlide> endSlides;
     [SerializeField] protected List<string> tracks;
     [SerializeField] private TMP_Text text;
     [SerializeField] private List<string> responses;
     [SerializeField] private bool test;
+    private int currentSceneId = 0;
+    private List<int> sceneCodes = new List<int>();
     private EndGameState endGameState;
 
     private void Start()
     {
         endGameState = EndGameState.instance;
-        string response = responses[endGameState.GetPerformanceCode()];
-        text.text = response;
+        GetSceneCodes();
         if (test) StartCoroutine(Test());
+        else Advance();
+    }
+
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0)) Advance();
+    }
+
+    private void Advance()
+    {
+        if (currentSceneId >= endSlides.Count) return;
+        endSlides[currentSceneId].Run(sceneCodes[currentSceneId]);
+        currentSceneId++;
+    }
+
+    private void GetSceneCodes()
+    {
+        sceneCodes.Add(0);
+        sceneCodes.Add(endGameState.GetPredictionCode());
+        sceneCodes.Add(endGameState.GetRealityCode());
+        sceneCodes.Add(endGameState.GetConsequenceCode());
+        sceneCodes.Add(endGameState.GetScore());
     }
 
     private IEnumerator Test()
@@ -32,7 +56,7 @@ public class EndGameManager : MonoBehaviour
             if (i%2 == 0) endGameState.aliensAreAggressive = !endGameState.aliensAreAggressive;
             if (i%4 == 0) endGameState.predictedReal = !endGameState.predictedReal;
             if (i%8 == 0) endGameState.predictedAggressive = !endGameState.predictedAggressive;
-            response = responses[endGameState.GetPerformanceCode()];
+            response = responses[endGameState.GetScore()];
             yield return new WaitForSeconds(1f);
         }
     }
