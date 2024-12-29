@@ -40,10 +40,6 @@ public class AnimationSetter : MonoBehaviour
     void Awake()
     {
         animator = GetComponent<Animator>();
-    }
-
-    void Start()
-    {
         foreach (var parameter in parameters)
         {
             parameter.Apply(animator);
