@@ -47,6 +47,7 @@ public class CutsceneManager : MonoBehaviour
         }
         else
         {
+            audioManager.PauseMusic();
             sceneManager.StartGame();
         }
     }
