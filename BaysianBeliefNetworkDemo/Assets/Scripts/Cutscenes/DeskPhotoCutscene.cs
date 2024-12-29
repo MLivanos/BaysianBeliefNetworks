@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DeskPhotoCutscene : EndGameCutscene
+public class DeskPhotoCutscene : CutsceneBehavior
 {
     [SerializeField] private float sceneWaitTime;
     [SerializeField] private SlideInBehavior[] photoSlides;

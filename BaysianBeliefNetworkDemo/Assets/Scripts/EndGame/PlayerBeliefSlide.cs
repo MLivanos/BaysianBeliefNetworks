@@ -21,6 +21,7 @@ public class PlayerBeliefSlide : EndGameCutscene
 	{
 		HideMagnification();
 		HideHighlighters();
+		yield return null;
 		yield return SlideOutPages();
 		yield return new WaitForSeconds(beforeMagnificationTime);
 		yield return Magnify();

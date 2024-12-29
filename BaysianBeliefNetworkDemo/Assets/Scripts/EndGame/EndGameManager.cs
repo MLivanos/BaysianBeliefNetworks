@@ -5,6 +5,9 @@ using TMPro;
 
 public class EndGameManager : MonoBehaviour
 {
+    [SerializeField] private TypewriterEffect typewriterEffect;
+    [SerializeField] private GameObject textPanel;
+    [SerializeField] private Transform mainCamera;
     [SerializeField] protected List<EndGameSlide> endSlides;
     [SerializeField] protected List<string> tracks;
     [SerializeField] private TMP_Text text;
@@ -24,14 +27,20 @@ public class EndGameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0)) Advance();
+        if (Input.GetMouseButtonDown(0)) StartCoroutine(Exit());
     }
 
     private void Advance()
     {
         if (currentSceneId >= endSlides.Count) return;
-        endSlides[currentSceneId].Run(sceneCodes[currentSceneId]);
+        endSlides[currentSceneId].Run(sceneCodes[currentSceneId], mainCamera, textPanel, typewriterEffect);
         currentSceneId++;
+    }
+
+    private IEnumerator Exit()
+    {
+        yield return endSlides[currentSceneId-1].Exit();
+        Advance();
     }
 
     private void GetSceneCodes()

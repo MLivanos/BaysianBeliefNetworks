@@ -12,10 +12,11 @@ public class EndGameSlide : MonoBehaviour
 {
 	[SerializeField] protected List<EndGameCutscene> scenes;
 	[SerializeField] protected List<int> codesToScene;
+	protected int code;
 	protected Dictionary<int, int> sceneLookup = new Dictionary<int, int>();
 	protected AudioManager audioManager;
 
-	private void Start()
+	private void Awake()
 	{
 		if (codesToScene.Count < scenes.Count) Debug.LogError("The slide {gameObject.name} has {codesToScene.Count} codes but {scenes.Count} scenes");
 		for(int i=0; i<codesToScene.Count; i++)
@@ -24,9 +25,16 @@ public class EndGameSlide : MonoBehaviour
 		}
 	}
 	
-	public void Run(int sceneCode)
+	public void Run(int sceneCode, Transform mainCamera, GameObject textPanel, TypewriterEffect typewriterEffect)
 	{
-		scenes[sceneLookup[sceneCode]].code = sceneCode;
+		code = sceneCode;
+		scenes[sceneLookup[code]].code = sceneCode;
+		scenes[sceneLookup[code]].SetupObjects(mainCamera, textPanel, typewriterEffect);
 		StartCoroutine(scenes[sceneLookup[sceneCode]].Play());
+	}
+
+	public IEnumerator Exit()
+	{
+		yield return scenes[sceneLookup[code]].Exit();
 	}
 }
