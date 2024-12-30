@@ -32,7 +32,7 @@ public class SummitSlide : EndGameCutscene
 
 	private IEnumerator ZoomInToPaper()
 	{
-		zoomIn.BeginSlideIn();
+		StartCoroutine(zoomIn.Slide(true));
 		yield return new WaitForSeconds(zoomIn.GetDuration());
 	}
 
@@ -54,7 +54,7 @@ public class SummitSlide : EndGameCutscene
 
 	public override void Interrupt()
 	{
-		SnapCameraToPosition(paperView);
+		SnapCameraToPosition(panelView);
 	}
 
 	private void SnapCameraToPosition(Transform referenceTransform)
