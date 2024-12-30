@@ -13,6 +13,7 @@ public class EndGameManager : MonoBehaviour
     [SerializeField] private TMP_Text text;
     [SerializeField] private List<string> responses;
     [SerializeField] private bool test;
+    private Coroutine currentCoroutine;
     private int currentSceneId = 0;
     private List<int> sceneCodes = new List<int>();
     private EndGameState endGameState;
@@ -33,12 +34,17 @@ public class EndGameManager : MonoBehaviour
     private void Advance()
     {
         if (currentSceneId >= endSlides.Count) return;
-        endSlides[currentSceneId].Run(sceneCodes[currentSceneId], mainCamera, textPanel, typewriterEffect);
+        currentCoroutine = StartCoroutine(endSlides[currentSceneId].Run(sceneCodes[currentSceneId], mainCamera, textPanel, typewriterEffect));
         currentSceneId++;
     }
 
     private IEnumerator Exit()
     {
+        if (currentCoroutine != null)
+        {
+            StopCoroutine(currentCoroutine);
+            currentCoroutine = null;
+        }
         yield return endSlides[currentSceneId-1].Exit();
         Advance();
     }

@@ -25,12 +25,12 @@ public class EndGameSlide : MonoBehaviour
 		}
 	}
 	
-	public void Run(int sceneCode, Transform mainCamera, GameObject textPanel, TypewriterEffect typewriterEffect)
+	public IEnumerator Run(int sceneCode, Transform mainCamera, GameObject textPanel, TypewriterEffect typewriterEffect)
 	{
 		code = sceneCode;
 		scenes[sceneLookup[code]].code = sceneCode;
 		scenes[sceneLookup[code]].SetupObjects(mainCamera, textPanel, typewriterEffect);
-		StartCoroutine(scenes[sceneLookup[sceneCode]].Play());
+		yield return scenes[sceneLookup[sceneCode]].Play();
 	}
 
 	public IEnumerator Exit()
