@@ -24,6 +24,7 @@ public class SummitSlide : EndGameCutscene
 
 	protected override IEnumerator ExitTransition()
 	{
+		SnapCameraToPosition(panelView);
 		transitionSlide.BeginSlideIn();
 		yield return RotateUntilMatch(cameraTransform, paperView);
 		yield return null;
@@ -53,6 +54,13 @@ public class SummitSlide : EndGameCutscene
 
 	public override void Interrupt()
 	{
-		
+		SnapCameraToPosition(paperView);
+	}
+
+	private void SnapCameraToPosition(Transform referenceTransform)
+	{
+		StopAllCoroutines();
+		cameraTransform.position = referenceTransform.position;
+		cameraTransform.rotation = referenceTransform.rotation;
 	}
 }
