@@ -28,7 +28,7 @@ public class EndGameState : MonoBehaviour
     }
 
     /* Key: 2-bit number with digits:
-    predicted real, predicted aggressive */
+    predicted aggressive, predicted real*/
     public int GetPredictionCode()
     {
         return BoolsToInt(new List<bool> { predictedReal, predictedAggressive });

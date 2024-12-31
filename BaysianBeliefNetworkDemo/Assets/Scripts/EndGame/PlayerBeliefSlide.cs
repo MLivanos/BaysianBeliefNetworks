@@ -19,6 +19,7 @@ public class PlayerBeliefSlide : EndGameCutscene
 
 	protected override IEnumerator PlayScene()
 	{
+		SetText();
 		HideMagnification();
 		HideHighlighters();
 		yield return null;
@@ -100,5 +101,11 @@ public class PlayerBeliefSlide : EndGameCutscene
 	        yield return null;
 	    }
 	    highlighter.sizeDelta = new Vector2(targetWidth, initialSize.y);
+	}
+
+	private void SetText()
+	{
+		if (code >= 2) behaviorText.text = paperText[2];
+		if (code % 2 == 1) realityText.text = paperText[0];
 	}
 }
