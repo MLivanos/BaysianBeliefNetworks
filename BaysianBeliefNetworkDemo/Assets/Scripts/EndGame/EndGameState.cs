@@ -24,7 +24,7 @@ public class EndGameState : MonoBehaviour
     aliens real, aliens aggressive, predicted real, predicted aggressive */
     public int GetConsequenceCode()
     {
-        return BoolsToInt(new List<bool> { aliensAreReal, aliensAreAggressive, predictedReal, predictedAggressive });
+        return BoolsToInt(new List<bool> { predictedAggressive, predictedReal, aliensAreAggressive, aliensAreReal });
     }
 
     /* Key: 2-bit number with digits:
@@ -38,7 +38,7 @@ public class EndGameState : MonoBehaviour
     aliens real, aliens aggressive */
     public int GetRealityCode()
     {
-        return BoolsToInt(new List<bool> { aliensAreReal, aliensAreAggressive });
+        return BoolsToInt(new List<bool> { aliensAreAggressive, aliensAreReal });
     }
 
     /* Key:

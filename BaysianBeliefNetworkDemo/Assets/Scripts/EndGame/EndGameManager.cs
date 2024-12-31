@@ -79,8 +79,8 @@ public class EndGameManager : MonoBehaviour
 
     private IEnumerator Test()
     {
-        int i = (endGameState.aliensAreReal ? 1 : 0) + (endGameState.aliensAreAggressive ? 2 : 0) +
-            (endGameState.predictedReal ? 4 : 0) + (endGameState.predictedAggressive ? 8 : 0) + 1;
+        int i = (endGameState.aliensAreReal ? 8 : 0) + (endGameState.aliensAreAggressive ? 4 : 0) +
+            (endGameState.predictedReal ? 2 : 0) + (endGameState.predictedAggressive ? 1 : 0) + 1;
         if (i > 1) currentSceneId = 1;
         Advance();
         while(!done) yield return null;
@@ -96,10 +96,11 @@ public class EndGameManager : MonoBehaviour
     private void AdvanceTestScene(int i)
     {
         if (i == 16) return;
-        if (i%1 == 0) endGameState.aliensAreReal = !endGameState.aliensAreReal;
-        if (i%2 == 0) endGameState.aliensAreAggressive = !endGameState.aliensAreAggressive;
-        if (i%4 == 0) endGameState.predictedReal = !endGameState.predictedReal;
-        if (i%8 == 0) endGameState.predictedAggressive = !endGameState.predictedAggressive;
+        Debug.Log(i);
+        if (i%1 == 0) endGameState.predictedAggressive = !endGameState.predictedAggressive;
+        if (i%2 == 0) endGameState.predictedReal = !endGameState.predictedReal;
+        if (i%4 == 0) endGameState.aliensAreAggressive = !endGameState.aliensAreAggressive;
+        if (i%8 == 0) endGameState.aliensAreReal = !endGameState.aliensAreReal;
         ReloadScene();
     }
 }
