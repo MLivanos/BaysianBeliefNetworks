@@ -13,6 +13,7 @@ public class EndGameManager : MonoBehaviour
     [SerializeField] private TMP_Text text;
     [SerializeField] private List<string> responses;
     [SerializeField] private bool test;
+    private AudioManager audioManager;
     private bool isExiting = false;
     private Coroutine currentCoroutine;
     private int currentSceneId = 0;
@@ -21,8 +22,10 @@ public class EndGameManager : MonoBehaviour
 
     private void Start()
     {
+        audioManager = AudioManager.instance;
         endGameState = EndGameState.instance;
         GetSceneCodes();
+        PlayMusic();
         if (test) StartCoroutine(Test());
         else Advance();
     }
@@ -59,6 +62,11 @@ public class EndGameManager : MonoBehaviour
         sceneCodes.Add(endGameState.GetRealityCode());
         sceneCodes.Add(endGameState.GetConsequenceCode());
         sceneCodes.Add(endGameState.GetScore());
+    }
+
+    private void PlayMusic()
+    {
+        audioManager.PlayMusic(tracks[endGameState.GetScore()]);
     }
 
     private IEnumerator Test()

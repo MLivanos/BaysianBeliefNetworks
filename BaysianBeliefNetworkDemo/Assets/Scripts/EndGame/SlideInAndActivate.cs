@@ -11,6 +11,7 @@ public class SlideInAndActivate : EndGameCutscene
 
 	protected override IEnumerator PlayScene()
 	{
+		yield return null;
 		yield return slideFirst ? SlideIn() : ActivateObjects();
 		yield return slideFirst ? ActivateObjects() : SlideIn();
 	}
