@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class TransitCutscene : CutsceneBehavior
+public class TransitCutscene : IntroCutscene
 {
     [SerializeField] private FadableImage fadeOut;
     [SerializeField] private GameObject meshGeneratorPrefab;

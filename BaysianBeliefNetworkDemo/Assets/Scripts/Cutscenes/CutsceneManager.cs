@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CutsceneManager : MonoBehaviour
 {
-    [SerializeField] private CutsceneBehavior[] cutscenes;
+    [SerializeField] private IntroCutscene[] cutscenes;
     [SerializeField] private TypewriterEffect typewriterEffect;
     [SerializeField] private GameObject textPanel;
     [SerializeField] private Transform mainCamera;

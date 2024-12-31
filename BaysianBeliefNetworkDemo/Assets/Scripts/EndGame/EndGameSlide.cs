@@ -10,6 +10,7 @@ public abstract class EndGameCutscene : CutsceneBehavior
 
 public class EndGameSlide : MonoBehaviour
 {
+	[Header("Endgame Specific Fields")]
 	[SerializeField] protected List<EndGameCutscene> scenes;
 	[SerializeField] protected List<int> codesToScene;
 	protected int code;
