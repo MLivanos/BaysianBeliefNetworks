@@ -7,7 +7,7 @@ public class FadableLight : FadableElement
 	private Light light;
 	private bool interuptFlag = false;
 
-	private void Start()
+	private void Awake()
 	{
 		light = GetComponent<Light>();
 	}

@@ -8,13 +8,15 @@ public class UFOExit : MonoBehaviour
     [SerializeField] private Vector3 initialSize;
     [SerializeField] private Vector3 endSize;
     [SerializeField] private Transform cameraTransform;
+    [SerializeField] private float ufoAcceleration;
     [SerializeField] private float ufoSpeed;
-    [SerializeField] private float travelTime;
     [SerializeField] private float cameraShakeStrength;
     [SerializeField] private float cameraShakeTime;
+    float travelTime;
 
     private void Start()
     {
+        CalculateTravelTime();
         StartCoroutine(PlayUFO());
     }
 
@@ -63,7 +65,20 @@ public class UFOExit : MonoBehaviour
         while(true)
         {
             transform.Translate(Vector3.right*ufoSpeed*Time.deltaTime, Space.Self);
+            ufoSpeed += ufoAcceleration*Time.deltaTime;
             yield return null;
         }
+    }
+
+    private void CalculateTravelTime()
+    {
+        float distance = Vector3.Distance(cameraTransform.position, transform.position)+20f;
+        travelTime = Mathf.Max(QuadraticSolver(ufoAcceleration, ufoSpeed, -distance, true),
+            QuadraticSolver(ufoAcceleration, ufoSpeed, -distance, false));
+    }
+
+    private float QuadraticSolver(float a, float b, float c, bool plus)
+    {
+        return (-b + (plus ? 1 : -1) * Mathf.Sqrt(b*b-(4*a*c))) / (2*a); 
     }
 }
