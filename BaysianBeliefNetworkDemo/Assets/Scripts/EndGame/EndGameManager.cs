@@ -35,7 +35,13 @@ public class EndGameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !isExiting) StartCoroutine(Exit());
+        if (Input.GetMouseButtonDown(0) && !isExiting) HandleClick();
+    }
+
+    private void HandleClick()
+    {
+        if (typewriterEffect.IsTyping()) typewriterEffect.Interrupt();
+        else StartCoroutine(Exit());
     }
 
     private void Advance()
