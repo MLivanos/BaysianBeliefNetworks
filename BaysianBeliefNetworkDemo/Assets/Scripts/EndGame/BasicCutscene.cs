@@ -9,7 +9,11 @@ public class BasicCutscene : EndGameCutscene
 	protected override IEnumerator PlayScene()
 	{
 		yield return new WaitForSeconds(timeBeforeText);
-		if (hasText) yield return ViewPanel();
+		if (hasText)
+		{
+			yield return ViewPanel();
+			AnimateText();
+		}
 	}
 
 	protected override IEnumerator ExitTransition()

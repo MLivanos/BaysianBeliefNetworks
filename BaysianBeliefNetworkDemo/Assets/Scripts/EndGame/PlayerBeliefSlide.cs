@@ -24,6 +24,8 @@ public class PlayerBeliefSlide : EndGameCutscene
 		HideHighlighters();
 		yield return null;
 		yield return SlideOutPages();
+		yield return ViewPanel();
+		AnimateText();
 		yield return new WaitForSeconds(beforeMagnificationTime);
 		yield return Magnify();
 		yield return HighlightWords();

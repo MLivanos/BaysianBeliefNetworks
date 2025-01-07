@@ -17,6 +17,8 @@ public class SummitSlide : EndGameCutscene
 	{
 		yield return new WaitForSeconds(waitBeforeZoomIn);
 		yield return ZoomInToPaper();
+		yield return ViewPanel();
+		AnimateText();
 		yield return new WaitForSeconds(waitBeforeRotateUp);
 		yield return RotateUntilMatch(cameraTransform, panelView);
 
@@ -27,7 +29,6 @@ public class SummitSlide : EndGameCutscene
 		SnapCameraToPosition(panelView);
 		transitionSlide.BeginSlideIn();
 		yield return RotateUntilMatch(cameraTransform, paperView);
-		yield return null;
 	}
 
 	private IEnumerator ZoomInToPaper()
@@ -48,7 +49,6 @@ public class SummitSlide : EndGameCutscene
 
 	        yield return null;
 	    }
-
 	    objectToRotate.rotation = targetObject.rotation;
 	}
 
