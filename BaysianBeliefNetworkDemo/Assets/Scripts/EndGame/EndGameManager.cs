@@ -40,7 +40,7 @@ public class EndGameManager : MonoBehaviour
 
     private void HandleClick()
     {
-        if (typewriterEffect.IsTyping()) typewriterEffect.Interrupt();
+        if (typewriterEffect.gameObject.activeInHierarchy && typewriterEffect.IsTyping()) typewriterEffect.Interrupt();
         else StartCoroutine(Exit());
     }
 

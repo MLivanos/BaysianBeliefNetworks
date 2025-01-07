@@ -14,6 +14,8 @@ public class SlideInAndActivate : EndGameCutscene
 		yield return null;
 		yield return slideFirst ? SlideIn() : ActivateObjects();
 		yield return slideFirst ? ActivateObjects() : SlideIn();
+		yield return ViewPanel();
+		AnimateText();
 	}
 
 	protected override IEnumerator ExitTransition()

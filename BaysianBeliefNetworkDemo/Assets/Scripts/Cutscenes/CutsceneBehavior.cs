@@ -88,7 +88,7 @@ public abstract class CutsceneBehavior : MonoBehaviour
     {
         yield return ExitTransition();
         scene.SetActive(false);
-        typewriterEffect.Clear();
+        if (typewriterEffect.gameObject.activeInHierarchy) typewriterEffect.Clear();
         textPanel.SetActive(false);
     }
 
