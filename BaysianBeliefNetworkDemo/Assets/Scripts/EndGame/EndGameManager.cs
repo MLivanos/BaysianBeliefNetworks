@@ -13,6 +13,7 @@ public class EndGameManager : MonoBehaviour
     [SerializeField] protected List<string> tracks;
     [SerializeField] private TMP_Text text;
     [SerializeField] private List<string> responses;
+    [SerializeField] private FadableImage fadeToWhite;
     [SerializeField] private bool test;
     private AudioManager audioManager;
     private bool isExiting = false;
@@ -48,8 +49,8 @@ public class EndGameManager : MonoBehaviour
     {
         if (currentSceneId >= endSlides.Count)
         {
-            audioManager.PauseMusic();
             done = true;
+            if (!test) StartCoroutine(ExitToCredits());
             return;
         }
         currentCoroutine = StartCoroutine(endSlides[currentSceneId].Run(sceneCodes[currentSceneId], mainCamera, textPanel, typewriterEffect));
@@ -64,7 +65,7 @@ public class EndGameManager : MonoBehaviour
             StopCoroutine(currentCoroutine);
             currentCoroutine = null;
         }
-        yield return endSlides[currentSceneId-1].Exit();
+        if (currentSceneId < endSlides.Count) yield return endSlides[currentSceneId-1].Exit();
         isExiting = false;
         Advance();
     }
@@ -85,11 +86,13 @@ public class EndGameManager : MonoBehaviour
 
     private IEnumerator Test()
     {
+        DisplayTestSettings();
         int i = (endGameState.aliensAreReal ? 8 : 0) + (endGameState.aliensAreAggressive ? 4 : 0) +
             (endGameState.predictedReal ? 2 : 0) + (endGameState.predictedAggressive ? 1 : 0) + 1;
         if (i > 1) currentSceneId = 1;
         Advance();
         while(!done) yield return null;
+        audioManager.PauseMusic();
         AdvanceTestScene(i);
     }
 
@@ -102,11 +105,22 @@ public class EndGameManager : MonoBehaviour
     private void AdvanceTestScene(int i)
     {
         if (i == 16) return;
-        Debug.Log(i);
         if (i%1 == 0) endGameState.predictedAggressive = !endGameState.predictedAggressive;
         if (i%2 == 0) endGameState.predictedReal = !endGameState.predictedReal;
         if (i%4 == 0) endGameState.aliensAreAggressive = !endGameState.aliensAreAggressive;
         if (i%8 == 0) endGameState.aliensAreReal = !endGameState.aliensAreReal;
         ReloadScene();
+    }
+
+    private void DisplayTestSettings()
+    {
+        Debug.Log("Testing scenario: \nAliens Real:{endGameState.aliensAreReal}\nAliens Aggressive:{endGameState.aliensAreAggressive}\nAliens Predicted Real:{endGameState.predictedReal}\nAliens Predicted Aggressive:{endGameState.predictedAggressive}");
+    }
+
+    private IEnumerator ExitToCredits()
+    {
+        audioManager.FadeOutMusic(4f);
+        yield return fadeToWhite.Fade(4f, true);
+        GetComponent<SceneManagerScript>().GoToCredits();
     }
 }

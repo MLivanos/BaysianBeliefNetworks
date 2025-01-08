@@ -43,4 +43,9 @@ public class SceneManagerScript : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
     }
+
+    public void GoToCredits()
+    {
+        
+    }
 }
