@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class LabReunionCutscene : CutsceneBehavior
+public class LabReunionCutscene : IntroCutscene
 {
 	[SerializeField] private string hugAudio;
     [SerializeField] private float timeBeforeSound;

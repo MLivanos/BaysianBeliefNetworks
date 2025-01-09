@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CutsceneManager : MonoBehaviour
 {
-    [SerializeField] private CutsceneBehavior[] cutscenes;
+    [SerializeField] private IntroCutscene[] cutscenes;
     [SerializeField] private TypewriterEffect typewriterEffect;
     [SerializeField] private GameObject textPanel;
     [SerializeField] private Transform mainCamera;
@@ -17,7 +17,7 @@ public class CutsceneManager : MonoBehaviour
 
     private void Start()
     {
-        audioManager = FindObjectOfType<AudioManager>();
+        audioManager = AudioManager.instance;
         sceneManager = GetComponent<SceneManagerScript>();
         textPanel.SetActive(false);
         currentCoroutine = StartCoroutine(PlayNextScene());
@@ -32,7 +32,8 @@ public class CutsceneManager : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(0))
         {
-            if (typewriterEffect.IsTyping()) typewriterEffect.Interrupt();
+            if (exiting) return;
+            else if (typewriterEffect.IsTyping()) typewriterEffect.Interrupt();
             else EndScene();
         }
     }
@@ -47,23 +48,20 @@ public class CutsceneManager : MonoBehaviour
         }
         else
         {
+            audioManager.PauseMusic();
             sceneManager.StartGame();
         }
     }
 
     private IEnumerator ExitScene()
     {
-        if (!exiting)
-        {
-            if (cutsceneIndex + 1 < cutscenes.Length && cutscenes[cutsceneIndex + 1].NeedsPrewarm()) cutscenes[cutsceneIndex + 1].Prewarm(); 
-            currentCutScene.Interrupt();
-            exiting = true;
-            yield return currentCutScene.Exit();
-            HandleMusic();
-            exiting = false;
-            cutsceneIndex ++;
-            yield return PlayNextScene();
-        }
+        if (cutsceneIndex + 1 < cutscenes.Length && cutscenes[cutsceneIndex + 1].NeedsPrewarm()) cutscenes[cutsceneIndex + 1].Prewarm();
+        currentCutScene.Interrupt();
+        yield return currentCutScene.Exit();
+        HandleMusic();
+        exiting = false;
+        cutsceneIndex ++;
+        yield return PlayNextScene();
     }
 
     private void EndScene()
@@ -73,7 +71,8 @@ public class CutsceneManager : MonoBehaviour
             StopCoroutine(currentCoroutine);
             currentCoroutine = null;
         }
-        currentCoroutine = StartCoroutine(ExitScene());
+        exiting = true;
+        StartCoroutine(ExitScene());
     }
 
     private void HandleMusic()

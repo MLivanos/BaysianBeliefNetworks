@@ -95,4 +95,18 @@ public class Recorder : InterviewEventSystem
         return playerBelievesAggressive;
     }
 
+    public void StoreEndGameState()
+    {
+        if (!complete)
+        {
+            Debug.LogWarning("End Game states have not been calculated. Aborting");
+            return;
+        }
+        GameObject endGameState = new GameObject("EndGameState");
+        EndGameState endState = endGameState.AddComponent(typeof(EndGameState)) as EndGameState;
+        endState.aliensAreReal = aliensReal;
+        endState.aliensAreAggressive = aliensAggressive;
+        endState.predictedReal = playerBelieves;
+        endState.predictedAggressive = playerBelievesAggressive;
+    }
 }

@@ -455,6 +455,20 @@ MonoBehaviour:
     pitchMultiplier: 1
     source: {fileID: 0}
     duration: 0
+  - name: SynthpopFirstFlight
+    clip: {fileID: 8300000, guid: 954faf669224eee4eacf449f052f1880, type: 3}
+    loop: 1
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: SynthpopFunky
+    clip: {fileID: 8300000, guid: e540d384c442b2747b4deeba0780c91c, type: 3}
+    loop: 1
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
   - name: ChiptuneFun
     clip: {fileID: 8300000, guid: be3b4208bbafac04bbc36c9013aac040, type: 3}
     loop: 0
@@ -493,6 +507,20 @@ MonoBehaviour:
   - name: ChiptuneRicochet
     clip: {fileID: 8300000, guid: 2199f59ea83717c4fa90dcc7a3edbd28, type: 3}
     loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: ChiptuneComplete
+    clip: {fileID: 8300000, guid: f7d55fbb102780c4dbdadfabc58fb673, type: 3}
+    loop: 1
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: ChiptuneCastle
+    clip: {fileID: 8300000, guid: 18068f54431d0de4a8534e117887099d, type: 3}
+    loop: 1
     volumeMultiplier: 1
     pitchMultiplier: 1
     source: {fileID: 0}

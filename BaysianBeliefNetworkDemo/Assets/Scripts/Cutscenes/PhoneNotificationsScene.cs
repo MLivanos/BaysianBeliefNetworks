@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class PhoneNotificationsScene : CutsceneBehavior
+public class PhoneNotificationsScene : IntroCutscene
 {
     [SerializeField] private string phoneChime;
 	[SerializeField] private SlideInBehavior[] textMessages;

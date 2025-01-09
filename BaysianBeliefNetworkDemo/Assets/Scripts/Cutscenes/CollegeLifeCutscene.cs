@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine;
 
-public class CollegeLifeCutscene : CutsceneBehavior
+public class CollegeLifeCutscene : IntroCutscene
 {
 	[SerializeField] private GameObject solidLine;
 	[SerializeField] private GameObject brokenLine;
