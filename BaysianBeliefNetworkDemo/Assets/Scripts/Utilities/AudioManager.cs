@@ -20,7 +20,7 @@ public class AudioManager : MonoBehaviour
 
     private bool muted = false;
 
-    public static AudioManager instance;
+    public static AudioManager instance {get; private set;}
 
     private void Awake()
     {

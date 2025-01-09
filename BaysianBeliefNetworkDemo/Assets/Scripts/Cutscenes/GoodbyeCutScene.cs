@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class GoodbyeCutScene : CutsceneBehavior
+public class GoodbyeCutScene : IntroCutscene
 {
 	[SerializeField] private SlideInBehavior busSlideIn;
     [SerializeField] private Transform[] busWheels;

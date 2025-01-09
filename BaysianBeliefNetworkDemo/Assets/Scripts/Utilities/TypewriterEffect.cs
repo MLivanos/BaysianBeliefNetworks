@@ -17,7 +17,7 @@ public class TypewriterEffect : MonoBehaviour
 
     void Start()
     {
-        audioManager = FindObjectOfType<AudioManager>();
+        audioManager = AudioManager.instance;
         textComponent = GetComponent<TextMeshProUGUI>();
     }
 

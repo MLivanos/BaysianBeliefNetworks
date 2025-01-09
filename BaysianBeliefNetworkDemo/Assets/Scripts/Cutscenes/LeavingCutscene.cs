@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class LeavingCutscene : CutsceneBehavior
+public class LeavingCutscene : IntroCutscene
 {
 	[SerializeField] private GameObject phoneLight;
 	[SerializeField] private AudioClip textMessageAudio;

@@ -44,6 +44,8 @@ public class InterviewManager : MonoBehaviour
     private int seasonIndex;
     private int stage=-1;
     private int numberOfStages = 5;
+    private int totalNumberOfQuestions = 5;
+    private int questionsSeen = 0;
 
     private void Start()
     {
@@ -76,6 +78,8 @@ public class InterviewManager : MonoBehaviour
             case 4:
                 float eventProbability = calculator.CalculateProbability(0.98f, 15, 3);
                 recorder.AddEntry(lastEventEvidence, eventProbability, lastEventBelieved, lastEventAggression);
+                questionsSeen++;
+                if (questionsSeen == totalNumberOfQuestions) EndInterviews();
                 break;
             default:
                 break;
@@ -230,5 +234,11 @@ public class InterviewManager : MonoBehaviour
     public void SetBelief(bool belief)
     {
         lastEventBelieved = belief;
+    }
+
+    private void EndInterviews()
+    {
+        recorder.DetermineBehavior(0.33f);
+        recorder.StoreEndGameState();
     }
 }

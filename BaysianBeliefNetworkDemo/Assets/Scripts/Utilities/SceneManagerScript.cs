@@ -43,4 +43,20 @@ public class SceneManagerScript : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
     }
+
+    public void GoToCredits()
+    {
+        SceneManager.LoadScene("Credits");
+    }
+
+    public void GoToMainMenu()
+    {
+        SceneManager.LoadScene("TitleScreen");
+    }
+
+    public void Exit()
+    {
+        Debug.Log("Exit called (will not exit if in editor)");
+        Application.Quit();
+    }
 }

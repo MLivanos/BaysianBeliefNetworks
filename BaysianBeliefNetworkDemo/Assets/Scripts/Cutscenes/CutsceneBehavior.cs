@@ -4,18 +4,18 @@ using UnityEngine;
 
 public abstract class CutsceneBehavior : MonoBehaviour
 {
-    [SerializeField] protected List<string> soundtrack;
-    [SerializeField] protected float fadeSoundTime;
-    [SerializeField] protected bool continueTrack;
+    [Header("Camera")]
     [SerializeField] protected GameObject scene;
     [SerializeField] protected Transform cameraMark;
+    [SerializeField] protected bool needsPrewarm;
+    [Header("Lighting")]
     [SerializeField] protected Material skyMaterial;
-    [SerializeField] protected string text;
     [SerializeField] protected float ambientIntensity;
+    [Header("Text")]
+    [SerializeField] protected string text;
     [SerializeField] protected bool fadeInPanel;
     [SerializeField] protected float fadeInTime;
     [SerializeField] protected float textPanelOpacity = 160;
-    [SerializeField] protected bool needsPrewarm;
     [SerializeField] protected bool isAtTop;
     protected AudioManager audioManager;
     protected FadableImage fadablePanel;
@@ -29,7 +29,7 @@ public abstract class CutsceneBehavior : MonoBehaviour
 
     private void Awake()
     {
-        audioManager = FindObjectOfType<AudioManager>();
+        audioManager = AudioManager.instance;
     }
 
     protected void SetupScene()
@@ -88,7 +88,7 @@ public abstract class CutsceneBehavior : MonoBehaviour
     {
         yield return ExitTransition();
         scene.SetActive(false);
-        typewriterEffect.Clear();
+        if (typewriterEffect.gameObject.activeInHierarchy) typewriterEffect.Clear();
         textPanel.SetActive(false);
     }
 
@@ -100,20 +100,5 @@ public abstract class CutsceneBehavior : MonoBehaviour
     public bool NeedsPrewarm()
     {
         return needsPrewarm;
-    }
-
-    public List<string> GetMusic()
-    {
-        return soundtrack;
-    }
-
-    public bool ShouldConinueTrack()
-    {
-        return continueTrack;
-    }
-
-    public float GetFadeSoundTime()
-    {
-        return fadeSoundTime;
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class NightSkyScene : CutsceneBehavior
+public class NightSkyScene : IntroCutscene
 {
     [SerializeField] private ParticleSystem singleShotStar;
     [SerializeField] private GameObject[] shootingStars;
@@ -78,5 +78,6 @@ public class NightSkyScene : CutsceneBehavior
             timer += Time.deltaTime;
             yield return null;
         }
+        cameraTransform.position = cameraEnds[1].position;
     }
 }
