@@ -6,7 +6,9 @@ public class CreditsManager : MonoBehaviour
 {
     [SerializeField] private FadableImage fadeToBlack;
     [SerializeField] private Transform scrollingObject;
+    [SerializeField] private FadableElement[] buttons;
     [SerializeField] private float scrollSpeed;
+    [SerializeField] private float scrollSpeedMultiplier;
     [SerializeField] private float stopHeight;
 
     private void Start()
@@ -16,8 +18,10 @@ public class CreditsManager : MonoBehaviour
 
     private IEnumerator RollCredits()
     {
+        HideButtons();
         yield return FadeToBlack();
         yield return Scroll();
+        FadeInButtons();
     }
 
     private IEnumerator FadeToBlack()
@@ -28,10 +32,30 @@ public class CreditsManager : MonoBehaviour
 
     private IEnumerator Scroll()
     {
-        while(scrollingObject.position.y < stopHeight)
+        while(scrollingObject.localPosition.y < stopHeight)
         {
+            if (Input.GetMouseButtonDown(0)) scrollSpeed *= scrollSpeedMultiplier;
+            else if (Input.GetMouseButtonUp(0)) scrollSpeed /= scrollSpeedMultiplier;
             scrollingObject.Translate(Vector3.up * scrollSpeed * Time.deltaTime);
             yield return null;
+        }
+    }
+
+    private void FadeInButtons()
+    {
+        foreach(FadableElement element in buttons)
+        {
+            element.gameObject.SetActive(true);
+            element.FadeIn(2f);
+        }
+    }
+
+    private void HideButtons()
+    {
+        foreach(FadableElement element in buttons)
+        {
+            element.SetAlpha(0f);
+            element.gameObject.SetActive(false);
         }
     }
 }
