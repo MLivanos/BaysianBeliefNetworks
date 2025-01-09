@@ -32,7 +32,8 @@ public class CutsceneManager : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(0))
         {
-            if (typewriterEffect.IsTyping()) typewriterEffect.Interrupt();
+            if (exiting) return;
+            else if (typewriterEffect.IsTyping()) typewriterEffect.Interrupt();
             else EndScene();
         }
     }
@@ -54,17 +55,13 @@ public class CutsceneManager : MonoBehaviour
 
     private IEnumerator ExitScene()
     {
-        if (!exiting)
-        {
-            if (cutsceneIndex + 1 < cutscenes.Length && cutscenes[cutsceneIndex + 1].NeedsPrewarm()) cutscenes[cutsceneIndex + 1].Prewarm(); 
-            currentCutScene.Interrupt();
-            exiting = true;
-            yield return currentCutScene.Exit();
-            HandleMusic();
-            exiting = false;
-            cutsceneIndex ++;
-            yield return PlayNextScene();
-        }
+        if (cutsceneIndex + 1 < cutscenes.Length && cutscenes[cutsceneIndex + 1].NeedsPrewarm()) cutscenes[cutsceneIndex + 1].Prewarm();
+        currentCutScene.Interrupt();
+        yield return currentCutScene.Exit();
+        HandleMusic();
+        exiting = false;
+        cutsceneIndex ++;
+        yield return PlayNextScene();
     }
 
     private void EndScene()
@@ -74,7 +71,8 @@ public class CutsceneManager : MonoBehaviour
             StopCoroutine(currentCoroutine);
             currentCoroutine = null;
         }
-        currentCoroutine = StartCoroutine(ExitScene());
+        exiting = true;
+        StartCoroutine(ExitScene());
     }
 
     private void HandleMusic()
