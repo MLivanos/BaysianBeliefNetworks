@@ -455,6 +455,13 @@ MonoBehaviour:
     pitchMultiplier: 1
     source: {fileID: 0}
     duration: 0
+  - name: SynthpopFirstFlight
+    clip: {fileID: 8300000, guid: 954faf669224eee4eacf449f052f1880, type: 3}
+    loop: 1
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
   - name: SynthpopFunky
     clip: {fileID: 8300000, guid: e540d384c442b2747b4deeba0780c91c, type: 3}
     loop: 1

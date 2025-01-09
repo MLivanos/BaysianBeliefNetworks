@@ -10,9 +10,12 @@ public class CreditsManager : MonoBehaviour
     [SerializeField] private float scrollSpeed;
     [SerializeField] private float scrollSpeedMultiplier;
     [SerializeField] private float stopHeight;
+    private AudioManager audioManager;
 
     private void Start()
     {
+        audioManager = AudioManager.instance;
+        audioManager.PlayMusic("SynthpopFirstFlight");
         StartCoroutine(RollCredits());
     }
 
