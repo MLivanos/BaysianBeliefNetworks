@@ -17,12 +17,9 @@ public class TitleUFOBehavior : MonoBehaviour
 
     [Header("UFO Motion Settings")]
     [Tooltip("Amplitude of the up-and-down oscillation.")]
+    public Transform ufoTransform;
     public float oscillationAmplitude = 2f;
-
-    [Tooltip("Frequency of the up-and-down oscillation.")]
     public float oscillationFrequency = 1f;
-
-    [Tooltip("Duration to perform UFO-like motions before stopping.")]
     public float motionDuration = 10f;
 
     [Tooltip("Point to move towards")]
@@ -54,50 +51,48 @@ public class TitleUFOBehavior : MonoBehaviour
 
     void Update()
     {
-        transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime, Space.Self);
+        ufoTransform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime, Space.Self);
     }
 
     IEnumerator StartBehavior()
     {
-        yield return StartCoroutine(MoveTowardsLocation(targetPosition, transform.lossyScale, moveDuration));
+        yield return StartCoroutine(MoveTowardsLocation(targetPosition, ufoTransform.lossyScale, moveDuration));
         yield return StartCoroutine(UFOMotions());
         yield return StartCoroutine(MoveTowardsLocation(planetLocation, minimumScale, toPlanetMotionDuration));
+        yield return PlayLight();
         yield return new WaitForSeconds(2f);
         yield return StartCoroutine(FadeInImage());
     }
 
     IEnumerator MoveTowardsLocation(Vector3 endingPos, Vector3 endScale, float duration)
     {
-        Vector3 startingPos = transform.position;
-        Vector3 startingScale = transform.lossyScale;
+        Vector3 startingPos = ufoTransform.position;
+        Vector3 startingScale = ufoTransform.lossyScale;
         elapsedMoveTime = 0f;
 
         while (elapsedMoveTime < moveDuration)
         {
             // Lerp the position based on elapsed time
-            transform.position = Vector3.Lerp(startingPos, endingPos, elapsedMoveTime / duration);
-            transform.localScale = Vector3.Lerp(startingScale, endScale, elapsedMoveTime / duration);
+            ufoTransform.position = Vector3.Lerp(startingPos, endingPos, elapsedMoveTime / duration);
+            ufoTransform.localScale = Vector3.Lerp(startingScale, endScale, elapsedMoveTime / duration);
             elapsedMoveTime += Time.deltaTime;
             yield return null;
         }
 
         // Ensure the UFO reaches the exact target position
-        transform.position = endingPos;
-
-        // Start UFO-like motions after moving in
-        StartCoroutine(UFOMotions());
+        ufoTransform.position = endingPos;
     }
 
     IEnumerator UFOMotions()
     {
-        float originalY = transform.position.y;
+        float originalY = ufoTransform.position.y;
         float time = 0f;
 
         while (time < motionDuration)
         {
             // Apply up-and-down oscillation
             float newY = originalY + Mathf.Sin(Time.time * oscillationFrequency * 2 * Mathf.PI) * oscillationAmplitude;
-            transform.position = new Vector3(transform.position.x, newY, transform.position.z);
+            ufoTransform.position = new Vector3(ufoTransform.position.x, newY, ufoTransform.position.z);
 
             time += Time.deltaTime;
             yield return null;

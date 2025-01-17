@@ -1452,8 +1452,6 @@ GameObject:
   - component: {fileID: 566154546}
   - component: {fileID: 566154545}
   - component: {fileID: 566154544}
-  - component: {fileID: 566154547}
-  - component: {fileID: 566154548}
   m_Layer: 5
   m_Name: PlayButton
   m_TagString: Untagged
@@ -1525,7 +1523,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 566154548}
+      - m_Target: {fileID: 1359452018}
         m_TargetAssemblyTypeName: Transition, Assembly-CSharp
         m_MethodName: PerformTransition
         m_Mode: 1
@@ -1575,77 +1573,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 566154542}
   m_CullTransparentMesh: 1
---- !u!114 &566154547
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 566154542}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa49e5cf2784d409fa17dd08c146fea8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &566154548
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 566154542}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5eab69090c3c0214ab83adca30a9cede, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneName: Cutscenes
-  loadsScene: 0
-  cloudParent: {fileID: 656618565}
-  objectsToHide:
-  - {fileID: 1031833635}
-  - {fileID: 1904185637}
-  - {fileID: 1896576892}
-  - {fileID: 729028229}
-  clouds:
-  - {fileID: 1120314425}
-  - {fileID: 1859636561}
-  - {fileID: 13253016}
-  - {fileID: 2074289513}
-  - {fileID: 1768452940}
-  - {fileID: 335545805}
-  - {fileID: 1922491481}
-  - {fileID: 663306072}
-  - {fileID: 242017536}
-  - {fileID: 1233490086}
-  - {fileID: 245264741}
-  - {fileID: 1562236141}
-  planets:
-  - {fileID: 396015741}
-  - {fileID: 1793736218}
-  cameraSlide: {fileID: 670132598}
-  fadeToWhite: {fileID: 1939991328}
-  instructions:
-  - {fileID: 255922340}
-  - {fileID: 331194032}
-  - {fileID: 110365574}
-  - {fileID: 101592264}
-  - {fileID: 1053054107}
-  - {fileID: 1006075310}
-  - {fileID: 1771711770}
-  - {fileID: 1706019024}
-  - {fileID: 845945473}
-  - {fileID: 1241032771}
-  - {fileID: 794860513}
-  - {fileID: 797613229}
-  - {fileID: 557381834}
-  - {fileID: 790938504}
-  - {fileID: 1238953096}
-  - {fileID: 353717929}
-  - {fileID: 1976699587}
-  fadeToWhiteTime: 0.3
-  fadeInstructionsTime: 0.5
-  minimumInstructionTime: 3
 --- !u!1 &624296277
 GameObject:
   m_ObjectHideFlags: 0
@@ -2197,30 +2124,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1509824665}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &729028232
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 729028229}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc8d61c4c25af4937872a972e861e294, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetPosition: {x: -32, y: 110, z: -1110}
-  moveDuration: 10
-  rotationSpeed: -30
-  oscillationAmplitude: 1
-  oscillationFrequency: 1
-  motionDuration: 2
-  toPlanetMotionDuration: 25
-  planetLocation: {x: 5.5, y: 0, z: 0}
-  minimumScale: {x: 0.15, y: 0.15, z: 0.15}
-  landingEffect: {fileID: 1158356987}
-  backgroundFadableImage: {fileID: 1851758201}
-  fadeInTime: 1
 --- !u!54 &729028233
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3744,6 +3647,137 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ff3b435acf684649ba8be882f6899df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1359452017
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1359452019}
+  - component: {fileID: 1359452018}
+  - component: {fileID: 1359452020}
+  - component: {fileID: 1359452021}
+  m_Layer: 0
+  m_Name: TitleSceneManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1359452018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359452017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eab69090c3c0214ab83adca30a9cede, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: Cutscenes
+  loadsScene: 0
+  playButton: {fileID: 566154542}
+  cloudParent: {fileID: 656618565}
+  objectsToHide:
+  - {fileID: 1031833635}
+  - {fileID: 1904185637}
+  - {fileID: 1896576892}
+  - {fileID: 729028229}
+  clouds:
+  - {fileID: 1120314425}
+  - {fileID: 1859636561}
+  - {fileID: 13253016}
+  - {fileID: 2074289513}
+  - {fileID: 1768452940}
+  - {fileID: 335545805}
+  - {fileID: 1922491481}
+  - {fileID: 663306072}
+  - {fileID: 242017536}
+  - {fileID: 1233490086}
+  - {fileID: 245264741}
+  - {fileID: 1562236141}
+  planets:
+  - {fileID: 396015741}
+  - {fileID: 1793736218}
+  cameraSlide: {fileID: 670132598}
+  fadeToWhite: {fileID: 1939991328}
+  instructions:
+  - {fileID: 255922340}
+  - {fileID: 331194032}
+  - {fileID: 110365574}
+  - {fileID: 101592264}
+  - {fileID: 1053054107}
+  - {fileID: 1006075310}
+  - {fileID: 1771711770}
+  - {fileID: 1706019024}
+  - {fileID: 845945473}
+  - {fileID: 1241032771}
+  - {fileID: 794860513}
+  - {fileID: 797613229}
+  - {fileID: 557381834}
+  - {fileID: 790938504}
+  - {fileID: 1238953096}
+  - {fileID: 353717929}
+  - {fileID: 1976699587}
+  fadeToWhiteTime: 0.3
+  fadeInstructionsTime: 0.5
+  minimumInstructionTime: 3
+--- !u!4 &1359452019
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359452017}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 777.43634, y: 588.5778, z: 3.3235524}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1359452020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359452017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc8d61c4c25af4937872a972e861e294, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetPosition: {x: -32, y: 110, z: -1110}
+  moveDuration: 10
+  rotationSpeed: -30
+  ufoTransform: {fileID: 729028231}
+  oscillationAmplitude: 1
+  oscillationFrequency: 1
+  motionDuration: 2
+  toPlanetMotionDuration: 25
+  planetLocation: {x: 5.5, y: 0, z: 0}
+  minimumScale: {x: 0.15, y: 0.15, z: 0.15}
+  landingEffect: {fileID: 1158356987}
+  backgroundFadableImage: {fileID: 1851758201}
+  fadeInTime: 1
+--- !u!114 &1359452021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359452017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa49e5cf2784d409fa17dd08c146fea8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1448299533
 GameObject:
   m_ObjectHideFlags: 0
@@ -3928,7 +3962,8 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3709643822742188765, guid: 8d3146872435a4a75997f85ef89add74, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3709643822742188762, guid: 8d3146872435a4a75997f85ef89add74,
@@ -3944,10 +3979,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 729028234}
-    - targetCorrespondingSourceObject: {fileID: 3709643822742188764, guid: 8d3146872435a4a75997f85ef89add74,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 729028232}
   m_SourcePrefab: {fileID: 100100000, guid: 8d3146872435a4a75997f85ef89add74, type: 3}
 --- !u!1001 &1527621775
 PrefabInstance:
@@ -5657,3 +5688,4 @@ SceneRoots:
   - {fileID: 2059541185}
   - {fileID: 656618566}
   - {fileID: 1527621775}
+  - {fileID: 1359452019}

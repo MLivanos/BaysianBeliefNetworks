@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class TransitionToCutscenes : Transition
 {
+    [SerializeField] private GameObject playButton;
     [SerializeField] private GameObject cloudParent;
     [SerializeField] private List<GameObject> objectsToHide;
     [SerializeField] private List<FadableGameObject> clouds;
@@ -35,7 +36,7 @@ public class TransitionToCutscenes : Transition
 
     private void HideObjects()
     {
-        GetComponent<Image>().enabled = false;
+        playButton.GetComponent<Image>().enabled = false;
         foreach(GameObject go in objectsToHide)
         {
             go.SetActive(false);
