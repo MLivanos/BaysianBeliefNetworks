@@ -3726,6 +3726,7 @@ MonoBehaviour:
   fadeToWhiteTime: 0.3
   fadeInstructionsTime: 0.5
   minimumInstructionTime: 3
+  hangOnWhite: 0.3
 --- !u!4 &1359452019
 Transform:
   m_ObjectHideFlags: 0

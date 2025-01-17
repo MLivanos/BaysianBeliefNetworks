@@ -16,6 +16,7 @@ public class TransitionToCutscenes : Transition
     [SerializeField] private float fadeToWhiteTime;
     [SerializeField] private float fadeInstructionsTime;
     [SerializeField] private float minimumInstructionTime;
+    [SerializeField] private float hangOnWhite;
     private AsyncOperation asyncLoad;
 
     protected override IEnumerator TransitionToScene()
@@ -29,8 +30,9 @@ public class TransitionToCutscenes : Transition
         fadeToWhite.gameObject.SetActive(true);
         yield return FadeInstructions(true);
         yield return PreloadScene();
-        yield return WaitMinimumInstructionTime();
+        yield return WaitForSecondsInterruptible(minimumInstructionTime);
         yield return FadeInstructions(false);
+        yield return new WaitForSeconds(hangOnWhite);
         yield return LoadScene();
     }
 
@@ -90,13 +92,13 @@ public class TransitionToCutscenes : Transition
         yield return new WaitForSeconds(fadeInstructionsTime);
     }
 
-    private IEnumerator WaitMinimumInstructionTime()
+    private IEnumerator WaitForSecondsInterruptible(float timeToWait)
     {
         float timer = 0f;
-        while (timer < minimumInstructionTime)
+        while (timer < timeToWait)
         {
             timer += Time.deltaTime;
-            if (Input.GetMouseButtonDown(1)) break;
+            if (Input.GetMouseButtonDown(0)) break;
             yield return null;
         }
     }
