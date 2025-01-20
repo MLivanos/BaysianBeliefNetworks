@@ -2,6 +2,7 @@ using UnityEngine;
 
 public abstract class TutorialQuestBase : MonoBehaviour
 {
+    [SerializeField] protected GameObject objectToAttach;
     protected TutorialStep parentStep;
 
     public void Initialize(TutorialStep step)
