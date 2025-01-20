@@ -4,7 +4,7 @@ using System.Linq;
 using System.Collections.Generic;
 
 [System.Serializable]
-public class TutorialStep
+public class TutorialStepOld
 {
     [TextArea] public string message;
     public GameObject icon;
@@ -18,7 +18,7 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private GameObject overlayCanvas;
     [SerializeField] private TMP_Text tutorialText;
     [SerializeField] private RectTransform highlightArea;
-    [SerializeField] private List<TutorialStep> tutorialSteps = new List<TutorialStep>();
+    [SerializeField] private List<TutorialStepOld> tutorialSteps = new List<TutorialStepOld>();
     [SerializeField] private bool debug;
     private int currentStep = 0;
     private Vector2 originalHighlightSize;
