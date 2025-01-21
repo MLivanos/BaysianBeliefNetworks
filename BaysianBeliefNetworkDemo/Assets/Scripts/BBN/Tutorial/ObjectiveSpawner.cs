@@ -13,13 +13,6 @@ public class ObjectiveSpawner : MonoBehaviour
     private List<ObjectiveMark> marks = new List<ObjectiveMark>();
     private int numberOfObjectives;
 
-    private void Start()
-    {
-        AddObjective("Objective 1");
-        AddObjective("Objective 2");
-        AddObjective("Objective 3");
-    }
-
     private void AddObjective(string description)
     {
         ObjectiveMark newObjective = Instantiate(objectivePrefab.GetComponent<ObjectiveMark>(), objectivePanel);
@@ -30,6 +23,15 @@ public class ObjectiveSpawner : MonoBehaviour
         rectTransform.anchoredPosition = anchoredPos;
 
         marks.Add(newObjective);
+    }
+
+    private void ClearObjectives()
+    {
+        foreach(ObjectiveMark mark in marks)
+        {
+            Destroy(mark.gameObject);
+        }
+        numberOfObjectives = 0;
     }
 
 }
