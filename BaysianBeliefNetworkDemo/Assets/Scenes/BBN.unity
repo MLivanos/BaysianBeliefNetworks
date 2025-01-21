@@ -13728,7 +13728,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -4, y: 162}
+  m_AnchoredPosition: {x: -4, y: 0}
   m_SizeDelta: {x: 130, y: 150}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &310730407
@@ -26175,8 +26175,9 @@ GameObject:
   m_Component:
   - component: {fileID: 538929510}
   - component: {fileID: 538929511}
+  - component: {fileID: 538929512}
   m_Layer: 5
-  m_Name: QuestPanel
+  m_Name: CurrentObjectives
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26218,6 +26219,23 @@ MonoBehaviour:
   panelTransform: {fileID: 310730406}
   endPosition: {x: -4, y: -1.5, z: 0}
   animationSpeed: 250
+--- !u!114 &538929512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 538929509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d71a52384f1cbf48b1c85ee1f7dc46c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectivePrefab: {fileID: 16927078099320297, guid: 3e97e7b511cc37f43b1ca07823977d4a,
+    type: 3}
+  objectivePanel: {fileID: 310730406}
+  topPosition: {x: -10, y: 50, z: 0}
+  offset: 25
 --- !u!1 &539035466
 GameObject:
   m_ObjectHideFlags: 0
