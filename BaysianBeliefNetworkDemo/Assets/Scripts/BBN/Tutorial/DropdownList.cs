@@ -50,4 +50,16 @@ public class DropdownList : MonoBehaviour
         panelTransform.localPosition = targetPosition;
         currentCoroutine = null;
     }
+
+    private IEnumerator PeepDropdown()
+    {
+        MoveDown();
+        yield return new WaitForSeconds(3f);
+        MoveUp();
+    }
+
+    public void Peep()
+    {
+        StartCoroutine(PeepDropdown());
+    }
 }

@@ -36,7 +36,7 @@ public class TextFieldTutorialQuest : TutorialQuest<string>
 
     public override void Complete()
     {
-        Debug.Log("Text Field Quest Complete!");
         inputField.onEndEdit.RemoveAllListeners();
+        base.Complete();
     }
 }

@@ -13,7 +13,7 @@ public class ObjectiveSpawner : MonoBehaviour
     private List<ObjectiveMark> marks = new List<ObjectiveMark>();
     private int numberOfObjectives;
 
-    private void AddObjective(string description)
+    public void AddObjective(string description)
     {
         ObjectiveMark newObjective = Instantiate(objectivePrefab.GetComponent<ObjectiveMark>(), objectivePanel);
         newObjective.SetText(description);
@@ -25,13 +25,18 @@ public class ObjectiveSpawner : MonoBehaviour
         marks.Add(newObjective);
     }
 
-    private void ClearObjectives()
+    public void ClearObjectives()
     {
         foreach(ObjectiveMark mark in marks)
         {
             Destroy(mark.gameObject);
         }
         numberOfObjectives = 0;
+    }
+
+    public void CompleteQuest(int index)
+    {
+        marks[index].Check();
     }
 
 }

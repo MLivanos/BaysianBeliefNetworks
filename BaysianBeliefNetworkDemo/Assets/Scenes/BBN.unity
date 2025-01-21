@@ -13470,6 +13470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1180f484e33de9e428805af5d9182deb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  description: Add Cloud to query
   objectToAttach: {fileID: 1232590561}
   toggleMode: 0
 --- !u!1 &307504594
@@ -13728,7 +13729,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -4, y: 144.83}
+  m_AnchoredPosition: {x: -5, y: 144.83}
   m_SizeDelta: {x: 130, y: 150}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &310730407
@@ -25864,6 +25865,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1180f484e33de9e428805af5d9182deb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  description: Add Winter to evidence
   objectToAttach: {fileID: 585907603}
   toggleMode: 0
 --- !u!1001 &532427888
@@ -26217,7 +26219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panelTransform: {fileID: 310730406}
-  endPosition: {x: -4, y: -1.5, z: 0}
+  endPosition: {x: -5, y: -1.5, z: 0}
   animationSpeed: 250
 --- !u!114 &538929512
 MonoBehaviour:
@@ -33232,6 +33234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1180f484e33de9e428805af5d9182deb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  description: Remove Winter from evidence
   objectToAttach: {fileID: 585907603}
   toggleMode: 3
 --- !u!1 &647194312
@@ -34378,6 +34381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec0326d99721d974e9a2e3f8555ed6f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  description: Set the number of samples to 20k
   objectToAttach: {fileID: 1028574027}
   targetText: 20000
 --- !u!1 &668113248
@@ -84318,6 +84322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1180f484e33de9e428805af5d9182deb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  description: Add NOT Rain to evidence
   objectToAttach: {fileID: 603985069}
   toggleMode: 1
 --- !u!1 &1654382746
@@ -88011,6 +88016,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98b7a3398321ae94ea0a00051fb3f0df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectiveSpawner: {fileID: 538929512}
+  dropdownList: {fileID: 538929511}
   quests:
   - {fileID: 305126681}
   - {fileID: 529211081}
@@ -100802,6 +100809,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eec2d56fad766f49b9f64363a3ed9bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  description: Press calculate
   objectToAttach: {fileID: 1736122387}
 --- !u!1 &1968086155
 GameObject:
@@ -108257,6 +108265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c168c5421b7f2e7478fc7fd1eadd23c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  description: Change the sampler to LW
   objectToAttach: {fileID: 1993775477}
   targetOption: Likelihood Weighting
 --- !u!1 &2114366635

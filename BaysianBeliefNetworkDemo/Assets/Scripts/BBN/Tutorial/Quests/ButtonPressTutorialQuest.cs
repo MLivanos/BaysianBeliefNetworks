@@ -24,7 +24,7 @@ public class ButtonPressTutorialQuest : TutorialQuestBase
 
     public override void Complete()
     {
-        Debug.Log("Button Press Quest Complete!");
         button.onClick.RemoveListener(HandleInteraction);
+        base.Complete();
     }
 }

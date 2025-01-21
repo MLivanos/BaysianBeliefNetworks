@@ -2,6 +2,7 @@ using UnityEngine;
 
 public abstract class TutorialQuestBase : MonoBehaviour
 {
+    [SerializeField] private string description;
     [SerializeField] protected GameObject objectToAttach;
     protected TutorialStep parentStep;
 
@@ -13,5 +14,13 @@ public abstract class TutorialQuestBase : MonoBehaviour
 
     public abstract void OnInitialize();
     public abstract void HandleInteraction();
-    public abstract void Complete();
+    public virtual void Complete()
+    {
+        parentStep.OnQuestComplete(this);
+    }
+
+    public string GetDescription()
+    {
+        return description;
+    }
 }

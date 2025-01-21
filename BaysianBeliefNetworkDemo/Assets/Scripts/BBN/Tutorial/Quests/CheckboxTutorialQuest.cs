@@ -59,12 +59,10 @@ public class CheckboxTutorialQuest : TutorialQuest<bool>
 
     public override void Complete()
     {
-        Debug.Log("Quest Complete!");
-        parentStep.OnQuestComplete(this);
         if (checkbox != null)
         {
-            Debug.Log("!");
             checkbox.onValueChanged.RemoveListener(interactionListener);
         }
+        base.Complete();
     }
 }
