@@ -13,7 +13,7 @@ public class TextFieldTutorialQuest : TutorialQuest<string>
         inputField = objectToAttach.GetComponent<TMP_InputField>();
         if (inputField == null)
         {
-            Debug.LogError("No InputField attached to the object!");
+            Debug.LogError("No Text attached to the object!");
             return;
         }
 
