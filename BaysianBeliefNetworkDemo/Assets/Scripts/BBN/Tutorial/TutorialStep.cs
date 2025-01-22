@@ -10,6 +10,7 @@ public class TutorialStep : MonoBehaviour
 	[SerializeField] private ObjectiveSpawner objectiveSpawner;
 	[SerializeField] private DropdownList dropdownList;
 	[SerializeField] private List<TutorialQuestBase> quests;
+	[SerializeField] private GameObject stepObject;
 	private int questsCompleted = 0;
 
 	// This will eventually be a public Initialize method, but for testing purposes we will do this
@@ -20,6 +21,7 @@ public class TutorialStep : MonoBehaviour
 
 	public void Initialize()
 	{
+		stepObject.SetActive(true);
 		foreach(TutorialQuestBase quest in quests)
 		{
 			quest.Initialize(this);
@@ -33,7 +35,6 @@ public class TutorialStep : MonoBehaviour
 		// Eventually, provide feedback as to the specific quest
 		objectiveSpawner.CompleteQuest(quests.FindIndex(q => q == quest));
 		questsCompleted++;
-		Debug.Log(questsCompleted);
 		if (questsCompleted == quests.Count) StepComplete();
 	}
 
@@ -47,5 +48,6 @@ public class TutorialStep : MonoBehaviour
 	{
 		yield return new WaitForSeconds(3f);
 		objectiveSpawner.ClearObjectives();
+		stepObject.SetActive(false);
 	}
 }
