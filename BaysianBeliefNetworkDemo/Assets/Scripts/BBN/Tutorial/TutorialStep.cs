@@ -24,8 +24,8 @@ public class TutorialStep : MonoBehaviour
 		ChangeHighlight(true);
 		foreach(TutorialQuestBase quest in quests)
 		{
-			quest.Initialize(this);
 			objectiveSpawner.AddObjective(quest.GetDescription());
+			quest.Initialize(this);
 		}
 		dropdownList.Peep();
 	}
