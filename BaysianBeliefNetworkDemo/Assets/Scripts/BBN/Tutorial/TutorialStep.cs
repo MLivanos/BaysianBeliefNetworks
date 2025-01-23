@@ -7,20 +7,19 @@ using UnityEngine.UI;
 public class TutorialStep : MonoBehaviour
 {
 	// Eventually let TM do this
-	[SerializeField] private ObjectiveSpawner objectiveSpawner;
-	[SerializeField] private DropdownList dropdownList;
+	
 	[SerializeField] private List<TutorialQuestBase> quests;
 	[SerializeField] private List<GameObject> stepObjects;
+	private TutorialManager tutorialManager;
+	private ObjectiveSpawner objectiveSpawner;
+    private DropdownList dropdownList;
 	private int questsCompleted = 0;
 
-	// This will eventually be a public Initialize method, but for testing purposes we will do this
-	private void Start()
+	public void Initialize(TutorialManager manager)
 	{
-		Initialize();
-	}
-
-	public void Initialize()
-	{
+		tutorialManager = manager;
+		objectiveSpawner = tutorialManager.GetObjectSpawner();
+		dropdownList = tutorialManager.GetDropdownList();
 		ChangeHighlight(true);
 		foreach(TutorialQuestBase quest in quests)
 		{
@@ -49,12 +48,10 @@ public class TutorialStep : MonoBehaviour
 	private void StepComplete()
 	{
 		dropdownList.Peep();
-		StartCoroutine(ClearObjectives());
 	}
 
-	private IEnumerator ClearObjectives()
+	public void ClearObjectives()
 	{
-		yield return new WaitForSeconds(3f);
 		objectiveSpawner.ClearObjectives();
 		ChangeHighlight(false);
 	}
