@@ -32,6 +32,7 @@ public class ObjectiveSpawner : MonoBehaviour
             Destroy(mark.gameObject);
         }
         numberOfObjectives = 0;
+        marks = new List<ObjectiveMark>();
     }
 
     public void CompleteQuest(int index)
