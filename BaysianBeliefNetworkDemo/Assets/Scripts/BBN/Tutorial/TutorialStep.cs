@@ -6,20 +6,22 @@ using UnityEngine.UI;
 
 public class TutorialStep : MonoBehaviour
 {
-	// Eventually let TM do this
-	
 	[SerializeField] private List<TutorialQuestBase> quests;
 	[SerializeField] private List<GameObject> stepObjects;
+	[SerializeField] private List<string> messages;
 	private TutorialManager tutorialManager;
 	private ObjectiveSpawner objectiveSpawner;
     private DropdownList dropdownList;
+    private TypewriterEffect typewriterEffect;
+    private GameObject messagePanel;
+    private Coroutine clickthroughText;
 	private int questsCompleted = 0;
+	private int messageID = 0;
 
 	public void Initialize(TutorialManager manager)
 	{
 		tutorialManager = manager;
-		objectiveSpawner = tutorialManager.GetObjectSpawner();
-		dropdownList = tutorialManager.GetDropdownList();
+		InitializeMembers();
 		ChangeHighlight(true);
 		foreach(TutorialQuestBase quest in quests)
 		{
@@ -27,6 +29,36 @@ public class TutorialStep : MonoBehaviour
 			quest.Initialize(this);
 		}
 		dropdownList.Peep();
+		clickthroughText = StartCoroutine(ClickThroughText());
+	}
+
+	private void InitializeMembers()
+	{
+		objectiveSpawner = tutorialManager.GetObjectSpawner();
+		dropdownList = tutorialManager.GetDropdownList();
+		typewriterEffect = tutorialManager.GetTypeWriterEffect();
+		messagePanel = tutorialManager.GetMessagePanel();
+	}
+
+	private IEnumerator ClickThroughText()
+	{
+		if (messages.Count >= 1)
+		{
+			messagePanel.SetActive(true);
+			yield return null;
+			typewriterEffect.UpdateText(messages[messageID++]);
+		}
+		while(messageID <= messages.Count)
+		{
+			if(Input.GetMouseButtonDown(0))
+			{
+				if(messageID == messages.Count) break;
+				typewriterEffect.Clear();
+				typewriterEffect.UpdateText(messages[messageID++]);
+			}
+			yield return null;
+		}
+		messagePanel.SetActive(false);
 	}
 
 	private void ChangeHighlight(bool highlightOn)
@@ -47,6 +79,7 @@ public class TutorialStep : MonoBehaviour
 
 	private void StepComplete()
 	{
+		messageID = 0;
 		dropdownList.Peep();
 	}
 
@@ -54,5 +87,11 @@ public class TutorialStep : MonoBehaviour
 	{
 		objectiveSpawner.ClearObjectives();
 		ChangeHighlight(false);
+	}
+
+	public void CloseMessages()
+	{
+		StopCoroutine(clickthroughText);
+		messagePanel.SetActive(false);
 	}
 }

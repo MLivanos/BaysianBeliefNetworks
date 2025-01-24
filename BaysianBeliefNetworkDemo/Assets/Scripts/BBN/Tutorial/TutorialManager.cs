@@ -13,6 +13,8 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private TMP_Text tutorialText;
     [SerializeField] private RectTransform highlightArea;
     [SerializeField] private List<TutorialStep> tutorialSteps = new List<TutorialStep>();
+    [SerializeField] private TypewriterEffect typewriterEffect;
+    [SerializeField] private GameObject messagePanel;
     [SerializeField] private bool debug;
     private int currentStep = 0;
     private Vector2 originalHighlightSize;
@@ -50,6 +52,11 @@ public class TutorialManager : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    public void CloseMessages()
+    {
+        tutorialSteps[currentStep].CloseMessages();
+    }
+
     public DropdownList GetDropdownList()
     {
         return dropdownList;
@@ -58,5 +65,15 @@ public class TutorialManager : MonoBehaviour
     public ObjectiveSpawner GetObjectSpawner()
     {
         return objectiveSpawner;
+    }
+
+    public TypewriterEffect GetTypeWriterEffect()
+    {
+        return typewriterEffect;
+    }
+
+    public GameObject GetMessagePanel()
+    {
+        return messagePanel;
     }
 }
