@@ -10,7 +10,12 @@ public class TextTutorialQuest : TutorialQuestBase
     public enum Mode
     {
         Normal,
-        ProbabilityQuestion
+        ProbabilityQuestion,
+        Negate,
+        NegateProbabilityQuestion,
+        AnyProbabilityQuestion,
+        AnyProbabilityQuestionWithQuery,
+        AnyProbabilityQuestionWithEvidence
     }
 
     [SerializeField] private Mode mode;
@@ -28,16 +33,21 @@ public class TextTutorialQuest : TutorialQuestBase
             Debug.LogError("No Text attached to the object!");
             return;
         }
-        if (mode == Mode.ProbabilityQuestion && IsValidProbability(targetText))
+        if (IsProbabilityTypeQuestion() && IsValidProbability(targetText))
         {
             (targetQuery, targetEvidence) = ParseProbabilityQuestion(targetText);
         }
-        else if (mode == Mode.ProbabilityQuestion)
+        else if (IsProbabilityTypeQuestion())
         {
-            Debug.LogError("No Text attached to the object!");
+            Debug.LogError("Target text improperly formatted for probability question!");
             return;
         }
         StartCoroutine(ListenForTextChange());
+    }
+
+    private bool IsProbabilityTypeQuestion()
+    {
+        return mode != Mode.Normal && mode != Mode.Negate && mode != Mode.AnyProbabilityQuestion;
     }
 
     public IEnumerator ListenForTextChange()
@@ -53,18 +63,38 @@ public class TextTutorialQuest : TutorialQuestBase
     {
         switch (mode)
         {
+            case Mode.AnyProbabilityQuestion:
+                return IsValidProbability(textField.text);
             case Mode.ProbabilityQuestion:
                 return IsValidProbability(textField.text) && QuestionsEqual();
+            case Mode.NegateProbabilityQuestion:
+                return IsValidProbability(textField.text) && !QuestionsEqual();
+            case Mode.AnyProbabilityQuestionWithQuery:
+                return IsValidProbability(textField.text) && QuestionContains(true, false);
+            case Mode.AnyProbabilityQuestionWithEvidence:
+                return IsValidProbability(textField.text) && QuestionContains(false, true);
+            case Mode.Negate:
+                return textField.text != targetText;
             default:
                 return textField.text == targetText;
         }
     }
 
 
-    private bool QuestionsEqual()
+    private bool QuestionsEqual(bool queryRelevant=true, bool evidenceRelevant=true)
     {
         (HashSet<string> query, HashSet<string> evidence) = ParseProbabilityQuestion(textField.text);
-        return query.SetEquals(targetQuery) && evidence.SetEquals(targetEvidence);
+        bool queryEqual = query.SetEquals(targetQuery);
+        bool evidenceEqual = evidence.SetEquals(targetEvidence);
+        return (queryEqual || !queryRelevant) && (evidenceEqual || !evidenceRelevant);
+    }
+
+    private bool QuestionContains(bool queryRelevant=true, bool evidenceRelevant=true)
+    {
+        (HashSet<string> query, HashSet<string> evidence) = ParseProbabilityQuestion(textField.text);
+        bool queryContains = targetQuery.All(element => query.Contains(element));
+        bool evidenceContains = targetEvidence.All(element => evidence.Contains(element));
+        return (queryContains || !queryRelevant) && (evidenceContains || !evidenceRelevant);
     }
 
     private (HashSet<string> query, HashSet<string> evidence) ParseProbabilityQuestion(string text)
