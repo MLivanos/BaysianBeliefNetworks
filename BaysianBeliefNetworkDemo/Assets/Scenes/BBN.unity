@@ -10633,7 +10633,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: Add Rain to Query
-  objectToAttach: {fileID: 0}
+  objectToAttach: {fileID: 672389315}
   toggleMode: 0
 --- !u!1 &216351257
 GameObject:
@@ -12253,7 +12253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: Select the Likelihood Weighting algorithm
-  objectToAttach: {fileID: 0}
+  objectToAttach: {fileID: 1993775477}
   targetOption: Likelihood Weighting
 --- !u!1 &249943398
 GameObject:
@@ -14350,7 +14350,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: Set the number of samples to 50,000
-  objectToAttach: {fileID: 0}
+  objectToAttach: {fileID: 1028574027}
   targetText: 50000
 --- !u!1 &300897909
 GameObject:
@@ -14503,55 +14503,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: Ask P(Rain|Winter)
-  objectToAttach: {fileID: 0}
+  objectToAttach: {fileID: 1507928417}
   mode: 1
   targetText: P(R|W)
---- !u!1 &307060015
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 307060016}
-  - component: {fileID: 307060017}
-  m_Layer: 0
-  m_Name: Caclulate
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &307060016
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 307060015}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 905947142}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &307060017
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 307060015}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5eec2d56fad766f49b9f64363a3ed9bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  description: Recalculate P(A|Markov Blanket)
-  objectToAttach: {fileID: 0}
 --- !u!1 &307504594
 GameObject:
   m_ObjectHideFlags: 0
@@ -20747,7 +20701,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: "Add T or \xACT to evidence"
-  objectToAttach: {fileID: 0}
+  objectToAttach: {fileID: 1418787604}
   toggleMode: 2
 --- !u!1 &405904194
 GameObject:
@@ -25520,7 +25474,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: Calculate P(R)
-  objectToAttach: {fileID: 0}
+  objectToAttach: {fileID: 1736122387}
 --- !u!1 &484670130
 GameObject:
   m_ObjectHideFlags: 0
@@ -42489,7 +42443,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: "Ask P(R,D|\xACCo)"
-  objectToAttach: {fileID: 0}
+  objectToAttach: {fileID: 1507928417}
   mode: 1
   targetText: "P(R,D|\xACCo)"
 --- !u!1 &794977127
@@ -48443,7 +48397,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2024322018}
-  - {fileID: 307060016}
   m_Father: {fileID: 1320082883}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &906253943
@@ -61761,7 +61714,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: Add Aliens to Query
-  objectToAttach: {fileID: 0}
+  objectToAttach: {fileID: 892910707}
   toggleMode: 0
 --- !u!1 &1158770915
 GameObject:
@@ -63477,7 +63430,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: Recalculate
-  objectToAttach: {fileID: 0}
+  objectToAttach: {fileID: 1736122387}
 --- !u!1 &1184144061
 GameObject:
   m_ObjectHideFlags: 0
@@ -68083,7 +68036,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: "Add B or \xACB to evidence"
-  objectToAttach: {fileID: 0}
+  objectToAttach: {fileID: 318629802}
   toggleMode: 2
 --- !u!1 &1261884084
 GameObject:
@@ -68974,7 +68927,7 @@ MonoBehaviour:
   - {fileID: 928042957}
   stepObjects: []
   messages:
-  - Welcome to the xenograph! Let's get started.
+  - Welcome to The Xenograph! Let's get started.
   - Your goal is to understand how the various combination of events influence the
     probability of an alien visitation. To do this, you will use machine learning
     algorithms to determine how the probability of a visitation changes with these
@@ -69039,7 +68992,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: "Add Cl or \xACCl to evidence"
-  objectToAttach: {fileID: 0}
+  objectToAttach: {fileID: 399450905}
   toggleMode: 2
 --- !u!1 &1277377441
 GameObject:
@@ -78299,7 +78252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: Calculate P(A|Markov Blanket)
-  objectToAttach: {fileID: 0}
+  objectToAttach: {fileID: 1736122387}
 --- !u!1 &1443861319
 GameObject:
   m_ObjectHideFlags: 0
@@ -80811,7 +80764,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: Calculate P(R)
-  objectToAttach: {fileID: 0}
+  objectToAttach: {fileID: 1736122387}
 --- !u!1 &1491405649
 GameObject:
   m_ObjectHideFlags: 0
@@ -89225,7 +89178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: Calculate P(A)
-  objectToAttach: {fileID: 0}
+  objectToAttach: {fileID: 1736122387}
 --- !u!1 &1652601024
 GameObject:
   m_ObjectHideFlags: 0
@@ -90471,7 +90424,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: "Add D or \xACD to evidence"
-  objectToAttach: {fileID: 0}
+  objectToAttach: {fileID: 1032825250}
   toggleMode: 2
 --- !u!1 &1665749807
 GameObject:
@@ -94926,7 +94879,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: Recalculate P(A|Markov Blanket)
-  objectToAttach: {fileID: 0}
+  objectToAttach: {fileID: 1736122387}
 --- !u!1 &1750314765
 GameObject:
   m_ObjectHideFlags: 0
@@ -96349,7 +96302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: Ask P(Rain|Fall)
-  objectToAttach: {fileID: 0}
+  objectToAttach: {fileID: 1507928417}
   mode: 1
   targetText: P(R|F)
 --- !u!1 &1776068537
@@ -98370,7 +98323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: Ask P(Rain|Summer)
-  objectToAttach: {fileID: 0}
+  objectToAttach: {fileID: 1507928417}
   mode: 1
   targetText: P(R|Su)
 --- !u!1 &1811545431
@@ -100195,7 +100148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: Clear the probability question
-  objectToAttach: {fileID: 0}
+  objectToAttach: {fileID: 1507928417}
   mode: 0
   targetText: P()
 --- !u!1 &1838897893
@@ -105729,7 +105682,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: Ask P(Rain|Spring)
-  objectToAttach: {fileID: 0}
+  objectToAttach: {fileID: 1507928417}
   mode: 1
   targetText: P(R|Sp)
 --- !u!1 &1935005717
@@ -110551,7 +110504,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c248a86ec1ce4240afd9903e97997a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: Add whatever events you want to evidence
+  description: Finish Tutorial
   objectToAttach: {fileID: 0}
 --- !u!1 &2024875786
 GameObject:
