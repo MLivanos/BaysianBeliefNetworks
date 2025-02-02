@@ -10383,11 +10383,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quests:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  stepObjects: []
+  - {fileID: 249452850}
+  - {fileID: 1180610258}
+  stepObjects:
+  - {fileID: 243451189}
   messages:
   - Take a look at the upper left. Here, you see statistics about your most recent
     query, including how many samples are being considered, how many samples were
@@ -23601,6 +23600,78 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 450461484}
   m_CullTransparentMesh: 1
+--- !u!1 &454189521
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 454189522}
+  - component: {fileID: 454189524}
+  - component: {fileID: 454189523}
+  m_Layer: 5
+  m_Name: RawImage (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &454189522
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454189521}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1556268228}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 33, y: 33}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &454189523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454189521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0.7058824, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 2800000, guid: ddd46d420ebfe554681394afa5b3494a, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &454189524
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454189521}
+  m_CullTransparentMesh: 1
 --- !u!114 &454359455 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3728865574368668326, guid: 9cbd09b4c649b46139e2f71101452362,
@@ -31625,8 +31696,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98b7a3398321ae94ea0a00051fb3f0df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  quests: []
-  stepObjects: []
+  quests:
+  - {fileID: 1158595799}
+  - {fileID: 300809678}
+  - {fileID: 1652578827}
+  stepObjects:
+  - {fileID: 1618472049}
   messages:
   - You will be interviewing eyewitnesses who *claim* to have seen aliens and determine
     if the aliens are *friendly* or *aggressive*. Naturally, this kind of interview
@@ -48365,7 +48440,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98b7a3398321ae94ea0a00051fb3f0df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  quests: []
+  quests:
+  - {fileID: 2024322019}
   stepObjects: []
   messages:
   - Pretty neat, huh? Keep that in mind when you're interviewing witnesses. If you
@@ -54556,8 +54632,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quests:
-  - {fileID: 0}
-  stepObjects: []
+  - {fileID: 1838730977}
+  stepObjects:
+  - {fileID: 1556268227}
   messages:
   - Take a look at the statistics again. Likelihood weighting algorithms always use
     100% of the samples they generate, but there are some tradeoffs to consider.
@@ -57550,6 +57627,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1753247632}
+  - {fileID: 1556268228}
   m_Father: {fileID: 972312766}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -72655,7 +72733,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98b7a3398321ae94ea0a00051fb3f0df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  quests: []
+  quests:
+  - {fileID: 560253817}
+  - {fileID: 1749509133}
   stepObjects: []
   messages:
   - Take note of that probability. Like I said, if you keep those events how they
@@ -74841,10 +74921,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quests:
   - {fileID: 793445147}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  stepObjects: []
+  - {fileID: 483395199}
+  stepObjects:
+  - {fileID: 938675755}
+  - {fileID: 1262573350}
+  - {fileID: 408043104}
   messages:
   - Adding multiple events to the query or evidence is equivalent to asking the probability
     of those events *co-occuring*. To experiment with this, we can try asking the
@@ -78897,7 +78978,12 @@ MonoBehaviour:
   - {fileID: 1934943976}
   - {fileID: 1804378881}
   - {fileID: 1773512668}
-  stepObjects: []
+  stepObjects:
+  - {fileID: 1644416694}
+  - {fileID: 185009953}
+  - {fileID: 1385651801}
+  - {fileID: 1072893024}
+  - {fileID: 1262573350}
   messages:
   - Awesome! The probability is shown below. Now that we have our *baseline probability*
     for Rain, let's see how the seasons *indirectly* impact the Rain.
@@ -83988,6 +84074,43 @@ MonoBehaviour:
             m_StringArgument: ButtonPress
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!1 &1556268227
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1556268228}
+  m_Layer: 5
+  m_Name: TutorialHighlight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1556268228
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1556268227}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1613966982}
+  - {fileID: 454189522}
+  m_Father: {fileID: 1098249759}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 33, y: 33}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1558579264
 GameObject:
   m_ObjectHideFlags: 0
@@ -86983,6 +87106,78 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1613966981
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1613966982}
+  - component: {fileID: 1613966984}
+  - component: {fileID: 1613966983}
+  m_Layer: 5
+  m_Name: RawImage (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1613966982
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613966981}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1556268228}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 33, y: 33}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1613966983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613966981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0.7058824, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 2800000, guid: ddd46d420ebfe554681394afa5b3494a, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &1613966984
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613966981}
+  m_CullTransparentMesh: 1
 --- !u!1 &1614051664
 GameObject:
   m_ObjectHideFlags: 0
@@ -93502,7 +93697,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98b7a3398321ae94ea0a00051fb3f0df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  quests: []
+  quests:
+  - {fileID: 1665747751}
+  - {fileID: 1276429158}
+  - {fileID: 1261209095}
+  - {fileID: 404282931}
+  - {fileID: 1442426442}
   stepObjects: []
   messages:
   - Take note of that baseline probability. Understanding which events make an alien
@@ -99881,7 +100081,9 @@ MonoBehaviour:
   quests:
   - {fileID: 215205276}
   - {fileID: 1491368888}
-  stepObjects: []
+  stepObjects:
+  - {fileID: 1262573350}
+  - {fileID: 1937416589}
   messages:
   - 'An event might also have *indirect* causes and effects. There is no direct link
     from Winter to Rain, but there are more Cloudy days in Winter than other months,
