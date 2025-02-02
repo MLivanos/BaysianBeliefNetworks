@@ -10524,6 +10524,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 213699502}
   m_CullTransparentMesh: 0
+--- !u!1 &215205274
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 215205275}
+  - component: {fileID: 215205276}
+  m_Layer: 0
+  m_Name: AddRain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &215205275
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215205274}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1828519250}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &215205276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215205274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1180f484e33de9e428805af5d9182deb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: Add Rain to Query
+  objectToAttach: {fileID: 0}
+  toggleMode: 0
 --- !u!1 &216351257
 GameObject:
   m_ObjectHideFlags: 0
@@ -14253,6 +14300,54 @@ MonoBehaviour:
   description: Add Cloud to query
   objectToAttach: {fileID: 1232590561}
   toggleMode: 0
+--- !u!1 &306073127
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 306073128}
+  - component: {fileID: 306073129}
+  m_Layer: 0
+  m_Name: P(R|W)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &306073128
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306073127}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1458675918}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &306073129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306073127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65b150f8340ee0944b1478085ed5f934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: Ask P(Rain|Winter)
+  objectToAttach: {fileID: 0}
+  mode: 1
+  targetText: P(R|W)
 --- !u!1 &307504594
 GameObject:
   m_ObjectHideFlags: 0
@@ -49011,6 +49106,52 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Padding: {x: -8, y: -5, z: -8, w: -5}
   m_Softness: {x: 0, y: 0}
+--- !u!1 &928042955
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 928042956}
+  - component: {fileID: 928042957}
+  m_Layer: 0
+  m_Name: Explore
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &928042956
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 928042955}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1276263261}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &928042957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 928042955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c248a86ec1ce4240afd9903e97997a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: Explore the graph
+  objectToAttach: {fileID: 0}
 --- !u!1 &928733065
 GameObject:
   m_ObjectHideFlags: 0
@@ -62654,14 +62795,14 @@ Transform:
   m_GameObject: {fileID: 1180140941}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 681.4116, y: 45.519196, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 292574962}
   - {fileID: 1798691888}
   - {fileID: 188844326}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1585436754}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1184144061
 GameObject:
@@ -68063,6 +68204,75 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1275365899}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1276263260
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1276263261}
+  - component: {fileID: 1276263262}
+  m_Layer: 0
+  m_Name: IntroStep
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1276263261
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1276263260}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 928042956}
+  m_Father: {fileID: 1320082883}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1276263262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1276263260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98b7a3398321ae94ea0a00051fb3f0df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quests:
+  - {fileID: 928042957}
+  stepObjects: []
+  messages:
+  - Welcome to the xenograph! Let's get started.
+  - Your goal is to understand how the various combination of events influence the
+    probability of an alien visitation. To do this, you will use machine learning
+    algorithms to determine how the probability of a visitation changes with these
+    different events.
+  - Each event is represented as a node on the graph. Incoming arrows show the events
+    which *directly* influence another event. For example, Rain is directly influenced
+    by an atmospheric pressure drop and Clouds. We can see the probability values
+    of an event given its parents on the left.
+  - The top entry for Rain shows a 95% probability when it is cloudy AND the atmospheric
+    pressure drops. In the next row, we see that drops down to 20% if it is just
+    cloudy, 10% if it only the atomospheric pressure drops, and 0.1% if neither is
+    true.
+  - Outgoing arrows demonstrate the *direct* impact one event has on other events.
+    For example, Rain directly influences the probability of Thunder, Cats Hiding,
+    and a Busy Day.
+  - Take a moment to look at the graph. Hover over a node to highlight its incoming
+    and outgoing edges, and get a sense for how these events are linked. You can
+    zoom in by using the mouse wheel, and move around by right clicking. Click the
+    right arrow when you're ready to move on.
 --- !u!1 &1277377441
 GameObject:
   m_ObjectHideFlags: 0
@@ -70310,7 +70520,11 @@ Transform:
   m_LocalPosition: {x: 681.4116, y: 45.519196, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1276263261}
+  - {fileID: 1828519250}
+  - {fileID: 1458675918}
+  - {fileID: 1585436754}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1320946675
@@ -70362,14 +70576,14 @@ Transform:
   m_GameObject: {fileID: 1320946675}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 681.4116, y: 45.519196, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1724122571}
   - {fileID: 255021133}
   - {fileID: 587694454}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1585436754}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1322935705
 GameObject:
@@ -77738,6 +77952,66 @@ MonoBehaviour:
   incomingPulseColor: {r: 0.85490197, g: 0.64705884, b: 0.1254902, a: 1}
   outgoingPulseColor: {r: 0, g: 0, b: 1, a: 1}
   pulseSpeed: 2
+--- !u!1 &1458675917
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1458675918}
+  - component: {fileID: 1458675919}
+  m_Layer: 0
+  m_Name: QueryRainGivenSeason
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1458675918
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1458675917}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 306073128}
+  - {fileID: 1934943975}
+  - {fileID: 1804378880}
+  - {fileID: 1773512667}
+  m_Father: {fileID: 1320082883}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1458675919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1458675917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98b7a3398321ae94ea0a00051fb3f0df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quests:
+  - {fileID: 306073129}
+  - {fileID: 1934943976}
+  - {fileID: 1804378881}
+  - {fileID: 1773512668}
+  stepObjects: []
+  messages:
+  - Awesome! The probability is shown below. Now that we have our *baseline probability*
+    for Rain, let's see how the seasons *indirectly* impact the Rain.
+  - One at a time, add each season to the Evidence, and look at the different probabilities.
+    To remove something from evidence, click off the Evidence checkbox.Make sure
+    to only have one season activated at a time.
 --- !u!1 &1458808106
 GameObject:
   m_ObjectHideFlags: 0
@@ -79553,6 +79827,52 @@ MonoBehaviour:
   jointProbabilityDistribution:
   - 0.333
   - 0
+--- !u!1 &1491368886
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1491368887}
+  - component: {fileID: 1491368888}
+  m_Layer: 0
+  m_Name: Caclulate
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1491368887
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1491368886}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1828519250}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1491368888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1491368886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eec2d56fad766f49b9f64363a3ed9bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: Calculate P(R)
+  objectToAttach: {fileID: 0}
 --- !u!1 &1491405649
 GameObject:
   m_ObjectHideFlags: 0
@@ -84268,6 +84588,40 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1584281224}
   m_CullTransparentMesh: 0
+--- !u!1 &1585436753
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1585436754}
+  m_Layer: 0
+  m_Name: TestSteps
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1585436754
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1585436753}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1717863572}
+  - {fileID: 1320946677}
+  - {fileID: 1180140943}
+  m_Father: {fileID: 1320082883}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1593056648
 GameObject:
   m_ObjectHideFlags: 0
@@ -91801,7 +92155,7 @@ Transform:
   m_GameObject: {fileID: 1717863571}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 681.4116, y: 45.519196, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -91812,7 +92166,7 @@ Transform:
   - {fileID: 2112716189}
   - {fileID: 667896545}
   - {fileID: 1967711286}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1585436754}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1717863573
 MonoBehaviour:
@@ -94792,6 +95146,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1773488960}
   m_CullTransparentMesh: 1
+--- !u!1 &1773512666
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1773512667}
+  - component: {fileID: 1773512668}
+  m_Layer: 0
+  m_Name: P(R|F)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1773512667
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1773512666}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1458675918}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1773512668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1773512666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65b150f8340ee0944b1478085ed5f934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: Ask P(Rain|Fall)
+  objectToAttach: {fileID: 0}
+  mode: 1
+  targetText: P(R|F)
 --- !u!1 &1776068537
 GameObject:
   m_ObjectHideFlags: 0
@@ -96765,6 +97167,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1803522766}
   m_CullTransparentMesh: 1
+--- !u!1 &1804378879
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1804378880}
+  - component: {fileID: 1804378881}
+  m_Layer: 0
+  m_Name: P(R|Su)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1804378880
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804378879}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1458675918}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1804378881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804378879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65b150f8340ee0944b1478085ed5f934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: Ask P(Rain|Summer)
+  objectToAttach: {fileID: 0}
+  mode: 1
+  targetText: P(R|Su)
 --- !u!1 &1811545431
 GameObject:
   m_ObjectHideFlags: 0
@@ -98271,6 +98721,66 @@ RectTransform:
   m_AnchoredPosition: {x: 160.00012, y: 0}
   m_SizeDelta: {x: 180, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1828519249
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1828519250}
+  - component: {fileID: 1828519251}
+  m_Layer: 0
+  m_Name: QueryRain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1828519250
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1828519249}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 215205275}
+  - {fileID: 1491368887}
+  m_Father: {fileID: 1320082883}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1828519251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1828519249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98b7a3398321ae94ea0a00051fb3f0df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quests:
+  - {fileID: 215205276}
+  - {fileID: 1491368888}
+  stepObjects: []
+  messages:
+  - 'An event might also have *indirect* causes and effects. There is no direct link
+    from Winter to Rain, but there are more Cloudy days in Winter than other months,
+    so it is more likely to rain. '
+  - Don't take my word for it, check it out yourself.
+  - First, we will need to find out how likely Rain is given no other information.
+    For each node, there are two checkboxes. The one under the Q is called the *query*,
+    and the one under the E is *evidence*. When we add something to the query, we
+    are asking what the probability of that event happening is.
+  - Add Rain to the query and click calculate.
 --- !u!1 &1830711465
 GameObject:
   m_ObjectHideFlags: 0
@@ -103968,6 +104478,54 @@ RectTransform:
   m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1934943974
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1934943975}
+  - component: {fileID: 1934943976}
+  m_Layer: 0
+  m_Name: P(R|Sp)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1934943975
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934943974}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1458675918}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1934943976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934943974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65b150f8340ee0944b1478085ed5f934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: Ask P(Rain|Spring)
+  objectToAttach: {fileID: 0}
+  mode: 1
+  targetText: P(R|Sp)
 --- !u!1 &1935005717
 GameObject:
   m_ObjectHideFlags: 0
@@ -115122,8 +115680,5 @@ SceneRoots:
   - {fileID: 330585546}
   - {fileID: 2061259115}
   - {fileID: 1694050718}
-  - {fileID: 1717863572}
-  - {fileID: 1320946677}
-  - {fileID: 1180140943}
   - {fileID: 1320082883}
   - {fileID: 1417486166}
