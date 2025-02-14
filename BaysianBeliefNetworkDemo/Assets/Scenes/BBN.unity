@@ -79058,11 +79058,13 @@ MonoBehaviour:
   - {fileID: 1072893024}
   - {fileID: 1262573350}
   messages:
-  - Awesome! The probability is shown below. Now that we have our *baseline probability*
-    for Rain, let's see how the seasons *indirectly* impact the Rain.
-  - One at a time, add each season to the Evidence, and look at the different probabilities.
-    To remove something from evidence, click off the Evidence checkbox.Make sure
-    to only have one season activated at a time.
+  - Awesome! The probability is shown below. Now that we know how often Rain happens
+    normally, let's see how different seasons change that probability.
+  - One at a time, add each season to the Evidence and check how the probability
+    changes. To remove a season, click off the Evidence checkbox. Make sure only
+    one season is selected at a time.
+  - Watch how the probability shifts. Does one season make Rain much more likely
+    than others?
 --- !u!1 &1458808106
 GameObject:
   m_ObjectHideFlags: 0
