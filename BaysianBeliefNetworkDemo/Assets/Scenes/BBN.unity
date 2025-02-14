@@ -75000,12 +75000,11 @@ MonoBehaviour:
   - {fileID: 1262573350}
   - {fileID: 408043104}
   messages:
-  - Adding multiple events to the query or evidence is equivalent to asking the probability
-    of those events *co-occuring*. To experiment with this, we can try asking the
-    probability of Rain AND a Dog Barking at the same time.
-  - "You can also ask the probability of events NOT happening by holding the SHIFT
-    key when you click a checkbox. Let's ask P(R,D|\xACT), that is, the probability
-    that it is raining AND a dog barks given that the Cafe is NOT open."
+  - Let's try a more complex question - one that combines multiple events happening
+    together and some events explicitly NOT occuring. What is the probability of
+    hearing a Dog Bark while its raining given that the Cafe is NOT open??
+  - "You can ask the probability of events NOT happening by holding the SHIFT key
+    when you click a checkbox. Try asking that complex query: Ask P(R,D|\xACCo)"
 --- !u!1 &1397505407
 GameObject:
   m_ObjectHideFlags: 0
