@@ -100158,15 +100158,15 @@ MonoBehaviour:
   - {fileID: 1262573350}
   - {fileID: 1937416589}
   messages:
-  - 'An event might also have *indirect* causes and effects. There is no direct link
-    from Winter to Rain, but there are more Cloudy days in Winter than other months,
-    so it is more likely to rain. '
-  - Don't take my word for it, check it out yourself.
-  - First, we will need to find out how likely Rain is given no other information.
-    For each node, there are two checkboxes. The one under the Q is called the *query*,
-    and the one under the E is *evidence*. When we add something to the query, we
-    are asking what the probability of that event happening is.
-  - Add Rain to the query and click calculate.
+  - An event might also have <i>indirect</i> causes and effects. There's no direct
+    link from Winter to Rain, but since Winter has more Cloudy days than other seasons,
+    Rain is more likely.
+  - Don't take my word for it. Check it out yourself!
+  - 'Each node has two checkboxes. The one under ''Q'' is for queries, and the one
+    under ''E'' is for evidence. When we check a query, we''re asking: ''How often
+    does this event happen?"'
+  - Add Rain to the query and click 'Calculate.' The system will estimate the probability
+    of Rain occurring based on all available data in the network.
 --- !u!1 &1830711465
 GameObject:
   m_ObjectHideFlags: 0
