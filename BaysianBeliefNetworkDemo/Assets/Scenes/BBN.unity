@@ -10463,17 +10463,18 @@ MonoBehaviour:
   stepObjects:
   - {fileID: 243451189}
   messages:
-  - Take a look at the upper left. Here, you see statistics about your most recent
-    query, including how many samples are being considered, how many samples were
-    actually used, and how long the computation took.
-  - A *Rejection Sampler*, the sampler you have been using, works by generating a
-    random day and *rejecting* any day that contradicts the evidence. That means
-    that if the evidence you provide is very rare, most of the samples you've completed
-    will not be used to calculate the probability.
-  - Let's try a different sampling algorithm - *Likelihood Weighting*. This algorithm
-    accepts all samples by *enforcing* that the evidence is true and *weighting*
-    each sample by the likelihood that this is the case. Try the same query but using
-    the likelihood weighting algorithm.
+  - "Take a look at the upper left. You\u2019ll see stats from your last query. How
+    many samples were generated, how many were usable, and how long the calculation
+    took."
+  - So far, you've been using <i>Rejection Sampling</i>. It works by generating random
+    days, but if they contradict your evidence, they get thrown out. That means if
+    your evidence is rare, most samples go to waste!
+  - "What happens if we barely get any usable data? That\u2019s where Likelihood
+    Weighting comes in. Instead of throwing out samples, it forces the evidence to
+    be true and adjusts the importance of each sample by how likely the evidence
+    was to occur."
+  - Try running the same query with the Likelihood Weighting algorithm. Look at the
+    number of usable samples. How does it compare to before?
 --- !u!1 &209446479
 GameObject:
   m_ObjectHideFlags: 0
@@ -31778,22 +31779,22 @@ MonoBehaviour:
   stepObjects:
   - {fileID: 1618472049}
   messages:
-  - You will be interviewing eyewitnesses who *claim* to have seen aliens and determine
-    if the aliens are *friendly* or *aggressive*. Naturally, this kind of interview
-    attracts some... excentric individuals who might not have actually seen what
-    they think they've seen. We need a way of separating fact from fiction.
-  - 'Just like you learned which events increased the probability of Rain, we will
-    trust interviewees *the probability of an alien visitation increases given the
-    events they''ve described*. '
-  - In other words, we will trust interviewees if P(Alien Visitation | Evidence)
-    > P(Alien Visitation) alone.
-  - To do this, let's make sure that we know P(Alien Visitation). Because this value
-    is so important, let's make sure we are getting an accurate probability estimate.
-  - Sampling algorithms work by running random simulations of the model, and seeing
-    how often the query turns out to be true. That means that the more samples you
-    run, the better the estimate becomes. By default, the program has been running
-    10,000 samples, but because this is an important one to get right, let's set
-    the number of samples to 50,000.
+  - "You\u2019ll be interviewing eyewitnesses who claim to have seen aliens. Your
+    job? Figure out if the aliens are friendly or aggressive - or if they were ever
+    here at all."
+  - Naturally, these kinds of reports attract some... eccentric individuals. Some
+    might have really seen aliens. Others? Maybe not. We need a way to separate fact
+    from fiction.
+  - Just like with Rain, we look for patterns. If an eyewitness describes something
+    that actually makes an alien visit more likely, we trust them. Otherwise, they
+    might just be imagining things. <b>We trust an interviewee if P(Alien Visitation
+    | Evidence) > P(Alien Visitation) alone</b>. If what they describe increases
+    the probability of a visitation, we take them seriously.
+  - "To do this, we first need to check P(Alien Visitation) by itself. This is a
+    critical number, so let\u2019s make sure we get an accurate estimate."
+  - "The program runs 10,000 samples by default, but for an accurate estimate, let\u2019s
+    bump it up to 50,000. More samples mean a more stable probability\u2014watch
+    how the number adjusts."
 --- !u!1 &587530639
 GameObject:
   m_ObjectHideFlags: 0
@@ -54711,17 +54712,19 @@ MonoBehaviour:
   stepObjects:
   - {fileID: 1556268227}
   messages:
-  - Take a look at the statistics again. Likelihood weighting algorithms always use
-    100% of the samples they generate, but there are some tradeoffs to consider.
-  - Notice that the number of samples has dropped back down. A *Likelihood Weighting*
-    algorithm has to reset its samples whenever the evidence changes, whereas the
-    *Rejection Sampler* can use samples from previous queries, even if they were
-    rejected before. The Likelihood Weighting algortihm is good at asking questions
-    with rare evidence, but the *Rejection Sampler* gets smarter every time you use
-    it.
-  - Now that you know the basics, let's get to why you're here. Clear the current
-    probability question by unchecking all of the checkboxes or by using the Clear
-    &#8634 button to clear it in a single click.
+  - "Take a look at the statistics again. Likelihood Weighting always uses 100% of
+    its samples, but there\u2019s a catch."
+  - "Did you notice the sample count reset? That\u2019s because Likelihood Weighting
+    starts fresh every time the evidence changes, unlike Rejection Sampling, which
+    learns from past data. The Rejection Sampler builds knowledge over time, but
+    might fail given rare evidence, while Likelihood Weighting gives accurate probabilities
+    even under rare evidence."
+  - So, which one is better? It depends on the situation! Likelihood Weighting works
+    well when evidence is rare, while Rejection Sampling improves every time you
+    use it.
+  - "Now that you know the basics, let\u2019s get to why you\u2019re here. Clear
+    the current probability question by unchecking all checkboxes, or use the Clear
+    \u21BB button to reset everything in one click."
 --- !u!1 &1032192399
 GameObject:
   m_ObjectHideFlags: 0
