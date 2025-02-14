@@ -69081,25 +69081,23 @@ MonoBehaviour:
   stepObjects: []
   messages:
   - Welcome to The Xenograph! Let's get started.
-  - Your goal is to understand how the various combination of events influence the
-    probability of an alien visitation. To do this, you will use machine learning
-    algorithms to determine how the probability of a visitation changes with these
-    different events.
-  - Each event is represented as a node on the graph. Incoming arrows show the events
-    which *directly* influence another event. For example, Rain is directly influenced
-    by an atmospheric pressure drop and Clouds. We can see the probability values
-    of an event given its parents on the left.
-  - The top entry for Rain shows a 95% probability when it is cloudy AND the atmospheric
-    pressure drops. In the next row, we see that drops down to 20% if it is just
-    cloudy, 10% if it only the atomospheric pressure drops, and 0.1% if neither is
-    true.
-  - Outgoing arrows demonstrate the *direct* impact one event has on other events.
-    For example, Rain directly influences the probability of Thunder, Cats Hiding,
-    and a Busy Day.
-  - Take a moment to look at the graph. Hover over a node to highlight its incoming
-    and outgoing edges, and get a sense for how these events are linked. You can
-    zoom in by using the mouse wheel, and move around by right clicking. Click the
-    right arrow when you're ready to move on.
+  - 'You''re here to uncover the hidden connections between events. Your goal? To
+    understand how different conditions influence the likelihood of an alien visitation
+    using a powerful tool: a Bayesian Belief Network.'
+  - Every event is a node on the graph. Arrows pointing in to a node are the node's
+    parents, and they have a <i>direct</i> effect on probability of that event occurring. 
+    For example, Rain is affected by Clouds and Atmospheric Pressure Drops. The more
+    factors pointing to rain, the higher the probability. We can see the probability
+    values of an event given its parents on the left.
+  - The <i>truth table</i> for Rain shows a 95% probability when it is cloudy AND
+    the atmospheric pressure drops. In the next row, we see that drops down to 20%
+    if it is just cloudy and only 10% if it only the atomospheric pressure drops.
+    No clouds, no pressure drop? Practically zero.
+  - Arrows pointing out of events demonstrate the *direct* impact that event has
+    on others. For example, Rain directly influences the probability of Thunder,
+    Cats Hiding, and a Busy Day.
+  - "Try it out! Hover over a few nodes, zoom with your mouse wheel, and move around
+    by right-clicking. When you\u2019re ready, click the right arrow to continue."
 --- !u!1 &1276429156
 GameObject:
   m_ObjectHideFlags: 0
