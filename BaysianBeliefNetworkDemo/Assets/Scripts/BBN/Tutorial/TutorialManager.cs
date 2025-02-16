@@ -6,6 +6,7 @@ using System.Collections.Generic;
 
 public class TutorialManager : MonoBehaviour
 {
+    [SerializeField] private GameObject interactionBlocker;
     [SerializeField] private ObjectiveSpawner objectiveSpawner;
     [SerializeField] private DropdownList dropdownList;
     [SerializeField] private GameManager gameManager;
@@ -41,6 +42,11 @@ public class TutorialManager : MonoBehaviour
         }
         tutorialSteps[currentStep].ClearObjectives();
         tutorialSteps[++currentStep].Initialize(this);
+    }
+
+    public void BlockInteractions(bool block)
+    {
+        interactionBlocker.SetActive(block);
     }
     
     private void EndTutorial()

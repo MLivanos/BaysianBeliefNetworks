@@ -30,6 +30,7 @@ public class TutorialStep : MonoBehaviour
 		}
 		dropdownList.Peep();
 		clickthroughText = StartCoroutine(ClickThroughText());
+		tutorialManager.BlockInteractions(true);
 	}
 
 	private void InitializeMembers()
@@ -58,6 +59,7 @@ public class TutorialStep : MonoBehaviour
 			}
 			yield return null;
 		}
+		tutorialManager.BlockInteractions(false);
 		messagePanel.SetActive(false);
 	}
 
