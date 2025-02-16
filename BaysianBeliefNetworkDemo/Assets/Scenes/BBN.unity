@@ -48520,21 +48520,19 @@ MonoBehaviour:
   - {fileID: 2024322019}
   stepObjects: []
   messages:
-  - Pretty neat, huh? Keep that in mind when you're interviewing witnesses. If you
-    have the Markov blanket, you can ignore the rest of their story.
-  - Lastly, I want to draw your attention to a few odds and ends in the system. If
-    at any point you need a rundown of the controls, you can hover over the question
-    mark on the top right for a rundown. Below that is a key to the color-coding.
-    The clear button below that unchecks everything from the query and evidence.
-    The dice icon changes the probability distribution with a random event (not reccomended
-    on a first playthrough), and finally the control for sound is at the bottom.
-  - On the bottom right, above the calculate button, is the Simulation button. This
-    simulates a random day with all of these effects occuring or not occuring. Put
-    an event into evidece if you want to make sure that it occurs in the simulation.
-    Its kind of fun!
-  - Lastly, when you are ready and feel like you understand the system, click the
-    button on the top to power off The Xenograph and head to the interviews. Good
-    luck, Celeste.
+  - "Pretty neat, huh? Now you know how to filter signal from noise - what matters,
+    and what doesn\u2019t. You might not always have the entire Markov Blanket, but
+    if you do, you can use it to make evaluation easier."
+  - If you need a refresher, hover over the question mark in the top right for a
+    rundown of the controls. You'll also find the color legend, clear query button,
+    random event simulator (not reccomended on a first playthrough), and audio controls
+    below.
+  - Want to experiment? The Simulation button (bottom right) lets you run a random
+    day with all these effects in play. Add events to evidence if you want to make
+    sure they occur.
+  - This is where I step back, and you take the lead. Explore the graph, uncover
+    the patterns. When you've learned all you can, power off The Xenograph and move
+    on to the interviews. Go find the truth, Celeste.
 --- !u!4 &905947142
 Transform:
   m_ObjectHideFlags: 0
@@ -72814,9 +72812,10 @@ MonoBehaviour:
   - {fileID: 1749509133}
   stepObjects: []
   messages:
-  - Take note of that probability. Like I said, if you keep those events how they
-    are, the probability estimate isn't likely to change by much. Go ahead and add
-    any other nodes you want, and calculate the probability again.
+  - Right now, your probability estimate is based only on the Markov Blanket. What
+    happens if you add more nodes?
+  - "Try it. Add extra nodes outside the Markov Blanket and calculate again. If our
+    theory is correct, the probability shouldn\u2019t change much."
 --- !u!1 &1350851835
 GameObject:
   m_ObjectHideFlags: 0
@@ -93782,34 +93781,23 @@ MonoBehaviour:
   - {fileID: 1442426442}
   stepObjects: []
   messages:
-  - Take note of that baseline probability. Understanding which events make an alien
-    visitation is complex. Some events might always increase that probability, some
-    might decrease it. Some combination of events might have more nuanced effects,
-    and its impractical to try out all combinations of events. Instead, try to understand
-    the graph *as a system*, ask questions carefully, and develop an understanding
-    of this complex system.
-  - 'There''s one more concept that I want to equip you with: The Markov blanket.
-    This will help you simplify some pretty complex queries by weeding out irrelevant
-    information.'
-  - 'The concept of the Markov blanket is this: An event in the query is *conditionally
-    independent* of the rest of the graph given its *parents, children, and children''s
-    other parents*. What that means is that if you have those three groups in evidence,
-    it doesn''t matter what else is in the evidence, the probability remains the
-    same.'
-  - Let's talk a little bit about why that is. Parents influence the probability
-    because they directly contribute to the probability of the child. In this graph,
-    aliens want a clear view of the ground but they don't want to be seen, so the
-    parent events Cloudy and Busy Day have a direct effect on Alien Visitation
-  - Children act as symptons of the event. Dogs bark when they see aliens, so hearing
-    the dog bark might be an indicator that they have arrived.
-  - The children's other parents are relevant because they provide alternative explanations
-    for the children. If the dog is barking and we know it wasn't thundering, then
-    we have to wonder what else set them off.
-  - That can be a lot to remember, but you might have notice that certain nodes glow
-    white when you hover over an event. This is the Markov blanket of that event.
-  - Don't take my word for it. Let's see the Markov blanket in action. Add the parents,
-    children, and children's parents of Alien Visitation to evidence - either True
-    or False.
+  - 'Take note of that baseline probability. Figuring out what makes an alien visitation
+    more likely is complex - some events always increase the chance, some decrease
+    it, and some interact in unexpected ways. But we have a trick to simplify things:
+    the Markov Blanket.'
+  - "You might have noticed that when you hover over an event, certain other nodes
+    glow white. This is the <b>Markov Blanket</b>: an event\u2019s parents, children,
+    and children\u2019s other parents. Once you have all of these, <b>nothing else
+    in the graph affects the probability</b>. In probability talk, we call this <b>conditional
+    independence<\\b>."
+  - "Why? Because the Markov Blanket tells us everything we need. Parents are the
+    <b>root causes</b> of an event (clouds and atmospheric pressure drops cause rain).
+    Children are <b>symptoms</b> of the event (if the cat hides, maybe it\u2019s
+    because it\u2019s raining). And children\u2019s other parents provide <b>alternative
+    explanations</b> (or maybe the cat hid because a dog was barking instead)"
+  - "Let\u2019s test it out. Add the parents, children, and children\u2019s parents
+    of Alien Visitation as evidence - either as true or false. Then try adding extra
+    nodes. Does the probability change?"
 --- !u!1 &1731309977
 GameObject:
   m_ObjectHideFlags: 0
