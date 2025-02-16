@@ -53,7 +53,7 @@ public class TypewriterEffect : MonoBehaviour
         foreach (char letter in fullText)
         {
             textComponent.text += letter;
-            if (soundName != "") audioManager.PlayEffect("TextBeep");
+            if (soundName != "") audioManager.PlayEffect(soundName);
             float waitTime = specialCharacters.Contains(letter) ? timeBetweenCharacters * specialWaitTimeMultiplier : timeBetweenCharacters;
             yield return new WaitForSeconds(waitTime);
         }

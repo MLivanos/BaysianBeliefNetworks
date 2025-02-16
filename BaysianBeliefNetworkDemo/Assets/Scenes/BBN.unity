@@ -20465,10 +20465,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae8529ee1e50aaa4185ee147b5505783, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenCharacters: 0.02
-  soundName: TextBeep
-  specialCharacters: .!?
-  specialWaitTimeMultiplier: 20
+  timeBetweenCharacters: 0.015
+  soundName: 
+  specialCharacters: .?!
+  specialWaitTimeMultiplier: 10
 --- !u!1 &399450905
 GameObject:
   m_ObjectHideFlags: 0
