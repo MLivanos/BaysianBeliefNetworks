@@ -20465,10 +20465,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae8529ee1e50aaa4185ee147b5505783, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenCharacters: 0.015
+  timeBetweenCharacters: 0.0175
   soundName: 
   specialCharacters: .?!
-  specialWaitTimeMultiplier: 10
+  specialWaitTimeMultiplier: 15
 --- !u!1 &399450905
 GameObject:
   m_ObjectHideFlags: 0
@@ -25620,7 +25620,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eec2d56fad766f49b9f64363a3ed9bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: Calculate P(R)
+  description: Calculate the probability
   objectToAttach: {fileID: 1736122387}
 --- !u!1 &484670130
 GameObject:
@@ -31793,8 +31793,8 @@ MonoBehaviour:
   - "To do this, we first need to check P(Alien Visitation) by itself. This is a
     critical number, so let\u2019s make sure we get an accurate estimate."
   - "The program runs 10,000 samples by default, but for an accurate estimate, let\u2019s
-    bump it up to 50,000. More samples mean a more stable probability\u2014watch
-    how the number adjusts."
+    bump it up to 50,000. More samples mean a more stable probability - watch how
+    the number adjusts."
 --- !u!1 &587530639
 GameObject:
   m_ObjectHideFlags: 0
@@ -54722,7 +54722,7 @@ MonoBehaviour:
     use it.
   - "Now that you know the basics, let\u2019s get to why you\u2019re here. Clear
     the current probability question by unchecking all checkboxes, or use the Clear
-    \u21BB button to reset everything in one click."
+    button (near the top left) to reset everything in one click."
 --- !u!1 &1032192399
 GameObject:
   m_ObjectHideFlags: 0
@@ -69090,12 +69090,12 @@ MonoBehaviour:
     For example, Rain is affected by Clouds and Atmospheric Pressure Drops. The more
     factors pointing to rain, the higher the probability. We can see the probability
     values of an event given its parents on the left.
-  - The <i>truth table</i> for Rain shows a 95% probability when it is cloudy AND
+  - The <b>truth table</b> for Rain shows a 95% probability when it is cloudy AND
     the atmospheric pressure drops. In the next row, we see that drops down to 20%
     if it is just cloudy and only 10% if it only the atomospheric pressure drops.
     No clouds, no pressure drop? Practically zero.
-  - Arrows pointing out of events demonstrate the *direct* impact that event has
-    on others. For example, Rain directly influences the probability of Thunder,
+  - Arrows pointing out of events demonstrate the <i>direct</i> impact that event
+    has on others. For example, Rain directly influences the probability of Thunder,
     Cats Hiding, and a Busy Day.
   - "Try it out! Hover over a few nodes, zoom with your mouse wheel, and move around
     by right-clicking. When you\u2019re ready, click the right arrow to continue."
@@ -75004,7 +75004,7 @@ MonoBehaviour:
   messages:
   - Let's try a more complex question - one that combines multiple events happening
     together and some events explicitly NOT occuring. What is the probability of
-    hearing a Dog Bark while its raining given that the Cafe is NOT open??
+    hearing a Dog Bark while its raining given that the Cafe is NOT open?
   - "You can ask the probability of events NOT happening by holding the SHIFT key
     when you click a checkbox. Try asking that complex query: Ask P(R,D|\xACCo)"
 --- !u!1 &1397505407
@@ -78406,7 +78406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eec2d56fad766f49b9f64363a3ed9bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: Calculate P(A|Markov Blanket)
+  description: Calculate P(A|M. Blanket)
   objectToAttach: {fileID: 1736122387}
 --- !u!1 &1443861319
 GameObject:
@@ -100155,7 +100155,7 @@ MonoBehaviour:
     Rain is more likely.
   - Don't take my word for it. Check it out yourself!
   - 'Each node has two checkboxes. The one under ''Q'' is for queries, and the one
-    under ''E'' is for evidence. When we check a query, we''re asking: ''How often
+    under ''E'' is for evidence. When we check a query, we''re asking: "How often
     does this event happen?"'
   - Add Rain to the query and click 'Calculate.' The system will estimate the probability
     of Rain occurring based on all available data in the network.
