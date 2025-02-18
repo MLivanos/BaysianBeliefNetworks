@@ -108,11 +108,11 @@ public class TutorialStep : MonoBehaviour
 	public IEnumerator FadeInCompletionMessage(string questText)
 	{
 		if (stepComplete) audioManager.PlayEffect("Success2");
-		else audioManager.PlayEffect("Success2");
+		else audioManager.PlayEffect("Success");
 		completionText.SetText("Completed:\n" + questText);
 		completionText.SetAlpha(0f);
 		completionText.FadeIn(0.5f);
-		yield return new WaitForSeconds(1f);
+		yield return new WaitForSeconds(2f);
 		completionText.FadeOut(0.5f);
 		completionRoutine = null;
 	}
