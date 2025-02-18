@@ -69152,7 +69152,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quests:
   - {fileID: 928042957}
-  stepObjects: []
+  stepObjects:
+  - {fileID: 1262573350}
   messages:
   - Welcome to The Xenograph! Let's get started.
   - 'You''re here to uncover the hidden connections between events. Your goal? To

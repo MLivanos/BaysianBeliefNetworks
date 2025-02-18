@@ -35,13 +35,9 @@ public class TutorialManager : MonoBehaviour
 
     public void NextStep()
     {
-        if (currentStep >= tutorialSteps.Count)
-        {
-            EndTutorial();
-            return;
-        }
         tutorialSteps[currentStep].ClearObjectives();
-        tutorialSteps[++currentStep].Initialize(this);
+        if (++currentStep >= tutorialSteps.Count) EndTutorial();
+        else tutorialSteps[currentStep].Initialize(this);
     }
 
     public void BlockInteractions(bool block)
