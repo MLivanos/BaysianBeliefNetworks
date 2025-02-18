@@ -9,17 +9,22 @@ public class TutorialStep : MonoBehaviour
 	[SerializeField] private List<TutorialQuestBase> quests;
 	[SerializeField] private List<GameObject> stepObjects;
 	[SerializeField] private List<string> messages;
+	private AudioManager audioManager;
 	private TutorialManager tutorialManager;
 	private ObjectiveSpawner objectiveSpawner;
     private DropdownList dropdownList;
     private TypewriterEffect typewriterEffect;
     private GameObject messagePanel;
     private Coroutine clickthroughText;
+    private FadableTextMeshPro completionText;
 	private int questsCompleted = 0;
 	private int messageID = 0;
+	private Coroutine completionRoutine;
+	private bool stepComplete = false;
 
 	public void Initialize(TutorialManager manager)
 	{
+		audioManager = AudioManager.instance;
 		tutorialManager = manager;
 		InitializeMembers();
 		ChangeHighlight(true);
@@ -39,6 +44,7 @@ public class TutorialStep : MonoBehaviour
 		dropdownList = tutorialManager.GetDropdownList();
 		typewriterEffect = tutorialManager.GetTypeWriterEffect();
 		messagePanel = tutorialManager.GetMessagePanel();
+		completionText = tutorialManager.GetCompletionText();
 	}
 
 	private IEnumerator ClickThroughText()
@@ -74,9 +80,11 @@ public class TutorialStep : MonoBehaviour
 	public void OnQuestComplete(TutorialQuestBase quest)
 	{
 		// Eventually, provide feedback as to the specific quest
+		stepComplete = ++questsCompleted == quests.Count;
+		if (completionRoutine != null) StopCoroutine(completionRoutine);
+		completionRoutine = StartCoroutine(FadeInCompletionMessage(quest.GetDescription()));
 		objectiveSpawner.CompleteQuest(quests.FindIndex(q => q == quest));
-		questsCompleted++;
-		if (questsCompleted == quests.Count) StepComplete();
+		if (stepComplete) StepComplete();
 	}
 
 	private void StepComplete()
@@ -95,5 +103,17 @@ public class TutorialStep : MonoBehaviour
 	{
 		StopCoroutine(clickthroughText);
 		messagePanel.SetActive(false);
+	}
+
+	public IEnumerator FadeInCompletionMessage(string questText)
+	{
+		if (stepComplete) audioManager.PlayEffect("Success2");
+		else audioManager.PlayEffect("Success2");
+		completionText.SetText("Completed:\n" + questText);
+		completionText.SetAlpha(0f);
+		completionText.FadeIn(0.5f);
+		yield return new WaitForSeconds(1f);
+		completionText.FadeOut(0.5f);
+		completionRoutine = null;
 	}
 }

@@ -16,6 +16,7 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private List<TutorialStep> tutorialSteps = new List<TutorialStep>();
     [SerializeField] private TypewriterEffect typewriterEffect;
     [SerializeField] private GameObject messagePanel;
+    [SerializeField] private FadableTextMeshPro completionText;
     [SerializeField] private bool debug;
     private int currentStep = 0;
     private Vector2 originalHighlightSize;
@@ -77,5 +78,10 @@ public class TutorialManager : MonoBehaviour
     public GameObject GetMessagePanel()
     {
         return messagePanel;
+    }
+
+    public FadableTextMeshPro GetCompletionText()
+    {
+        return completionText;
     }
 }
