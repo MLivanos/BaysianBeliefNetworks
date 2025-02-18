@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 using System.Linq;
 using System.Collections;
@@ -17,6 +18,7 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private TypewriterEffect typewriterEffect;
     [SerializeField] private GameObject messagePanel;
     [SerializeField] private FadableTextMeshPro completionText;
+    [SerializeField] private Image advanceButton;
     [SerializeField] private bool debug;
     private int currentStep = 0;
     private Vector2 originalHighlightSize;
@@ -83,5 +85,10 @@ public class TutorialManager : MonoBehaviour
     public FadableTextMeshPro GetCompletionText()
     {
         return completionText;
+    }
+
+    public Image GetAdvanceButton()
+    {
+        return advanceButton;
     }
 }

@@ -3717,7 +3717,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -37047,8 +37047,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 200, y: -50}
-  m_SizeDelta: {x: 90, y: 40}
+  m_AnchoredPosition: {x: 215, y: -50}
+  m_SizeDelta: {x: 120, y: 40}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &677672331
 MonoBehaviour:
@@ -61967,7 +61967,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -330, y: 205}
+  m_AnchoredPosition: {x: -360, y: 205}
   m_SizeDelta: {x: 120, y: 150.00002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1158585947
@@ -71587,6 +71587,7 @@ MonoBehaviour:
   typewriterEffect: {fileID: 398445802}
   messagePanel: {fileID: 2080983181}
   completionText: {fileID: 677672331}
+  advanceButton: {fileID: 873177624}
   debug: 1
 --- !u!4 &1320082883
 Transform:
@@ -100638,7 +100639,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1838897894
 RectTransform:
   m_ObjectHideFlags: 0
