@@ -4,11 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TutorialStep : MonoBehaviour
+public class TutorialStep : MonoBehaviour, IQuestParent
 {
 	[SerializeField] private List<TutorialQuestBase> quests;
 	[SerializeField] private List<GameObject> stepObjects;
 	[SerializeField] private List<string> messages;
+	[SerializeField] private bool isOrdered;
+	private QuestOrderHandler questOrderHandler;
 	private AudioManager audioManager;
 	private TutorialManager tutorialManager;
 	private ObjectiveSpawner objectiveSpawner;
@@ -22,6 +24,13 @@ public class TutorialStep : MonoBehaviour
 	private int messageID = 0;
 	private Coroutine completionRoutine;
 	private bool stepComplete = false;
+
+	public QuestOrderHandler QuestHandler => questOrderHandler;
+
+	private void Start()
+	{
+		questOrderHandler = new QuestOrderHandler(isOrdered, quests);
+	}
 
 	public void Initialize(TutorialManager manager)
 	{
