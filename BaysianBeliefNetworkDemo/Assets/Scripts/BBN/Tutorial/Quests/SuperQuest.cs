@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -31,6 +32,15 @@ public class SuperQuest : TutorialQuestBase, IQuestParent
 
 	public void OnQuestComplete(TutorialQuestBase quest)
 	{
-		if (++questsCompleted == subQuests.Count) Complete();
+		if (++questsCompleted == subQuests.Count) StartCoroutine(WaitTillCanComplete());
+	}
+
+	private IEnumerator WaitTillCanComplete()
+	{
+		while(!CanComplete())
+		{
+			yield return new WaitForSeconds(0.1f);
+		}
+		Complete();
 	}
 }

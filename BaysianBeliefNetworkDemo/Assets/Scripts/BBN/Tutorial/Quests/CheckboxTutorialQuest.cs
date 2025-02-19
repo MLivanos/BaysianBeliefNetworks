@@ -59,6 +59,7 @@ public class CheckboxTutorialQuest : TutorialQuest<bool>
 
     public override void Complete()
     {
+        if (!CanComplete()) return;
         if (checkbox != null)
         {
             checkbox.onValueChanged.RemoveListener(interactionListener);

@@ -10593,6 +10593,7 @@ MonoBehaviour:
     was to occur."
   - Try running the same query with the Likelihood Weighting algorithm. Look at the
     number of usable samples. How does it compare to before?
+  isOrdered: 1
 --- !u!1 &209446479
 GameObject:
   m_ObjectHideFlags: 0
@@ -15169,6 +15170,7 @@ MonoBehaviour:
   subQuests:
   - {fileID: 1804378881}
   - {fileID: 2143106109}
+  isOrdered: 1
 --- !u!1 &313257333
 GameObject:
   m_ObjectHideFlags: 0
@@ -32008,6 +32010,7 @@ MonoBehaviour:
   - "The program runs 10,000 samples by default, but for an accurate estimate, let\u2019s
     bump it up to 50,000. More samples mean a more stable probability - watch how
     the number adjusts."
+  isOrdered: 1
 --- !u!1 &587530639
 GameObject:
   m_ObjectHideFlags: 0
@@ -35583,6 +35586,7 @@ MonoBehaviour:
   subQuests:
   - {fileID: 1773512668}
   - {fileID: 245240115}
+  isOrdered: 1
 --- !u!1 &643396970
 GameObject:
   m_ObjectHideFlags: 0
@@ -48945,6 +48949,7 @@ MonoBehaviour:
   - This is where I step back, and you take the lead. Explore the graph, uncover
     the patterns. When you've learned all you can, power off The Xenograph and move
     on to the interviews. Go find the truth, Celeste.
+  isOrdered: 0
 --- !u!4 &905947142
 Transform:
   m_ObjectHideFlags: 0
@@ -55135,6 +55140,7 @@ MonoBehaviour:
   - "Now that you know the basics, let\u2019s get to why you\u2019re here. Clear
     the current probability question by unchecking all checkboxes, or use the Clear
     button (near the top left) to reset everything in one click."
+  isOrdered: 0
 --- !u!1 &1032192399
 GameObject:
   m_ObjectHideFlags: 0
@@ -57294,6 +57300,7 @@ MonoBehaviour:
   subQuests:
   - {fileID: 1934943976}
   - {fileID: 1828367924}
+  isOrdered: 1
 --- !u!1 &1076017832
 GameObject:
   m_ObjectHideFlags: 0
@@ -63986,6 +63993,7 @@ MonoBehaviour:
   - {fileID: 188844327}
   stepObjects: []
   messages: []
+  isOrdered: 0
 --- !u!4 &1180140943
 Transform:
   m_ObjectHideFlags: 0
@@ -65792,6 +65800,7 @@ MonoBehaviour:
   subQuests:
   - {fileID: 1158595799}
   - {fileID: 1652578827}
+  isOrdered: 0
 --- !u!1 &1216327511
 GameObject:
   m_ObjectHideFlags: 0
@@ -69591,6 +69600,7 @@ MonoBehaviour:
     Cats Hiding, and a Busy Day.
   - "Try it out! Hover over a few nodes, zoom with your mouse wheel, and move around
     by right-clicking. When you\u2019re ready, click the right arrow to continue."
+  isOrdered: 0
 --- !u!1 &1276429156
 GameObject:
   m_ObjectHideFlags: 0
@@ -71949,6 +71959,7 @@ MonoBehaviour:
   messages:
   - hi im puppy
   - i like your ears. and your tail
+  isOrdered: 0
 --- !u!4 &1320946677
 Transform:
   m_ObjectHideFlags: 0
@@ -73311,6 +73322,7 @@ MonoBehaviour:
     happens if you add more nodes?
   - "Try it. Add extra nodes outside the Markov Blanket and calculate again. If our
     theory is correct, the probability shouldn\u2019t change much."
+  isOrdered: 0
 --- !u!1 &1350851835
 GameObject:
   m_ObjectHideFlags: 0
@@ -75500,6 +75512,7 @@ MonoBehaviour:
     hearing a Dog Bark while its raining given that the Cafe is NOT open?
   - "You can ask the probability of events NOT happening by holding the SHIFT key
     when you click a checkbox. Try asking that complex query: Ask P(R,D|\xACCo)"
+  isOrdered: 0
 --- !u!1 &1397505407
 GameObject:
   m_ObjectHideFlags: 0
@@ -79559,6 +79572,7 @@ MonoBehaviour:
     one season is selected at a time.
   - Watch how the probability shifts. Does one season make Rain much more likely
     than others?
+  isOrdered: 0
 --- !u!1 &1458808106
 GameObject:
   m_ObjectHideFlags: 0
@@ -84013,6 +84027,7 @@ MonoBehaviour:
   subQuests:
   - {fileID: 793445147}
   - {fileID: 483395199}
+  isOrdered: 1
 --- !u!1 &1545110880
 GameObject:
   m_ObjectHideFlags: 0
@@ -93998,6 +94013,7 @@ MonoBehaviour:
   messages:
   - Arf arf arf I'm a message
   - Grr woof! I'm a message too
+  isOrdered: 0
 --- !u!1 &1719860728
 GameObject:
   m_ObjectHideFlags: 0
@@ -94342,6 +94358,7 @@ MonoBehaviour:
   - "Let\u2019s test it out. Add the parents, children, and children\u2019s parents
     of Alien Visitation as evidence - either as true or false. Then try adding extra
     nodes. Does the probability change?"
+  isOrdered: 0
 --- !u!1 &1731309977
 GameObject:
   m_ObjectHideFlags: 0
@@ -100749,6 +100766,7 @@ MonoBehaviour:
     does this event happen?"'
   - Add Rain to the query and click 'Calculate.' The system will estimate the probability
     of Rain occurring based on all available data in the network.
+  isOrdered: 1
 --- !u!1 &1830711465
 GameObject:
   m_ObjectHideFlags: 0
@@ -100875,6 +100893,7 @@ MonoBehaviour:
   subQuests:
   - {fileID: 306073129}
   - {fileID: 178754530}
+  isOrdered: 1
 --- !u!1 &1834248023
 GameObject:
   m_ObjectHideFlags: 0

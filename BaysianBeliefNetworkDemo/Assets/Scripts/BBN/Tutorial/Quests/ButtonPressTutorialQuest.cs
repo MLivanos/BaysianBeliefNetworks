@@ -24,6 +24,7 @@ public class ButtonPressTutorialQuest : TutorialQuestBase
 
     public override void Complete()
     {
+        if (!CanComplete()) return;
         button.onClick.RemoveListener(HandleInteraction);
         base.Complete();
     }

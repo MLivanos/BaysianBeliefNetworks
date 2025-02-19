@@ -36,6 +36,7 @@ public class TextFieldTutorialQuest : TutorialQuest<string>
 
     public override void Complete()
     {
+        if (!CanComplete()) return;
         inputField.onEndEdit.RemoveAllListeners();
         base.Complete();
     }

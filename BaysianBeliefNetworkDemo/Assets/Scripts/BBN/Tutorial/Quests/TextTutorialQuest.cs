@@ -52,7 +52,8 @@ public class TextTutorialQuest : TutorialQuestBase
 
     public IEnumerator ListenForTextChange()
     {
-        while(!TextIsTarget())
+        yield return null;
+        while(!TextIsTarget() || !CanComplete())
         {
             yield return new WaitForSeconds(0.1f);
         }

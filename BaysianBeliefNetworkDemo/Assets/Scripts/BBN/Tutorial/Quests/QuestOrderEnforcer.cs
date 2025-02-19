@@ -25,8 +25,10 @@ public class QuestOrderHandler
             return false;
         }
 
+        Debug.Log(questIndex);
         for (int i = 0; i < questIndex; i++)
         {
+        	Debug.Log(questsCompleted[i]);
             if (!questsCompleted[i]) return false;
         }
 

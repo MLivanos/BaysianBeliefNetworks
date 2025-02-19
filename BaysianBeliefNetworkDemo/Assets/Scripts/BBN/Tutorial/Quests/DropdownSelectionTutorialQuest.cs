@@ -35,6 +35,7 @@ public class DropdownSelectionTutorialQuest : TutorialQuest<int>
 
     public override void Complete()
     {
+        if (!CanComplete()) return;
         dropdown.onValueChanged.RemoveAllListeners();
         base.Complete();
     }
