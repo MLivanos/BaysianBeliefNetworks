@@ -4,9 +4,10 @@ public abstract class TutorialQuestBase : MonoBehaviour
 {
     [SerializeField] private string description;
     [SerializeField] protected GameObject objectToAttach;
+    protected SuperQuest superQuestParent;
     protected TutorialStep parentStep;
 
-    public void Initialize(TutorialStep step)
+    public virtual void Initialize(TutorialStep step)
     {
         parentStep = step;
         OnInitialize();
@@ -16,11 +17,17 @@ public abstract class TutorialQuestBase : MonoBehaviour
     public abstract void HandleInteraction();
     public virtual void Complete()
     {
-        parentStep.OnQuestComplete(this);
+        if (parentStep != null) parentStep.OnQuestComplete(this);
+        if (superQuestParent != null) superQuestParent.OnQuestComplete();
     }
 
     public string GetDescription()
     {
         return description;
+    }
+
+    public void SetSuperParent(SuperQuest superParent)
+    {
+        superQuestParent = superParent;
     }
 }
