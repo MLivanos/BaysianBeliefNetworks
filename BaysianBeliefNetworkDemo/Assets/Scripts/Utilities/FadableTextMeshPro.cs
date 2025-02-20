@@ -20,4 +20,9 @@ public class FadableTextMeshPro : FadableElement
             _text.color = color;
         }
     }
+
+    public void SetText(string newText)
+    {
+        _text.text = newText;
+    }
 }
