@@ -31684,7 +31684,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 259421780}
-  - {fileID: 1162414051}
   - {fileID: 1854325579}
   - {fileID: 609066301}
   m_Father: {fileID: 972312766}
@@ -32188,6 +32187,7 @@ MonoBehaviour:
   - {fileID: 1712816754}
   - {fileID: 508512780}
   messages:
+  - Now behold! The Xenograph in all its glory.
   - "You\u2019ll be interviewing eyewitnesses who claim to have seen aliens. Your
     job? Figure out if the aliens are friendly or aggressive - or if they were ever
     here at all."
@@ -63431,11 +63431,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 583895122}
+  m_Father: {fileID: 1855488277}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.000030517578, y: -3.8813806}
   m_SizeDelta: {x: 800, y: 450}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1162414052
@@ -63451,7 +63451,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 2100000, guid: e1a71dce352174b1e8b4d031fffb362f, type: 2}
-  m_Color: {r: 0.05882353, g: 0.05882353, b: 0.05882353, a: 0.8627451}
+  m_Color: {r: 0.05882353, g: 0.05882353, b: 0.05882353, a: 0.9019608}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -66508,7 +66508,7 @@ MonoBehaviour:
   subQuests:
   - {fileID: 1158595799}
   - {fileID: 1652578827}
-  isOrdered: 0
+  isOrdered: 1
 --- !u!1 &1216327511
 GameObject:
   m_ObjectHideFlags: 0
@@ -76265,18 +76265,12 @@ MonoBehaviour:
   permanantStepObjects:
   - {fileID: 1683404753}
   - {fileID: 1078642790}
-  - {fileID: 751110580}
-  - {fileID: 223681560}
   - {fileID: 405904194}
   - {fileID: 790696663}
-  - {fileID: 1094772391}
-  - {fileID: 1258219930}
-  - {fileID: 1012456361}
   - {fileID: 1351046720}
   - {fileID: 930704867}
   - {fileID: 1645890153}
   - {fileID: 618284408}
-  - {fileID: 715637828}
   - {fileID: 621538996}
   messages:
   - Now, I didn't ask you to come all this way to predict the weather. Let's try
@@ -103189,6 +103183,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1162414051}
   - {fileID: 581539169}
   - {fileID: 1016460252}
   - {fileID: 1007551153}
