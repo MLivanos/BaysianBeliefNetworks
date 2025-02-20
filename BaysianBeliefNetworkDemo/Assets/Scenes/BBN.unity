@@ -30331,7 +30331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c248a86ec1ce4240afd9903e97997a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: Add whatever events you want to evidence
+  description: Add additional events to evidence
   objectToAttach: {fileID: 0}
 --- !u!1 &564074502
 GameObject:
@@ -95704,7 +95704,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eec2d56fad766f49b9f64363a3ed9bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: Recalculate P(A|Markov Blanket)
+  description: Recalculate P(A|M. Blanket)
   objectToAttach: {fileID: 1736122387}
 --- !u!1 &1750314765
 GameObject:
