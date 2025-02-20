@@ -7,6 +7,7 @@ using System.Collections.Generic;
 
 public class TutorialManager : MonoBehaviour
 {
+    [SerializeField] private List<GameObject> incrementalHiddenObjects;
     [SerializeField] private GameObject tutorialSelectionWindow;
     [SerializeField] private GameObject interactionBlocker;
     [SerializeField] private ObjectiveSpawner objectiveSpawner;
@@ -34,6 +35,7 @@ public class TutorialManager : MonoBehaviour
 
     public void StartTutorial()
     {
+        HideIncrementalObjects();
         GameObject.Find("TimeLimit").SetActive(false);
         tutorialSelectionWindow.SetActive(false);
         tutorialSteps[0].Initialize(this);
@@ -60,6 +62,14 @@ public class TutorialManager : MonoBehaviour
         PlayerPrefs.SetInt("TutorialCompleted", 1);
         PlayerPrefs.Save();
         gameObject.SetActive(false);
+    }
+
+    private void HideIncrementalObjects()
+    {
+        foreach(GameObject obj in incrementalHiddenObjects)
+        {
+            obj.SetActive(false);
+        }
     }
 
     public void CloseMessages()

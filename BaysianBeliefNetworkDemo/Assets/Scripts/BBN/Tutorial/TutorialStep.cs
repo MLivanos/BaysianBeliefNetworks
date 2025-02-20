@@ -8,6 +8,7 @@ public class TutorialStep : MonoBehaviour, IQuestParent
 {
 	[SerializeField] private List<TutorialQuestBase> quests;
 	[SerializeField] private List<GameObject> stepObjects;
+	[SerializeField] private List<GameObject> permanantStepObjects;
 	[SerializeField] private List<string> messages;
 	[SerializeField] private bool isOrdered;
 	private QuestOrderHandler questOrderHandler;
@@ -45,7 +46,16 @@ public class TutorialStep : MonoBehaviour, IQuestParent
 		}
 		dropdownList.Peep();
 		clickthroughText = StartCoroutine(ClickThroughText());
+		ShowIncrementalObjects();
 		tutorialManager.BlockInteractions(true);
+	}
+
+	private void ShowIncrementalObjects()
+	{
+		foreach(GameObject obj in permanantStepObjects)
+		{
+			obj.SetActive(true);
+		}
 	}
 
 	private void InitializeMembers()

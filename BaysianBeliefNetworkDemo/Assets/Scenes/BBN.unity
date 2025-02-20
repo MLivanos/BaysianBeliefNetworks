@@ -10580,6 +10580,8 @@ MonoBehaviour:
   - {fileID: 1180610258}
   stepObjects:
   - {fileID: 243451189}
+  permanantStepObjects:
+  - {fileID: 1993775477}
   messages:
   - "Take a look at the upper left. You\u2019ll see stats from your last query. How
     many samples were generated, how many were usable, and how long the calculation
@@ -32068,6 +32070,8 @@ MonoBehaviour:
   - {fileID: 1214118877}
   stepObjects:
   - {fileID: 1618472049}
+  permanantStepObjects:
+  - {fileID: 1028574027}
   messages:
   - "You\u2019ll be interviewing eyewitnesses who claim to have seen aliens. Your
     job? Figure out if the aliens are friendly or aggressive - or if they were ever
@@ -49010,6 +49014,12 @@ MonoBehaviour:
   quests:
   - {fileID: 2024322019}
   stepObjects: []
+  permanantStepObjects:
+  - {fileID: 1413175647}
+  - {fileID: 596198190}
+  - {fileID: 1980073208}
+  - {fileID: 527523535}
+  - {fileID: 1554082558}
   messages:
   - "Pretty neat, huh? Now you know how to filter signal from noise - what matters,
     and what doesn\u2019t. You might not always have the entire Markov Blanket, but
@@ -55634,6 +55644,8 @@ MonoBehaviour:
   - {fileID: 1838730977}
   stepObjects:
   - {fileID: 1556268227}
+  permanantStepObjects:
+  - {fileID: 1098249758}
   messages:
   - "Take a look at the statistics again. Likelihood Weighting always uses 100% of
     its samples, but there\u2019s a catch."
@@ -64501,6 +64513,7 @@ MonoBehaviour:
   - {fileID: 1798691889}
   - {fileID: 188844327}
   stepObjects: []
+  permanantStepObjects: []
   messages: []
   isOrdered: 0
 --- !u!4 &1180140943
@@ -70090,6 +70103,7 @@ MonoBehaviour:
   - {fileID: 928042957}
   stepObjects:
   - {fileID: 1262573350}
+  permanantStepObjects: []
   messages:
   - Welcome to The Xenograph! Let's get started.
   - 'You''re here to uncover the hidden connections between events. Your goal? To
@@ -72379,6 +72393,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12c056d61a6fc495584d223c64ba1f77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  incrementalHiddenObjects:
+  - {fileID: 1028574027}
+  - {fileID: 527523535}
+  - {fileID: 1413175647}
+  - {fileID: 596198190}
+  - {fileID: 1098249758}
+  - {fileID: 1980073208}
+  - {fileID: 1554082558}
+  - {fileID: 1736122387}
+  - {fileID: 1993775477}
   tutorialSelectionWindow: {fileID: 1855488276}
   interactionBlocker: {fileID: 167541473}
   objectiveSpawner: {fileID: 538929512}
@@ -72466,6 +72490,7 @@ MonoBehaviour:
   - {fileID: 1032465259}
   - {fileID: 1937416589}
   - {fileID: 1262573350}
+  permanantStepObjects: []
   messages:
   - hi im puppy
   - i like your ears. and your tail
@@ -73827,6 +73852,7 @@ MonoBehaviour:
   - {fileID: 560253817}
   - {fileID: 1749509133}
   stepObjects: []
+  permanantStepObjects: []
   messages:
   - Right now, your probability estimate is based only on the Markov Blanket. What
     happens if you add more nodes?
@@ -76016,6 +76042,7 @@ MonoBehaviour:
   - {fileID: 938675755}
   - {fileID: 1262573350}
   - {fileID: 408043104}
+  permanantStepObjects: []
   messages:
   - Let's try a more complex question - one that combines multiple events happening
     together and some events explicitly NOT occuring. What is the probability of
@@ -80233,6 +80260,7 @@ MonoBehaviour:
   - {fileID: 1385651801}
   - {fileID: 1072893024}
   - {fileID: 1262573350}
+  permanantStepObjects: []
   messages:
   - Awesome! The probability is shown below. Now that we know how often Rain happens
     normally, let's see how different seasons change that probability.
@@ -94679,6 +94707,7 @@ MonoBehaviour:
   - {fileID: 1937416589}
   - {fileID: 1618472049}
   - {fileID: 243451189}
+  permanantStepObjects: []
   messages:
   - Arf arf arf I'm a message
   - Grr woof! I'm a message too
@@ -95009,6 +95038,7 @@ MonoBehaviour:
   - {fileID: 404282931}
   - {fileID: 1442426442}
   stepObjects: []
+  permanantStepObjects: []
   messages:
   - 'Take note of that baseline probability. Figuring out what makes an alien visitation
     more likely is complex - some events always increase the chance, some decrease
@@ -101425,6 +101455,8 @@ MonoBehaviour:
   stepObjects:
   - {fileID: 1262573350}
   - {fileID: 1937416589}
+  permanantStepObjects:
+  - {fileID: 1736122387}
   messages:
   - An event might also have <i>indirect</i> causes and effects. There's no direct
     link from Winter to Rain, but since Winter has more Cloudy days than other seasons,
