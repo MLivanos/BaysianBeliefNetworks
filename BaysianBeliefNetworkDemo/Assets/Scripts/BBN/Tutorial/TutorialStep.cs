@@ -91,7 +91,6 @@ public class TutorialStep : MonoBehaviour, IQuestParent
 
 	public void OnQuestComplete(TutorialQuestBase quest)
 	{
-		// Eventually, provide feedback as to the specific quest
 		stepComplete = ++questsCompleted == quests.Count;
 		if (completionRoutine != null) StopCoroutine(completionRoutine);
 		completionRoutine = StartCoroutine(FadeInCompletionMessage(quest.GetDescription()));
@@ -129,5 +128,13 @@ public class TutorialStep : MonoBehaviour, IQuestParent
 		yield return new WaitForSeconds(2f);
 		completionText.FadeOut(0.5f);
 		completionRoutine = null;
+	}
+
+	public void DestroyQuests()
+	{
+		foreach(TutorialQuestBase quest in quests)
+		{
+			quest.DestroyQuest();
+		}
 	}
 }

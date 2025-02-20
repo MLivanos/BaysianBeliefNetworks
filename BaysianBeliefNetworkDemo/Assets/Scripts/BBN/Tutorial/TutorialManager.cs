@@ -38,6 +38,7 @@ public class TutorialManager : MonoBehaviour
 
     public void NextStep()
     {
+        tutorialSteps[currentStep].DestroyQuests();
         tutorialSteps[currentStep].ClearObjectives();
         if (++currentStep >= tutorialSteps.Count) EndTutorial();
         else tutorialSteps[currentStep].Initialize(this);

@@ -43,4 +43,13 @@ public class SuperQuest : TutorialQuestBase, IQuestParent
 		}
 		Complete();
 	}
+
+	public override void DestroyQuest()
+	{
+		foreach(TutorialQuestBase quest in subQuests)
+		{
+			quest.DestroyQuest();
+		}
+		base.DestroyQuest();
+	}
 }

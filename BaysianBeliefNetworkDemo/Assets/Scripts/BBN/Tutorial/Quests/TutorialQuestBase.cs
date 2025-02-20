@@ -33,4 +33,9 @@ public abstract class TutorialQuestBase : MonoBehaviour
     {
         return description;
     }
+
+    public virtual void DestroyQuest()
+    {
+        Destroy(this);
+    }
 }
