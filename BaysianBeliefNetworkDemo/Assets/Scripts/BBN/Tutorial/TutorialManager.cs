@@ -33,6 +33,7 @@ public class TutorialManager : MonoBehaviour
 
     private void StartTutorial()
     {
+        GameObject.Find("TimeLimit").SetActive(false);
         tutorialSteps[0].Initialize(this);
     }
 
