@@ -56,6 +56,7 @@ public class TutorialManager : MonoBehaviour
     
     public void EndTutorial()
     {
+        dropdownList.transform.parent.gameObject.SetActive(false);
         gameManager.PromptGameMode();
         tutorialSelectionWindow.SetActive(false);
         overlayCanvas.SetActive(false);
