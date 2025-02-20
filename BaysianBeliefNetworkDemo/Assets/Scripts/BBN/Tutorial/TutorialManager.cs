@@ -7,6 +7,7 @@ using System.Collections.Generic;
 
 public class TutorialManager : MonoBehaviour
 {
+    [SerializeField] private GameObject tutorialSelectionWindow;
     [SerializeField] private GameObject interactionBlocker;
     [SerializeField] private ObjectiveSpawner objectiveSpawner;
     [SerializeField] private DropdownList dropdownList;
@@ -27,13 +28,14 @@ public class TutorialManager : MonoBehaviour
     {
         if (debug) PlayerPrefs.SetInt("TutorialCompleted", 0);
         PlayerPrefs.Save();
-        if (PlayerPrefs.GetInt("TutorialCompleted", 0) == 0) StartTutorial();
+        if (PlayerPrefs.GetInt("TutorialCompleted", 0) == 0) tutorialSelectionWindow.SetActive(true);
         else EndTutorial();
     }
 
-    private void StartTutorial()
+    public void StartTutorial()
     {
         GameObject.Find("TimeLimit").SetActive(false);
+        tutorialSelectionWindow.SetActive(false);
         tutorialSteps[0].Initialize(this);
     }
 
@@ -50,9 +52,10 @@ public class TutorialManager : MonoBehaviour
         interactionBlocker.SetActive(block);
     }
     
-    private void EndTutorial()
+    public void EndTutorial()
     {
         gameManager.PromptGameMode();
+        tutorialSelectionWindow.SetActive(false);
         overlayCanvas.SetActive(false);
         PlayerPrefs.SetInt("TutorialCompleted", 1);
         PlayerPrefs.Save();
