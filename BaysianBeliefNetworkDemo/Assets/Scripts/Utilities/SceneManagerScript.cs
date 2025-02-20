@@ -34,7 +34,7 @@ public class SceneManagerScript : MonoBehaviour
 
     public AsyncOperation PreloadScene(string sceneName)
     {
-        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
         operation.allowSceneActivation = false;
         return operation;
     }

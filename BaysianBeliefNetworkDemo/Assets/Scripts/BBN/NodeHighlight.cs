@@ -122,6 +122,7 @@ public class NodeHighlight : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
                 Color lerpedColor = Color.Lerp(baseColor, pulseColor, t/generation);
                 foreach (MaskableGraphic element in elements)
                 {
+                    if (!element.gameObject.activeSelf) continue;
                     element.color = lerpedColor;
                 }
                 elapsedTime += Time.deltaTime;
