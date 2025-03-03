@@ -72640,7 +72640,7 @@ MonoBehaviour:
   messagePanel: {fileID: 2080983181}
   completionText: {fileID: 677672331}
   advanceButton: {fileID: 873177624}
-  debug: 1
+  debug: 0
 --- !u!4 &1320082883
 Transform:
   m_ObjectHideFlags: 0

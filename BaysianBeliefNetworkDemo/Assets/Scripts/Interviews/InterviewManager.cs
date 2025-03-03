@@ -24,14 +24,10 @@ public class InterviewManager : MonoBehaviour
     private InterviewUIManager uiManager;
     private bool lastEventAggression;
     private bool lastEventBelieved;
-    private bool hasSeason;
-    private int eventCount = 0;
     private HashSet<string> evidenceCollected = new HashSet<string>();
-    private int seasonIndex;
     private int stage=-1;
     private int numberOfStages = 5;
-    private int totalNumberOfQuestions = 5;
-    private int questionsSeen = 0;
+    private int questionsRemaining = 15;
 
     private void Start()
     {
@@ -63,8 +59,7 @@ public class InterviewManager : MonoBehaviour
             case 4:
                 float eventProbability = calculator.CalculateProbability(0.98f, 15, 3);
                 recorder.AddEntry(eventDrawer.GetEventEvidence(), eventProbability, lastEventBelieved, eventDrawer.GetAggression());
-                questionsSeen++;
-                if (questionsSeen == totalNumberOfQuestions) EndInterviews();
+                if (--questionsRemaining == 0) EndInterviews();
                 break;
             default:
                 break;
@@ -88,15 +83,9 @@ public class InterviewManager : MonoBehaviour
     private IEnumerator InstantiateManager()
     {
         yield return null;
-        graph = GameObject.Find("Graph").GetComponent<Graph>();
         Dictionary<string, int> eventIndices = graph.AssignIndices();
         calculator.Initialize(graph.GetRootNodes(), eventIndices, graph.gameObject.GetComponent<LikelihoodWeightingSampler>());
         recorder.LogAlienProbability(GetAlienProbability());
-    }
-
-    private int GetRandomIndex<T>(List<T> l)
-    {
-        return (int)Mathf.Round(Random.Range(0, l.Count - 0.51f));
     }
 
     

@@ -44,12 +44,6 @@ public class EventDrawer : MonoBehaviour
         manager = interviewManager;
         Graph graph = GameObject.Find("Graph").GetComponent<Graph>();
         Dictionary<string, int> eventIndices = graph.GetComponent<Graph>().AssignIndices();
-        // Build dictionary from event names to descriptions.
-        eventDictionary = new Dictionary<string, NodeDescriptions>();
-        for (int i = 0; i < eventNames.Count; i++)
-        {
-            eventDictionary[eventNames[i]] = descriptions[i];
-        }
         List<Node> nodes = graph.GetAllNodes();
         // Populate event-type lists
         AddToNodeTypeList(seasons, nodes[eventIndices["Winter"]], "Winter");
