@@ -45,6 +45,8 @@ public class EventDrawer : MonoBehaviour
         Graph graph = GameObject.Find("Graph").GetComponent<Graph>();
         Dictionary<string, int> eventIndices = graph.GetComponent<Graph>().AssignIndices();
         List<Node> nodes = graph.GetAllNodes();
+        eventDictionary = new Dictionary<string, NodeDescriptions>();
+        PopulateEventDictionary();
         // Populate event-type lists
         AddToNodeTypeList(seasons, nodes[eventIndices["Winter"]], "Winter");
         AddToNodeTypeList(seasons, nodes[eventIndices["Spring"]], "Spring");
@@ -63,12 +65,10 @@ public class EventDrawer : MonoBehaviour
         AddToNodeTypeList(animalBehavior, nodes[eventIndices["Cat"]], "Cat");
         nonSeasonEvents = new List<List<NodeDescriptions>> { weather, consequences, humanActivity, animalBehavior };
         seasonIndex = nonSeasonEvents.Count;
-        PopulateEventDictionary();
     }
 
     private void PopulateEventDictionary()
     {
-        eventDictionary = new Dictionary<string, NodeDescriptions>();
         for (int i = 0; i < eventNames.Count; i++)
         {
             eventDictionary[eventNames[i]] = descriptions[i];
