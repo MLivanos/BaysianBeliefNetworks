@@ -5,14 +5,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-[System.Serializable]
-public class NodeDescriptions
-{
-    public Node node;
-    public List<string> eventDescriptions;
-    public List<string> eventNegationDescriptions;
-}
-
 public class InterviewManager : MonoBehaviour
 {
     [SerializeField] private IntervieweeSpawner intervieweeSpawner;

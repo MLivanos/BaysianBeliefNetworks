@@ -2,6 +2,14 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+[System.Serializable]
+public class NodeDescriptions
+{
+    public Node node;
+    public List<string> eventDescriptions;
+    public List<string> eventNegationDescriptions;
+}
+
 /// <summary>
 /// Contains only the core event-drawing logic:
 /// - Drawing a random event type
@@ -99,8 +107,7 @@ public class EventDrawer : MonoBehaviour
     public List<NodeDescriptions> DrawRandomEventType(bool canBeSeason)
     {
         int index = (int)Mathf.Round(Random.Range(0, seasonIndex + 0.49f - (canBeSeason ? 0 : 1)));
-        if (index == seasonIndex)
-            return seasons;
+        if (index == seasonIndex) return seasons;
         return nonSeasonEvents[index];
     }
 
@@ -127,15 +134,36 @@ public class EventDrawer : MonoBehaviour
     public void DrawRandomEvents(int numberOfEvents)
     {
         ResetEventState();
+        DrawFromAllEvents();
+        TruncateTrailingComma();
+        AddAggressionDescription();
+    }
+
+    private void DrawFromAllEvents(int numberOfEvents, bool canBeSeason=true)
+    {
         while (eventCount < numberOfEvents)
         {
-            List<NodeDescriptions> eventType = DrawRandomEventType(true);
-            bool eventOccurs = (eventType == seasons) ? true : (Random.value > 0.5f);
+            List<NodeDescriptions> eventType = DrawRandomEventType(canBeSeason);
+            bool eventOccurs = Random.value > 0.5f;
+            if (eventType == seasons)
+            {
+                canBeSeason = false;
+                eventOccurs = true;
+            }
             (Node node, string description) = DrawRandomEvent(eventType, eventOccurs);
             AddEventToRawText(node, description, eventOccurs);
         }
-        TruncateTrailingComma();
-        AddAggressionDescription();
+    }
+
+    private void DrawSeason()
+    {
+        DrawRandomEvent(seasons, eventOccurs);
+    }
+
+    private void DrawSeasonAndExtra(int numberOfEvents)
+    {
+        DrawSeason();
+        DrawFromAllEvents(numberOfEvents-1);
     }
 
     private void TruncateTrailingComma()
