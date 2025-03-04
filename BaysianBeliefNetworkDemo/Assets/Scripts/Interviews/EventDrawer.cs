@@ -134,9 +134,14 @@ public class EventDrawer : MonoBehaviour
             (Node node, string description) = DrawRandomEvent(eventType, eventOccurs);
             AddEventToRawText(node, description, eventOccurs);
         }
-        if (rawEventEvidence.Length > 0)
-            rawEventEvidence = rawEventEvidence.Substring(0, rawEventEvidence.Length - 1); // Remove trailing comma.
+        TruncateTrailingComma();
         AddAggressionDescription();
+    }
+
+    private void TruncateTrailingComma()
+    {
+        if (rawEventEvidence.Length > 0)
+            rawEventEvidence = rawEventEvidence.Substring(0, rawEventEvidence.Length - 1);
     }
 
     private void AddEventToRawText(Node node, string description, bool eventOccurs)
