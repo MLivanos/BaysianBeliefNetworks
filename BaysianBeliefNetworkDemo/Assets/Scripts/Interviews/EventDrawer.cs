@@ -31,6 +31,7 @@ public class EventDrawer : MonoBehaviour
     private List<NodeDescriptions> consequences = new List<NodeDescriptions>();
     private List<NodeDescriptions> humanActivity = new List<NodeDescriptions>();
     private List<NodeDescriptions> animalBehavior = new List<NodeDescriptions>();
+    private List<NodeDescriptions> markovBlanket = new List<NodeDescriptions>();
     private List<List<NodeDescriptions>> nonSeasonEvents = new List<List<NodeDescriptions>>();
     private Dictionary<string, NodeDescriptions> eventDictionary;
     private InterviewManager manager;
@@ -71,6 +72,7 @@ public class EventDrawer : MonoBehaviour
         AddToNodeTypeList(humanActivity, nodes[eventIndices["Cafe"]], "Cafe");
         AddToNodeTypeList(animalBehavior, nodes[eventIndices["Dog"]], "Dog");
         AddToNodeTypeList(animalBehavior, nodes[eventIndices["Cat"]], "Cat");
+        PopulateMarkovBlanket();
         nonSeasonEvents = new List<List<NodeDescriptions>> { weather, consequences, humanActivity, animalBehavior };
         seasonIndex = nonSeasonEvents.Count;
     }
@@ -87,6 +89,14 @@ public class EventDrawer : MonoBehaviour
     {
         eventDictionary[eventName].node = node;
         list.Add(eventDictionary[eventName]);
+    }
+
+    private void PopulateMarkovBlanket()
+    {
+        markovBlanket.Add(eventDictionary["Cloudy"]);
+        markovBlanket.Add(eventDictionary["Busy"]);
+        markovBlanket.Add(eventDictionary["Dog"]);
+        markovBlanket.Add(eventDictionary["Thunder"]);
     }
 
     /// <summary>
@@ -134,7 +144,7 @@ public class EventDrawer : MonoBehaviour
     public void DrawRandomEvents(int numberOfEvents)
     {
         ResetEventState();
-        DrawFromAllEvents();
+        DrawFromAllEvents(numberOfEvents);
         TruncateTrailingComma();
         AddAggressionDescription();
     }
@@ -157,13 +167,29 @@ public class EventDrawer : MonoBehaviour
 
     private void DrawSeason()
     {
-        DrawRandomEvent(seasons, eventOccurs);
+        DrawRandomEvent(seasons, true);
     }
 
     private void DrawSeasonAndExtra(int numberOfEvents)
     {
         DrawSeason();
-        DrawFromAllEvents(numberOfEvents-1);
+        DrawFromAllEvents(numberOfEvents-1, false);
+    }
+
+    private void DrawRandomMarkovBlanket()
+    {
+        foreach(NodeDescriptions nodeDescription in markovBlanket)
+        {
+            bool eventOccurs = Random.value > 0.5f;
+            List<string> relevantList = eventOccurs ? nodeDescription.eventDescriptions : nodeDescription.eventNegationDescriptions;
+            AddEventToRawText(nodeDescription.node, relevantList[GetRandomIndex(relevantList)], eventOccurs);
+        }
+    }
+
+    private void DrawRandomMarkovBlanketAndExtra(int numberOfEvents)
+    {
+        DrawRandomMarkovBlanket();
+        DrawFromAllEvents(numberOfEvents - markovBlanket.Count);
     }
 
     private void TruncateTrailingComma()
