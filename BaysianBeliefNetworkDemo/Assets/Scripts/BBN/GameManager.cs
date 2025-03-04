@@ -66,6 +66,7 @@ public class GameManager : MonoBehaviour, ISceneDetectorTarget
             return;
         }
         timeLimit.SetMaxValue(difficultyTimes[gamemodeNumber]);
+        PlayerPrefs.SetInt("Difficulty", gamemodeNumber);
     }
 
     public bool CanSample()

@@ -7122,6 +7122,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
         type: 3}
+      propertyPath: questionsByDifficulty.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
       propertyPath: winterNodeDescriptions.eventDescriptions.Array.size
       value: 10
       objectReference: {fileID: 0}
@@ -8012,6 +8017,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
         type: 3}
+      propertyPath: questionsByDifficulty.Array.data[0].questionSequence.Array.size
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[1].questionSequence.Array.size
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[2].questionSequence.Array.size
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
       propertyPath: descriptions.Array.data[10].eventNegationDescriptions.Array.size
       value: 7
       objectReference: {fileID: 0}
@@ -8421,6 +8441,376 @@ PrefabInstance:
         type: 3}
       propertyPath: descriptions.Array.data[14].eventNegationDescriptions.Array.data[6]
       value: A sudden noise barely earned a glance before the cat resumes napping
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[0].questionSequence.Array.data[0].eventMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[0].questionSequence.Array.data[1].eventMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[0].questionSequence.Array.data[2].eventMode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[0].questionSequence.Array.data[3].eventMode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[0].questionSequence.Array.data[4].eventMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[0].questionSequence.Array.data[5].eventMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[0].questionSequence.Array.data[6].eventMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[0].questionSequence.Array.data[7].eventMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[1].questionSequence.Array.data[0].eventMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[1].questionSequence.Array.data[1].eventMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[1].questionSequence.Array.data[2].eventMode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[1].questionSequence.Array.data[3].eventMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[1].questionSequence.Array.data[4].eventMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[1].questionSequence.Array.data[5].eventMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[1].questionSequence.Array.data[6].eventMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[1].questionSequence.Array.data[7].eventMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[1].questionSequence.Array.data[8].eventMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[1].questionSequence.Array.data[9].eventMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[2].questionSequence.Array.data[0].eventMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[2].questionSequence.Array.data[1].eventMode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[2].questionSequence.Array.data[2].eventMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[2].questionSequence.Array.data[3].eventMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[2].questionSequence.Array.data[4].eventMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[2].questionSequence.Array.data[5].eventMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[2].questionSequence.Array.data[6].eventMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[2].questionSequence.Array.data[7].eventMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[2].questionSequence.Array.data[8].eventMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[0].questionSequence.Array.data[10].eventMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[0].questionSequence.Array.data[11].eventMode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[0].questionSequence.Array.data[12].eventMode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[0].questionSequence.Array.data[13].eventMode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[0].questionSequence.Array.data[14].eventMode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[1].questionSequence.Array.data[10].eventMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[1].questionSequence.Array.data[11].eventMode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[1].questionSequence.Array.data[12].eventMode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[1].questionSequence.Array.data[13].eventMode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[1].questionSequence.Array.data[14].eventMode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[2].questionSequence.Array.data[10].eventMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[2].questionSequence.Array.data[11].eventMode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[2].questionSequence.Array.data[12].eventMode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[2].questionSequence.Array.data[13].eventMode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[2].questionSequence.Array.data[14].eventMode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[0].questionSequence.Array.data[4].numberOfEvents
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[0].questionSequence.Array.data[5].numberOfEvents
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[0].questionSequence.Array.data[6].numberOfEvents
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[0].questionSequence.Array.data[7].numberOfEvents
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[0].questionSequence.Array.data[8].numberOfEvents
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[0].questionSequence.Array.data[9].numberOfEvents
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[1].questionSequence.Array.data[3].numberOfEvents
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[1].questionSequence.Array.data[4].numberOfEvents
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[1].questionSequence.Array.data[5].numberOfEvents
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[1].questionSequence.Array.data[6].numberOfEvents
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[1].questionSequence.Array.data[7].numberOfEvents
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[1].questionSequence.Array.data[8].numberOfEvents
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[1].questionSequence.Array.data[9].numberOfEvents
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[2].questionSequence.Array.data[2].numberOfEvents
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[2].questionSequence.Array.data[3].numberOfEvents
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[2].questionSequence.Array.data[4].numberOfEvents
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[2].questionSequence.Array.data[5].numberOfEvents
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[2].questionSequence.Array.data[6].numberOfEvents
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[2].questionSequence.Array.data[7].numberOfEvents
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[2].questionSequence.Array.data[8].numberOfEvents
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[2].questionSequence.Array.data[9].numberOfEvents
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[0].questionSequence.Array.data[10].numberOfEvents
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[0].questionSequence.Array.data[11].numberOfEvents
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[0].questionSequence.Array.data[13].numberOfEvents
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[0].questionSequence.Array.data[14].numberOfEvents
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[1].questionSequence.Array.data[10].numberOfEvents
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[1].questionSequence.Array.data[12].numberOfEvents
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[1].questionSequence.Array.data[13].numberOfEvents
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[1].questionSequence.Array.data[14].numberOfEvents
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[2].questionSequence.Array.data[10].numberOfEvents
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[2].questionSequence.Array.data[13].numberOfEvents
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      propertyPath: questionsByDifficulty.Array.data[2].questionSequence.Array.data[14].numberOfEvents
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

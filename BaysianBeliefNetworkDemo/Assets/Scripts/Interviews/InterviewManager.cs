@@ -15,24 +15,41 @@ public enum EventDrawMode
     MarkovBlanketPlusRandom
 }
 
+[System.Serializable]
+public class QuestionSequenceEntry
+{
+    public EventDrawMode eventMode;
+    public int numberOfEvents;
+}
+
+[System.Serializable]
+public class QuestionSequence
+{
+    public List<QuestionSequenceEntry> questionSequence;
+}
+
 public class InterviewManager : MonoBehaviour
 {
     [SerializeField] private IntervieweeSpawner intervieweeSpawner;
     [SerializeField] private TimestepManager timestepManager;
+    [SerializeField] private List<QuestionSequence> questionsByDifficulty;
     private InterviewCalculator calculator;
     private Recorder recorder;
     private EventDrawer eventDrawer;
     private Graph graph;
     private InterviewUIManager uiManager;
+    private List<QuestionSequenceEntry> questionSequence;
     private bool lastEventAggression;
     private bool lastEventBelieved;
     private HashSet<string> evidenceCollected = new HashSet<string>();
     private int stage=-1;
     private int numberOfStages = 5;
-    private int questionsRemaining = 15;
+    private int questionsRemaining;
 
     private void Start()
     {
+        questionSequence = questionsByDifficulty[PlayerPrefs.GetInt("Difficulty", 1)].questionSequence;
+        questionsRemaining = questionSequence.Count;
         GetComponents();
         StartCoroutine(InstantiateManager());
         Advance();
@@ -48,7 +65,8 @@ public class InterviewManager : MonoBehaviour
                 intervieweeSpawner.SpawnInterviewee();
                 break;
             case 1:
-                eventDrawer.DrawRandomEvents(0, EventDrawMode.SeasonOnly);
+                QuestionSequenceEntry question = questionSequence[questionSequence.Count - questionsRemaining];
+                eventDrawer.DrawRandomEvents(question.numberOfEvents, question.eventMode);
                 uiManager.DisplayEyewitnessAccount(eventDrawer.GetEventDescription());
                 uiManager.DisplayEvidence(eventDrawer.GetEventEvidence());
                 break;
