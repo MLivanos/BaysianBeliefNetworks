@@ -121,15 +121,12 @@ public class EventDrawer : MonoBehaviour
         return nonSeasonEvents[index];
     }
 
-    /// <summary>
-    /// Draws a random event from the provided event type list.
-    /// </summary>
-    public (Node, string) DrawRandomEvent(List<NodeDescriptions> eventType, bool occurs)
+    public void DrawRandomEvent(List<NodeDescriptions> eventType, bool occurs)
     {
         int index = GetRandomIndex(eventType);
         List<string> eventList = occurs ? eventType[index].eventDescriptions : eventType[index].eventNegationDescriptions;
         int stringIndex = GetRandomIndex(eventList);
-        return (eventType[index].node, eventList[stringIndex]);
+        AddEventToRawText(eventType[index].node, eventList[stringIndex], occurs);
     }
 
     private int GetRandomIndex<T>(List<T> list)
@@ -139,12 +136,35 @@ public class EventDrawer : MonoBehaviour
 
     /// <summary>
     /// Draws the specified number of random events and accumulates their descriptions and evidence.
-    /// (Note: InterviewManager will add greetings and additional narrative text.)
     /// </summary>
-    public void DrawRandomEvents(int numberOfEvents)
+    public void DrawRandomEvents(int numberOfEvents, EventDrawMode mode)
     {
         ResetEventState();
-        DrawFromAllEvents(numberOfEvents);
+        switch (mode)
+        {
+            case EventDrawMode.AllEvents:
+                DrawFromAllEvents(numberOfEvents);
+                break;
+            case EventDrawMode.SeasonOnly:
+                DrawSeason();
+                break;
+            case EventDrawMode.SeasonPlusRandom:
+                DrawSeasonAndExtra(numberOfEvents);
+                break;
+            case EventDrawMode.WeatherOnly:
+                DrawWeather();
+                break;
+            case EventDrawMode.MarkovBlanket:
+                DrawRandomMarkovBlanket();
+                break;
+            case EventDrawMode.MarkovBlanketPlusRandom:
+                DrawRandomMarkovBlanketAndExtra(numberOfEvents);
+                break;
+            default:
+                Debug.LogWarning("Warning: Default interviewee case encountered");
+                DrawFromAllEvents(numberOfEvents);
+                break;
+        }
         TruncateTrailingComma();
         AddAggressionDescription();
     }
@@ -160,8 +180,7 @@ public class EventDrawer : MonoBehaviour
                 canBeSeason = false;
                 eventOccurs = true;
             }
-            (Node node, string description) = DrawRandomEvent(eventType, eventOccurs);
-            AddEventToRawText(node, description, eventOccurs);
+            DrawRandomEvent(eventType, eventOccurs);
         }
     }
 
@@ -170,10 +189,15 @@ public class EventDrawer : MonoBehaviour
         DrawRandomEvent(seasons, true);
     }
 
-    private void DrawSeasonAndExtra(int numberOfEvents)
+    private void DrawWeather()
+    {
+        DrawRandomEvent(weather, Random.value > 0.5f);
+    }
+
+    private void DrawSeasonAndExtra(int numberOfExtraEvents)
     {
         DrawSeason();
-        DrawFromAllEvents(numberOfEvents-1, false);
+        DrawFromAllEvents(numberOfExtraEvents, false);
     }
 
     private void DrawRandomMarkovBlanket()
@@ -186,10 +210,10 @@ public class EventDrawer : MonoBehaviour
         }
     }
 
-    private void DrawRandomMarkovBlanketAndExtra(int numberOfEvents)
+    private void DrawRandomMarkovBlanketAndExtra(int numberOfExtraEvents)
     {
         DrawRandomMarkovBlanket();
-        DrawFromAllEvents(numberOfEvents - markovBlanket.Count);
+        DrawFromAllEvents(numberOfExtraEvents);
     }
 
     private void TruncateTrailingComma()

@@ -5,6 +5,16 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+public enum EventDrawMode
+{
+    AllEvents,
+    SeasonOnly,
+    SeasonPlusRandom,
+    WeatherOnly,
+    MarkovBlanket,
+    MarkovBlanketPlusRandom
+}
+
 public class InterviewManager : MonoBehaviour
 {
     [SerializeField] private IntervieweeSpawner intervieweeSpawner;
@@ -38,7 +48,7 @@ public class InterviewManager : MonoBehaviour
                 intervieweeSpawner.SpawnInterviewee();
                 break;
             case 1:
-                eventDrawer.DrawRandomEvents(2);
+                eventDrawer.DrawRandomEvents(0, EventDrawMode.SeasonOnly);
                 uiManager.DisplayEyewitnessAccount(eventDrawer.GetEventDescription());
                 uiManager.DisplayEvidence(eventDrawer.GetEventEvidence());
                 break;
