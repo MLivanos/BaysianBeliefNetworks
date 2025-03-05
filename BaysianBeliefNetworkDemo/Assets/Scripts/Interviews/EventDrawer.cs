@@ -35,6 +35,7 @@ public class EventDrawer : MonoBehaviour
     private List<List<NodeDescriptions>> nonSeasonEvents = new List<List<NodeDescriptions>>();
     private Dictionary<string, NodeDescriptions> eventDictionary;
     private InterviewManager manager;
+    private QuestionTracker questionRepo = new QuestionTracker(20);
 
     // Internal state for drawing events
     private bool eventAggression;
@@ -139,6 +140,18 @@ public class EventDrawer : MonoBehaviour
     /// </summary>
     public void DrawRandomEvents(int numberOfEvents, EventDrawMode mode)
     {
+        questionRepo.AskingNewQuestion();
+        while(!questionRepo.QuestionIsUnique())
+        {
+            AttemptUniqueQuestion(numberOfEvents, mode);
+            questionRepo.CheckQuestionUniqueness(rawEventEvidence);
+        }
+        TruncateTrailingComma();
+        AddAggressionDescription();
+    }
+
+    private void AttemptUniqueQuestion(int numberOfEvents, EventDrawMode mode)
+    {
         ResetEventState();
         switch (mode)
         {
@@ -165,8 +178,6 @@ public class EventDrawer : MonoBehaviour
                 DrawFromAllEvents(numberOfEvents);
                 break;
         }
-        TruncateTrailingComma();
-        AddAggressionDescription();
     }
 
     private void DrawFromAllEvents(int numberOfEvents, bool canBeSeason=true)
