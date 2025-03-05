@@ -41,7 +41,6 @@ public class InterviewManager : MonoBehaviour
     private List<QuestionSequenceEntry> questionSequence;
     private bool lastEventAggression;
     private bool lastEventBelieved;
-    private HashSet<string> evidenceCollected = new HashSet<string>();
     private int stage=-1;
     private int numberOfStages = 5;
     private int questionsRemaining;
@@ -78,6 +77,7 @@ public class InterviewManager : MonoBehaviour
                 break;
             case 4:
                 float eventProbability = calculator.CalculateProbability(0.98f, 15, 3);
+                Debug.Log(eventProbability);
                 recorder.AddEntry(eventDrawer.GetEventEvidence(), eventProbability, lastEventBelieved, eventDrawer.GetAggression());
                 if (--questionsRemaining == 0) EndInterviews();
                 break;
@@ -108,17 +108,9 @@ public class InterviewManager : MonoBehaviour
         recorder.LogAlienProbability(GetAlienProbability());
     }
 
-    
-    private void ResetEventState()
-    {
-        calculator.Reset();
-        eventDrawer.ResetEventState();
-        evidenceCollected.Clear();
-    }
-
     private float GetAlienProbability()
     {
-        ResetEventState();
+        calculator.Reset();
         return calculator.CalculateProbability(0.995f, 50, 5, 2.576f);
     }
 
@@ -131,5 +123,18 @@ public class InterviewManager : MonoBehaviour
     {
         recorder.DetermineBehavior(0.33f);
         recorder.StoreEndGameState();
+    }
+
+    public void ClearCalculator()
+    {
+        calculator.Reset();
+    }
+
+    private void AddNodesToCalculator()
+    {
+        foreach(var (node, eventOccurs) in eventDrawer.DrawnNodes)
+        {
+            calculator.AddToEvidence(node, eventOccurs);
+        }
     }
 }

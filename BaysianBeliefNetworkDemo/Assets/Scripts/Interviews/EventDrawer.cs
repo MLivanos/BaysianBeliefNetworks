@@ -38,6 +38,7 @@ public class EventDrawer : MonoBehaviour
     private QuestionTracker questionRepo = new QuestionTracker(20);
 
     // Internal state for drawing events
+    public List<(Node node, bool occurs)> DrawnNodes { get; private set; } = new List<(Node, bool)>();
     private bool eventAggression;
     private int seasonIndex;
     private int eventCount = 0;
@@ -46,8 +47,7 @@ public class EventDrawer : MonoBehaviour
     private string rawEventEvidence = "";
 
     /// <summary>
-    /// Initializes the event drawer by building the event dictionary and populating
-    /// the lists of events. The serialized event data (names and descriptions) come from IM.
+    /// Initializes the event drawer by building the event dictionary and populating the lists of events.
     /// </summary>
     public void Initialize(InterviewManager interviewManager)
     {
@@ -100,21 +100,17 @@ public class EventDrawer : MonoBehaviour
         markovBlanket.Add(eventDictionary["Thunder"]);
     }
 
-    /// <summary>
-    /// Resets the internal state for drawing events.
-    /// </summary>
     public void ResetEventState()
     {
         eventCount = 0;
         evidenceCollected.Clear();
+        DrawnNodes.Clear();
+        manager.ClearCalculator();
         rawEventDescription = "";
         rawEventEvidence = "";
         rawEventDescription += greetings[GetRandomIndex(greetings)] + "\n";
     }
 
-    /// <summary>
-    /// Chooses a random event type list based on whether a season event is allowed.
-    /// </summary>
     public List<NodeDescriptions> DrawRandomEventType(bool canBeSeason)
     {
         int index = (int)Mathf.Round(Random.Range(0, seasonIndex + 0.49f - (canBeSeason ? 0 : 1)));
@@ -237,6 +233,7 @@ public class EventDrawer : MonoBehaviour
     {
         if (evidenceCollected.Contains(node.GetName()))
             return;
+        DrawnNodes.Add((node,eventOccurs));
         rawEventDescription += description + "\n";
         evidenceCollected.Add(node.GetName());
         rawEventEvidence += (eventOccurs ? "" : "¬") + node.GetAbriviation() + ",";
