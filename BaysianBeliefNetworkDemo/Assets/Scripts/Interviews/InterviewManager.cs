@@ -76,7 +76,8 @@ public class InterviewManager : MonoBehaviour
                 timestepManager.Step();
                 break;
             case 4:
-                float eventProbability = calculator.CalculateProbability(0.98f, 15, 3);
+                AddNodesToCalculator();
+                float eventProbability = calculator.CalculateProbability(0.99f, 20, 10, 2.576f);
                 Debug.Log(eventProbability);
                 recorder.AddEntry(eventDrawer.GetEventEvidence(), eventProbability, lastEventBelieved, eventDrawer.GetAggression());
                 if (--questionsRemaining == 0) EndInterviews();
@@ -105,13 +106,15 @@ public class InterviewManager : MonoBehaviour
         yield return null;
         Dictionary<string, int> eventIndices = graph.AssignIndices();
         calculator.Initialize(graph.GetRootNodes(), eventIndices, graph.gameObject.GetComponent<LikelihoodWeightingSampler>());
-        recorder.LogAlienProbability(GetAlienProbability());
+        float alienProbability = GetAlienProbability();
+        Debug.Log(alienProbability);
+        recorder.LogAlienProbability(alienProbability);
     }
 
     private float GetAlienProbability()
     {
         calculator.Reset();
-        return calculator.CalculateProbability(0.995f, 50, 5, 2.576f);
+        return calculator.CalculateProbability(0.995f, 50, 10, 2.576f);
     }
 
     public void SetBelief(bool belief)
