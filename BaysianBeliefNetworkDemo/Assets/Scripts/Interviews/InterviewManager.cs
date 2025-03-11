@@ -5,52 +5,52 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-[System.Serializable]
-public class NodeDescriptions
+public enum EventDrawMode
 {
-    public Node node;
-    public List<string> eventDescriptions;
-    public List<string> eventNegationDescriptions;
+    AllEvents,
+    SeasonOnly,
+    SeasonPlusRandom,
+    WeatherOnly,
+    MarkovBlanket,
+    MarkovBlanketPlusRandom
+}
+
+[System.Serializable]
+public class QuestionSequenceEntry
+{
+    public EventDrawMode eventMode;
+    public int numberOfEvents;
+}
+
+[System.Serializable]
+public class QuestionSequence
+{
+    public List<QuestionSequenceEntry> questionSequence;
 }
 
 public class InterviewManager : MonoBehaviour
 {
     [SerializeField] private IntervieweeSpawner intervieweeSpawner;
     [SerializeField] private TimestepManager timestepManager;
-    [SerializeField] private List<string> greetings;
-    [SerializeField] private List<string> eventNames;
-    [SerializeField] private List<NodeDescriptions> descriptions;
-    [SerializeField] private List<string> friendlyDescriptions;
-    [SerializeField] private List<string> aggressiveDescriptions;
-    [SerializeField] private float friendlyBias;
+    [SerializeField] private List<QuestionSequence> questionsByDifficulty;
     private InterviewCalculator calculator;
     private Recorder recorder;
-    private Dictionary<string, NodeDescriptions> eventDictionary;
-    private List<NodeDescriptions> seasons = new List<NodeDescriptions>();
-    private List<NodeDescriptions> weather = new List<NodeDescriptions>();
-    private List<NodeDescriptions> consequences = new List<NodeDescriptions>();
-    private List<NodeDescriptions> humanActivity = new List<NodeDescriptions>();
-    private List<NodeDescriptions> animalBehavior = new List<NodeDescriptions>();
-    private List<List<NodeDescriptions>> nonSeasonEvents = new List<List<NodeDescriptions>>();
+    private EventDrawer eventDrawer;
     private Graph graph;
     private InterviewUIManager uiManager;
-    private string lastEventDescription = "";
-    private string lastEventEvidence = "";
+    private List<QuestionSequenceEntry> questionSequence;
     private bool lastEventAggression;
     private bool lastEventBelieved;
-    private bool hasSeason;
-    private int eventCount = 0;
-    private HashSet<string> evidenceCollected = new HashSet<string>();
-    private int seasonIndex;
     private int stage=-1;
     private int numberOfStages = 5;
-    private int totalNumberOfQuestions = 5;
-    private int questionsSeen = 0;
+    private int questionsRemaining;
+    private int adaptiveDifficultyBonus = 0;
 
     private void Start()
     {
+        questionSequence = questionsByDifficulty[PlayerPrefs.GetInt("Difficulty", 1)].questionSequence;
+        questionsRemaining = questionSequence.Count;
         GetComponents();
-        PopulateEventDictionary();
         StartCoroutine(InstantiateManager());
         Advance();
     }
@@ -65,9 +65,12 @@ public class InterviewManager : MonoBehaviour
                 intervieweeSpawner.SpawnInterviewee();
                 break;
             case 1:
-                DrawRandomEvents(2);
-                uiManager.DisplayEyewitnessAccount(lastEventDescription);
-                uiManager.DisplayEvidence(lastEventEvidence);
+                SetAdaptiveDifficulty(recorder.PlayerAccuracy());
+                QuestionSequenceEntry question = questionSequence[questionSequence.Count - questionsRemaining];
+                int numberOfEvents = (int)Mathf.Max(question.numberOfEvents + adaptiveDifficultyBonus, 1f);
+                eventDrawer.DrawRandomEvents(numberOfEvents, question.eventMode);
+                uiManager.DisplayEyewitnessAccount(eventDrawer.GetEventDescription());
+                uiManager.DisplayEvidence(eventDrawer.GetEventEvidence());
                 break;
             case 2:
                 intervieweeSpawner.DespawnInterviewee();
@@ -76,10 +79,10 @@ public class InterviewManager : MonoBehaviour
                 timestepManager.Step();
                 break;
             case 4:
-                float eventProbability = calculator.CalculateProbability(0.98f, 15, 3);
-                recorder.AddEntry(lastEventEvidence, eventProbability, lastEventBelieved, lastEventAggression);
-                questionsSeen++;
-                if (questionsSeen == totalNumberOfQuestions) EndInterviews();
+                AddNodesToCalculator();
+                float eventProbability = calculator.CalculateProbability(0.99f, 20, 10, 2.576f);
+                recorder.AddEntry(eventDrawer.GetEventEvidence(), eventProbability, lastEventBelieved, eventDrawer.GetAggression());
+                if (--questionsRemaining == 0) EndInterviews();
                 break;
             default:
                 break;
@@ -92,143 +95,27 @@ public class InterviewManager : MonoBehaviour
         calculator = GetComponent<InterviewCalculator>();
         recorder = GetComponent<Recorder>();
         uiManager = GetComponent<InterviewUIManager>();
+        eventDrawer = GetComponent<EventDrawer>();
         intervieweeSpawner.Initialize(this);
         recorder.Initialize(this);
         timestepManager.Initialize(this);
         uiManager.Initialize(this);
-    }
-
-    private void PopulateEventDictionary()
-    {
-        eventDictionary = new Dictionary<string, NodeDescriptions>();
-        for (int i = 0; i < eventNames.Count; i++)
-        {
-            eventDictionary[eventNames[i]] = descriptions[i];
-        }
+        eventDrawer.Initialize(this);
     }
 
     private IEnumerator InstantiateManager()
     {
         yield return null;
-        Dictionary<string, int> eventIndices = graph.GetComponent<Graph>().AssignIndices();
-        List<Node> nodes = GameObject.Find("Graph").GetComponent<Graph>().GetAllNodes();
-        AddToNodeTypeList(seasons, nodes[eventIndices["Winter"]], "Winter");
-        AddToNodeTypeList(seasons, nodes[eventIndices["Spring"]], "Spring");
-        AddToNodeTypeList(seasons, nodes[eventIndices["Summer"]], "Summer");
-        AddToNodeTypeList(seasons, nodes[eventIndices["Fall"]], "Fall");
-        AddToNodeTypeList(weather, nodes[eventIndices["APD"]], "APD");
-        AddToNodeTypeList(weather, nodes[eventIndices["Wind"]], "Wind");
-        AddToNodeTypeList(weather, nodes[eventIndices["Rain"]], "Rain");
-        AddToNodeTypeList(weather, nodes[eventIndices["Cloudy"]], "Cloudy");
-        AddToNodeTypeList(weather, nodes[eventIndices["Thunder"]], "Thunder");
-        AddToNodeTypeList(consequences, nodes[eventIndices["Power"]], "Power");
-        AddToNodeTypeList(consequences, nodes[eventIndices["Tree"]], "Tree");
-        AddToNodeTypeList(humanActivity, nodes[eventIndices["Busy"]], "Busy");
-        AddToNodeTypeList(humanActivity, nodes[eventIndices["Cafe"]], "Cafe");
-        AddToNodeTypeList(animalBehavior, nodes[eventIndices["Dog"]], "Dog");
-        AddToNodeTypeList(animalBehavior, nodes[eventIndices["Cat"]], "Cat");
-        nonSeasonEvents = new List<List<NodeDescriptions>> {weather, consequences, humanActivity, animalBehavior};
-        seasonIndex = nonSeasonEvents.Count;
+        Dictionary<string, int> eventIndices = graph.AssignIndices();
         calculator.Initialize(graph.GetRootNodes(), eventIndices, graph.gameObject.GetComponent<LikelihoodWeightingSampler>());
-        recorder.LogAlienProbability(GetAlienProbability());
-    }
-
-    private void AddToNodeTypeList(List<NodeDescriptions> list, Node node, string eventName)
-    {
-        eventDictionary[eventName].node = node;
-        list.Add(eventDictionary[eventName]);
-    }
-
-    private List<NodeDescriptions> DrawRandomEventType(bool canBeSeason)
-    {
-        int index = (int)Mathf.Round(Random.Range(0, seasonIndex + 0.49f - (canBeSeason ? 0 : 1)));
-        if (index == seasonIndex) return seasons;
-        return nonSeasonEvents[index];
-    }
-
-    private (Node, string) DrawRandomEvent(List<NodeDescriptions> eventType, bool occurs)
-    {
-        int index = GetRandomIndex(eventType);
-        List<string> eventList = occurs ? eventType[index].eventDescriptions : eventType[index].eventNegationDescriptions; 
-        int stringIndex = GetRandomIndex(eventList);
-        return (eventType[index].node, eventList[stringIndex]);
-    }
-
-    private int GetRandomIndex<T>(List<T> l)
-    {
-        return (int)Mathf.Round(Random.Range(0, l.Count - 0.51f));
-    }
-
-    private void DrawRandomEvents(int numberOfEvents)
-    {
-        ResetEventState();
-        AppendGreeting();
-        GenerateRandomEvents(numberOfEvents);
-        AddAggressionDescription();
-    }
-
-    private void ResetEventState()
-    {
-        calculator.Reset();
-        hasSeason = false;
-        eventCount = 0;
-        evidenceCollected.Clear();
-        lastEventDescription = string.Empty;
-        lastEventEvidence = string.Empty;
-    }
-
-    private void AppendGreeting()
-    {
-        lastEventDescription += greetings[GetRandomIndex(greetings)] + "\n";
-    }
-
-    private void GenerateRandomEvents(int numberOfEvents)
-    {
-        while (eventCount < numberOfEvents)
-        {
-            List<NodeDescriptions> eventType = DrawRandomEventType(!hasSeason);
-            bool eventOccurs = DetermineIfEventOccurs(eventType);
-
-            (Node node, string description) = DrawRandomEvent(eventType, eventOccurs);
-            AddEventToDescription(node, description, eventOccurs);
-        }
-        lastEventEvidence = lastEventEvidence.Substring(0, lastEventEvidence.Length-1);
-    }
-
-    private bool DetermineIfEventOccurs(List<NodeDescriptions> eventType)
-    {
-        if (eventType == seasons)
-        {
-            hasSeason = true;
-            return true;
-        }
-        return Random.value > 0.5f;
-    }
-
-    private void AddEventToDescription(Node node, string description, bool eventOccurs)
-    {
-        if (evidenceCollected.Contains(node.GetName())) return;
-
-        lastEventDescription += description + "\n";
-        evidenceCollected.Add(node.GetName());
-
-        calculator.AddToEvidence(node, eventOccurs);
-        lastEventEvidence += eventOccurs ? "" : "¬";
-        lastEventEvidence += node.GetAbriviation() + ",";
-        eventCount++;
-    }
-
-    private void AddAggressionDescription()
-    {
-        lastEventAggression = Random.value > friendlyBias;
-        List<string> relevantList = lastEventAggression ? aggressiveDescriptions : friendlyDescriptions;
-        lastEventDescription += relevantList[GetRandomIndex(relevantList)];
+        float alienProbability = GetAlienProbability();
+        recorder.LogAlienProbability(alienProbability);
     }
 
     private float GetAlienProbability()
     {
-        ResetEventState();
-        return calculator.CalculateProbability(0.995f, 50, 5, 2.576f);
+        calculator.Reset();
+        return calculator.CalculateProbability(0.995f, 50, 10, 2.576f);
     }
 
     public void SetBelief(bool belief)
@@ -240,5 +127,36 @@ public class InterviewManager : MonoBehaviour
     {
         recorder.DetermineBehavior(0.33f);
         recorder.StoreEndGameState();
+        GetComponent<SceneManagerScript>().GoToEndGame();
+    }
+
+    public void ClearCalculator()
+    {
+        calculator.Reset();
+    }
+
+    private void AddNodesToCalculator()
+    {
+        foreach(var (node, eventOccurs) in eventDrawer.DrawnNodes)
+        {
+            calculator.AddToEvidence(node, eventOccurs);
+        }
+    }
+
+    private void SetAdaptiveDifficulty(float playerAccuracy)
+    {
+        adaptiveDifficultyBonus = Mathf.Max(Mathf.Min(GetAdaptiveDifficulty(playerAccuracy),adaptiveDifficultyBonus+1),adaptiveDifficultyBonus-1); 
+    }
+
+    private int GetAdaptiveDifficulty(float playerAccuracy)
+    {
+        if (questionSequence.Count - questionsRemaining >= 4)
+        {
+            if (playerAccuracy > 0.99f) return 2;
+            else if (playerAccuracy >= 0.8f) return 1;
+            else if (playerAccuracy < 0.4f) return -1;
+            else if (playerAccuracy < 0.2f) return -2;
+        }
+        return 0;
     }
 }

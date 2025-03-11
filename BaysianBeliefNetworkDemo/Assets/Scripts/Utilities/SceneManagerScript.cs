@@ -32,6 +32,11 @@ public class SceneManagerScript : MonoBehaviour
         SceneManager.LoadScene("Interviews", LoadSceneMode.Single);
     }
 
+    public void GoToEndGame()
+    {
+        SceneManager.LoadScene("EndGame");
+    }
+
     public AsyncOperation PreloadScene(string sceneName)
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);

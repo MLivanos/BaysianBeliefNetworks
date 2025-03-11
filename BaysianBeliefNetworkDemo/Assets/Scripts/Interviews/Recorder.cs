@@ -25,6 +25,7 @@ public class Recorder : InterviewEventSystem
 {
     private List<RecorderEntry> entries = new List<RecorderEntry>();
     private float alienProbability;
+    private float questionsCorrect = 0f;
     private bool aliensReal;
     private bool aliensAggressive;
     private bool playerBelieves;
@@ -40,6 +41,7 @@ public class Recorder : InterviewEventSystem
     {
         RecorderEntry entry = new RecorderEntry(evidence, probability, probability >= alienProbability, response, aggressivity);
         entries.Add(entry);
+        if (response == (probability >= alienProbability)) questionsCorrect += 1;
         interviewManager.Advance();
     }
 
@@ -109,4 +111,6 @@ public class Recorder : InterviewEventSystem
         endState.predictedReal = playerBelieves;
         endState.predictedAggressive = playerBelievesAggressive;
     }
+
+    public float PlayerAccuracy()=>questionsCorrect/entries.Count;
 }

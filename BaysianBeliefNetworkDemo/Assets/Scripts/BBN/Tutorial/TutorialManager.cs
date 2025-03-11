@@ -62,6 +62,7 @@ public class TutorialManager : MonoBehaviour
         overlayCanvas.SetActive(false);
         PlayerPrefs.SetInt("TutorialCompleted", 1);
         PlayerPrefs.Save();
+        interactionBlocker.SetActive(false);
         gameObject.SetActive(false);
     }
 
