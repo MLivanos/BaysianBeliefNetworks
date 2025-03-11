@@ -131,6 +131,7 @@ public class InterviewManager : MonoBehaviour
     {
         recorder.DetermineBehavior(0.33f);
         recorder.StoreEndGameState();
+        GetComponent<SceneManagerScript>().GoToEndGame();
     }
 
     public void ClearCalculator()
@@ -148,14 +149,18 @@ public class InterviewManager : MonoBehaviour
 
     private void SetAdaptiveDifficulty(float playerAccuracy)
     {
+        adaptiveDifficultyBonus = Mathf.Max(Mathf.Min(GetAdaptiveDifficulty(playerAccuracy),adaptiveDifficultyBonus+1),adaptiveDifficultyBonus-1); 
+    }
+
+    private int GetAdaptiveDifficulty(float playerAccuracy)
+    {
         if (questionSequence.Count - questionsRemaining >= 4)
         {
-            if (playerAccuracy > 0.99f) adaptiveDifficultyBonus = 2;
-            else if (playerAccuracy >= 0.8f) adaptiveDifficultyBonus = 1;
-            else if (playerAccuracy < 0.4f) adaptiveDifficultyBonus = -1;
-            else if (playerAccuracy < 0.2f) adaptiveDifficultyBonus = -2;
-            else adaptiveDifficultyBonus = 0;
+            if (playerAccuracy > 0.99f) return 2;
+            else if (playerAccuracy >= 0.8f) return 1;
+            else if (playerAccuracy < 0.4f) return -1;
+            else if (playerAccuracy < 0.2f) return -2;
         }
-        else adaptiveDifficultyBonus = 0;
+        return 0;
     }
 }
