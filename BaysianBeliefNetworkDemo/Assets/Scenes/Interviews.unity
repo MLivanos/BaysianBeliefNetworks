@@ -8832,6 +8832,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1086258973}
+    - targetCorrespondingSourceObject: {fileID: 6572116375759035472, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1086258974}
   m_SourcePrefab: {fileID: 100100000, guid: dcfb0bdf3c88d4d33aa91993c7372f1a, type: 3}
 --- !u!1 &1086258969 stripped
 GameObject:
@@ -9224,6 +9228,18 @@ MonoBehaviour:
   - The aliens hit my car with their spaceship and didn't leave a note!
   - The aliens zapped my car with a shrink ray!
   friendlyBias: 0.65
+--- !u!114 &1086258974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1086258969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa49e5cf2784d409fa17dd08c146fea8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1091864831
 GameObject:
   m_ObjectHideFlags: 0
