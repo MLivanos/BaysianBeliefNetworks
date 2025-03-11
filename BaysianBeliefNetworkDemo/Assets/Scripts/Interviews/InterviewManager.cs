@@ -44,6 +44,7 @@ public class InterviewManager : MonoBehaviour
     private int stage=-1;
     private int numberOfStages = 5;
     private int questionsRemaining;
+    private int adaptiveDifficultyBonus = 0;
 
     private void Start()
     {
@@ -64,8 +65,12 @@ public class InterviewManager : MonoBehaviour
                 intervieweeSpawner.SpawnInterviewee();
                 break;
             case 1:
+                SetAdaptiveDifficulty(recorder.PlayerAccuracy());
+                Debug.Log(recorder.PlayerAccuracy());
+                Debug.Log(adaptiveDifficultyBonus);
                 QuestionSequenceEntry question = questionSequence[questionSequence.Count - questionsRemaining];
-                eventDrawer.DrawRandomEvents(question.numberOfEvents, question.eventMode);
+                int numberOfEvents = (int)Mathf.Max(question.numberOfEvents + adaptiveDifficultyBonus, 1f);
+                eventDrawer.DrawRandomEvents(numberOfEvents, question.eventMode);
                 uiManager.DisplayEyewitnessAccount(eventDrawer.GetEventDescription());
                 uiManager.DisplayEvidence(eventDrawer.GetEventEvidence());
                 break;
@@ -139,5 +144,18 @@ public class InterviewManager : MonoBehaviour
         {
             calculator.AddToEvidence(node, eventOccurs);
         }
+    }
+
+    private void SetAdaptiveDifficulty(float playerAccuracy)
+    {
+        if (questionSequence.Count - questionsRemaining >= 4)
+        {
+            if (playerAccuracy > 0.99f) adaptiveDifficultyBonus = 2;
+            else if (playerAccuracy >= 0.8f) adaptiveDifficultyBonus = 1;
+            else if (playerAccuracy < 0.4f) adaptiveDifficultyBonus = -1;
+            else if (playerAccuracy < 0.2f) adaptiveDifficultyBonus = -2;
+            else adaptiveDifficultyBonus = 0;
+        }
+        else adaptiveDifficultyBonus = 0;
     }
 }
