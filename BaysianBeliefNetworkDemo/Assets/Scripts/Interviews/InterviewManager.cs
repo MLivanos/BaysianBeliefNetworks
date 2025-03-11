@@ -66,8 +66,6 @@ public class InterviewManager : MonoBehaviour
                 break;
             case 1:
                 SetAdaptiveDifficulty(recorder.PlayerAccuracy());
-                Debug.Log(recorder.PlayerAccuracy());
-                Debug.Log(adaptiveDifficultyBonus);
                 QuestionSequenceEntry question = questionSequence[questionSequence.Count - questionsRemaining];
                 int numberOfEvents = (int)Mathf.Max(question.numberOfEvents + adaptiveDifficultyBonus, 1f);
                 eventDrawer.DrawRandomEvents(numberOfEvents, question.eventMode);
@@ -83,7 +81,6 @@ public class InterviewManager : MonoBehaviour
             case 4:
                 AddNodesToCalculator();
                 float eventProbability = calculator.CalculateProbability(0.99f, 20, 10, 2.576f);
-                Debug.Log(eventProbability);
                 recorder.AddEntry(eventDrawer.GetEventEvidence(), eventProbability, lastEventBelieved, eventDrawer.GetAggression());
                 if (--questionsRemaining == 0) EndInterviews();
                 break;
@@ -112,7 +109,6 @@ public class InterviewManager : MonoBehaviour
         Dictionary<string, int> eventIndices = graph.AssignIndices();
         calculator.Initialize(graph.GetRootNodes(), eventIndices, graph.gameObject.GetComponent<LikelihoodWeightingSampler>());
         float alienProbability = GetAlienProbability();
-        Debug.Log(alienProbability);
         recorder.LogAlienProbability(alienProbability);
     }
 
