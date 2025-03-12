@@ -2790,6 +2790,7 @@ GameObject:
   - component: {fileID: 1031833638}
   - component: {fileID: 1031833637}
   - component: {fileID: 1031833639}
+  - component: {fileID: 1031833640}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -2926,6 +2927,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feaff57a091ee4aee819d23981aa882d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1031833640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031833635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c2ef23dd8d684d449fa42074cc76d1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  glowSpeed: 1
+  glowIntensity: 0.4
+  minAlpha: 0.6
 --- !u!1 &1053054103
 GameObject:
   m_ObjectHideFlags: 0
@@ -3772,6 +3788,7 @@ MonoBehaviour:
   - {fileID: 1904185641}
   - {fileID: 1896576896}
   titleFadeInTime: 0.75
+  titleGlow: {fileID: 1031833640}
   targetPosition: {x: -32, y: 110, z: -1110}
   moveDuration: 10
   rotationSpeed: -30

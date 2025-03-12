@@ -7,6 +7,8 @@ public class TitleUFOBehavior : MonoBehaviour
 
     public FadableTextMeshPro[] titleFadeInText;
     public float titleFadeInTime;
+    public TextGlow titleGlow;
+    public bool shouldGlowTitle;
 
     [Header("Movement Settings")]
 
@@ -60,6 +62,7 @@ public class TitleUFOBehavior : MonoBehaviour
     IEnumerator StartBehavior()
     {
         yield return StartCoroutine(FadeInTitle());
+        if (shouldGlowTitle) titleGlow.StartGlow();
         yield return StartCoroutine(MoveTowardsLocation(targetPosition, ufoTransform.lossyScale, moveDuration));
         yield return StartCoroutine(UFOMotions());
         yield return StartCoroutine(MoveTowardsLocation(planetLocation, minimumScale, toPlanetMotionDuration));
