@@ -2789,6 +2789,7 @@ GameObject:
   - component: {fileID: 1031833636}
   - component: {fileID: 1031833638}
   - component: {fileID: 1031833637}
+  - component: {fileID: 1031833639}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -2913,6 +2914,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1031833635}
   m_CullTransparentMesh: 1
+--- !u!114 &1031833639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031833635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feaff57a091ee4aee819d23981aa882d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1053054103
 GameObject:
   m_ObjectHideFlags: 0
@@ -3031,7 +3044,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4788365117500998, guid: 1628ff674f2ac4e45b41e507b5150cbb, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9743701
+      value: 0.89493436
       objectReference: {fileID: 0}
     - target: {fileID: 4788365117500998, guid: 1628ff674f2ac4e45b41e507b5150cbb, type: 3}
       propertyPath: m_LocalRotation.x
@@ -3039,7 +3052,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4788365117500998, guid: 1628ff674f2ac4e45b41e507b5150cbb, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.22495107
+      value: -0.44619772
       objectReference: {fileID: 0}
     - target: {fileID: 4788365117500998, guid: 1628ff674f2ac4e45b41e507b5150cbb, type: 3}
       propertyPath: m_LocalRotation.z
@@ -3051,7 +3064,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4788365117500998, guid: 1628ff674f2ac4e45b41e507b5150cbb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -26
+      value: -53
       objectReference: {fileID: 0}
     - target: {fileID: 4788365117500998, guid: 1628ff674f2ac4e45b41e507b5150cbb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -3754,6 +3767,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc8d61c4c25af4937872a972e861e294, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  titleFadeInText:
+  - {fileID: 1031833639}
+  - {fileID: 1904185641}
+  - {fileID: 1896576896}
+  titleFadeInTime: 0.75
   targetPosition: {x: -32, y: 110, z: -1110}
   moveDuration: 10
   rotationSpeed: -30
@@ -4804,6 +4822,7 @@ GameObject:
   - component: {fileID: 1896576893}
   - component: {fileID: 1896576895}
   - component: {fileID: 1896576894}
+  - component: {fileID: 1896576896}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -4928,6 +4947,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1896576892}
   m_CullTransparentMesh: 1
+--- !u!114 &1896576896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1896576892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feaff57a091ee4aee819d23981aa882d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1904185637
 GameObject:
   m_ObjectHideFlags: 0
@@ -4939,6 +4970,7 @@ GameObject:
   - component: {fileID: 1904185638}
   - component: {fileID: 1904185640}
   - component: {fileID: 1904185639}
+  - component: {fileID: 1904185641}
   m_Layer: 5
   m_Name: Subtitle
   m_TagString: Untagged
@@ -5065,6 +5097,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1904185637}
   m_CullTransparentMesh: 1
+--- !u!114 &1904185641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1904185637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feaff57a091ee4aee819d23981aa882d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1922491478
 PrefabInstance:
   m_ObjectHideFlags: 0

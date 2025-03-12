@@ -3,6 +3,11 @@ using System.Collections;
 
 public class TitleUFOBehavior : MonoBehaviour
 {
+    [Header("Title Settings")]
+
+    public FadableTextMeshPro[] titleFadeInText;
+    public float titleFadeInTime;
+
     [Header("Movement Settings")]
 
     [Tooltip("Target position where the UFO will settle.")]
@@ -41,10 +46,8 @@ public class TitleUFOBehavior : MonoBehaviour
     void Start()
     {
         backgroundFadableImage.SetAlpha(0f);
-        if (landingEffect != null)
-        {
-            landingEffect.Stop();
-        }
+        foreach(FadableTextMeshPro element in titleFadeInText) element.SetAlpha(0f);
+        if (landingEffect != null) landingEffect.Stop();
         initialPosition = targetPosition;
         StartCoroutine(StartBehavior());
     }
@@ -56,12 +59,22 @@ public class TitleUFOBehavior : MonoBehaviour
 
     IEnumerator StartBehavior()
     {
+        yield return StartCoroutine(FadeInTitle());
         yield return StartCoroutine(MoveTowardsLocation(targetPosition, ufoTransform.lossyScale, moveDuration));
         yield return StartCoroutine(UFOMotions());
         yield return StartCoroutine(MoveTowardsLocation(planetLocation, minimumScale, toPlanetMotionDuration));
         yield return PlayLight();
         yield return new WaitForSeconds(2f);
         yield return StartCoroutine(FadeInImage());
+    }
+
+    IEnumerator FadeInTitle()
+    {
+        foreach(FadableTextMeshPro element in titleFadeInText)
+        {
+            element.FadeIn(titleFadeInTime);
+            yield return new WaitForSeconds(titleFadeInTime*2);
+        }
     }
 
     IEnumerator MoveTowardsLocation(Vector3 endingPos, Vector3 endScale, float duration)
