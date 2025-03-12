@@ -25,8 +25,8 @@ public class TextGlow : MonoBehaviour
     {
         while (true)
         {
-            float t = (Mathf.Sin(Time.time * glowSpeed) + 1f) / 2f;
-            float glow = Mathf.Pow(t, 1.5f) * glowIntensity; // Exponential curve
+            float t = Mathf.PerlinNoise(Time.time * glowSpeed, 0f);
+            float glow = t * glowIntensity;
             titleText.alpha = Mathf.Clamp01(minAlpha + glow);
             yield return null;
         }

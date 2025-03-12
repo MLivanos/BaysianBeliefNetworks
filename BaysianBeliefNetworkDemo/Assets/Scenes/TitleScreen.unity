@@ -2939,9 +2939,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c2ef23dd8d684d449fa42074cc76d1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  glowSpeed: 1
-  glowIntensity: 0.4
-  minAlpha: 0.6
+  glowSpeed: 0.85
+  glowIntensity: 0.35
+  minAlpha: 0.65
 --- !u!1 &1053054103
 GameObject:
   m_ObjectHideFlags: 0
@@ -3789,6 +3789,7 @@ MonoBehaviour:
   - {fileID: 1896576896}
   titleFadeInTime: 0.75
   titleGlow: {fileID: 1031833640}
+  shouldGlowTitle: 1
   targetPosition: {x: -32, y: 110, z: -1110}
   moveDuration: 10
   rotationSpeed: -30
