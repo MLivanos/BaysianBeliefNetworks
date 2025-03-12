@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using TMPro;
@@ -19,6 +20,7 @@ public class TypewriterEffect : MonoBehaviour
     {
         audioManager = AudioManager.instance;
         textComponent = GetComponent<TextMeshProUGUI>();
+        fullText = textComponent.text;
     }
 
     public void UpdateText(string newText)
@@ -30,6 +32,26 @@ public class TypewriterEffect : MonoBehaviour
 
         fullText = newText;
         typingCoroutine = StartCoroutine(TypeText());
+    }
+
+    public void TypewriterDelete()
+    {
+        if (typingCoroutine != null)
+        {
+            StopCoroutine(typingCoroutine);
+        }
+        typingCoroutine = StartCoroutine(UntypeText());    
+    }
+
+    private IEnumerator UntypeText()
+    {
+        string originalText = String.Copy(fullText);
+        fullText = "";
+        for (int i=0; i<=originalText.Length; i++)
+        {
+            textComponent.text = originalText.Substring(0,originalText.Length-i);
+            yield return new WaitForSeconds(timeBetweenCharacters);
+        }
     }
 
     public void Interrupt()
@@ -54,7 +76,7 @@ public class TypewriterEffect : MonoBehaviour
         {
             textComponent.text += letter;
             if (soundName != "") audioManager.PlayEffect(soundName);
-            float waitTime = specialCharacters.Contains(letter) ? timeBetweenCharacters * specialWaitTimeMultiplier : timeBetweenCharacters;
+            float waitTime = GetWaitTimeForCharacter(letter);
             yield return new WaitForSeconds(waitTime);
         }
         typingCoroutine = null;
@@ -63,5 +85,21 @@ public class TypewriterEffect : MonoBehaviour
     public void Clear()
     {
         textComponent.text = "";
+    }
+
+    public float GetTypingTime(string text, bool typing=true)
+    {
+        if (!typing) return text.Length * timeBetweenCharacters;
+        float totalTime = 0f;
+        foreach(char letter in text)
+        {
+            totalTime += GetWaitTimeForCharacter(letter);
+        }
+        return totalTime;
+    }
+
+    private float GetWaitTimeForCharacter(char letter)
+    {
+        return specialCharacters.Contains(letter) ? timeBetweenCharacters * specialWaitTimeMultiplier : timeBetweenCharacters;
     }
 }
