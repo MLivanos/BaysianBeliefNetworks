@@ -1,21 +1,18 @@
 using UnityEngine;
 using System.Collections;
 
-public class TitleUFOBehavior : MonoBehaviour
+public class TitleUFOBehaviorPortal : MonoBehaviour
 {
     [Header("Title Settings")]
-
     public FadableTextMeshPro[] titleFadeInText;
     public float titleFadeInTime;
     public TextGlow titleGlow;
-    public bool shouldGlowTitle=true;
+    public bool shouldGlowTitle = true;
 
-    [Header("Movement Settings")]
-
-    [Tooltip("Target position where the UFO will settle.")]
+    [Header("UFO Movement Settings")]
+    [Tooltip("Target position where the UFO will exit the portal.")]
     public Vector3 targetPosition = Vector3.zero;
-
-    [Tooltip("Duration for the UFO to move into the scene.")]
+    [Tooltip("Duration for the UFO to move from the portal to target.")]
     public float moveDuration = 5f;
 
     [Header("Rotation Settings")]
@@ -29,74 +26,134 @@ public class TitleUFOBehavior : MonoBehaviour
     public float oscillationFrequency = 1f;
     public float motionDuration = 10f;
 
-    [Tooltip("Point to move towards")]
+    [Header("Zoom to Planet Settings")]
+    [Tooltip("Duration for the UFO to move toward the planet.")]
     public float toPlanetMotionDuration = 20f;
     public Vector3 planetLocation;
     public Vector3 minimumScale;
+
+    [Header("Portal Settings")]
+    public Transform portalTransform;          // Portal transform.
+    [Tooltip("Duration for the portal to grow from tiny to full size.")]
+    public float portalGrowDuration = 1f;
+    [Tooltip("Duration for the portal to shrink back.")]
+    public float portalShrinkDuration = 0.5f;
+    [Tooltip("Full scale of the portal when active.")]
+    public Vector3 portalFullScale = Vector3.one;
+    [Tooltip("Initial (tiny) scale of the portal.")]
+    public Vector3 portalInitialScale = new Vector3(0.05f, 0.05f, 0.05f);
+
     [Header("Disappear Settings")]
-    [Tooltip("The particle effect to activate on collision.")]
+    [Tooltip("The particle effect to activate on crash.")]
     public ParticleSystem landingEffect;
 
-    [Header("BackgroundImage")]
+    [Header("Background Image")]
     public FadableImage backgroundFadableImage;
     public float fadeInTime;
 
-    private Vector3 startPosition;
-    private Vector3 initialPosition;
     private float elapsedMoveTime = 0f;
 
     void Start()
     {
+        // Ensure background and title start faded out.
         backgroundFadableImage.SetAlpha(0f);
-        foreach(FadableTextMeshPro element in titleFadeInText) element.SetAlpha(0f);
-        if (landingEffect != null) landingEffect.Stop();
-        initialPosition = targetPosition;
+        foreach (FadableTextMeshPro element in titleFadeInText)
+            element.SetAlpha(0f);
+
+        if (landingEffect != null)
+            landingEffect.Stop();
+
+        // Start with both UFO and portal deactivated.
+        ufoTransform.gameObject.SetActive(false);
+        portalTransform.gameObject.SetActive(false);
+
         StartCoroutine(StartBehavior());
     }
 
     void Update()
     {
+        // Rotate the UFO continuously.
         ufoTransform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime, Space.Self);
     }
 
     IEnumerator StartBehavior()
     {
+        // 1. Fade in the title.
         yield return StartCoroutine(FadeInTitle());
         if (shouldGlowTitle) titleGlow.StartGlow();
+
+        // 2. Activate and grow the portal.
+        portalTransform.localScale = portalInitialScale;
+        portalTransform.gameObject.SetActive(true);
+        yield return StartCoroutine(ScaleTransform(portalTransform, portalFullScale, portalGrowDuration));
+        yield return new WaitForSeconds(0.75f);
+
+        // 3. Activate the UFO at the portal's position.
+        ufoTransform.gameObject.SetActive(true);
+
+        // 4. Move UFO from the portal to the target exit position.
         yield return StartCoroutine(MoveTowardsLocation(targetPosition, ufoTransform.lossyScale, moveDuration));
+
+        // 5. Shrink and deactivate the portal.
+        yield return StartCoroutine(ScaleTransform(portalTransform, portalInitialScale, portalShrinkDuration));
+        portalTransform.gameObject.SetActive(false);
+
+        // 6. UFO oscillates in place for a while.
         yield return StartCoroutine(UFOMotions());
+
+        // 7. UFO zooms from its current location to the planet.
         yield return StartCoroutine(MoveTowardsLocation(planetLocation, minimumScale, toPlanetMotionDuration));
-        yield return PlayLight();
+
+        // 8. Crash: Play landing effect.
+        yield return StartCoroutine(PlayLight());
+
+        // 9. Short wait, then fade in background image.
         yield return new WaitForSeconds(2f);
         yield return StartCoroutine(FadeInImage());
+
+        // 10. Deactivate the UFO.
+        ufoTransform.gameObject.SetActive(false);
     }
 
     IEnumerator FadeInTitle()
     {
-        foreach(FadableTextMeshPro element in titleFadeInText)
+        foreach (FadableTextMeshPro element in titleFadeInText)
         {
             element.FadeIn(titleFadeInTime);
-            yield return new WaitForSeconds(titleFadeInTime*2);
+            yield return new WaitForSeconds(titleFadeInTime * 2);
         }
     }
 
+    // This coroutine moves and scales the UFO over a given duration.
     IEnumerator MoveTowardsLocation(Vector3 endingPos, Vector3 endScale, float duration)
     {
         Vector3 startingPos = ufoTransform.position;
         Vector3 startingScale = ufoTransform.lossyScale;
-        elapsedMoveTime = 0f;
+        float elapsed = 0f;
 
-        while (elapsedMoveTime < moveDuration)
+        while (elapsed < duration)
         {
-            // Lerp the position based on elapsed time
-            ufoTransform.position = Vector3.Lerp(startingPos, endingPos, elapsedMoveTime / duration);
-            ufoTransform.localScale = Vector3.Lerp(startingScale, endScale, elapsedMoveTime / duration);
-            elapsedMoveTime += Time.deltaTime;
+            ufoTransform.position = Vector3.Lerp(startingPos, endingPos, elapsed / duration);
+            ufoTransform.localScale = Vector3.Lerp(startingScale, endScale, elapsed / duration);
+            elapsed += Time.deltaTime;
             yield return null;
         }
-
-        // Ensure the UFO reaches the exact target position
         ufoTransform.position = endingPos;
+    }
+
+    // Scales a transform from its current scale to a target scale over duration.
+    IEnumerator ScaleTransform(Transform t, Vector3 targetScale, float duration)
+    {
+        Vector3 startingScale = t.localScale;
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            t.localScale = Vector3.Lerp(startingScale, targetScale, elapsed / duration);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+        t.localScale = targetScale;
     }
 
     IEnumerator UFOMotions()
@@ -106,21 +163,10 @@ public class TitleUFOBehavior : MonoBehaviour
 
         while (time < motionDuration)
         {
-            // Apply up-and-down oscillation
             float newY = originalY + Mathf.Sin(Time.time * oscillationFrequency * 2 * Mathf.PI) * oscillationAmplitude;
             ufoTransform.position = new Vector3(ufoTransform.position.x, newY, ufoTransform.position.z);
-
             time += Time.deltaTime;
             yield return null;
-        }
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        StartCoroutine(PlayLight());
-        foreach (Renderer renderer in GetComponentsInChildren<Renderer>())
-        {
-            renderer.enabled = false;
         }
     }
 
@@ -132,15 +178,16 @@ public class TitleUFOBehavior : MonoBehaviour
             landingEffect.Play();
         }
         yield return new WaitForSeconds(1.5f);
-        landingEffect.Stop();
+        if (landingEffect != null)
+            landingEffect.Stop();
     }
 
-    private IEnumerator FadeInImage()
+    IEnumerator FadeInImage()
     {
         float timer = 0f;
-        while(timer < fadeInTime)
+        while (timer < fadeInTime)
         {
-            backgroundFadableImage.SetAlpha(timer/fadeInTime);
+            backgroundFadableImage.SetAlpha(timer / fadeInTime);
             timer += Time.deltaTime;
             yield return null;
         }
