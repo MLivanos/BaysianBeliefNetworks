@@ -1454,6 +1454,7 @@ GameObject:
   - component: {fileID: 566154544}
   - component: {fileID: 566154547}
   - component: {fileID: 566154548}
+  - component: {fileID: 566154549}
   m_Layer: 5
   m_Name: PlayButton
   m_TagString: Untagged
@@ -1526,9 +1527,33 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 566154547}
+        m_TargetAssemblyTypeName: ButtonFontChangeEffect, Assembly-CSharp
+        m_MethodName: Click
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1359452018}
         m_TargetAssemblyTypeName: Transition, Assembly-CSharp
         m_MethodName: PerformTransition
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 566154549}
+        m_TargetAssemblyTypeName: PlayButtonGlitch, Assembly-CSharp
+        m_MethodName: TriggerGlitch
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1635,6 +1660,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &566154549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 566154542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b5200d56bc33ec40b116ce914f24266, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonImage: {fileID: 566154545}
+  glitchDuration: 1
+  glitchToFadeSpeedup: 2.5
+  stretchAmount: 2.5
 --- !u!1 &601519240
 GameObject:
   m_ObjectHideFlags: 0
@@ -3048,6 +3089,7 @@ GameObject:
   - component: {fileID: 1031833637}
   - component: {fileID: 1031833639}
   - component: {fileID: 1031833640}
+  - component: {fileID: 1031833641}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -3199,6 +3241,22 @@ MonoBehaviour:
   glowSpeed: 0.85
   glowIntensity: 0.35
   minAlpha: 0.65
+--- !u!114 &1031833641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031833635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae8529ee1e50aaa4185ee147b5505783, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBetweenCharacters: 0.01
+  soundName: 
+  specialCharacters: 
+  specialWaitTimeMultiplier: 0
 --- !u!1 &1053054103
 GameObject:
   m_ObjectHideFlags: 0
@@ -3969,11 +4027,9 @@ MonoBehaviour:
   loadsScene: 0
   playButton: {fileID: 566154542}
   cloudParent: {fileID: 656618565}
-  objectsToHide:
-  - {fileID: 1031833635}
-  - {fileID: 1904185637}
-  - {fileID: 1896576892}
-  - {fileID: 729028229}
+  objectsToTypeOut:
+  - {fileID: 1031833641}
+  - {fileID: 1904185642}
   clouds:
   - {fileID: 1120314425}
   - {fileID: 1859636561}
@@ -5444,6 +5500,7 @@ GameObject:
   - component: {fileID: 1904185640}
   - component: {fileID: 1904185639}
   - component: {fileID: 1904185641}
+  - component: {fileID: 1904185642}
   m_Layer: 5
   m_Name: Subtitle
   m_TagString: Untagged
@@ -5582,6 +5639,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feaff57a091ee4aee819d23981aa882d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1904185642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1904185637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae8529ee1e50aaa4185ee147b5505783, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBetweenCharacters: 0.005
+  soundName: 
+  specialCharacters: 
+  specialWaitTimeMultiplier: 0
 --- !u!1001 &1922491478
 PrefabInstance:
   m_ObjectHideFlags: 0

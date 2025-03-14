@@ -8,7 +8,7 @@ public class TitleUFOBehavior : MonoBehaviour
     public FadableTextMeshPro[] titleFadeInText;
     public float titleFadeInTime;
     public TextGlow titleGlow;
-    public bool shouldGlowTitle;
+    public bool shouldGlowTitle=true;
 
     [Header("Movement Settings")]
 

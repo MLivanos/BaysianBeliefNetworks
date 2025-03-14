@@ -7,7 +7,7 @@ public class TransitionToCutscenes : Transition
 {
     [SerializeField] private GameObject playButton;
     [SerializeField] private GameObject cloudParent;
-    [SerializeField] private List<GameObject> objectsToHide;
+    [SerializeField] private List<TypewriterEffect> objectsToTypeOut;
     [SerializeField] private List<FadableGameObject> clouds;
     [SerializeField] private List<PlanetaryBehavior> planets;
     [SerializeField] private SlideInBehavior cameraSlide;
@@ -21,10 +21,10 @@ public class TransitionToCutscenes : Transition
 
     protected override IEnumerator TransitionToScene()
     {
-        HideObjects();
+        TypeOutObjects();
         StopPlanets();
         cloudParent.SetActive(true);
-        yield return null; // Allow one frame to pass to let clouds initialize
+        yield return new WaitForSeconds(1f); // Wait for glitch effect, typeout
         ZoomToClouds();
         yield return new WaitForSeconds(cameraSlide.GetDuration()-fadeToWhiteTime);
         fadeToWhite.gameObject.SetActive(true);
@@ -36,12 +36,11 @@ public class TransitionToCutscenes : Transition
         yield return LoadScene();
     }
 
-    private void HideObjects()
+    private void TypeOutObjects()
     {
-        playButton.GetComponent<Image>().enabled = false;
-        foreach(GameObject go in objectsToHide)
+        foreach(TypewriterEffect entity in objectsToTypeOut)
         {
-            go.SetActive(false);
+            entity.TypewriterDelete();
         }
     }
 
