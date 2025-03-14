@@ -104,10 +104,12 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueOffset: 0
+    - _RGBSeparation: 0
     - _ReceiveShadows: 1
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
+    - _Spread: 0
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Surface: 0
