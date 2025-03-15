@@ -33,7 +33,8 @@ public class TitleUFOBehaviorPortal : MonoBehaviour
     public Vector3 minimumScale;
 
     [Header("Portal Settings")]
-    public Transform portalTransform;          // Portal transform.
+    public Transform portalTransform;
+    public GameObject portalOpenFX;
     [Tooltip("Duration for the portal to grow from tiny to full size.")]
     public float portalGrowDuration = 1f;
     [Tooltip("Duration for the portal to shrink back.")]
@@ -66,6 +67,7 @@ public class TitleUFOBehaviorPortal : MonoBehaviour
         // Start with both UFO and portal deactivated.
         ufoTransform.gameObject.SetActive(false);
         portalTransform.gameObject.SetActive(false);
+        portalOpenFX.SetActive(false);
 
         StartCoroutine(StartBehavior());
     }
@@ -85,6 +87,7 @@ public class TitleUFOBehaviorPortal : MonoBehaviour
         // 2. Activate and grow the portal.
         portalTransform.localScale = portalInitialScale;
         portalTransform.gameObject.SetActive(true);
+        portalOpenFX.SetActive(true);
         yield return StartCoroutine(ScaleTransform(portalTransform, portalFullScale, portalGrowDuration));
         yield return new WaitForSeconds(0.75f);
 
