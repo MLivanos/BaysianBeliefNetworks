@@ -307,7 +307,42 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 03b34abc09c3eeb4abdf111b0d36367c, type: 3}
     loop: 0
     volumeMultiplier: 1
+    pitchMultiplier: 0.9
+    source: {fileID: 0}
+    duration: 0
+  - name: MiniGlitch
+    clip: {fileID: 8300000, guid: 0cdf20cbc74ed634a9af3e3e44f3f475, type: 3}
+    loop: 0
+    volumeMultiplier: 0.8
     pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: PortalOpens
+    clip: {fileID: 8300000, guid: ce0ea112abdeabb4a867a6ce271b49b0, type: 3}
+    loop: 0
+    volumeMultiplier: 0.45
+    pitchMultiplier: 0.9
+    source: {fileID: 0}
+    duration: 0
+  - name: PortalCloses
+    clip: {fileID: 8300000, guid: 77f2b7784cff06b47b72a0ae1301923f, type: 3}
+    loop: 0
+    volumeMultiplier: 0.45
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: UFOFliesOut
+    clip: {fileID: 8300000, guid: 6920ba5b84beb2c4fae2da361ca50cde, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: UFOCharges
+    clip: {fileID: 8300000, guid: 049dfc8ce2d714b8a8b214adc21b8ca4, type: 3}
+    loop: 0
+    volumeMultiplier: 0.5
+    pitchMultiplier: 0.7
     source: {fileID: 0}
     duration: 0
   volume: 1

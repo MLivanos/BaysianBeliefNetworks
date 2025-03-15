@@ -28,6 +28,7 @@ public class TitleUFOBehaviorPortal : MonoBehaviour
 
     [Header("Zoom to Planet Settings")]
     [Tooltip("Duration for the UFO to move toward the planet.")]
+    public GameObject shipTrailFX;
     public float toPlanetMotionDuration = 20f;
     public Vector3 planetLocation;
     public Vector3 minimumScale;
@@ -70,6 +71,7 @@ public class TitleUFOBehaviorPortal : MonoBehaviour
         ufoTransform.gameObject.SetActive(false);
         portalTransform.gameObject.SetActive(false);
         portalOpenFX.SetActive(false);
+        shipTrailFX.SetActive(false);
 
         StartCoroutine(StartBehavior());
     }
@@ -110,6 +112,7 @@ public class TitleUFOBehaviorPortal : MonoBehaviour
         yield return StartCoroutine(UFOMotions());
 
         // 7. UFO zooms from its current location to the planet.
+        shipTrailFX.SetActive(true);
         yield return StartCoroutine(MoveTowardsLocation(planetLocation, minimumScale, toPlanetMotionDuration));
 
         // 8. Crash: Play landing effect.
