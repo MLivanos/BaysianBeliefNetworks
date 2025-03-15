@@ -116,9 +116,19 @@ public class AudioManager : MonoBehaviour
         music.FadeOut(duration);
     }
 
+    public void FadeInSFX(string soundName, float duration)
+    {
+        sfx.FadeOut(soundName, duration);
+    }
+
     public void FadeOutSFX(float duration)
     {
         sfx.FadeOut(duration);
+    }
+
+    public void FadeOutSFX(string soundName, float duration)
+    {
+        sfx.FadeOut(soundName, duration);
     }
 
     public void FadeInMusicAndAmbient(List<string> musicToFadeIn, float duration)

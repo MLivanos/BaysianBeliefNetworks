@@ -53,10 +53,12 @@ public class TitleUFOBehaviorPortal : MonoBehaviour
     public float fadeInTime;
 
     private float elapsedMoveTime = 0f;
+    private AudioManager audioManager;
 
     void Start()
     {
-        // Ensure background and title start faded out.
+        audioManager = AudioManager.instance;
+        audioManager.PlayMusic("SynthpopMostWanted");
         backgroundFadableImage.SetAlpha(0f);
         foreach (FadableTextMeshPro element in titleFadeInText)
             element.SetAlpha(0f);
@@ -88,6 +90,7 @@ public class TitleUFOBehaviorPortal : MonoBehaviour
         portalTransform.localScale = portalInitialScale;
         portalTransform.gameObject.SetActive(true);
         portalOpenFX.SetActive(true);
+        audioManager.PlayEffect("PortalOpens");
         yield return StartCoroutine(ScaleTransform(portalTransform, portalFullScale, portalGrowDuration));
         yield return new WaitForSeconds(0.75f);
 
@@ -98,10 +101,12 @@ public class TitleUFOBehaviorPortal : MonoBehaviour
         yield return StartCoroutine(MoveTowardsLocation(targetPosition, ufoTransform.lossyScale, moveDuration));
 
         // 5. Shrink and deactivate the portal.
+        audioManager.PlayEffect("PortalCloses");
         yield return StartCoroutine(ScaleTransform(portalTransform, portalInitialScale, portalShrinkDuration));
         portalTransform.gameObject.SetActive(false);
 
         // 6. UFO oscillates in place for a while.
+        audioManager.PlayEffect("UFOFliesOut");
         yield return StartCoroutine(UFOMotions());
 
         // 7. UFO zooms from its current location to the planet.

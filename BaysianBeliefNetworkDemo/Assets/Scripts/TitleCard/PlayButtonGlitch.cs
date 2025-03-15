@@ -18,6 +18,7 @@ public class PlayButtonGlitch : MonoBehaviour
 
     public void TriggerGlitch()
     {
+        AudioManager.instance.PlayEffect("Glitch");
         StartCoroutine(GlitchRoutine());
     }
 

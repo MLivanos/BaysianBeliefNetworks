@@ -22,6 +22,7 @@ public class TMPGlitchEffect : MonoBehaviour
 
     IEnumerator GlitchRoutine()
     {
+        yield return new WaitForSeconds(glitchInterval);
         while (effectOn)
         {
             tmpText.ForceMeshUpdate();
@@ -69,7 +70,7 @@ public class TMPGlitchEffect : MonoBehaviour
                     tmpText.UpdateGeometry(meshInfo.mesh, i);
                 }
             }
-
+            AudioManager.instance.PlayEffect("MiniGlitch");
             yield return new WaitForSeconds(glitchDuration);
 
             for (int i = 0; i < textInfo.meshInfo.Length; i++)

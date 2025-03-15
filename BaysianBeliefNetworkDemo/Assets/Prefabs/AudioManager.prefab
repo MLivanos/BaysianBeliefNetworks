@@ -303,6 +303,13 @@ MonoBehaviour:
     pitchMultiplier: 1
     source: {fileID: 0}
     duration: 0
+  - name: Glitch
+    clip: {fileID: 8300000, guid: 03b34abc09c3eeb4abdf111b0d36367c, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
   volume: 1
   pitch: 1
 --- !u!1 &7901061059001884411
