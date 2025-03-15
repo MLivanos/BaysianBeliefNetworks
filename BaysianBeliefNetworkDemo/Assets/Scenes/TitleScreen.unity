@@ -4116,7 +4116,7 @@ MonoBehaviour:
   titleFadeInTime: 0.75
   titleGlow: {fileID: 1031833640}
   shouldGlowTitle: 1
-  targetPosition: {x: -6.5, y: 120, z: -1165}
+  targetPosition: {x: -32, y: 110, z: -1110}
   moveDuration: 2
   rotationSpeed: -30
   ufoTransform: {fileID: 729028231}
@@ -4129,7 +4129,7 @@ MonoBehaviour:
   portalTransform: {fileID: 1862627630}
   portalGrowDuration: 1
   portalShrinkDuration: 0.5
-  portalFullScale: {x: 2, y: 2, z: 2}
+  portalFullScale: {x: 6, y: 6, z: 6}
   portalInitialScale: {x: 0.005, y: 0.005, z: 0.005}
   landingEffect: {fileID: 1158356987}
   backgroundFadableImage: {fileID: 1851758201}
@@ -4283,32 +4283,32 @@ PrefabInstance:
     - target: {fileID: 3709643822742188762, guid: 8d3146872435a4a75997f85ef89add74,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.4
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 3709643822742188762, guid: 8d3146872435a4a75997f85ef89add74,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.35
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3709643822742188762, guid: 8d3146872435a4a75997f85ef89add74,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.4
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 3709643822742188762, guid: 8d3146872435a4a75997f85ef89add74,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.26
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 3709643822742188762, guid: 8d3146872435a4a75997f85ef89add74,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 120
+      value: 110
       objectReference: {fileID: 0}
     - target: {fileID: 3709643822742188762, guid: 8d3146872435a4a75997f85ef89add74,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1165
+      value: -1120
       objectReference: {fileID: 0}
     - target: {fileID: 3709643822742188762, guid: 8d3146872435a4a75997f85ef89add74,
         type: 3}
@@ -4353,7 +4353,7 @@ PrefabInstance:
     - target: {fileID: 3709643822742188764, guid: 8d3146872435a4a75997f85ef89add74,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3709643822742188765, guid: 8d3146872435a4a75997f85ef89add74,
         type: 3}
@@ -4828,31 +4828,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1944646428925954, guid: ac2461bb5786b8745a180d0ac9f25af2, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4342038022037604, guid: ac2461bb5786b8745a180d0ac9f25af2, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4342038022037604, guid: ac2461bb5786b8745a180d0ac9f25af2, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4342038022037604, guid: ac2461bb5786b8745a180d0ac9f25af2, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4342038022037604, guid: ac2461bb5786b8745a180d0ac9f25af2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9
+      value: -47
       objectReference: {fileID: 0}
     - target: {fileID: 4342038022037604, guid: ac2461bb5786b8745a180d0ac9f25af2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 120
+      value: 110
       objectReference: {fileID: 0}
     - target: {fileID: 4342038022037604, guid: ac2461bb5786b8745a180d0ac9f25af2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1167
+      value: -1126
       objectReference: {fileID: 0}
     - target: {fileID: 4342038022037604, guid: ac2461bb5786b8745a180d0ac9f25af2, type: 3}
       propertyPath: m_LocalRotation.w
