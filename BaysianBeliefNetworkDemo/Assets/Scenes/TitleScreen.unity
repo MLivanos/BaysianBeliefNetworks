@@ -1785,14 +1785,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7347411b5cc17f4495833e3454eb294, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tmpText: {fileID: 1904185639}
-  alienText: {fileID: 1677473588}
-  alienTitle: {fileID: 783316098}
-  humanTitle: {fileID: 1031833635}
+  glitchTexts:
+  - {fileID: 1904185639}
+  - {fileID: 1031833637}
   glitchIntensity: 2
   glitchDuration: 0.08
   alienTextMultiplier: 6.5
   glitchInterval: {x: 4, y: 6.5}
+  alienText: {fileID: 1677473588}
+  alienTitle: {fileID: 783316098}
 --- !u!1 &624296277
 GameObject:
   m_ObjectHideFlags: 0

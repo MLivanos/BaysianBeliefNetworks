@@ -1,42 +1,53 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
+using System.Collections.Generic;
 
 public class TMPGlitchEffect : MonoBehaviour
 {
-    [SerializeField] private TMP_Text tmpText;
-    [SerializeField] private GameObject alienText;
-    [SerializeField] private GameObject alienTitle;
-    [SerializeField] private GameObject humanTitle;
+    [SerializeField] private TMP_Text[] glitchTexts;
     [SerializeField] private float glitchIntensity = 5f;
     [SerializeField] private float glitchDuration = 0.1f;
     [SerializeField] private float alienTextMultiplier = 5f;
     [SerializeField] private Vector2 glitchInterval = new Vector2(4f,6.5f);
+
+    [Header("Alien Text Objects (Optional)")]
+    [SerializeField] private GameObject alienText;
+    [SerializeField] private GameObject alienTitle;
+
+    private Dictionary<TMP_Text, Vector3[][]> originalVerticesDict = new Dictionary<TMP_Text, Vector3[][]>();
     private bool effectOn = true;
 
-    void Awake()
+    private void Start()
     {
-        if (tmpText == null) tmpText = GetComponent<TMP_Text>();
-    }
-
-    void Start()
-    {
+        CollectOriginalVertices();
         StartCoroutine(GlitchRoutine());
     }
 
-    IEnumerator GlitchRoutine()
+    private void CollectOriginalVertices()
     {
-        TMP_TextInfo textInfo = tmpText.textInfo;
-        tmpText.ForceMeshUpdate();
-        Vector3[][] originalVertices = new Vector3[textInfo.meshInfo.Length][];
-        for (int i = 0; i < textInfo.meshInfo.Length; i++)
+        foreach (TMP_Text text in glitchTexts)
         {
-            originalVertices[i] = (Vector3[])textInfo.meshInfo[i].vertices.Clone();
+            text.ForceMeshUpdate();
+            TMP_TextInfo textInfo = text.textInfo;
+            Vector3[][] origVerts = new Vector3[textInfo.meshInfo.Length][];
+            for (int i = 0; i < textInfo.meshInfo.Length; i++)
+            {
+                origVerts[i] = (Vector3[])textInfo.meshInfo[i].vertices.Clone();
+            }
+            originalVerticesDict.Add(text, origVerts);
         }
+    }
 
+    private IEnumerator GlitchRoutine()
+    {
         while (effectOn)
         {
-            tmpText.ForceMeshUpdate();
+            foreach (TMP_Text text in glitchTexts)
+            {
+                text.ForceMeshUpdate();
+            }
+
             yield return new WaitForSeconds(GetRandomTime());
             float duration = glitchDuration;
             AudioManager.instance.PlayEffect("MiniGlitch");
@@ -44,85 +55,100 @@ public class TMPGlitchEffect : MonoBehaviour
             if (Random.value >= 0.5f)
             {
                 yield return OffsetTextKTimes(3);
-                ShowAlienText();
+                ToggleAlienTextVisibility(true);
                 duration *= alienTextMultiplier;
             }
-            else OffsetText();
+            else
+            {
+                OffsetText();
+            }
             yield return new WaitForSeconds(duration);
-            ResetText(originalVertices);
+            ResetTexts();
         }
-    }
-
-    private void ShowAlienText()
-    {
-        tmpText.gameObject.SetActive(false);
-        humanTitle.SetActive(false);
-        alienText.SetActive(true);
-        alienTitle.SetActive(true);
     }
 
     private IEnumerator OffsetTextKTimes(int k)
     {
-        for(int i=0; i<k; i++)
+        for (int i = 0; i < k; i++)
         {
-            yield return new WaitForSeconds(glitchDuration/3);
+            yield return new WaitForSeconds(glitchDuration / 3);
             OffsetText();
         }
     }
 
     private void OffsetText()
     {
-        TMP_TextInfo textInfo = tmpText.textInfo;
-
-        // Apply the glitch offsets to each visible character.
-        int characterCount = textInfo.characterCount;
-        if (characterCount > 0)
+        foreach (TMP_Text text in glitchTexts)
         {
-            for (int i = 0; i < characterCount; i++)
-            {
-                TMP_CharacterInfo charInfo = textInfo.characterInfo[i];
-
-                if (!charInfo.isVisible)
-                    continue;
-
-                int vertexIndex = charInfo.vertexIndex;
-                int materialIndex = charInfo.materialReferenceIndex;
-                Vector3[] vertices = textInfo.meshInfo[materialIndex].vertices;
-
-                Vector3 offset = new Vector3(
-                    Random.Range(-glitchIntensity, glitchIntensity),
-                    Random.Range(-glitchIntensity, glitchIntensity),
-                    0f
-                );
-
-                vertices[vertexIndex + 0] += offset;
-                vertices[vertexIndex + 1] += offset;
-                vertices[vertexIndex + 2] += offset;
-                vertices[vertexIndex + 3] += offset;
-            }
-
-            // Update geometry with glitched vertices.
-            for (int i = 0; i < textInfo.meshInfo.Length; i++)
-            {
-                TMP_MeshInfo meshInfo = textInfo.meshInfo[i];
-                meshInfo.mesh.vertices = meshInfo.vertices;
-                tmpText.UpdateGeometry(meshInfo.mesh, i);
-            }
+            TMP_TextInfo textInfo = text.textInfo;
+            ApplyVertexOffsets(text);
         }
     }
 
-    private void ResetText(Vector3[][] originalVertices)
+    private void ApplyVertexOffsets(TMP_Text text)
     {
-        tmpText.gameObject.SetActive(true);
-        humanTitle.SetActive(true);
-        for (int i = 0; i < tmpText.textInfo.meshInfo.Length; i++)
+        TMP_TextInfo textInfo = text.textInfo;
+        int characterCount = textInfo.characterCount;
+        if (characterCount <= 0) return; // Fixed misplaced continue
+
+        for (int i = 0; i < characterCount; i++)
         {
-            TMP_MeshInfo meshInfo = tmpText.textInfo.meshInfo[i];
-            meshInfo.mesh.vertices = originalVertices[i];
-            tmpText.UpdateGeometry(meshInfo.mesh, i);
+            TMP_CharacterInfo charInfo = textInfo.characterInfo[i];
+            if (!charInfo.isVisible) continue;
+
+            int vertexIndex = charInfo.vertexIndex;
+            int materialIndex = charInfo.materialReferenceIndex;
+            Vector3[] vertices = textInfo.meshInfo[materialIndex].vertices;
+
+            Vector3 offset = new Vector3(
+                Random.Range(-glitchIntensity, glitchIntensity),
+                Random.Range(-glitchIntensity, glitchIntensity),
+                0f
+            );
+
+            vertices[vertexIndex + 0] += offset;
+            vertices[vertexIndex + 1] += offset;
+            vertices[vertexIndex + 2] += offset;
+            vertices[vertexIndex + 3] += offset;
         }
-        alienText.SetActive(false);
-        alienTitle.SetActive(false);
+
+        for (int i = 0; i < textInfo.meshInfo.Length; i++)
+        {
+            TMP_MeshInfo meshInfo = textInfo.meshInfo[i];
+            meshInfo.mesh.vertices = meshInfo.vertices;
+            text.UpdateGeometry(meshInfo.mesh, i);
+        }
+    }
+
+    private void ResetTexts()
+    {
+        foreach (TMP_Text text in glitchTexts)
+        {
+            if (!originalVerticesDict.ContainsKey(text))
+                continue;
+
+            TMP_TextInfo textInfo = text.textInfo;
+            Vector3[][] origVerts = originalVerticesDict[text];
+            for (int i = 0; i < textInfo.meshInfo.Length; i++)
+            {
+                TMP_MeshInfo meshInfo = textInfo.meshInfo[i];
+                meshInfo.mesh.vertices = origVerts[i];
+                text.UpdateGeometry(meshInfo.mesh, i);
+            }
+        }
+        ToggleAlienTextVisibility(false);
+    }
+
+    private void ToggleAlienTextVisibility(bool alienTextOn)
+    {
+        if (alienText != null)
+            alienText.SetActive(alienTextOn);
+        if (alienTitle != null)
+            alienTitle.SetActive(alienTextOn);
+        foreach(TMP_Text text in glitchTexts)
+        {
+            text.gameObject.SetActive(!alienTextOn);
+        }
     }
 
     private float GetRandomTime()
