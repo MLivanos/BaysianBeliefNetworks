@@ -86,7 +86,7 @@ public class TitleUFOBehaviorPortal : MonoBehaviour
     {
         // 1. Fade in the title.
         yield return StartCoroutine(FadeInTitle());
-        if (shouldGlowTitle) titleGlow.StartGlow();
+        StartCoroutine(StartGlow());
 
         // 2. Activate and grow the portal.
         portalTransform.localScale = portalInitialScale;
@@ -203,5 +203,18 @@ public class TitleUFOBehaviorPortal : MonoBehaviour
             yield return null;
         }
         backgroundFadableImage.SetAlpha(1);
+    }
+
+    private IEnumerator StartGlow()
+    {
+        while(!titleGlow.gameObject.activeSelf)
+        {
+            yield return null;
+        }
+        /* Possible issue when the title is made active the same frame you call the method.
+        effects ~1 in 600 games(!)
+        */
+        yield return null;
+        titleGlow.StartGlow();
     }
 }
