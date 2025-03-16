@@ -8,6 +8,7 @@ public class TransitionToCutscenes : Transition
     [SerializeField] private GameObject playButton;
     [SerializeField] private GameObject cloudParent;
     [SerializeField] private List<TypewriterEffect> objectsToTypeOut;
+    [SerializeField] private List<TypewriterEffect> objectsToTypeIn;
     [SerializeField] private List<FadableGameObject> clouds;
     [SerializeField] private List<PlanetaryBehavior> planets;
     [SerializeField] private SlideInBehavior cameraSlide;
@@ -19,9 +20,18 @@ public class TransitionToCutscenes : Transition
     [SerializeField] private float hangOnWhite;
     private AsyncOperation asyncLoad;
 
+    private void Start()
+    {
+        foreach(TypewriterEffect typewriter in objectsToTypeIn)
+        {
+            typewriter.Clear();
+        }
+    }
+
     protected override IEnumerator TransitionToScene()
     {
         TypeOutObjects();
+        TypeInObjects();
         StopPlanets();
         cloudParent.SetActive(true);
         yield return new WaitForSeconds(1f); // Wait for glitch effect, typeout
@@ -42,6 +52,14 @@ public class TransitionToCutscenes : Transition
         foreach(TypewriterEffect entity in objectsToTypeOut)
         {
             entity.TypewriterDelete();
+        }
+    }
+
+    private void TypeInObjects()
+    {
+        foreach(TypewriterEffect typewriter in objectsToTypeIn)
+        {
+            typewriter.UpdateText();
         }
     }
 

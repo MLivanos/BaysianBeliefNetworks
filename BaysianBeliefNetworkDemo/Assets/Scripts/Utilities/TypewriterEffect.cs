@@ -34,6 +34,11 @@ public class TypewriterEffect : MonoBehaviour
         typingCoroutine = StartCoroutine(TypeText());
     }
 
+    public void UpdateText()
+    {
+        StartCoroutine(TypeText());
+    }
+
     public void TypewriterDelete()
     {
         if (typingCoroutine != null)
