@@ -27,6 +27,7 @@ public class TransitionToCutscenes : Transition
         yield return new WaitForSeconds(1f); // Wait for glitch effect, typeout
         ZoomToClouds();
         yield return new WaitForSeconds(cameraSlide.GetDuration()-fadeToWhiteTime);
+        AudioManager.instance.PlayEffect("CloudWoosh");
         fadeToWhite.gameObject.SetActive(true);
         yield return FadeInstructions(true);
         yield return PreloadScene();

@@ -1896,7 +1896,7 @@ Transform:
   m_GameObject: {fileID: 656618565}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 120, z: -331.75}
+  m_LocalPosition: {x: 0, y: 120, z: -350}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2198,8 +2198,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectTransform: {fileID: 0}
   startPosition: {x: 0, y: 0, z: -1180}
-  endPosition: {x: 0, y: 0, z: -340}
+  endPosition: {x: 0, y: 0, z: -350}
   eventDuration: 2
+  dynamicStart: 1
   staticX: 1
   staticY: 1
   staticZ: 0
@@ -4400,7 +4401,7 @@ PrefabInstance:
     - target: {fileID: 3709643822742188764, guid: 8d3146872435a4a75997f85ef89add74,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3709643822742188765, guid: 8d3146872435a4a75997f85ef89add74,
         type: 3}
@@ -4496,6 +4497,46 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 5053447448950097464, guid: abaea1a53b374c34096b54d49dae9a97,
+        type: 3}
+      propertyPath: sounds.Array.size
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 5053447448950097464, guid: abaea1a53b374c34096b54d49dae9a97,
+        type: 3}
+      propertyPath: sounds.Array.data[35].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 7194838904f4f5f4a91e691803c37d26, type: 3}
+    - target: {fileID: 5053447448950097464, guid: abaea1a53b374c34096b54d49dae9a97,
+        type: 3}
+      propertyPath: sounds.Array.data[35].name
+      value: CloudWoosh
+      objectReference: {fileID: 0}
+    - target: {fileID: 5053447448950097464, guid: abaea1a53b374c34096b54d49dae9a97,
+        type: 3}
+      propertyPath: sounds.Array.data[36].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 049dfc8ce2d714b8a8b214adc21b8ca4, type: 3}
+    - target: {fileID: 5053447448950097464, guid: abaea1a53b374c34096b54d49dae9a97,
+        type: 3}
+      propertyPath: sounds.Array.data[36].name
+      value: UFOCharges
+      objectReference: {fileID: 0}
+    - target: {fileID: 5053447448950097464, guid: abaea1a53b374c34096b54d49dae9a97,
+        type: 3}
+      propertyPath: sounds.Array.data[36].pitchMultiplier
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5053447448950097464, guid: abaea1a53b374c34096b54d49dae9a97,
+        type: 3}
+      propertyPath: sounds.Array.data[35].volumeMultiplier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5053447448950097464, guid: abaea1a53b374c34096b54d49dae9a97,
+        type: 3}
+      propertyPath: sounds.Array.data[36].volumeMultiplier
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

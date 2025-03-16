@@ -7,6 +7,7 @@ public class TitleSceneCameraMovement : MonoBehaviour
     [SerializeField] private float maxUpDown = 1f;
     [SerializeField] private float deadZoneSize = 0.2f;
     [SerializeField] private Transform cameraTransform;
+    private bool disable;
 
     private Vector3 startPos;
 
@@ -17,6 +18,8 @@ public class TitleSceneCameraMovement : MonoBehaviour
 
     private void Update()
     {
+        if (disable) return;
+        
         Vector2 mousePos = new Vector2(Input.mousePosition.x / Screen.width, Input.mousePosition.y / Screen.height);
 
         float xNormalized = (mousePos.x - 0.5f) * 2; 
@@ -30,5 +33,10 @@ public class TitleSceneCameraMovement : MonoBehaviour
 
         Vector3 targetPos = startPos + new Vector3(xMove, yMove, 0);
         cameraTransform.position = Vector3.Lerp(cameraTransform.position, targetPos, Time.deltaTime * movementSpeed);
+    }
+
+    public void Disable()
+    {
+        disable = true;
     }
 }
