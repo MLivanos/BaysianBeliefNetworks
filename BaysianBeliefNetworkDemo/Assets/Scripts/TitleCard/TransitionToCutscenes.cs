@@ -36,6 +36,7 @@ public class TransitionToCutscenes : Transition
         cloudParent.SetActive(true);
         yield return new WaitForSeconds(1f); // Wait for glitch effect, typeout
         ZoomToClouds();
+        AudioManager.instance.FadeOutMusic(cameraSlide.GetDuration()-fadeToWhiteTime);
         yield return new WaitForSeconds(cameraSlide.GetDuration()-fadeToWhiteTime);
         AudioManager.instance.PlayEffect("CloudWoosh");
         fadeToWhite.gameObject.SetActive(true);
@@ -82,7 +83,7 @@ public class TransitionToCutscenes : Transition
 
     private IEnumerator PreloadScene()
     {
-        asyncLoad = sceneManager.PreloadScene("Cutscenes");
+        asyncLoad = GetComponent<SceneManagerScript>().PreloadScene("Cutscenes");
         asyncLoad.allowSceneActivation = false;
         while (asyncLoad.progress < 0.9f)
         {
