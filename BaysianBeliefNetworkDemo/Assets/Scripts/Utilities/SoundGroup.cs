@@ -10,8 +10,8 @@ public class Sound
 	public string name;
 	public AudioClip clip;
 	public bool loop;
-	[Range(0f,1f)] public float volumeMultiplier = 1f;
-	[Range(0f,1f)] public float pitchMultiplier = 1f;
+	[Range(0f,3f)] public float volumeMultiplier = 1f;
+	[Range(0f,3f)] public float pitchMultiplier = 1f;
 	[HideInInspector] public AudioSource source;
 	[HideInInspector] public float duration;
 
@@ -152,9 +152,26 @@ public class SoundGroup : MonoBehaviour
 		FadeAllSounds(duration, true);
 	}
 
+	public void FadeIn(string soundName, float duration)
+	{
+	    if (soundsPlaying.TryGetValue(soundName, out Sound sound))
+	    {
+	        StartCoroutine(FadeSound(sound, duration, true));
+	    }
+	}
+
 	public void FadeOut(float duration)
 	{
 		FadeAllSounds(duration, false);
+	}
+
+	public void FadeOut(string soundName, float duration)
+	{
+	    if (soundsPlaying.TryGetValue(soundName, out Sound sound))
+	    {
+	        StartCoroutine(FadeSound(sound, duration, false));
+	        soundsPlaying.Remove(soundName);
+	    }
 	}
 
 	public void FadeOut(float duration, List<string> soundNames)

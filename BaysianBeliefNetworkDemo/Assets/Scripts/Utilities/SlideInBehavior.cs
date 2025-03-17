@@ -44,6 +44,7 @@ public class SlideInBehavior : MonoBehaviour
     [SerializeField] private Vector3 startPosition;
     [SerializeField] private Vector3 endPosition;
     [SerializeField] private float eventDuration;
+    [SerializeField] private bool dynamicStart;
     [SerializeField] private bool staticX;
     [SerializeField] private bool staticY;
     [SerializeField] private bool staticZ;
@@ -79,6 +80,7 @@ public class SlideInBehavior : MonoBehaviour
 
     public void BeginSlideIn()
     {
+        if (dynamicStart) startPosition = SetStaticAxes(positionable.Position);
         StartCoroutine(Slide(true));
     }
 
