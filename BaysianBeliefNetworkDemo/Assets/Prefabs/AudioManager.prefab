@@ -100,6 +100,13 @@ MonoBehaviour:
     pitchMultiplier: 1
     source: {fileID: 0}
     duration: 0
+  - name: TextDelete
+    clip: {fileID: 8300000, guid: 15041a931318647f898f8da0a5574d27, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
   - name: TextTone
     clip: {fileID: 8300000, guid: b569aada900f14e438e0ff052d4e7f45, type: 3}
     loop: 0
@@ -338,10 +345,10 @@ MonoBehaviour:
     pitchMultiplier: 1
     source: {fileID: 0}
     duration: 0
-  - name: UFOCharges
-    clip: {fileID: 8300000, guid: 049dfc8ce2d714b8a8b214adc21b8ca4, type: 3}
+  - name: CloudWoosh
+    clip: {fileID: 8300000, guid: 7194838904f4f5f4a91e691803c37d26, type: 3}
     loop: 0
-    volumeMultiplier: 0.5
+    volumeMultiplier: 1
     pitchMultiplier: 0.7
     source: {fileID: 0}
     duration: 0

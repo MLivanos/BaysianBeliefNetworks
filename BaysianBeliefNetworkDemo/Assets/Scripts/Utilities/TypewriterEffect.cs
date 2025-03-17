@@ -7,7 +7,8 @@ using TMPro;
 public class TypewriterEffect : MonoBehaviour
 {
     [SerializeField] private float timeBetweenCharacters = 0.1f;
-    [SerializeField] private string soundName;
+    [SerializeField] private string typingSoundName;
+    [SerializeField] private string deletingSoundName;
     [SerializeField] private string specialCharacters;
     [SerializeField] private float specialWaitTimeMultiplier;
 
@@ -55,6 +56,7 @@ public class TypewriterEffect : MonoBehaviour
         for (int i=0; i<=originalText.Length; i++)
         {
             textComponent.text = originalText.Substring(0,originalText.Length-i);
+            if (deletingSoundName != "") audioManager.PlayEffect(deletingSoundName);
             yield return new WaitForSeconds(timeBetweenCharacters);
         }
     }
@@ -80,7 +82,7 @@ public class TypewriterEffect : MonoBehaviour
         foreach (char letter in fullText)
         {
             textComponent.text += letter;
-            if (soundName != "") audioManager.PlayEffect(soundName);
+            if (typingSoundName != "") audioManager.PlayEffect(typingSoundName);
             float waitTime = GetWaitTimeForCharacter(letter);
             yield return new WaitForSeconds(waitTime);
         }
