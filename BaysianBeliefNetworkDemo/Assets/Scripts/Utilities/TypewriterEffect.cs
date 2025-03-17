@@ -17,7 +17,7 @@ public class TypewriterEffect : MonoBehaviour
     private Coroutine typingCoroutine;
     private string fullText;
 
-    void Start()
+    void Awake()
     {
         audioManager = AudioManager.instance;
         textComponent = GetComponent<TextMeshProUGUI>();
