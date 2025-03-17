@@ -299,8 +299,8 @@ MonoBehaviour:
 
     Searching'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bdcc2dbe566e96d4e9ed6574cefb3d97, type: 2}
-  m_sharedMaterial: {fileID: -771640735296845663, guid: bdcc2dbe566e96d4e9ed6574cefb3d97,
+  m_fontAsset: {fileID: 11400000, guid: 4aab07212ecdd2646993db7d3debad07, type: 2}
+  m_sharedMaterial: {fileID: 2599102033498517698, guid: 4aab07212ecdd2646993db7d3debad07,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -325,8 +325,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 8
-  m_fontSizeBase: 8
+  m_fontSize: 10
+  m_fontSizeBase: 10
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2586,7 +2586,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -264}
+  m_AnchoredPosition: {x: 0, y: -280}
   m_SizeDelta: {x: 280, y: 200}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &783316100
@@ -2611,8 +2611,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Celestial Anomalies
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bdcc2dbe566e96d4e9ed6574cefb3d97, type: 2}
-  m_sharedMaterial: {fileID: -771640735296845663, guid: bdcc2dbe566e96d4e9ed6574cefb3d97,
+  m_fontAsset: {fileID: 11400000, guid: 4aab07212ecdd2646993db7d3debad07, type: 2}
+  m_sharedMaterial: {fileID: 2599102033498517698, guid: 4aab07212ecdd2646993db7d3debad07,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2637,8 +2637,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24.6
-  m_fontSizeBase: 24.6
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5122,7 +5122,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -450}
+  m_AnchoredPosition: {x: 0, y: -435}
   m_SizeDelta: {x: 650, y: 220}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1677473590
@@ -5161,8 +5161,8 @@ MonoBehaviour:
 
     Graphical Models of Reasoning'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bdcc2dbe566e96d4e9ed6574cefb3d97, type: 2}
-  m_sharedMaterial: {fileID: -771640735296845663, guid: bdcc2dbe566e96d4e9ed6574cefb3d97,
+  m_fontAsset: {fileID: 11400000, guid: 4aab07212ecdd2646993db7d3debad07, type: 2}
+  m_sharedMaterial: {fileID: 2599102033498517698, guid: 4aab07212ecdd2646993db7d3debad07,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -5187,8 +5187,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 10
-  m_fontSizeBase: 10
+  m_fontSize: 12
+  m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5909,8 +5909,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bdcc2dbe566e96d4e9ed6574cefb3d97, type: 2}
-  m_sharedMaterial: {fileID: -771640735296845663, guid: bdcc2dbe566e96d4e9ed6574cefb3d97,
+  m_fontAsset: {fileID: 11400000, guid: 4aab07212ecdd2646993db7d3debad07, type: 2}
+  m_sharedMaterial: {fileID: 2599102033498517698, guid: 4aab07212ecdd2646993db7d3debad07,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -6941,8 +6941,8 @@ MonoBehaviour:
 
     it'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bdcc2dbe566e96d4e9ed6574cefb3d97, type: 2}
-  m_sharedMaterial: {fileID: -771640735296845663, guid: bdcc2dbe566e96d4e9ed6574cefb3d97,
+  m_fontAsset: {fileID: 11400000, guid: 4aab07212ecdd2646993db7d3debad07, type: 2}
+  m_sharedMaterial: {fileID: 2599102033498517698, guid: 4aab07212ecdd2646993db7d3debad07,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -6967,8 +6967,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 12
-  m_fontSizeBase: 12
+  m_fontSize: 16
+  m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
