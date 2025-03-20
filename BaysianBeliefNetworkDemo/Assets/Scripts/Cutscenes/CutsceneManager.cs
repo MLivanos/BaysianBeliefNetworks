@@ -10,8 +10,8 @@ public class CutsceneManager : MonoBehaviour
     [SerializeField] private TypewriterEffect typewriterEffect;
     [SerializeField] private GameObject textPanel;
     [SerializeField] private Transform mainCamera;
-    [SerializeField] private FadableImage characterImage;
-    [SerializeField] private FadableTextMeshPro characterName;
+    [SerializeField] private GameObject characterImage;
+    [SerializeField] private GameObject characterName;
     private AudioManager audioManager;
     private SceneManagerScript sceneManager;
     private CutsceneBehavior currentCutScene;
@@ -22,8 +22,8 @@ public class CutsceneManager : MonoBehaviour
     private void Start()
     {
         audioManager = AudioManager.instance;
-        characterImage.SetAlpha(0f);
-        characterName.SetAlpha(0f);
+        characterImage.SetActive(false);
+        characterName.SetActive(false);
         sceneManager = GetComponent<SceneManagerScript>();
         textPanel.SetActive(false);
         currentCoroutine = StartCoroutine(PlayNextScene());
@@ -67,9 +67,9 @@ public class CutsceneManager : MonoBehaviour
         Sprite characterSprite = currentCutScene.CharacterImage;
         string characterNameString = currentCutScene.CharacterName;
         characterImage.GetComponent<Image>().sprite  = characterSprite;
-        characterName.GetComponent<TextMeshProUGUI>().text = characterNameString;
-        characterImage.SetAlpha(characterSprite == null ? 0f : 1f);
-        characterName.SetAlpha(string.IsNullOrEmpty(characterNameString) ? 0f : 1f);
+        characterName.GetComponentInChildren<TextMeshProUGUI>().text = characterNameString;
+        characterImage.SetActive(characterSprite != null);
+        characterName.SetActive(!string.IsNullOrEmpty(characterNameString));
         textPanel.SetActive(textPanelActive);
     }
 
