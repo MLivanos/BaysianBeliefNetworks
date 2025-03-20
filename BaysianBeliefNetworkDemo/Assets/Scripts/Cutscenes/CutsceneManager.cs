@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class CutsceneManager : MonoBehaviour
 {
@@ -8,6 +10,8 @@ public class CutsceneManager : MonoBehaviour
     [SerializeField] private TypewriterEffect typewriterEffect;
     [SerializeField] private GameObject textPanel;
     [SerializeField] private Transform mainCamera;
+    [SerializeField] private FadableImage characterImage;
+    [SerializeField] private FadableTextMeshPro characterName;
     private AudioManager audioManager;
     private SceneManagerScript sceneManager;
     private CutsceneBehavior currentCutScene;
@@ -18,6 +22,8 @@ public class CutsceneManager : MonoBehaviour
     private void Start()
     {
         audioManager = AudioManager.instance;
+        characterImage.SetAlpha(0f);
+        characterName.SetAlpha(0f);
         sceneManager = GetComponent<SceneManagerScript>();
         textPanel.SetActive(false);
         currentCoroutine = StartCoroutine(PlayNextScene());
@@ -43,6 +49,7 @@ public class CutsceneManager : MonoBehaviour
         if (cutsceneIndex < cutscenes.Length)
         {
             currentCutScene = cutscenes[cutsceneIndex];
+            UpdateCharacter(currentCutScene);
             currentCutScene.SetupObjects(mainCamera, textPanel, typewriterEffect);
             yield return currentCutScene.Play();  
         }
@@ -51,6 +58,19 @@ public class CutsceneManager : MonoBehaviour
             audioManager.PauseMusic();
             sceneManager.StartGame();
         }
+    }
+
+    private void UpdateCharacter(CutsceneBehavior currentCutScene)
+    {
+        bool textPanelActive = textPanel.activeSelf;
+        textPanel.SetActive(true);
+        Sprite characterSprite = currentCutScene.CharacterImage;
+        string characterNameString = currentCutScene.CharacterName;
+        characterImage.GetComponent<Image>().sprite  = characterSprite;
+        characterName.GetComponent<TextMeshProUGUI>().text = characterNameString;
+        characterImage.SetAlpha(characterSprite == null ? 0f : 1f);
+        characterName.SetAlpha(string.IsNullOrEmpty(characterNameString) ? 0f : 1f);
+        textPanel.SetActive(textPanelActive);
     }
 
     private IEnumerator ExitScene()
