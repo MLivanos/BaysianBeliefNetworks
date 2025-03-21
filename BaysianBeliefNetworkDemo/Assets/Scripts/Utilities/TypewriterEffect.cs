@@ -42,7 +42,7 @@ public class TypewriterEffect : MonoBehaviour
     public void UpdateText()
     {
         if (resizeText) StartCoroutine(PrecomputeFontSizeAndType());
-        else StartCoroutine(TypeText());
+        else typingCoroutine = StartCoroutine(TypeText());
     }
 
     public void TypewriterDelete()
@@ -117,7 +117,7 @@ public class TypewriterEffect : MonoBehaviour
         textComponent.enableAutoSizing = false;
         Clear();
         fader.SetAlpha(1f);
-        StartCoroutine(TypeText());
+        typingCoroutine = StartCoroutine(TypeText());
     }
 
     public void Clear()
