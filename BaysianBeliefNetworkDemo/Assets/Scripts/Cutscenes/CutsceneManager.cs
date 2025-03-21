@@ -7,11 +7,16 @@ using TMPro;
 public class CutsceneManager : MonoBehaviour
 {
     [SerializeField] private IntroCutscene[] cutscenes;
+    [Header("Universal Objects")]
     [SerializeField] private TypewriterEffect typewriterEffect;
     [SerializeField] private GameObject textPanel;
     [SerializeField] private Transform mainCamera;
+    [Header("Character Portrait")]
     [SerializeField] private GameObject characterImage;
     [SerializeField] private GameObject characterName;
+    [Header("Debug Tools")]
+    [SerializeField] private bool debugMode;
+    [SerializeField] private TextMeshProUGUI fpsCounterText;
     private AudioManager audioManager;
     private SceneManagerScript sceneManager;
     private CutsceneBehavior currentCutScene;
@@ -24,6 +29,8 @@ public class CutsceneManager : MonoBehaviour
         audioManager = AudioManager.instance;
         characterImage.SetActive(false);
         characterName.SetActive(false);
+        if (debugMode) GetComponent<FPSTracker>().StartTracking();
+        else fpsCounterText.gameObject.SetActive(false);
         sceneManager = GetComponent<SceneManagerScript>();
         textPanel.SetActive(false);
         currentCoroutine = StartCoroutine(PlayNextScene());
