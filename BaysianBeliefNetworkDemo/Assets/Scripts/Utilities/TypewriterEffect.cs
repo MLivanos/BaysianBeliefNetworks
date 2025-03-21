@@ -12,6 +12,8 @@ public class TypewriterEffect : MonoBehaviour
     [SerializeField] private int charsBetweenSounds;
     [SerializeField] private string specialCharacters;
     [SerializeField] private float specialWaitTimeMultiplier;
+    [SerializeField] private float maxFontSize = 32f;
+    [SerializeField] private bool resizeText = false;
 
     private AudioManager audioManager;
     private TextMeshProUGUI textComponent;
@@ -33,14 +35,14 @@ public class TypewriterEffect : MonoBehaviour
         {
             StopCoroutine(typingCoroutine);
         }
-
         fullText = newText;
-        typingCoroutine = StartCoroutine(TypeText());
+        UpdateText();
     }
 
     public void UpdateText()
     {
-        StartCoroutine(TypeText());
+        if (resizeText) StartCoroutine(PrecomputeFontSizeAndType());
+        else StartCoroutine(TypeText());
     }
 
     public void TypewriterDelete()
@@ -101,6 +103,21 @@ public class TypewriterEffect : MonoBehaviour
             yield return new WaitForSeconds(waitTime);
         }
         typingCoroutine = null;
+    }
+
+    private IEnumerator PrecomputeFontSizeAndType()
+    {
+        FadableTextMeshPro fader = textComponent.GetComponent<FadableTextMeshPro>() ?? textComponent.gameObject.AddComponent<FadableTextMeshPro>();
+        fader.SetAlpha(0f);
+        textComponent.enableAutoSizing = true;
+        textComponent.text = fullText;
+        yield return null;
+        float computedFontSize = textComponent.fontSize;
+        textComponent.fontSize = Mathf.Min(maxFontSize, computedFontSize);
+        textComponent.enableAutoSizing = false;
+        Clear();
+        fader.SetAlpha(1f);
+        StartCoroutine(TypeText());
     }
 
     public void Clear()
