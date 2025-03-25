@@ -9,7 +9,7 @@ public class VideoClipManager : MonoBehaviour
 
     [Header("Video Settings")]
     [SerializeField] private VideoPlayer videoPlayer; // Reference to the VideoPlayer component
-    [SerializeField] private CanvasGroup videoCanvasGroup; // Used for fade in/out
+    [SerializeField] private FadableImage videoRenderer; // Used for fade in/out
     [SerializeField] private float fadeInTime = 0.5f;  // Time for fade in
     [SerializeField] private float fadeOutTime = 0.5f; // Time for fade out
     [SerializeField] private float pauseAfterEnd = 0.5f; // Pause on final frame before fade out
@@ -61,18 +61,8 @@ public class VideoClipManager : MonoBehaviour
 
     private IEnumerator FadeInAndPlay()
     {
-        // Start with the video canvas group fully transparent.
-        videoCanvasGroup.alpha = 0;
-
-        // Fade in.
-        float t = 0f;
-        while (t < fadeInTime)
-        {
-            t += Time.deltaTime;
-            videoCanvasGroup.alpha = Mathf.Lerp(0, 1, t / fadeInTime);
-            yield return null;
-        }
-        videoCanvasGroup.alpha = 1;
+        yield return SetFirstFrame();
+        videoRenderer.FadeIn(fadeInTime);
 
         // Play the video.
         videoPlayer.Play();
@@ -87,20 +77,26 @@ public class VideoClipManager : MonoBehaviour
         yield return new WaitForSeconds(pauseAfterEnd);
 
         // If the pointer is no longer over the photo, fade out.
-        if (!isPointerOver)
-            yield return StartCoroutine(FadeOutAndStop());
+        /*if (!isPointerOver)
+            yield return StartCoroutine(FadeOutAndStop());*/
+    }
+
+    private IEnumerator SetFirstFrame()
+    {
+        videoRenderer.SetAlpha(0);
+        videoPlayer.Prepare();
+        while (!videoPlayer.isPrepared) yield return null;
+
+        videoPlayer.time = 0;
+        videoPlayer.Play();
+        videoPlayer.Pause();
+        yield return null;
     }
 
     private IEnumerator FadeOutAndStop()
     {
-        float t = 0f;
-        while (t < fadeOutTime)
-        {
-            t += Time.deltaTime;
-            videoCanvasGroup.alpha = Mathf.Lerp(1, 0, t / fadeOutTime);
-            yield return null;
-        }
-        videoCanvasGroup.alpha = 0;
+        videoRenderer.FadeOut(fadeOutTime);
+        yield return new WaitForSeconds(fadeOutTime);
         videoPlayer.Stop();
     }
 }
