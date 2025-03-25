@@ -20,6 +20,9 @@ public class MemoryPlayer : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     [Header("Display Component")]
     [SerializeField] private FadableImage videoRenderer;
 
+    [Header("MemoryBorder")]
+    [SerializeField] private FadableImage memoryBorder;
+
     private VideoPlayer videoPlayer;
     private RenderTexture renderTexture;
     private Coroutine currentCoroutine;
@@ -49,6 +52,7 @@ public class MemoryPlayer : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         {
             videoRenderer.GetComponent<RawImage>().texture = renderTexture;
         }
+        memoryBorder.SetAlpha(0f);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -81,6 +85,7 @@ public class MemoryPlayer : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     {
         yield return SetFirstFrame();
         videoRenderer.FadeIn(fadeInTime);
+        memoryBorder.FadeIn(fadeInTime, 0.7f);
         videoPlayer.Play();
 
         // Wait until the video finishes playing
@@ -112,6 +117,7 @@ public class MemoryPlayer : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     private IEnumerator FadeOutAndStop()
     {
         videoRenderer.FadeOut(fadeOutTime);
+        memoryBorder.FadeOut(fadeInTime, 0.7f);
         yield return new WaitForSeconds(fadeOutTime);
         videoPlayer.Stop();
     }
