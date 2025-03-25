@@ -41,7 +41,7 @@ public class DeskPhotoCutscene : IntroCutscene
             photo.BeginSlideIn();
             yield return new WaitForSeconds(photo.GetDuration());
         }
-        audioManager.PlayEffect("PhotoSlide1");
+        audioManager.PlayEffect("PhotoSlide11");
         transitionPicture.BeginSlideIn();
         yield return new WaitForSeconds(transitionPicture.GetDuration());
         transitionCameraSlide.BeginSlideIn();
