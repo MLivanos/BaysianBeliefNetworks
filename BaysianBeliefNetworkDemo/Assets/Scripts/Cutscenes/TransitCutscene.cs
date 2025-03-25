@@ -18,7 +18,6 @@ public class TransitCutscene : IntroCutscene
     {
         StartCoroutine(TransitionFade());
         StartCoroutine(ExitTunnel());
-    	cameraTransform.parent = train;
         
         yield return ViewPanel();
         AnimateText();
