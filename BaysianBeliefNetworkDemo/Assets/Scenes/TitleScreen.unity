@@ -272,8 +272,11 @@ MonoBehaviour:
   timeBetweenCharacters: 0.15
   typingSoundName: 
   deletingSoundName: 
+  charsBetweenSounds: 0
   specialCharacters: 
   specialWaitTimeMultiplier: 0
+  maxFontSize: 32
+  resizeText: 0
 --- !u!114 &15159981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1814,8 +1817,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f95d96b54aab13c4faeead317f3220ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  humanTextEffect: {fileID: 1896576897}
-  alienTextEffect: {fileID: 1889936141}
+  humanTextEffect: {fileID: 1889936141}
+  alienTextEffect: {fileID: 1896576897}
 --- !u!114 &566154548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3667,8 +3670,11 @@ MonoBehaviour:
   timeBetweenCharacters: 0.01
   typingSoundName: 
   deletingSoundName: 
+  charsBetweenSounds: 0
   specialCharacters: 
   specialWaitTimeMultiplier: 0
+  maxFontSize: 32
+  resizeText: 0
 --- !u!1 &1053054103
 GameObject:
   m_ObjectHideFlags: 0
@@ -4515,7 +4521,7 @@ MonoBehaviour:
   titleFadeInText:
   - {fileID: 1031833639}
   - {fileID: 1904185641}
-  - {fileID: 1896576896}
+  - {fileID: 1889936138}
   titleFadeInTime: 0.75
   titleGlow: {fileID: 1031833640}
   shouldGlowTitle: 1
@@ -5907,7 +5913,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: Play
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4aab07212ecdd2646993db7d3debad07, type: 2}
   m_sharedMaterial: {fileID: 2599102033498517698, guid: 4aab07212ecdd2646993db7d3debad07,
@@ -6000,8 +6006,11 @@ MonoBehaviour:
   timeBetweenCharacters: 0.1
   typingSoundName: TextBeep
   deletingSoundName: TextDelete
+  charsBetweenSounds: 0
   specialCharacters: 
   specialWaitTimeMultiplier: 1
+  maxFontSize: 32
+  resizeText: 0
 --- !u!1 &1896576892
 GameObject:
   m_ObjectHideFlags: 0
@@ -6061,7 +6070,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PLAY
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a85a5fb20be32c74e8b4a078e736f5ab, type: 2}
   m_sharedMaterial: {fileID: -8262044034710385518, guid: a85a5fb20be32c74e8b4a078e736f5ab,
@@ -6166,8 +6175,11 @@ MonoBehaviour:
   timeBetweenCharacters: 0.1
   typingSoundName: TextBeep
   deletingSoundName: TextDelete
+  charsBetweenSounds: 0
   specialCharacters: 
   specialWaitTimeMultiplier: 1
+  maxFontSize: 32
+  resizeText: 0
 --- !u!1 &1904185637
 GameObject:
   m_ObjectHideFlags: 0
@@ -6334,8 +6346,11 @@ MonoBehaviour:
   timeBetweenCharacters: 0.01
   typingSoundName: 
   deletingSoundName: 
+  charsBetweenSounds: 0
   specialCharacters: 
   specialWaitTimeMultiplier: 0
+  maxFontSize: 32
+  resizeText: 0
 --- !u!1001 &1922491478
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6911,8 +6926,11 @@ MonoBehaviour:
   timeBetweenCharacters: 0.1
   typingSoundName: 
   deletingSoundName: 
+  charsBetweenSounds: 0
   specialCharacters: 
   specialWaitTimeMultiplier: 0
+  maxFontSize: 32
+  resizeText: 0
 --- !u!114 &2062973125
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -11,7 +11,7 @@ public class MeshGenerator : MonoBehaviour
     [SerializeField] private float slopeBias=10;
 
     private Mesh mesh;
-    private EnvironmentalInstancer envriomentalInstancer;
+    private EnvironmentalInstancer environmentalInstancer;
     private Vector3[] vertices;
     private int[] triangles;
 
@@ -31,11 +31,14 @@ public class MeshGenerator : MonoBehaviour
         triangles = new int[xSize * zSize * 6];
 
         // Generate vertices using Perlin noise
+        float xScaler = scale / xSize;
+        float zScaler = scale / zSize;
+        float slopBiasScaler = (xSize + slopeBias);
         for (int i = 0, z = 0; z <= zSize; z++)
         {
             for (int x = 0; x <= xSize; x++)
             {
-                float y = Mathf.PerlinNoise(x * scale / xSize, z * scale / zSize) * bumpiness * (1f-(float)((x + slopeBias) / (xSize + slopeBias)));
+                float y = Mathf.PerlinNoise(x * xScaler, z * zScaler) * bumpiness * (1f-(float)((x + slopeBias) / slopBiasScaler));
                 vertices[i] = new Vector3(x, y, z);
                 i++;
             }
@@ -92,9 +95,9 @@ public class MeshGenerator : MonoBehaviour
 
     private void PopulateMesh()
     {
-        envriomentalInstancer = GetComponent<EnvironmentalInstancer>();
-        envriomentalInstancer.SetTerrainMesh(mesh);
-        envriomentalInstancer.GenerateAllInstances();
+        environmentalInstancer = GetComponent<EnvironmentalInstancer>();
+        environmentalInstancer.SetTerrainMesh(mesh);
+        environmentalInstancer.GenerateAllInstances();
     }
 
     public void DeleteChunk()

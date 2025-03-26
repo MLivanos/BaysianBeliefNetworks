@@ -9,13 +9,17 @@ public class TypewriterEffect : MonoBehaviour
     [SerializeField] private float timeBetweenCharacters = 0.1f;
     [SerializeField] private string typingSoundName;
     [SerializeField] private string deletingSoundName;
+    [SerializeField] private int charsBetweenSounds;
     [SerializeField] private string specialCharacters;
     [SerializeField] private float specialWaitTimeMultiplier;
+    [SerializeField] private float maxFontSize = 32f;
+    [SerializeField] private bool resizeText = false;
 
     private AudioManager audioManager;
     private TextMeshProUGUI textComponent;
     private Coroutine typingCoroutine;
     private string fullText;
+    private int charsBeforeSound = 0;
 
     void Awake()
     {
@@ -26,22 +30,24 @@ public class TypewriterEffect : MonoBehaviour
 
     public void UpdateText(string newText)
     {
+        charsBeforeSound = 1;
         if (typingCoroutine != null)
         {
             StopCoroutine(typingCoroutine);
         }
-
         fullText = newText;
-        typingCoroutine = StartCoroutine(TypeText());
+        UpdateText();
     }
 
     public void UpdateText()
     {
-        StartCoroutine(TypeText());
+        if (resizeText) StartCoroutine(PrecomputeFontSizeAndType());
+        else typingCoroutine = StartCoroutine(TypeText());
     }
 
     public void TypewriterDelete()
     {
+        charsBeforeSound = 1;
         if (typingCoroutine != null)
         {
             StopCoroutine(typingCoroutine);
@@ -56,8 +62,18 @@ public class TypewriterEffect : MonoBehaviour
         for (int i=0; i<=originalText.Length; i++)
         {
             textComponent.text = originalText.Substring(0,originalText.Length-i);
-            if (deletingSoundName != "") audioManager.PlayEffect(deletingSoundName);
+            PlayTypingSound(false);
             yield return new WaitForSeconds(timeBetweenCharacters);
+        }
+    }
+
+    private void PlayTypingSound(bool typingIn)
+    {
+        string soundName = typingIn ? typingSoundName : deletingSoundName;
+        if (soundName != "" && charsBeforeSound-- <= 0)
+        {
+            audioManager.PlayEffect(soundName);
+            charsBeforeSound = charsBetweenSounds;
         }
     }
 
@@ -82,11 +98,26 @@ public class TypewriterEffect : MonoBehaviour
         foreach (char letter in fullText)
         {
             textComponent.text += letter;
-            if (typingSoundName != "") audioManager.PlayEffect(typingSoundName);
+            PlayTypingSound(true);
             float waitTime = GetWaitTimeForCharacter(letter);
             yield return new WaitForSeconds(waitTime);
         }
         typingCoroutine = null;
+    }
+
+    private IEnumerator PrecomputeFontSizeAndType()
+    {
+        FadableTextMeshPro fader = textComponent.GetComponent<FadableTextMeshPro>() ?? textComponent.gameObject.AddComponent<FadableTextMeshPro>();
+        fader.SetAlpha(0f);
+        textComponent.enableAutoSizing = true;
+        textComponent.text = fullText;
+        yield return null;
+        float computedFontSize = textComponent.fontSize;
+        textComponent.fontSize = Mathf.Min(maxFontSize, computedFontSize);
+        textComponent.enableAutoSizing = false;
+        Clear();
+        fader.SetAlpha(1f);
+        typingCoroutine = StartCoroutine(TypeText());
     }
 
     public void Clear()
@@ -107,6 +138,11 @@ public class TypewriterEffect : MonoBehaviour
 
     private float GetWaitTimeForCharacter(char letter)
     {
-        return specialCharacters.Contains(letter) ? timeBetweenCharacters * specialWaitTimeMultiplier : timeBetweenCharacters;
+        if (specialCharacters.Contains(letter))
+        {
+            charsBeforeSound = 0;
+            return timeBetweenCharacters * specialWaitTimeMultiplier;
+        }
+        return timeBetweenCharacters;
     }
 }
