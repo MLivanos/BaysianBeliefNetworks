@@ -52,7 +52,6 @@ public class MemoryPlayer : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         {
             videoRenderer.GetComponent<RawImage>().texture = renderTexture;
         }
-        memoryBorder.SetAlpha(0f);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
