@@ -98,7 +98,7 @@ public class TutorialStep : MonoBehaviour, IQuestParent
 		messageID = 0;
 		while (messageID <= tutorialMessages.Count)
 		{
-			if (messageID-1 > 0) tutorialMessages[messageID-1].ToggleObjects(false);
+			if (messageID-1 >= 0) tutorialMessages[messageID-1].ToggleObjects(false);
 			if (messageID < tutorialMessages.Count)
 			{
 				tutorialMessages[messageID].ToggleObjects(true);
