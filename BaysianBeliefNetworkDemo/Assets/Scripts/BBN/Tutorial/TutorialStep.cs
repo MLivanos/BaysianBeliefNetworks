@@ -4,12 +4,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[System.Serializable]
+public class TutorialMessage
+{
+	[SerializeField] private string message;
+	[SerializeField] private List<GameObject> messageObjects;
+
+	public string Message=>message;
+
+	public void ToggleObjects(bool toggleOn)
+	{
+		foreach(GameObject messageObject in messageObjects)
+		{
+			messageObject.SetActive(toggleOn);
+		}
+	}
+}
+
 public class TutorialStep : MonoBehaviour, IQuestParent
 {
 	[SerializeField] private List<TutorialQuestBase> quests;
 	[SerializeField] private List<GameObject> stepObjects;
 	[SerializeField] private List<GameObject> permanantStepObjects;
+	[SerializeField] private List<TutorialMessage> tutorialMessages;
 	[SerializeField] private List<string> messages;
+	[SerializeField] private List<List<GameObject>> messageObjects;
 	[SerializeField] private bool isOrdered;
 	private QuestOrderHandler questOrderHandler;
 	private AudioManager audioManager;
@@ -71,19 +90,19 @@ public class TutorialStep : MonoBehaviour, IQuestParent
 
 	private IEnumerator ClickThroughText()
 	{
-		if (messages.Count >= 1)
+		if (tutorialMessages.Count >= 1)
 		{
 			messagePanel.SetActive(true);
 			yield return null;
-			typewriterEffect.UpdateText(messages[messageID++]);
+			typewriterEffect.UpdateText(tutorialMessages[messageID++].Message);
 		}
-		while(messageID <= messages.Count)
+		while(messageID <= tutorialMessages.Count)
 		{
 			if(Input.GetMouseButtonDown(0))
 			{
-				if(messageID == messages.Count) break;
+				if(messageID == tutorialMessages.Count) break;
 				typewriterEffect.Clear();
-				typewriterEffect.UpdateText(messages[messageID++]);
+				typewriterEffect.UpdateText(tutorialMessages[messageID++].Message);
 			}
 			yield return null;
 		}

@@ -10636,6 +10636,23 @@ MonoBehaviour:
   - {fileID: 243451189}
   permanantStepObjects:
   - {fileID: 1993775477}
+  tutorialMessages:
+  - message: "Take a look at the upper left. You\u2019ll see stats from your last
+      query. How many samples were generated, how many were usable, and how long
+      the calculation took."
+    messageObjects: []
+  - message: So far, you've been using <i>Rejection Sampling</i>. It works by generating
+      random days, but if they contradict your evidence, they get thrown out. That
+      means if your evidence is rare, most samples go to waste!
+    messageObjects: []
+  - message: "What happens if we barely get any usable data? That\u2019s where Likelihood
+      Weighting comes in. Instead of throwing out samples, it forces the evidence
+      to be true and adjusts the importance of each sample by how likely the evidence
+      was to occur."
+    messageObjects: []
+  - message: Try running the same query with the Likelihood Weighting algorithm.
+      Look at the number of usable samples. How does it compare to before?
+    messageObjects: []
   messages:
   - "Take a look at the upper left. You\u2019ll see stats from your last query. How
     many samples were generated, how many were usable, and how long the calculation
@@ -20739,9 +20756,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenCharacters: 0.0175
-  soundName: 
+  typingSoundName: 
+  deletingSoundName: 
+  charsBetweenSounds: 0
   specialCharacters: .?!
   specialWaitTimeMultiplier: 15
+  maxFontSize: 32
+  resizeText: 0
 --- !u!1 &399450905
 GameObject:
   m_ObjectHideFlags: 0
@@ -32186,6 +32207,30 @@ MonoBehaviour:
   - {fileID: 1351046720}
   - {fileID: 1712816754}
   - {fileID: 508512780}
+  tutorialMessages:
+  - message: Now behold! The Xenograph in all its glory.
+    messageObjects: []
+  - message: "You\u2019ll be interviewing eyewitnesses who claim to have seen aliens.
+      Your job? Figure out if the aliens are friendly or aggressive - or if they
+      were ever here at all."
+    messageObjects: []
+  - message: Naturally, these kinds of reports attract some... eccentric individuals.
+      Some might have really seen aliens. Others? Maybe not. We need a way to separate
+      fact from fiction.
+    messageObjects: []
+  - message: Just like with Rain, we look for patterns. If an eyewitness describes
+      something that actually makes an alien visit more likely, we trust them. Otherwise,
+      they might just be imagining things. <b>We trust an interviewee if P(Alien
+      Visitation | Evidence) > P(Alien Visitation) alone</b>. If what they describe
+      increases the probability of a visitation, we take them seriously.
+    messageObjects: []
+  - message: "To do this, we first need to check P(Alien Visitation) by itself. This
+      is a critical number, so let\u2019s make sure we get an accurate estimate."
+    messageObjects: []
+  - message: "The program runs 10,000 samples by default, but for an accurate estimate,
+      let\u2019s bump it up to 50,000. More samples mean a more stable probability
+      - watch how the number adjusts."
+    messageObjects: []
   messages:
   - Now behold! The Xenograph in all its glory.
   - "You\u2019ll be interviewing eyewitnesses who claim to have seen aliens. Your
@@ -49177,6 +49222,24 @@ MonoBehaviour:
   - {fileID: 1980073208}
   - {fileID: 527523535}
   - {fileID: 1554082558}
+  tutorialMessages:
+  - message: "Pretty neat, huh? Now you know how to filter signal from noise - what
+      matters, and what doesn\u2019t. You might not always have the entire Markov
+      Blanket, but if you do, you can use it to make evaluation easier."
+    messageObjects: []
+  - message: If you need a refresher, hover over the question mark in the top right
+      for a rundown of the controls. You'll also find the color legend, clear query
+      button, random event simulator (not reccomended on a first playthrough), and
+      audio controls below.
+    messageObjects: []
+  - message: Want to experiment? The Simulation button (bottom right) lets you run
+      a random day with all these effects in play. Add events to evidence if you
+      want to make sure they occur.
+    messageObjects: []
+  - message: This is where I step back, and you take the lead. Explore the graph,
+      uncover the patterns. When you've learned all you can, power off The Xenograph
+      and move on to the interviews. Go find the truth, Celeste.
+    messageObjects: []
   messages:
   - "Pretty neat, huh? Now you know how to filter signal from noise - what matters,
     and what doesn\u2019t. You might not always have the entire Markov Blanket, but
@@ -55815,6 +55878,24 @@ MonoBehaviour:
   - {fileID: 1556268227}
   permanantStepObjects:
   - {fileID: 1098249758}
+  tutorialMessages:
+  - message: "Take a look at the statistics again. Likelihood Weighting always uses
+      100% of its samples, but there\u2019s a catch."
+    messageObjects: []
+  - message: "Did you notice the sample count reset? That\u2019s because Likelihood
+      Weighting starts fresh every time the evidence changes, unlike Rejection Sampling,
+      which learns from past data. The Rejection Sampler builds knowledge over time,
+      but might fail given rare evidence, while Likelihood Weighting gives accurate
+      probabilities even under rare evidence."
+    messageObjects: []
+  - message: So, which one is better? It depends on the situation! Likelihood Weighting
+      works well when evidence is rare, while Rejection Sampling improves every time
+      you use it.
+    messageObjects: []
+  - message: "Now that you know the basics, let\u2019s get to why you\u2019re here.
+      Clear the current probability question by unchecking all checkboxes, or use
+      the Clear button (near the top left) to reset everything in one click."
+    messageObjects: []
   messages:
   - "Take a look at the statistics again. Likelihood Weighting always uses 100% of
     its samples, but there\u2019s a catch."
@@ -64700,6 +64781,7 @@ MonoBehaviour:
   - {fileID: 188844327}
   stepObjects: []
   permanantStepObjects: []
+  tutorialMessages: []
   messages: []
   isOrdered: 0
 --- !u!4 &1180140943
@@ -70296,6 +70378,32 @@ MonoBehaviour:
   stepObjects:
   - {fileID: 1262573350}
   permanantStepObjects: []
+  tutorialMessages:
+  - message: Welcome to The Xenograph! Let's get started.
+    messageObjects: []
+  - message: 'You''re here to uncover the hidden connections between events. Your
+      goal? To understand how different conditions influence the likelihood of an
+      alien visitation using a powerful tool: a Bayesian Belief Network.'
+    messageObjects: []
+  - message: Every event is a node on the graph. Arrows pointing in to a node are
+      the node's parents, and they have a <i>direct</i> effect on probability of
+      that event occurring.  For example, Rain is affected by Clouds and Atmospheric
+      Pressure Drops. The more factors pointing to rain, the higher the probability.
+      We can see the probability values of an event given its parents on the left.
+    messageObjects: []
+  - message: The <b>truth table</b> for Rain shows a 95% probability when it is cloudy
+      AND the atmospheric pressure drops. In the next row, we see that drops down
+      to 20% if it is just cloudy and only 10% if it only the atomospheric pressure
+      drops. No clouds, no pressure drop? Practically zero.
+    messageObjects: []
+  - message: Arrows pointing out of events demonstrate the <i>direct</i> impact that
+      event has on others. For example, Rain directly influences the probability
+      of Thunder, Cats Hiding, and a Busy Day.
+    messageObjects: []
+  - message: "Try it out! Hover over a few nodes, zoom with your mouse wheel, and
+      move around by right-clicking. When you\u2019re ready, click the right arrow
+      to continue."
+    messageObjects: []
   messages:
   - Welcome to The Xenograph! Let's get started.
   - 'You''re here to uncover the hidden connections between events. Your goal? To
@@ -72640,7 +72748,7 @@ MonoBehaviour:
   messagePanel: {fileID: 2080983181}
   completionText: {fileID: 677672331}
   advanceButton: {fileID: 873177624}
-  debug: 0
+  debug: 1
 --- !u!4 &1320082883
 Transform:
   m_ObjectHideFlags: 0
@@ -72705,6 +72813,7 @@ MonoBehaviour:
   - {fileID: 1937416589}
   - {fileID: 1262573350}
   permanantStepObjects: []
+  tutorialMessages: []
   messages:
   - hi im puppy
   - i like your ears. and your tail
@@ -74067,6 +74176,13 @@ MonoBehaviour:
   - {fileID: 1749509133}
   stepObjects: []
   permanantStepObjects: []
+  tutorialMessages:
+  - message: Right now, your probability estimate is based only on the Markov Blanket.
+      What happens if you add more nodes?
+    messageObjects: []
+  - message: "Try it. Add extra nodes outside the Markov Blanket and calculate again.
+      If our theory is correct, the probability shouldn\u2019t change much."
+    messageObjects: []
   messages:
   - Right now, your probability estimate is based only on the Markov Blanket. What
     happens if you add more nodes?
@@ -76272,6 +76388,16 @@ MonoBehaviour:
   - {fileID: 1645890153}
   - {fileID: 618284408}
   - {fileID: 621538996}
+  tutorialMessages:
+  - message: Now, I didn't ask you to come all this way to predict the weather. Let's
+      try a more complex question on a complex graph - one that combines multiple
+      events happening together and some events explicitly NOT occuring. What is
+      the probability of hearing a Dog Bark while its raining given that the Cafe
+      is NOT open?
+    messageObjects: []
+  - message: "You can ask the probability of events NOT happening by holding the
+      SHIFT key when you click a checkbox. Try asking that complex query: Ask P(R,D|\xACCo)"
+    messageObjects: []
   messages:
   - Now, I didn't ask you to come all this way to predict the weather. Let's try
     a more complex question on a complex graph - one that combines multiple events
@@ -80497,6 +80623,17 @@ MonoBehaviour:
   - {fileID: 1072893024}
   - {fileID: 1262573350}
   permanantStepObjects: []
+  tutorialMessages:
+  - message: Awesome! The probability is shown below. Now that we know how often
+      Rain happens normally, let's see how different seasons change that probability.
+    messageObjects: []
+  - message: One at a time, add each season to the Evidence and check how the probability
+      changes. To remove a season, click off the Evidence checkbox. Make sure only
+      one season is selected at a time.
+    messageObjects: []
+  - message: Watch how the probability shifts. Does one season make Rain much more
+      likely than others?
+    messageObjects: []
   messages:
   - Awesome! The probability is shown below. Now that we know how often Rain happens
     normally, let's see how different seasons change that probability.
@@ -94956,6 +95093,7 @@ MonoBehaviour:
   - {fileID: 1618472049}
   - {fileID: 243451189}
   permanantStepObjects: []
+  tutorialMessages: []
   messages:
   - Arf arf arf I'm a message
   - Grr woof! I'm a message too
@@ -95287,6 +95425,29 @@ MonoBehaviour:
   - {fileID: 1442426442}
   stepObjects: []
   permanantStepObjects: []
+  tutorialMessages:
+  - message: 'Take note of that baseline probability. Figuring out what makes an
+      alien visitation more likely is complex - some events always increase the chance,
+      some decrease it, and some interact in unexpected ways. But we have a trick
+      to simplify things: the Markov Blanket.'
+    messageObjects: []
+  - message: "You might have noticed that when you hover over an event, certain other
+      nodes glow white. This is the <b>Markov Blanket</b>: an event\u2019s parents,
+      children, and children\u2019s other parents. Once you have all of these, <b>nothing
+      else in the graph affects the probability</b>. In probability talk, we call
+      this <b>conditional independence<\\b>."
+    messageObjects: []
+  - message: "Why? Because the Markov Blanket tells us everything we need. Parents
+      are the <b>root causes</b> of an event (clouds and atmospheric pressure drops
+      cause rain). Children are <b>symptoms</b> of the event (if the cat hides, maybe
+      it\u2019s because it\u2019s raining). And children\u2019s other parents provide
+      <b>alternative explanations</b> (or maybe the cat hid because a dog was barking
+      instead)"
+    messageObjects: []
+  - message: "Let\u2019s test it out. Add the parents, children, and children\u2019s
+      parents of Alien Visitation as evidence - either as true or false. Then try
+      adding extra nodes. Does the probability change?"
+    messageObjects: []
   messages:
   - 'Take note of that baseline probability. Figuring out what makes an alien visitation
     more likely is complex - some events always increase the chance, some decrease
@@ -101711,6 +101872,20 @@ MonoBehaviour:
   - {fileID: 1937416589}
   permanantStepObjects:
   - {fileID: 1736122387}
+  tutorialMessages:
+  - message: An event might also have <i>indirect</i> causes and effects. There's
+      no direct link from Winter to Rain, but since Winter has more Cloudy days than
+      other seasons, Rain is more likely.
+    messageObjects: []
+  - message: Don't take my word for it. Check it out yourself!
+    messageObjects: []
+  - message: 'Each node has two checkboxes. The one under ''Q'' is for queries, and
+      the one under ''E'' is for evidence. When we check a query, we''re asking:
+      "How often does this event happen?"'
+    messageObjects: []
+  - message: Add Rain to the query and click 'Calculate.' The system will estimate
+      the probability of Rain occurring based on all available data in the network.
+    messageObjects: []
   messages:
   - An event might also have <i>indirect</i> causes and effects. There's no direct
     link from Winter to Rain, but since Winter has more Cloudy days than other seasons,
