@@ -10748,13 +10748,13 @@ MonoBehaviour:
   permanantStepObjects:
   - {fileID: 1993775477}
   tutorialMessages:
-  - message: "Take a look at the upper left. You\u2019ll see stats from your last
+  - message: "Take a look at the upper right. You\u2019ll see stats from your last
       query. How many samples were generated, how many were usable, and how long
       the calculation took."
     messageObjects: []
-  - message: So far, you've been using <i>Rejection Sampling</i>. It works by generating
-      random days, but if they contradict your evidence, they get thrown out. That
-      means if your evidence is rare, most samples go to waste!
+  - message: So far, you've been using <b><i>Rejection Sampling</i><b>. It works
+      by generating random days, but if they contradict your evidence, they get thrown
+      out. That means if your evidence is rare, most samples go to waste!
     messageObjects: []
   - message: "What happens if we barely get any usable data? That\u2019s where Likelihood
       Weighting comes in. Instead of throwing out samples, it forces the evidence
@@ -16013,6 +16013,8 @@ RectTransform:
   - {fileID: 7922328}
   - {fileID: 754033178}
   - {fileID: 1750259244}
+  - {fileID: 1088246051}
+  - {fileID: 1473911222}
   m_Father: {fileID: 1428064586}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -27934,6 +27936,81 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 518390649}
   m_CullTransparentMesh: 1
+--- !u!1 &518873685
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 518873688}
+  - component: {fileID: 518873687}
+  - component: {fileID: 518873686}
+  m_Layer: 5
+  m_Name: NSamplesHighlight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &518873686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 518873685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0.7058824, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: b1fdb9943549aff49b01c7a727bd0222, type: 3}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &518873687
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 518873685}
+  m_CullTransparentMesh: 1
+--- !u!224 &518873688
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 518873685}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 854447724}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 41.28, y: 12.5}
+  m_SizeDelta: {x: 90, y: 40}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &519467789
 GameObject:
   m_ObjectHideFlags: 0
@@ -32472,8 +32549,8 @@ MonoBehaviour:
     messageObjects: []
   - message: Just like with Rain, we look for patterns. If an eyewitness describes
       something that actually makes an alien visit more likely, we trust them. Otherwise,
-      they might just be imagining things. <b>We trust an interviewee if P(Alien
-      Visitation | Evidence) > P(Alien Visitation) alone</b>. If what they describe
+      they might just be imagining things. <b><i>We trust an interviewee if P(Alien
+      Visitation | Evidence) > P(Alien Visitation) alone</i></b>. If what they describe
       increases the probability of a visitation, we take them seriously.
     messageObjects: []
   - message: "To do this, we first need to check P(Alien Visitation) by itself. This
@@ -45613,6 +45690,81 @@ RectTransform:
   m_AnchoredPosition: {x: -37.749992, y: 30.324986}
   m_SizeDelta: {x: 544.67505, y: 296}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &829196060
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 829196061}
+  - component: {fileID: 829196063}
+  - component: {fileID: 829196062}
+  m_Layer: 5
+  m_Name: Highlight (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &829196061
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 829196060}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.01, y: 1.01, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1088246051}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 900, y: 500}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &829196062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 829196060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0.7058824, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: fc98fde5baad85a419058b9df1c3d255, type: 3}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &829196063
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 829196060}
+  m_CullTransparentMesh: 0
 --- !u!1 &830582380
 GameObject:
   m_ObjectHideFlags: 0
@@ -46840,6 +46992,7 @@ RectTransform:
   m_Children:
   - {fileID: 1719860729}
   - {fileID: 140101883}
+  - {fileID: 518873688}
   - {fileID: 62941621}
   - {fileID: 998808398}
   m_Father: {fileID: 972312766}
@@ -49654,7 +49807,7 @@ MonoBehaviour:
     messageObjects: []
   - message: Want to experiment? The Simulation button (bottom right) lets you run
       a random day with all these effects in play. Add events to evidence if you
-      want to make sure they occur.
+      want to make sure they happen in the simulation.
     messageObjects: []
   - message: This is where I step back, and you take the lead. Explore the graph,
       uncover the patterns. When you've learned all you can, power off The Xenograph
@@ -49813,6 +49966,81 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 906253943}
+  m_CullTransparentMesh: 0
+--- !u!1 &906898248
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 906898249}
+  - component: {fileID: 906898251}
+  - component: {fileID: 906898250}
+  m_Layer: 5
+  m_Name: Highlight (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &906898249
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 906898248}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.01, y: 1.01, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1088246051}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 900, y: 500}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &906898250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 906898248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0.7058824, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: fc98fde5baad85a419058b9df1c3d255, type: 3}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &906898251
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 906898248}
   m_CullTransparentMesh: 0
 --- !u!1 &912843578
 GameObject:
@@ -54704,7 +54932,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: 10000
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a85a5fb20be32c74e8b4a078e736f5ab, type: 2}
   m_sharedMaterial: {fileID: -8262044034710385518, guid: a85a5fb20be32c74e8b4a078e736f5ab,
@@ -56499,13 +56727,15 @@ MonoBehaviour:
   tutorialMessages:
   - message: "Take a look at the statistics again. Likelihood Weighting always uses
       100% of its samples, but there\u2019s a catch."
-    messageObjects: []
+    messageObjects:
+    - {fileID: 140101882}
   - message: "Did you notice the sample count reset? That\u2019s because Likelihood
       Weighting starts fresh every time the evidence changes, unlike Rejection Sampling,
       which learns from past data. The Rejection Sampler builds knowledge over time,
       but might fail given rare evidence, while Likelihood Weighting gives accurate
       probabilities even under rare evidence."
-    messageObjects: []
+    messageObjects:
+    - {fileID: 518873685}
   - message: So, which one is better? It depends on the situation! Likelihood Weighting
       works well when evidence is rare, while Rejection Sampling improves every time
       you use it.
@@ -59168,6 +59398,43 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 486339478}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1088246050
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1088246051}
+  m_Layer: 5
+  m_Name: TutorialHighlight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1088246051
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088246050}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.20000002, y: 0.23, z: 0.20000002}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 829196061}
+  - {fileID: 906898249}
+  m_Father: {fileID: 319779155}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -440.88416, y: 151.77556}
+  m_SizeDelta: {x: 1020.1, y: 626.2}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1090308730
 GameObject:
   m_ObjectHideFlags: 0
@@ -77134,7 +77401,8 @@ MonoBehaviour:
       is NOT open?
     messageObjects: []
   - message: "You can ask the probability of events NOT happening by holding the
-      SHIFT key when you click a checkbox. Try asking that complex query: Ask P(R,D|\xACCo)"
+      SHIFT key when you click a checkbox. Try asking that complex query: Ask P(R,D|\xACCo)
+      - read as <i> the probability of dog barks AND rain GIVEN not cafe open</i>"
     messageObjects: []
   isOrdered: 0
 --- !u!1 &1397505407
@@ -81356,7 +81624,8 @@ MonoBehaviour:
   - {fileID: 1262573350}
   permanantStepObjects: []
   tutorialMessages:
-  - message: Awesome! The probability is shown below. Now that we know how often
+  - message: Awesome! The probability is shown below. A value of 1 means 100% - it
+      always happens - and 0 means 0% - it never happens. Now that we know how often
       Rain happens normally, let's see how different seasons change that probability.
     messageObjects: []
   - message: One at a time, add each season to the Evidence and check how the probability
@@ -82041,6 +82310,206 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1472783873}
   m_CullTransparentMesh: 1
+--- !u!1001 &1473911221
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 319779155}
+    m_Modifications:
+    - target: {fileID: 3728865574368668326, guid: 9cbd09b4c649b46139e2f71101452362,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0.7058824
+      objectReference: {fileID: 0}
+    - target: {fileID: 3728865574368668326, guid: 9cbd09b4c649b46139e2f71101452362,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.1254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 3728865574368668326, guid: 9cbd09b4c649b46139e2f71101452362,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.64705884
+      objectReference: {fileID: 0}
+    - target: {fileID: 3728865574368668326, guid: 9cbd09b4c649b46139e2f71101452362,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.85490197
+      objectReference: {fileID: 0}
+    - target: {fileID: 3728865574368668326, guid: 9cbd09b4c649b46139e2f71101452362,
+        type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: 169b4f3c685480042af722a6270472a6, type: 3}
+    - target: {fileID: 4142311149901805031, guid: 9cbd09b4c649b46139e2f71101452362,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 226.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4142311149901805031, guid: 9cbd09b4c649b46139e2f71101452362,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4465845015412069258, guid: 9cbd09b4c649b46139e2f71101452362,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0.7058824
+      objectReference: {fileID: 0}
+    - target: {fileID: 4465845015412069258, guid: 9cbd09b4c649b46139e2f71101452362,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.1254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 4465845015412069258, guid: 9cbd09b4c649b46139e2f71101452362,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.64705884
+      objectReference: {fileID: 0}
+    - target: {fileID: 4465845015412069258, guid: 9cbd09b4c649b46139e2f71101452362,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.85490197
+      objectReference: {fileID: 0}
+    - target: {fileID: 4465845015412069301, guid: 9cbd09b4c649b46139e2f71101452362,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 4501302699562296096, guid: 9cbd09b4c649b46139e2f71101452362,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4501302699562296096, guid: 9cbd09b4c649b46139e2f71101452362,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4501302699562296096, guid: 9cbd09b4c649b46139e2f71101452362,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4501302699562296096, guid: 9cbd09b4c649b46139e2f71101452362,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4501302699562296096, guid: 9cbd09b4c649b46139e2f71101452362,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4501302699562296096, guid: 9cbd09b4c649b46139e2f71101452362,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4501302699562296096, guid: 9cbd09b4c649b46139e2f71101452362,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4501302699562296096, guid: 9cbd09b4c649b46139e2f71101452362,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 70.45001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4501302699562296096, guid: 9cbd09b4c649b46139e2f71101452362,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4501302699562296096, guid: 9cbd09b4c649b46139e2f71101452362,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4501302699562296096, guid: 9cbd09b4c649b46139e2f71101452362,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4501302699562296096, guid: 9cbd09b4c649b46139e2f71101452362,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4501302699562296096, guid: 9cbd09b4c649b46139e2f71101452362,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9922346
+      objectReference: {fileID: 0}
+    - target: {fileID: 4501302699562296096, guid: 9cbd09b4c649b46139e2f71101452362,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4501302699562296096, guid: 9cbd09b4c649b46139e2f71101452362,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4501302699562296096, guid: 9cbd09b4c649b46139e2f71101452362,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.12438076
+      objectReference: {fileID: 0}
+    - target: {fileID: 4501302699562296096, guid: 9cbd09b4c649b46139e2f71101452362,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -331.79996
+      objectReference: {fileID: 0}
+    - target: {fileID: 4501302699562296096, guid: 9cbd09b4c649b46139e2f71101452362,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 123.79997
+      objectReference: {fileID: 0}
+    - target: {fileID: 4501302699562296096, guid: 9cbd09b4c649b46139e2f71101452362,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4501302699562296096, guid: 9cbd09b4c649b46139e2f71101452362,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4501302699562296096, guid: 9cbd09b4c649b46139e2f71101452362,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -14.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 7246226903703482687, guid: 9cbd09b4c649b46139e2f71101452362,
+        type: 3}
+      propertyPath: m_Name
+      value: WinterToCloud (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7246226903703482687, guid: 9cbd09b4c649b46139e2f71101452362,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9cbd09b4c649b46139e2f71101452362, type: 3}
+--- !u!224 &1473911222 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4501302699562296096, guid: 9cbd09b4c649b46139e2f71101452362,
+    type: 3}
+  m_PrefabInstance: {fileID: 1473911221}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1473911223 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7246226903703482687, guid: 9cbd09b4c649b46139e2f71101452362,
+    type: 3}
+  m_PrefabInstance: {fileID: 1473911221}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1474752164
 GameObject:
   m_ObjectHideFlags: 0
@@ -96702,7 +97171,11 @@ MonoBehaviour:
   - {fileID: 1261209095}
   - {fileID: 404282931}
   - {fileID: 1442426442}
-  stepObjects: []
+  stepObjects:
+  - {fileID: 1032465259}
+  - {fileID: 828612439}
+  - {fileID: 1987809372}
+  - {fileID: 408043104}
   permanantStepObjects: []
   tutorialMessages:
   - message: 'Take note of that baseline probability. Figuring out what makes an
@@ -96711,17 +97184,17 @@ MonoBehaviour:
       to simplify things: the Markov Blanket.'
     messageObjects: []
   - message: "You might have noticed that when you hover over an event, certain other
-      nodes glow white. This is the <b>Markov Blanket</b>: an event\u2019s parents,
-      children, and children\u2019s other parents. Once you have all of these, <b>nothing
-      else in the graph affects the probability</b>. In probability talk, we call
-      this <b>conditional independence<\\b>."
+      nodes glow white. This is the <i><b>Markov Blanket</b></i>: an event\u2019s
+      parents, children, and children\u2019s other parents. Once you have all of
+      these, <i><b>nothing else in the graph affects the probability</b></i>. In
+      probability talk, we call this <i><b>conditional independence</b></i>."
     messageObjects: []
   - message: "Why? Because the Markov Blanket tells us everything we need. Parents
-      are the <b>root causes</b> of an event (clouds and atmospheric pressure drops
-      cause rain). Children are <b>symptoms</b> of the event (if the cat hides, maybe
-      it\u2019s because it\u2019s raining). And children\u2019s other parents provide
-      <b>alternative explanations</b> (or maybe the cat hid because a dog was barking
-      instead)"
+      are the <i><b>root causes</b></i> of an event (clouds and atmospheric pressure
+      drops cause rain). Children are <i><b>symptoms</b></i> of the event (if the
+      cat hides, maybe it\u2019s because it\u2019s raining). And children\u2019s
+      other parents provide <i><b>alternative explanations</b></i> (or maybe the
+      cat hid because a dog was barking instead)"
     messageObjects: []
   - message: "Let\u2019s test it out. Add the parents, children, and children\u2019s
       parents of Alien Visitation as evidence - either as true or false. Then try
@@ -103414,10 +103887,12 @@ MonoBehaviour:
   permanantStepObjects:
   - {fileID: 1736122387}
   tutorialMessages:
-  - message: An event might also have <i>indirect</i> causes and effects. There's
-      no direct link from Winter to Rain, but since Winter has more Cloudy days than
-      other seasons, Rain is more likely.
-    messageObjects: []
+  - message: An event might also have <b><i>indirect</i></b> causes and effects.
+      There's no direct link from Winter to Rain, but since Winter has more Cloudy
+      days than other seasons, Rain is more likely.
+    messageObjects:
+    - {fileID: 1473911223}
+    - {fileID: 975879925}
   - message: Don't take my word for it. Check it out yourself!
     messageObjects: []
   - message: 'Each node has two checkboxes. The one under ''Q'' is for queries, and
