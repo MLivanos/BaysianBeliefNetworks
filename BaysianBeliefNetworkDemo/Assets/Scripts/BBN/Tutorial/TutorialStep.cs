@@ -27,7 +27,6 @@ public class TutorialStep : MonoBehaviour, IQuestParent
 	[SerializeField] private List<GameObject> stepObjects;
 	[SerializeField] private List<GameObject> permanantStepObjects;
 	[SerializeField] private List<TutorialMessage> tutorialMessages;
-	[SerializeField] private List<string> messages;
 	[SerializeField] private List<List<GameObject>> messageObjects;
 	[SerializeField] private bool isOrdered;
 	private QuestOrderHandler questOrderHandler;
@@ -90,25 +89,31 @@ public class TutorialStep : MonoBehaviour, IQuestParent
 
 	private IEnumerator ClickThroughText()
 	{
-		if (tutorialMessages.Count >= 1)
+		if (tutorialMessages.Count == 0)
+			yield break;
+
+		messagePanel.SetActive(true);
+		yield return null;
+
+		messageID = 0;
+		while (messageID < tutorialMessages.Count)
 		{
-			messagePanel.SetActive(true);
-			yield return null;
-			typewriterEffect.UpdateText(tutorialMessages[messageID++].Message);
+			if (messageID-1 > 0) tutorialMessages[messageID-1].ToggleObjects(false);
+			tutorialMessages[messageID].ToggleObjects(true);
+			typewriterEffect.Clear();
+			typewriterEffect.UpdateText(tutorialMessages[messageID].Message);
+
+			yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
+
+			messageID++;
 		}
-		while(messageID <= tutorialMessages.Count)
-		{
-			if(Input.GetMouseButtonDown(0))
-			{
-				if(messageID == tutorialMessages.Count) break;
-				typewriterEffect.Clear();
-				typewriterEffect.UpdateText(tutorialMessages[messageID++].Message);
-			}
-			yield return null;
-		}
-		tutorialManager.BlockInteractions(false);
+
+		if (messageID > 0) tutorialMessages[messageID-1].ToggleObjects(false);
+
 		messagePanel.SetActive(false);
+		tutorialManager.BlockInteractions(false);
 	}
+
 
 	private void ChangeHighlight(bool highlightOn)
 	{
