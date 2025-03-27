@@ -106,6 +106,7 @@ public class TutorialStep : MonoBehaviour, IQuestParent
 				typewriterEffect.UpdateText(tutorialMessages[messageID].Message);
 			}
 			messageID++;
+			yield return new WaitForSeconds(0.05f);
 			yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
 		}
 
