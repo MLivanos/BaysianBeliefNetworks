@@ -24,6 +24,17 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private bool debug;
     private int currentStep = 0;
     private Vector2 originalHighlightSize;
+    public static TutorialManager Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+    }
     
     private void Start()
     {
@@ -72,6 +83,23 @@ public class TutorialManager : MonoBehaviour
         {
             obj.SetActive(false);
         }
+    }
+
+    public void HandleTooltipHoverEnter(string triggerName)
+    {
+        TutorialTooltipMessage tooltipMessage = tutorialSteps[currentStep].FindTooltip(triggerName);
+        if (tooltipMessage == null)
+        {
+            Debug.Log("null tooltip");
+            return;
+        }
+        Debug.Log(tooltipMessage.tooltipText);
+    }
+
+    public void HandleTooltipHoverExit()
+    {
+        Debug.Log("exited tooltip");
+        return;
     }
 
     public void CloseMessages()

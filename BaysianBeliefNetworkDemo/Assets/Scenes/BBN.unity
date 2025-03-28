@@ -10919,6 +10919,7 @@ MonoBehaviour:
   - message: Try running the same query with the Likelihood Weighting algorithm.
       Look at the number of usable samples. How does it compare to before?
     messageObjects: []
+  tooltipMessages: []
   isOrdered: 1
 --- !u!1 &209446479
 GameObject:
@@ -33140,6 +33141,7 @@ MonoBehaviour:
       let\u2019s bump it up to 50,000. More samples mean a more stable probability
       - watch how the number adjusts."
     messageObjects: []
+  tooltipMessages: []
   isOrdered: 1
 --- !u!1 &587530639
 GameObject:
@@ -50731,6 +50733,7 @@ MonoBehaviour:
       uncover the patterns. When you've learned all you can, power off The Xenograph
       and move on to the interviews. Go find the truth, Celeste.
     messageObjects: []
+  tooltipMessages: []
   isOrdered: 0
 --- !u!4 &905947142
 Transform:
@@ -57798,6 +57801,7 @@ MonoBehaviour:
       Clear the current probability question by unchecking all checkboxes, or use
       the Clear button (near the top left) to reset everything in one click."
     messageObjects: []
+  tooltipMessages: []
   isOrdered: 0
 --- !u!1 &1032192399
 GameObject:
@@ -66846,6 +66850,7 @@ MonoBehaviour:
   stepObjects: []
   permanantStepObjects: []
   tutorialMessages: []
+  tooltipMessages: []
   isOrdered: 0
 --- !u!4 &1180140943
 Transform:
@@ -72584,6 +72589,11 @@ MonoBehaviour:
       move around by right-clicking. When you\u2019re ready, click the right arrow
       to continue."
     messageObjects: []
+  tooltipMessages:
+  - tooltipID: springNode
+    tooltipText: testing spring node
+    boxSize: {x: 0, y: 0}
+    worldPositionOverride: {x: 0, y: 0, z: 0}
   isOrdered: 0
 --- !u!1 &1276429156
 GameObject:
@@ -74186,6 +74196,7 @@ GameObject:
   - component: {fileID: 1305664203}
   - component: {fileID: 1305664202}
   - component: {fileID: 1305664204}
+  - component: {fileID: 1305664205}
   m_Layer: 5
   m_Name: Window
   m_TagString: Untagged
@@ -74304,6 +74315,19 @@ MonoBehaviour:
   incomingPulseColor: {r: 0.85490197, g: 0.64705884, b: 0.1254902, a: 1}
   outgoingPulseColor: {r: 0, g: 0, b: 1, a: 1}
   pulseSpeed: 2
+--- !u!114 &1305664205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1305664200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8827376af82d67c4d8883401de93c3b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameID: springNode
 --- !u!1 &1308143899
 GameObject:
   m_ObjectHideFlags: 0
@@ -74975,6 +74999,7 @@ MonoBehaviour:
   - {fileID: 1262573350}
   permanantStepObjects: []
   tutorialMessages: []
+  tooltipMessages: []
   isOrdered: 0
 --- !u!4 &1320946677
 Transform:
@@ -76409,6 +76434,7 @@ MonoBehaviour:
   - message: "Try it. Add extra nodes outside the Markov Blanket and calculate again.
       If our theory is correct, the probability shouldn\u2019t change much."
     messageObjects: []
+  tooltipMessages: []
   isOrdered: 0
 --- !u!1 &1350851835
 GameObject:
@@ -78620,6 +78646,7 @@ MonoBehaviour:
       SHIFT key when you click a checkbox. Try asking that complex query: Ask P(R,D|\xACCo)
       - read as <i> the probability of dog barks AND rain GIVEN not cafe open</i>"
     messageObjects: []
+  tooltipMessages: []
   isOrdered: 0
 --- !u!1 &1397505407
 GameObject:
@@ -82941,6 +82968,7 @@ MonoBehaviour:
   - message: Watch how the probability shifts. Does one season make Rain much more
       likely than others?
     messageObjects: []
+  tooltipMessages: []
   isOrdered: 0
 --- !u!1 &1458808106
 GameObject:
@@ -98573,6 +98601,7 @@ MonoBehaviour:
   - {fileID: 243451189}
   permanantStepObjects: []
   tutorialMessages: []
+  tooltipMessages: []
   isOrdered: 0
 --- !u!1 &1719860728
 GameObject:
@@ -98928,6 +98957,7 @@ MonoBehaviour:
       parents of Alien Visitation as evidence - either as true or false. Then try
       adding extra nodes. Does the probability change?"
     messageObjects: []
+  tooltipMessages: []
   isOrdered: 0
 --- !u!1 &1731309977
 GameObject:
@@ -105736,6 +105766,7 @@ MonoBehaviour:
   - message: Add Rain to the query and click 'Calculate.' The system will estimate
       the probability of Rain occurring based on all available data in the network.
     messageObjects: []
+  tooltipMessages: []
   isOrdered: 1
 --- !u!1 &1830711465
 GameObject:
@@ -122638,6 +122669,7 @@ GameObject:
   - component: {fileID: 2827044000626561056}
   - component: {fileID: 2827044000626561057}
   - component: {fileID: 2827044000626561072}
+  - component: {fileID: 2827044000626561073}
   m_Layer: 5
   m_Name: Window
   m_TagString: Untagged
@@ -122706,6 +122738,19 @@ MonoBehaviour:
   incomingPulseColor: {r: 0.85490197, g: 0.64705884, b: 0.1254902, a: 1}
   outgoingPulseColor: {r: 0, g: 0, b: 1, a: 1}
   pulseSpeed: 2
+--- !u!114 &2827044000626561073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2827044000626561071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8827376af82d67c4d8883401de93c3b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameID: winterNode
 --- !u!1 &2827044000895533944
 GameObject:
   m_ObjectHideFlags: 0

@@ -28,6 +28,7 @@ public class TutorialStep : MonoBehaviour, IQuestParent
 	[SerializeField] private List<GameObject> permanantStepObjects;
 	[SerializeField] private List<TutorialMessage> tutorialMessages;
 	[SerializeField] private List<List<GameObject>> messageObjects;
+	[SerializeField] private List<TutorialTooltipMessage> tooltipMessages;
 	[SerializeField] private bool isOrdered;
 	private QuestOrderHandler questOrderHandler;
 	private AudioManager audioManager;
@@ -171,4 +172,14 @@ public class TutorialStep : MonoBehaviour, IQuestParent
 			quest.DestroyQuest();
 		}
 	}
+
+	public TutorialTooltipMessage FindTooltip(string triggerName)
+    {
+        foreach (var tooltip in tooltipMessages)
+        {
+            if (tooltip.tooltipID == triggerName)
+                return tooltip;
+        }
+        return null;
+    }
 }
