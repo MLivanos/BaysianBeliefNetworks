@@ -21441,7 +21441,8 @@ MonoBehaviour:
   specialCharacters: .?!
   specialWaitTimeMultiplier: 15
   maxFontSize: 32
-  resizeText: 0
+  resizeText: 1
+  smartDetectTokens: 1
 --- !u!1 &399450905
 GameObject:
   m_ObjectHideFlags: 0
