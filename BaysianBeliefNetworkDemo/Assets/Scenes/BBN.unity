@@ -10602,6 +10602,7 @@ GameObject:
   - component: {fileID: 203162783}
   - component: {fileID: 203162782}
   - component: {fileID: 203162784}
+  - component: {fileID: 203162785}
   m_Layer: 5
   m_Name: Window
   m_TagString: Untagged
@@ -10713,6 +10714,19 @@ MonoBehaviour:
   incomingPulseColor: {r: 0.85490197, g: 0.64705884, b: 0.1254902, a: 1}
   outgoingPulseColor: {r: 0, g: 0, b: 1, a: 1}
   pulseSpeed: 2
+--- !u!114 &203162785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 203162780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8827376af82d67c4d8883401de93c3b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameID: APDNode
 --- !u!1 &206663047
 GameObject:
   m_ObjectHideFlags: 0
@@ -15324,6 +15338,7 @@ GameObject:
   - component: {fileID: 310114389}
   - component: {fileID: 310114388}
   - component: {fileID: 310114390}
+  - component: {fileID: 310114391}
   m_Layer: 5
   m_Name: Window
   m_TagString: Untagged
@@ -15446,6 +15461,19 @@ MonoBehaviour:
   incomingPulseColor: {r: 0.85490197, g: 0.64705884, b: 0.1254902, a: 1}
   outgoingPulseColor: {r: 0, g: 0, b: 1, a: 1}
   pulseSpeed: 2
+--- !u!114 &310114391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 310114386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8827376af82d67c4d8883401de93c3b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameID: SummerNode
 --- !u!1 &310347226
 GameObject:
   m_ObjectHideFlags: 0
@@ -24711,6 +24739,141 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 450461484}
   m_CullTransparentMesh: 1
+--- !u!1 &450721494
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 450721495}
+  - component: {fileID: 450721497}
+  - component: {fileID: 450721496}
+  m_Layer: 5
+  m_Name: Text (TMP)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &450721495
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 450721494}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1252166809}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 175, y: 80}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &450721496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 450721494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: a85a5fb20be32c74e8b4a078e736f5ab, type: 2}
+  m_sharedMaterial: {fileID: -8262044034710385518, guid: a85a5fb20be32c74e8b4a078e736f5ab,
+    type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 18
+  m_fontSizeBase: 18
+  m_fontWeight: 400
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 12
+  m_fontSizeMax: 18
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &450721497
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 450721494}
+  m_CullTransparentMesh: 1
 --- !u!1 &454189521
 GameObject:
   m_ObjectHideFlags: 0
@@ -31344,6 +31507,7 @@ GameObject:
   - component: {fileID: 564074505}
   - component: {fileID: 564074504}
   - component: {fileID: 564074506}
+  - component: {fileID: 564074507}
   m_Layer: 5
   m_Name: Window
   m_TagString: Untagged
@@ -31478,6 +31642,19 @@ MonoBehaviour:
   incomingPulseColor: {r: 0.85490197, g: 0.64705884, b: 0.1254902, a: 1}
   outgoingPulseColor: {r: 0, g: 0, b: 1, a: 1}
   pulseSpeed: 2
+--- !u!114 &564074507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 564074502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8827376af82d67c4d8883401de93c3b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameID: CloudNode
 --- !u!1 &565319512
 GameObject:
   m_ObjectHideFlags: 0
@@ -33141,7 +33318,13 @@ MonoBehaviour:
       let\u2019s bump it up to 50,000. More samples mean a more stable probability
       - watch how the number adjusts."
     messageObjects: []
-  tooltipMessages: []
+  tooltipMessages:
+  - tooltipID: AlienNode
+    tooltipText: Alien encounters are always rare, but they are even less common
+      during Cloudy or Busy Days. Aliens are beleived to want a clear view of the
+      ground, but they also don't want to be spotted.
+    boxSize: {x: 200, y: 150}
+    worldPositionOverride: {x: 75, y: -270, z: 0}
   isOrdered: 1
 --- !u!1 &587530639
 GameObject:
@@ -42074,6 +42257,7 @@ GameObject:
   - component: {fileID: 750913573}
   - component: {fileID: 750913572}
   - component: {fileID: 750913574}
+  - component: {fileID: 750913575}
   m_Layer: 5
   m_Name: Window
   m_TagString: Untagged
@@ -42190,6 +42374,19 @@ MonoBehaviour:
   incomingPulseColor: {r: 0.85490197, g: 0.64705884, b: 0.1254902, a: 1}
   outgoingPulseColor: {r: 0, g: 0, b: 1, a: 1}
   pulseSpeed: 2
+--- !u!114 &750913575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750913570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8827376af82d67c4d8883401de93c3b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameID: FallNode
 --- !u!1 &751110580
 GameObject:
   m_ObjectHideFlags: 0
@@ -52744,6 +52941,7 @@ GameObject:
   - component: {fileID: 940663137}
   - component: {fileID: 940663136}
   - component: {fileID: 940663138}
+  - component: {fileID: 940663139}
   m_Layer: 5
   m_Name: Window
   m_TagString: Untagged
@@ -52862,6 +53060,19 @@ MonoBehaviour:
   incomingPulseColor: {r: 0.85490197, g: 0.64705884, b: 0.1254902, a: 1}
   outgoingPulseColor: {r: 0, g: 0, b: 1, a: 1}
   pulseSpeed: 2
+--- !u!114 &940663139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 940663134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8827376af82d67c4d8883401de93c3b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameID: AlienNode
 --- !u!1 &942902241
 GameObject:
   m_ObjectHideFlags: 0
@@ -58879,6 +59090,7 @@ GameObject:
   - component: {fileID: 1057457990}
   - component: {fileID: 1057457989}
   - component: {fileID: 1057457991}
+  - component: {fileID: 1057457992}
   m_Layer: 5
   m_Name: Window
   m_TagString: Untagged
@@ -58986,6 +59198,19 @@ MonoBehaviour:
   incomingPulseColor: {r: 0.85490197, g: 0.64705884, b: 0.1254902, a: 1}
   outgoingPulseColor: {r: 0, g: 0, b: 1, a: 1}
   pulseSpeed: 2
+--- !u!114 &1057457992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1057457987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8827376af82d67c4d8883401de93c3b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameID: ThunderNode
 --- !u!1 &1057487844
 GameObject:
   m_ObjectHideFlags: 0
@@ -59321,6 +59546,7 @@ GameObject:
   - component: {fileID: 1060984319}
   - component: {fileID: 1060984318}
   - component: {fileID: 1060984320}
+  - component: {fileID: 1060984321}
   m_Layer: 5
   m_Name: Window
   m_TagString: Untagged
@@ -59439,6 +59665,19 @@ MonoBehaviour:
   incomingPulseColor: {r: 0.85490197, g: 0.64705884, b: 0.1254902, a: 1}
   outgoingPulseColor: {r: 0, g: 0, b: 1, a: 1}
   pulseSpeed: 2
+--- !u!114 &1060984321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1060984316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8827376af82d67c4d8883401de93c3b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameID: BusyNode
 --- !u!1 &1063766452
 GameObject:
   m_ObjectHideFlags: 0
@@ -71004,6 +71243,82 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1250810584}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1252166808
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1252166809}
+  - component: {fileID: 1252166811}
+  - component: {fileID: 1252166810}
+  m_Layer: 5
+  m_Name: TutorialTooltip
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1252166809
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1252166808}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1.8766345}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 450721495}
+  m_Father: {fileID: 1428064586}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -330, y: 15}
+  m_SizeDelta: {x: 200, y: 150}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1252166810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1252166808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: da4d8a26fb3bae44b92b8d527b4b1fae, type: 3}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1252166811
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1252166808}
+  m_CullTransparentMesh: 1
 --- !u!1 &1253907453
 GameObject:
   m_ObjectHideFlags: 0
@@ -72049,6 +72364,7 @@ GameObject:
   - component: {fileID: 1265568657}
   - component: {fileID: 1265568656}
   - component: {fileID: 1265568658}
+  - component: {fileID: 1265568659}
   m_Layer: 5
   m_Name: Window (1)
   m_TagString: Untagged
@@ -72157,6 +72473,19 @@ MonoBehaviour:
   incomingPulseColor: {r: 0.85490197, g: 0.64705884, b: 0.1254902, a: 1}
   outgoingPulseColor: {r: 0, g: 0, b: 1, a: 1}
   pulseSpeed: 2
+--- !u!114 &1265568659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1265568654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8827376af82d67c4d8883401de93c3b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameID: CafeNode
 --- !u!1 &1269600002
 GameObject:
   m_ObjectHideFlags: 0
@@ -72590,10 +72919,41 @@ MonoBehaviour:
       to continue."
     messageObjects: []
   tooltipMessages:
-  - tooltipID: springNode
-    tooltipText: testing spring node
-    boxSize: {x: 0, y: 0}
-    worldPositionOverride: {x: 0, y: 0, z: 0}
+  - tooltipID: WinterNode
+    tooltipText: Winter is an example of a <b><i>root node</b></i> - or a node without
+      parents. During a simulation, it will be true with the probability specified
+      in the box above.
+    boxSize: {x: 200, y: 150}
+    worldPositionOverride: {x: -475, y: 47, z: 0}
+  - tooltipID: SpringNode
+    tooltipText: Look at the truth table for spring. If winter is true, spring has
+      a probability of 0 - it never happens. Otherwise, it occurs 33% of the time.
+    boxSize: {x: 200, y: 150}
+    worldPositionOverride: {x: -350, y: 47, z: 0}
+  - tooltipID: SummerNode
+    tooltipText: If either winter or spring is true, summer will never be true. Otherwise,
+      it is true 50% of the time.
+    boxSize: {x: 200, y: 150}
+    worldPositionOverride: {x: -25, y: 47, z: 0}
+  - tooltipID: FallNode
+    tooltipText: If any other season is true, Fall is false. Otherwise, it is true.
+      This gives all seasons an even 25% probability.
+    boxSize: {x: 200, y: 150}
+    worldPositionOverride: {x: 200, y: 47, z: 0}
+  - tooltipID: CloudNode
+    tooltipText: Cloudiness depends directly on the season, and directly influences
+      the probability of Rain
+    boxSize: {x: 200, y: 150}
+    worldPositionOverride: {x: -330, y: 15, z: 0}
+  - tooltipID: RainNode
+    tooltipText: Rain is directly impacted by Clody and Atmospheric Pressure Drop
+    boxSize: {x: 230, y: 180}
+    worldPositionOverride: {x: 349, y: 15, z: 0}
+  - tooltipID: APDNode
+    tooltipText: Atmospheric pressure drop is an example of a <b><i>root node</b></i>
+      - a node without parents and occurs 40% of the time (probability 0.4).
+    boxSize: {x: 200, y: 150}
+    worldPositionOverride: {x: 455, y: 50, z: 0}
   isOrdered: 0
 --- !u!1 &1276429156
 GameObject:
@@ -74327,7 +74687,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8827376af82d67c4d8883401de93c3b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameID: springNode
+  nameID: SpringNode
 --- !u!1 &1308143899
 GameObject:
   m_ObjectHideFlags: 0
@@ -74933,6 +75293,8 @@ MonoBehaviour:
   messagePanel: {fileID: 2080983181}
   completionText: {fileID: 677672331}
   advanceButton: {fileID: 873177624}
+  tooltipPanelTransform: {fileID: 1252166809}
+  tooltipText: {fileID: 450721496}
   debug: 1
 --- !u!4 &1320082883
 Transform:
@@ -76434,7 +76796,48 @@ MonoBehaviour:
   - message: "Try it. Add extra nodes outside the Markov Blanket and calculate again.
       If our theory is correct, the probability shouldn\u2019t change much."
     messageObjects: []
-  tooltipMessages: []
+  tooltipMessages:
+  - tooltipID: RainNode
+    tooltipText: Rain has a big impact on alien visitation - it directly impacts
+      Thunder and Busy Day and is a symptom of Cloudy, but if we already know those
+      events it won't impact the probability. Test it out!
+    boxSize: {x: 230, y: 180}
+    worldPositionOverride: {x: 345, y: 100, z: 0}
+  - tooltipID: CatNode
+    tooltipText: The Cat Hiding might indicate that the Dog Barks which might be
+      evidence of an Alien Visitation, but if we already know if the Dog Barks it
+      won't impact the probability. Try it!
+    boxSize: {x: 230, y: 180}
+    worldPositionOverride: {x: 465, y: -140, z: 0}
+  - tooltipID: CafeNode
+    tooltipText: The Cafe being Open might be an indicator of good weather and a
+      Busy Day, but if we already know Cloudy and Busy Day it won't matter. Try it!
+    boxSize: {x: 230, y: 180}
+    worldPositionOverride: {x: -180, y: -270, z: 0}
+  - tooltipID: WinterNode
+    tooltipText: Seasons directly impact the Clouds, but if we already know if its
+      Cloudy it shouldn't matter. Try it! Just make sure to only have one season
+      marked at a time.
+    boxSize: {x: 230, y: 150}
+    worldPositionOverride: {x: -475, y: 125, z: 0}
+  - tooltipID: SpringNode
+    tooltipText: Seasons directly impact the Clouds, but if we already know if its
+      Cloudy it shouldn't matter. Try it! Just make sure to only have one season
+      marked at a time.
+    boxSize: {x: 230, y: 150}
+    worldPositionOverride: {x: -350, y: 125, z: 0}
+  - tooltipID: SummerNode
+    tooltipText: Seasons directly impact the Clouds, but if we already know if its
+      Cloudy it shouldn't matter. Try it! Just make sure to only have one season
+      marked at a time.
+    boxSize: {x: 230, y: 150}
+    worldPositionOverride: {x: -25, y: 125, z: 0}
+  - tooltipID: FallNode
+    tooltipText: Seasons directly impact the Clouds, but if we already know if its
+      Cloudy it shouldn't matter. Try it! Just make sure to only have one season
+      marked at a time.
+    boxSize: {x: 230, y: 150}
+    worldPositionOverride: {x: 200, y: 125, z: 0}
   isOrdered: 0
 --- !u!1 &1350851835
 GameObject:
@@ -78646,7 +79049,18 @@ MonoBehaviour:
       SHIFT key when you click a checkbox. Try asking that complex query: Ask P(R,D|\xACCo)
       - read as <i> the probability of dog barks AND rain GIVEN not cafe open</i>"
     messageObjects: []
-  tooltipMessages: []
+  tooltipMessages:
+  - tooltipID: DogNode
+    tooltipText: Dogs bark when they get scared by Thunder, but sometimes they just
+      bark anyways!
+    boxSize: {x: 200, y: 150}
+    worldPositionOverride: {x: 305, y: -270, z: 0}
+  - tooltipID: CafeNode
+    tooltipText: Cafe is pretty far removed from the seasons, but everything in the
+      graph is connected. Can you predict which seasons the cafe is most likely to
+      be open? Care to test out your hypothesis?
+    boxSize: {x: 230, y: 180}
+    worldPositionOverride: {x: -180, y: -270, z: 0}
   isOrdered: 0
 --- !u!1 &1397505407
 GameObject:
@@ -81511,6 +81925,7 @@ RectTransform:
   - {fileID: 223681561}
   - {fileID: 751110581}
   - {fileID: 319779155}
+  - {fileID: 1252166809}
   m_Father: {fileID: 707857607}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -82786,6 +83201,7 @@ GameObject:
   - component: {fileID: 1456068715}
   - component: {fileID: 1456068714}
   - component: {fileID: 1456068716}
+  - component: {fileID: 1456068717}
   m_Layer: 5
   m_Name: Window
   m_TagString: Untagged
@@ -82896,6 +83312,19 @@ MonoBehaviour:
   incomingPulseColor: {r: 0.85490197, g: 0.64705884, b: 0.1254902, a: 1}
   outgoingPulseColor: {r: 0, g: 0, b: 1, a: 1}
   pulseSpeed: 2
+--- !u!114 &1456068717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1456068712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8827376af82d67c4d8883401de93c3b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameID: DogNode
 --- !u!1 &1458675917
 GameObject:
   m_ObjectHideFlags: 0
@@ -82968,7 +83397,12 @@ MonoBehaviour:
   - message: Watch how the probability shifts. Does one season make Rain much more
       likely than others?
     messageObjects: []
-  tooltipMessages: []
+  tooltipMessages:
+  - tooltipID: CloudNode
+    tooltipText: If Cloudy influences Rain and seasons influence Cloudy, which season
+      will have the highest chance of Rain?
+    boxSize: {x: 200, y: 150}
+    worldPositionOverride: {x: 200, y: 125, z: 0}
   isOrdered: 0
 --- !u!1 &1458808106
 GameObject:
@@ -86550,6 +86984,7 @@ GameObject:
   - component: {fileID: 1510195992}
   - component: {fileID: 1510195991}
   - component: {fileID: 1510195993}
+  - component: {fileID: 1510195994}
   m_Layer: 5
   m_Name: Window
   m_TagString: Untagged
@@ -86681,6 +87116,19 @@ MonoBehaviour:
   incomingPulseColor: {r: 0.85490197, g: 0.64705884, b: 0.1254902, a: 1}
   outgoingPulseColor: {r: 0, g: 0, b: 1, a: 1}
   pulseSpeed: 2
+--- !u!114 &1510195994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510195989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8827376af82d67c4d8883401de93c3b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameID: RainNode
 --- !u!1 &1513919340
 GameObject:
   m_ObjectHideFlags: 0
@@ -98957,7 +99405,28 @@ MonoBehaviour:
       parents of Alien Visitation as evidence - either as true or false. Then try
       adding extra nodes. Does the probability change?"
     messageObjects: []
-  tooltipMessages: []
+  tooltipMessages:
+  - tooltipID: DogNode
+    tooltipText: '<b><i>Childt: </b></i>Dogs can sense aliens and bark when they''re
+      around. Dog Barks is evidence that an Alien Visitation has occured.'
+    boxSize: {x: 200, y: 150}
+    worldPositionOverride: {x: 305, y: -270, z: 0}
+  - tooltipID: CloudNode
+    tooltipText: '<b><i>Parent: </b></i>Cloudy skies make it difficult for aliens
+      to observe below. Cloudy is a direct cause against Alien Visitation.'
+    boxSize: {x: 200, y: 150}
+    worldPositionOverride: {x: -160, y: -25, z: 0}
+  - tooltipID: BusyNode
+    tooltipText: '<b><i>Parent: </b></i>Aliens don''t want to be spotted, so aliens
+      might not show up if there''s too much activity. Busy Day is a direct cause
+      against Alien Visitation'
+    boxSize: {x: 200, y: 150}
+    worldPositionOverride: {x: -175, y: -130, z: 0}
+  - tooltipID: ThunderNode
+    tooltipText: '<b><i>Child''s other parent: </b></i>Dogs bark for Aliens but they
+      also bark for Thunder. Thunder helps explain what a Dog Bark might mean.'
+    boxSize: {x: 200, y: 150}
+    worldPositionOverride: {x: 465, y: -270, z: 0}
   isOrdered: 0
 --- !u!1 &1731309977
 GameObject:
@@ -105766,7 +106235,27 @@ MonoBehaviour:
   - message: Add Rain to the query and click 'Calculate.' The system will estimate
       the probability of Rain occurring based on all available data in the network.
     messageObjects: []
-  tooltipMessages: []
+  tooltipMessages:
+  - tooltipID: WinterNode
+    tooltipText: Last time, we said that the probability of all seasons was 25%.
+      Want to test that out? Just make sure to uncheck Rain if you do.
+    boxSize: {x: 200, y: 150}
+    worldPositionOverride: {x: -475, y: 125, z: 0}
+  - tooltipID: SpringNode
+    tooltipText: Last time, we said that the probability of all seasons was 25%.
+      Want to test that out? Just make sure to uncheck Rain if you do.
+    boxSize: {x: 200, y: 150}
+    worldPositionOverride: {x: -350, y: 125, z: 0}
+  - tooltipID: SummerNode
+    tooltipText: Last time, we said that the probability of all seasons was 25%.
+      Want to test that out? Just make sure to uncheck Rain if you do.
+    boxSize: {x: 200, y: 150}
+    worldPositionOverride: {x: -25, y: 125, z: 0}
+  - tooltipID: FallNode
+    tooltipText: Last time, we said that the probability of all seasons was 25%.
+      Want to test that out? Just make sure to uncheck Rain if you do.
+    boxSize: {x: 200, y: 150}
+    worldPositionOverride: {x: 200, y: 125, z: 0}
   isOrdered: 1
 --- !u!1 &1830711465
 GameObject:
@@ -106675,6 +107164,7 @@ GameObject:
   - component: {fileID: 1848667072}
   - component: {fileID: 1848667071}
   - component: {fileID: 1848667073}
+  - component: {fileID: 1848667074}
   m_Layer: 5
   m_Name: Window
   m_TagString: Untagged
@@ -106783,6 +107273,19 @@ MonoBehaviour:
   incomingPulseColor: {r: 0.85490197, g: 0.64705884, b: 0.1254902, a: 1}
   outgoingPulseColor: {r: 0, g: 0, b: 1, a: 1}
   pulseSpeed: 2
+--- !u!114 &1848667074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1848667069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8827376af82d67c4d8883401de93c3b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameID: CatNode
 --- !u!1 &1849609231
 GameObject:
   m_ObjectHideFlags: 0
@@ -122750,7 +123253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8827376af82d67c4d8883401de93c3b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameID: winterNode
+  nameID: WinterNode
 --- !u!1 &2827044000895533944
 GameObject:
   m_ObjectHideFlags: 0

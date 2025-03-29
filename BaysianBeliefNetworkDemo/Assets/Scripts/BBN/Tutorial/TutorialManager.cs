@@ -21,6 +21,9 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private GameObject messagePanel;
     [SerializeField] private FadableTextMeshPro completionText;
     [SerializeField] private Image advanceButton;
+    [Header("Tooltip Objects")]
+    [SerializeField] private RectTransform tooltipPanelTransform;
+    [SerializeField] private TextMeshProUGUI tooltipText;
     [SerializeField] private bool debug;
     private int currentStep = 0;
     private Vector2 originalHighlightSize;
@@ -88,18 +91,18 @@ public class TutorialManager : MonoBehaviour
     public void HandleTooltipHoverEnter(string triggerName)
     {
         TutorialTooltipMessage tooltipMessage = tutorialSteps[currentStep].FindTooltip(triggerName);
-        if (tooltipMessage == null)
-        {
-            Debug.Log("null tooltip");
-            return;
-        }
-        Debug.Log(tooltipMessage.tooltipText);
+        if (tooltipMessage == null) return;
+        tooltipPanelTransform.gameObject.SetActive(true);
+        tooltipPanelTransform.localPosition = tooltipMessage.worldPositionOverride;
+        tooltipPanelTransform.sizeDelta = tooltipMessage.boxSize;
+        Vector2 textSize = new Vector2(tooltipMessage.boxSize.x-25f,tooltipMessage.boxSize.y-70f);
+        tooltipText.GetComponent<RectTransform>().sizeDelta = textSize;
+        tooltipText.text = tooltipMessage.tooltipText;
     }
 
     public void HandleTooltipHoverExit()
     {
-        Debug.Log("exited tooltip");
-        return;
+        tooltipPanelTransform.gameObject.SetActive(false);
     }
 
     public void CloseMessages()
