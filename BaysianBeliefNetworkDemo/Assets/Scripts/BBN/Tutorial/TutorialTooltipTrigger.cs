@@ -19,7 +19,8 @@ public class TutorialTooltipTrigger : MonoBehaviour, IPointerEnterHandler, IPoin
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        TutorialManager.Instance.HandleTooltipHoverEnter(nameID);
+        // Turn self off if tutorial is no longer in progress
+        this.enabled = TutorialManager.Instance.HandleTooltipHoverEnter(nameID);
     }
 
     public void OnPointerExit(PointerEventData eventData)

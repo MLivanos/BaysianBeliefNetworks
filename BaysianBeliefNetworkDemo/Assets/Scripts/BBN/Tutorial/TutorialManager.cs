@@ -27,6 +27,8 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private bool debug;
     private int currentStep = 0;
     private Vector2 originalHighlightSize;
+    private bool tutorialOngoing = false;
+
     public static TutorialManager Instance { get; private set; }
 
     private void Awake()
@@ -49,6 +51,7 @@ public class TutorialManager : MonoBehaviour
 
     public void StartTutorial()
     {
+        tutorialOngoing = true;
         HideIncrementalObjects();
         GameObject.Find("TimeLimit").SetActive(false);
         tutorialSelectionWindow.SetActive(false);
@@ -78,6 +81,7 @@ public class TutorialManager : MonoBehaviour
         PlayerPrefs.Save();
         interactionBlocker.SetActive(false);
         gameObject.SetActive(false);
+        tutorialOngoing = false;
     }
 
     private void HideIncrementalObjects()
@@ -88,16 +92,18 @@ public class TutorialManager : MonoBehaviour
         }
     }
 
-    public void HandleTooltipHoverEnter(string triggerName)
+    public bool HandleTooltipHoverEnter(string triggerName)
     {
+        if (!tutorialOngoing) return false;
         TutorialTooltipMessage tooltipMessage = tutorialSteps[currentStep].FindTooltip(triggerName);
-        if (tooltipMessage == null) return;
+        if (tooltipMessage == null) return true;
         tooltipPanelTransform.gameObject.SetActive(true);
         tooltipPanelTransform.localPosition = tooltipMessage.worldPositionOverride;
         tooltipPanelTransform.sizeDelta = tooltipMessage.boxSize;
         Vector2 textSize = new Vector2(tooltipMessage.boxSize.x-25f,tooltipMessage.boxSize.y-70f);
         tooltipText.GetComponent<RectTransform>().sizeDelta = textSize;
         tooltipText.text = tooltipMessage.tooltipText;
+        return true;
     }
 
     public void HandleTooltipHoverExit()
