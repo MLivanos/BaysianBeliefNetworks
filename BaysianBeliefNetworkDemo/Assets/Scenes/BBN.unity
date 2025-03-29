@@ -67838,6 +67838,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5053447448950097464, guid: abaea1a53b374c34096b54d49dae9a97,
+        type: 3}
+      propertyPath: sounds.Array.data[37].volumeMultiplier
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5053447448950097464, guid: abaea1a53b374c34096b54d49dae9a97,
+        type: 3}
+      propertyPath: sounds.Array.data[38].volumeMultiplier
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -71357,8 +71367,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  popInSound: 
-  popOutSound: 
+  popInSound: TooltipOpen
+  popOutSound: TooltipClose
 --- !u!1 &1253907453
 GameObject:
   m_ObjectHideFlags: 0

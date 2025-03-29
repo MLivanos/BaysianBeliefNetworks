@@ -12,7 +12,7 @@ public class PopEffect : MonoBehaviour
     private Coroutine animationCoroutine;
     private AudioManager audioManager;
 
-    private void Awake()
+    private void Start()
     {
         audioManager = AudioManager.instance;
     }
