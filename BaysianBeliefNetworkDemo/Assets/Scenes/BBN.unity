@@ -33323,8 +33323,8 @@ MonoBehaviour:
     tooltipText: Alien encounters are always rare, but they are even less common
       during Cloudy or Busy Days. Aliens are beleived to want a clear view of the
       ground, but they also don't want to be spotted.
-    boxSize: {x: 200, y: 150}
-    worldPositionOverride: {x: 75, y: -270, z: 0}
+    boxSize: {x: 230, y: 180}
+    worldPositionOverride: {x: 80, y: -270, z: 0}
   isOrdered: 1
 --- !u!1 &587530639
 GameObject:
@@ -71278,7 +71278,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -330, y: 15}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 200, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1252166810
@@ -72924,22 +72924,22 @@ MonoBehaviour:
       parents. During a simulation, it will be true with the probability specified
       in the box above.
     boxSize: {x: 200, y: 150}
-    worldPositionOverride: {x: -475, y: 47, z: 0}
+    worldPositionOverride: {x: -460, y: 45, z: 0}
   - tooltipID: SpringNode
     tooltipText: Look at the truth table for spring. If winter is true, spring has
       a probability of 0 - it never happens. Otherwise, it occurs 33% of the time.
     boxSize: {x: 200, y: 150}
-    worldPositionOverride: {x: -350, y: 47, z: 0}
+    worldPositionOverride: {x: -232, y: 45, z: 0}
   - tooltipID: SummerNode
     tooltipText: If either winter or spring is true, summer will never be true. Otherwise,
       it is true 50% of the time.
     boxSize: {x: 200, y: 150}
-    worldPositionOverride: {x: -25, y: 47, z: 0}
+    worldPositionOverride: {x: -11, y: 45, z: 0}
   - tooltipID: FallNode
     tooltipText: If any other season is true, Fall is false. Otherwise, it is true.
       This gives all seasons an even 25% probability.
     boxSize: {x: 200, y: 150}
-    worldPositionOverride: {x: 200, y: 47, z: 0}
+    worldPositionOverride: {x: 217, y: 45, z: 0}
   - tooltipID: CloudNode
     tooltipText: Cloudiness depends directly on the season, and directly influences
       the probability of Rain
@@ -72947,8 +72947,8 @@ MonoBehaviour:
     worldPositionOverride: {x: -330, y: 15, z: 0}
   - tooltipID: RainNode
     tooltipText: Rain is directly impacted by Clody and Atmospheric Pressure Drop
-    boxSize: {x: 230, y: 180}
-    worldPositionOverride: {x: 349, y: 15, z: 0}
+    boxSize: {x: 200, y: 150}
+    worldPositionOverride: {x: 351, y: 15, z: 0}
   - tooltipID: APDNode
     tooltipText: Atmospheric pressure drop is an example of a <b><i>root node</b></i>
       - a node without parents and occurs 40% of the time (probability 0.4).
@@ -76802,13 +76802,13 @@ MonoBehaviour:
       Thunder and Busy Day and is a symptom of Cloudy, but if we already know those
       events it won't impact the probability. Test it out!
     boxSize: {x: 230, y: 180}
-    worldPositionOverride: {x: 345, y: 100, z: 0}
+    worldPositionOverride: {x: 351, y: 15, z: 0}
   - tooltipID: CatNode
     tooltipText: The Cat Hiding might indicate that the Dog Barks which might be
       evidence of an Alien Visitation, but if we already know if the Dog Barks it
       won't impact the probability. Try it!
     boxSize: {x: 230, y: 180}
-    worldPositionOverride: {x: 465, y: -140, z: 0}
+    worldPositionOverride: {x: 360, y: -135, z: 0}
   - tooltipID: CafeNode
     tooltipText: The Cafe being Open might be an indicator of good weather and a
       Busy Day, but if we already know Cloudy and Busy Day it won't matter. Try it!
@@ -76819,25 +76819,25 @@ MonoBehaviour:
       Cloudy it shouldn't matter. Try it! Just make sure to only have one season
       marked at a time.
     boxSize: {x: 230, y: 150}
-    worldPositionOverride: {x: -475, y: 125, z: 0}
+    worldPositionOverride: {x: -460, y: 45, z: 0}
   - tooltipID: SpringNode
     tooltipText: Seasons directly impact the Clouds, but if we already know if its
       Cloudy it shouldn't matter. Try it! Just make sure to only have one season
       marked at a time.
     boxSize: {x: 230, y: 150}
-    worldPositionOverride: {x: -350, y: 125, z: 0}
+    worldPositionOverride: {x: -232, y: 45, z: 0}
   - tooltipID: SummerNode
     tooltipText: Seasons directly impact the Clouds, but if we already know if its
       Cloudy it shouldn't matter. Try it! Just make sure to only have one season
       marked at a time.
     boxSize: {x: 230, y: 150}
-    worldPositionOverride: {x: -25, y: 125, z: 0}
+    worldPositionOverride: {x: -11, y: 45, z: 0}
   - tooltipID: FallNode
     tooltipText: Seasons directly impact the Clouds, but if we already know if its
       Cloudy it shouldn't matter. Try it! Just make sure to only have one season
       marked at a time.
     boxSize: {x: 230, y: 150}
-    worldPositionOverride: {x: 200, y: 125, z: 0}
+    worldPositionOverride: {x: 217, y: 45, z: 0}
   isOrdered: 0
 --- !u!1 &1350851835
 GameObject:
@@ -79060,7 +79060,7 @@ MonoBehaviour:
       graph is connected. Can you predict which seasons the cafe is most likely to
       be open? Care to test out your hypothesis?
     boxSize: {x: 230, y: 180}
-    worldPositionOverride: {x: -180, y: -270, z: 0}
+    worldPositionOverride: {x: -175, y: -270, z: 0}
   isOrdered: 0
 --- !u!1 &1397505407
 GameObject:
@@ -83402,7 +83402,7 @@ MonoBehaviour:
     tooltipText: If Cloudy influences Rain and seasons influence Cloudy, which season
       will have the highest chance of Rain?
     boxSize: {x: 200, y: 150}
-    worldPositionOverride: {x: 200, y: 125, z: 0}
+    worldPositionOverride: {x: -330, y: 15, z: 0}
   isOrdered: 0
 --- !u!1 &1458808106
 GameObject:
@@ -99407,7 +99407,7 @@ MonoBehaviour:
     messageObjects: []
   tooltipMessages:
   - tooltipID: DogNode
-    tooltipText: '<b><i>Childt: </b></i>Dogs can sense aliens and bark when they''re
+    tooltipText: '<b><i>Child: </b></i>Dogs can sense aliens and bark when they''re
       around. Dog Barks is evidence that an Alien Visitation has occured.'
     boxSize: {x: 200, y: 150}
     worldPositionOverride: {x: 305, y: -270, z: 0}
@@ -99415,7 +99415,7 @@ MonoBehaviour:
     tooltipText: '<b><i>Parent: </b></i>Cloudy skies make it difficult for aliens
       to observe below. Cloudy is a direct cause against Alien Visitation.'
     boxSize: {x: 200, y: 150}
-    worldPositionOverride: {x: -160, y: -25, z: 0}
+    worldPositionOverride: {x: -330, y: 15, z: 0}
   - tooltipID: BusyNode
     tooltipText: '<b><i>Parent: </b></i>Aliens don''t want to be spotted, so aliens
       might not show up if there''s too much activity. Busy Day is a direct cause
@@ -99426,7 +99426,7 @@ MonoBehaviour:
     tooltipText: '<b><i>Child''s other parent: </b></i>Dogs bark for Aliens but they
       also bark for Thunder. Thunder helps explain what a Dog Bark might mean.'
     boxSize: {x: 200, y: 150}
-    worldPositionOverride: {x: 465, y: -270, z: 0}
+    worldPositionOverride: {x: 465, y: -110, z: 0}
   isOrdered: 0
 --- !u!1 &1731309977
 GameObject:
@@ -106240,22 +106240,22 @@ MonoBehaviour:
     tooltipText: Last time, we said that the probability of all seasons was 25%.
       Want to test that out? Just make sure to uncheck Rain if you do.
     boxSize: {x: 200, y: 150}
-    worldPositionOverride: {x: -475, y: 125, z: 0}
+    worldPositionOverride: {x: -460, y: 45, z: 0}
   - tooltipID: SpringNode
     tooltipText: Last time, we said that the probability of all seasons was 25%.
       Want to test that out? Just make sure to uncheck Rain if you do.
     boxSize: {x: 200, y: 150}
-    worldPositionOverride: {x: -350, y: 125, z: 0}
+    worldPositionOverride: {x: -232, y: 45, z: 0}
   - tooltipID: SummerNode
     tooltipText: Last time, we said that the probability of all seasons was 25%.
       Want to test that out? Just make sure to uncheck Rain if you do.
     boxSize: {x: 200, y: 150}
-    worldPositionOverride: {x: -25, y: 125, z: 0}
+    worldPositionOverride: {x: -11, y: 45, z: 0}
   - tooltipID: FallNode
     tooltipText: Last time, we said that the probability of all seasons was 25%.
       Want to test that out? Just make sure to uncheck Rain if you do.
     boxSize: {x: 200, y: 150}
-    worldPositionOverride: {x: 200, y: 125, z: 0}
+    worldPositionOverride: {x: 217, y: 45, z: 0}
   isOrdered: 1
 --- !u!1 &1830711465
 GameObject:
