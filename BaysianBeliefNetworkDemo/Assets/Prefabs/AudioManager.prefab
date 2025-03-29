@@ -362,7 +362,7 @@ MonoBehaviour:
   - name: TooltipClose
     clip: {fileID: 8300000, guid: ed697055848ca4753a8faecacf8940a5, type: 3}
     loop: 0
-    volumeMultiplier: 0.3
+    volumeMultiplier: 0.2
     pitchMultiplier: 1
     source: {fileID: 0}
     duration: 0

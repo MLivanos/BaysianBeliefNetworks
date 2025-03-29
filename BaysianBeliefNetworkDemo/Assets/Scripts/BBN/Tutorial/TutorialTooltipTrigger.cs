@@ -13,17 +13,17 @@ public class TutorialTooltipMessage
 }
 
 
-public class TutorialTooltipTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class TutorialTooltipTrigger : MonoBehaviour, IXRaycastTargetScript
 {
     public string nameID;
 
-    public void OnPointerEnter(PointerEventData eventData)
+    public void OnDeepPointerEnter()
     {
         // Turn self off if tutorial is no longer in progress
         this.enabled = TutorialManager.Instance.HandleTooltipHoverEnter(nameID);
     }
 
-    public void OnPointerExit(PointerEventData eventData)
+    public void OnDeepPointerExit()
     {
         TutorialManager.Instance.HandleTooltipHoverExit();
     }
