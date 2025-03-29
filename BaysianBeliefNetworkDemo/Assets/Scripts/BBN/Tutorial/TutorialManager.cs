@@ -43,6 +43,7 @@ public class TutorialManager : MonoBehaviour
     
     private void Start()
     {
+        tooltipPanelTransform.gameObject.SetActive(false);
         if (debug) PlayerPrefs.SetInt("TutorialCompleted", 0);
         PlayerPrefs.Save();
         if (PlayerPrefs.GetInt("TutorialCompleted", 0) == 0) tutorialSelectionWindow.SetActive(true);
@@ -97,7 +98,7 @@ public class TutorialManager : MonoBehaviour
         if (!tutorialOngoing) return false;
         TutorialTooltipMessage tooltipMessage = tutorialSteps[currentStep].FindTooltip(triggerName);
         if (tooltipMessage == null) return true;
-        tooltipPanelTransform.gameObject.SetActive(true);
+        tooltipPanelTransform.GetComponent<PopEffect>().PlayPopIn();
         tooltipPanelTransform.localPosition = tooltipMessage.worldPositionOverride;
         tooltipPanelTransform.sizeDelta = tooltipMessage.boxSize;
         Vector2 textSize = new Vector2(tooltipMessage.boxSize.x-25f,tooltipMessage.boxSize.y-70f);
@@ -108,7 +109,7 @@ public class TutorialManager : MonoBehaviour
 
     public void HandleTooltipHoverExit()
     {
-        tooltipPanelTransform.gameObject.SetActive(false);
+        if (tooltipPanelTransform.gameObject.activeSelf) tooltipPanelTransform.GetComponent<PopEffect>().PlayPopDown();
     }
 
     public void CloseMessages()
