@@ -149,6 +149,8 @@ public class TutorialStep : MonoBehaviour, IQuestParent
 	public void CloseMessages()
 	{
 		StopCoroutine(clickthroughText);
+		// Close out any active message objects
+		for (int i=0; i<tutorialMessages.Count; i++) tutorialMessages[i].ToggleObjects(false);
 		tutorialManager.BlockInteractions(false);
 		messagePanel.SetActive(false);
 	}
