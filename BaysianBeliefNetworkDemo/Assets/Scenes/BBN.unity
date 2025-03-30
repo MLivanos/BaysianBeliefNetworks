@@ -28895,6 +28895,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   difficultySettings: {fileID: 244021969}
   warningPanel: {fileID: 1104587756}
+  toInterviewButton: {fileID: 1554082560}
+  interactionBlocker: {fileID: 167541473}
   timeLimit: {fileID: 1928283197}
   difficultyTimes:
   - 999999

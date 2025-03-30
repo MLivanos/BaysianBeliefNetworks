@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class GameManager : MonoBehaviour, ISceneDetectorTarget
@@ -8,6 +9,8 @@ public class GameManager : MonoBehaviour, ISceneDetectorTarget
     public string HomeSceneName { get; } = "BBN";
     [SerializeField] private GameObject difficultySettings;
     [SerializeField] private GameObject warningPanel;
+    [SerializeField] private Button toInterviewButton;
+    [SerializeField] private GameObject interactionBlocker;
     [SerializeField] private CircularProgressBar timeLimit;
     [SerializeField] private float[] difficultyTimes;
     private AudioManager audioManager;
@@ -52,12 +55,19 @@ public class GameManager : MonoBehaviour, ISceneDetectorTarget
 
     public void PromptGameMode()
     {
-        if (difficulty == -1) difficultySettings.SetActive(true);
+        if (difficulty == -1)
+        {
+            interactionBlocker.SetActive(true);
+            difficultySettings.SetActive(true);
+            toInterviewButton.interactable = false;
+        }
     }
 
     public void ChangeGamemode(int gamemodeNumber)
     {
         difficultySettings.SetActive(false);
+        interactionBlocker.SetActive(false);
+        toInterviewButton.interactable = true;
         difficulty = gamemodeNumber;
         if (gamemodeNumber < 2)
         {
