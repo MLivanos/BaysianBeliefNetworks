@@ -20,7 +20,7 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private TypewriterEffect typewriterEffect;
     [SerializeField] private GameObject messagePanel;
     [SerializeField] private FadableTextMeshPro completionText;
-    [SerializeField] private Image advanceButton;
+    [SerializeField] private Button advanceButton;
     [Header("Tooltip Objects")]
     [SerializeField] private RectTransform tooltipPanelTransform;
     [SerializeField] private TextMeshProUGUI tooltipText;
@@ -148,7 +148,7 @@ public class TutorialManager : MonoBehaviour
         return completionText;
     }
 
-    public Image GetAdvanceButton()
+    public Button GetAdvanceButton()
     {
         return advanceButton;
     }

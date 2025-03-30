@@ -39,7 +39,7 @@ public class TutorialStep : MonoBehaviour, IQuestParent
     private GameObject messagePanel;
     private Coroutine clickthroughText;
     private FadableTextMeshPro completionText;
-    private Image advanceButton;
+    private Button advanceButton;
 	private int questsCompleted = 0;
 	private int messageID = 0;
 	private Coroutine completionRoutine;
@@ -85,7 +85,7 @@ public class TutorialStep : MonoBehaviour, IQuestParent
 		messagePanel = tutorialManager.GetMessagePanel();
 		completionText = tutorialManager.GetCompletionText();
 		advanceButton = tutorialManager.GetAdvanceButton();
-		advanceButton.color = new Color32(0xA5, 0xA5, 0xA5, 160);
+		advanceButton.interactable = false;
 	}
 
 	private IEnumerator ClickThroughText()
@@ -136,7 +136,7 @@ public class TutorialStep : MonoBehaviour, IQuestParent
 	private void StepComplete()
 	{
 		messageID = 0;
-		advanceButton.color = new Color32(0xFF, 0xFF, 0xFF, 255);
+		advanceButton.interactable = true;
 		dropdownList.Peep();
 	}
 

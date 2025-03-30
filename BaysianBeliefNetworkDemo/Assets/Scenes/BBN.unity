@@ -75525,7 +75525,7 @@ MonoBehaviour:
   typewriterEffect: {fileID: 398445802}
   messagePanel: {fileID: 2080983181}
   completionText: {fileID: 677672331}
-  advanceButton: {fileID: 873177624}
+  advanceButton: {fileID: 873177623}
   tooltipPanelTransform: {fileID: 1252166809}
   tooltipText: {fileID: 450721496}
   debug: 1
