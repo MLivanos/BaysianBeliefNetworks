@@ -28,6 +28,13 @@ public class Graph : MonoBehaviour
     bool isNegative;
     float lastProbability;
 
+    public List<Node> GetRootNodes() => rootNodes;
+    public List<Node> GetPositiveEvidence() => positiveEvidence.ToList();
+    public List<Node> GetNegativeEvidence() => negativeEvidence.ToList();
+    public List<Node> GetPositiveQuery() => positiveQuery.ToList();
+    public List<Node> GetNegativeQuery() => negativeQuery.ToList();
+    public float GetLastProbability() => lastProbability;
+
     private void Start()
     {
         audioManager = FindObjectOfType<AudioManager>();
@@ -94,11 +101,6 @@ public class Graph : MonoBehaviour
             GetComponent<GraphTester>().TestGraph();
             test = false;
         }
-    }
-
-    public List<Node> GetRootNodes()
-    {
-        return rootNodes;
     }
 
     public void AddToEvidence(Node node, VariableChecks checks)
@@ -183,37 +185,12 @@ public class Graph : MonoBehaviour
         hamiltonianOptions.SetActive(index == 3);
     }
 
-    public List<Node> GetPositiveEvidence()
-    {
-        return positiveEvidence.ToList();
-    }
-
-    public List<Node> GetNegativeEvidence()
-    {
-        return negativeEvidence.ToList();
-    }
-
-    public List<Node> GetPositiveQuery()
-    {
-        return positiveQuery.ToList();
-    }
-
-    public List<Node> GetNegativeQuery()
-    {
-        return negativeQuery.ToList();
-    }
-
     public void SetNumberOfSamples(string numberOfSamplesText)
     {
         foreach(Sampler sampler in samplers)
         {
             sampler.SetNumberOfSamples(Int32.Parse(numberOfSamplesText));
         }
-    }
-
-    public float GetLastProbability()
-    {
-        return lastProbability;
     }
 
     public bool[] VisualizeSample()
