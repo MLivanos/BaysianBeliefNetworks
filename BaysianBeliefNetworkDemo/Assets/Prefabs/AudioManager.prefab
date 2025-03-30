@@ -352,6 +352,20 @@ MonoBehaviour:
     pitchMultiplier: 0.7
     source: {fileID: 0}
     duration: 0
+  - name: TooltipOpen
+    clip: {fileID: 8300000, guid: 1a608f0d352da434a91cba8c6a7b7c72, type: 3}
+    loop: 0
+    volumeMultiplier: 0.3
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: TooltipClose
+    clip: {fileID: 8300000, guid: ed697055848ca4753a8faecacf8940a5, type: 3}
+    loop: 0
+    volumeMultiplier: 0.2
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
   volume: 1
   pitch: 1
 --- !u!1 &7901061059001884411

@@ -20,13 +20,31 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private TypewriterEffect typewriterEffect;
     [SerializeField] private GameObject messagePanel;
     [SerializeField] private FadableTextMeshPro completionText;
-    [SerializeField] private Image advanceButton;
+    [SerializeField] private Button advanceButton;
+    [Header("Tooltip Objects")]
+    [SerializeField] private RectTransform tooltipPanelTransform;
+    [SerializeField] private TextMeshProUGUI tooltipText;
     [SerializeField] private bool debug;
     private int currentStep = 0;
     private Vector2 originalHighlightSize;
+    private bool tutorialOngoing = false;
+    private string lastMessageID = "";
+
+    public static TutorialManager Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+    }
     
     private void Start()
     {
+        tooltipPanelTransform.gameObject.SetActive(false);
         if (debug) PlayerPrefs.SetInt("TutorialCompleted", 0);
         PlayerPrefs.Save();
         if (PlayerPrefs.GetInt("TutorialCompleted", 0) == 0) tutorialSelectionWindow.SetActive(true);
@@ -35,6 +53,7 @@ public class TutorialManager : MonoBehaviour
 
     public void StartTutorial()
     {
+        tutorialOngoing = true;
         HideIncrementalObjects();
         GameObject.Find("TimeLimit").SetActive(false);
         tutorialSelectionWindow.SetActive(false);
@@ -64,6 +83,7 @@ public class TutorialManager : MonoBehaviour
         PlayerPrefs.Save();
         interactionBlocker.SetActive(false);
         gameObject.SetActive(false);
+        tutorialOngoing = false;
     }
 
     private void HideIncrementalObjects()
@@ -72,6 +92,30 @@ public class TutorialManager : MonoBehaviour
         {
             obj.SetActive(false);
         }
+    }
+
+    public bool HandleTooltipHoverEnter(string triggerName)
+    {
+        if (!tutorialOngoing) return false;
+        TutorialTooltipMessage tooltipMessage = tutorialSteps[currentStep].FindTooltip(triggerName);
+        if (tooltipMessage == null) return true;
+        if (triggerName != lastMessageID)
+        {
+            tooltipPanelTransform.GetComponent<PopEffect>().SetProgress(0f);    
+        }
+        lastMessageID = triggerName;
+        tooltipPanelTransform.GetComponent<PopEffect>().PlayPopIn();
+        tooltipPanelTransform.localPosition = tooltipMessage.worldPositionOverride;
+        tooltipPanelTransform.sizeDelta = tooltipMessage.boxSize;
+        Vector2 textSize = new Vector2(tooltipMessage.boxSize.x-25f,tooltipMessage.boxSize.y-70f);
+        tooltipText.GetComponent<RectTransform>().sizeDelta = textSize;
+        tooltipText.text = tooltipMessage.tooltipText;
+        return true;
+    }
+
+    public void HandleTooltipHoverExit()
+    {
+        if (tooltipPanelTransform.gameObject.activeSelf) tooltipPanelTransform.GetComponent<PopEffect>().PlayPopDown();
     }
 
     public void CloseMessages()
@@ -104,7 +148,7 @@ public class TutorialManager : MonoBehaviour
         return completionText;
     }
 
-    public Image GetAdvanceButton()
+    public Button GetAdvanceButton()
     {
         return advanceButton;
     }

@@ -14,6 +14,7 @@ public class TypewriterEffect : MonoBehaviour
     [SerializeField] private float specialWaitTimeMultiplier;
     [SerializeField] private float maxFontSize = 32f;
     [SerializeField] private bool resizeText = false;
+    [SerializeField] private bool smartDetectTokens = false;
 
     private AudioManager audioManager;
     private TextMeshProUGUI textComponent;
@@ -92,17 +93,38 @@ public class TypewriterEffect : MonoBehaviour
         return typingCoroutine != null;
     }
 
-    private IEnumerator TypeText()
+    private IEnumerator TypeText() 
     {
         textComponent.text = "";
-        foreach (char letter in fullText)
+        int i = 0;
+        while (i < fullText.Length)
         {
-            textComponent.text += letter;
+            string nextToken = SmartDetectToken(fullText.Substring(i));
+            textComponent.text += nextToken;
             PlayTypingSound(true);
-            float waitTime = GetWaitTimeForCharacter(letter);
+            float waitTime = GetWaitTimeForToken(nextToken);
             yield return new WaitForSeconds(waitTime);
+            i += nextToken.Length;
         }
         typingCoroutine = null;
+    }
+
+    private string SmartDetectToken(string text)
+    {
+        if (string.IsNullOrEmpty(text))
+            return "";
+
+        if (!smartDetectTokens || !text.StartsWith("<"))
+            return text[0].ToString();
+
+        int tokenEnd = text.IndexOf('>');
+        if (tokenEnd > 1)
+        {
+            string potentialToken = text.Substring(0, tokenEnd + 1);
+            char nextChar = potentialToken[1];
+            if (char.IsLetter(nextChar) || nextChar == '/') return potentialToken;
+        }
+        return text[0].ToString();
     }
 
     private IEnumerator PrecomputeFontSizeAndType()
@@ -144,5 +166,11 @@ public class TypewriterEffect : MonoBehaviour
             return timeBetweenCharacters * specialWaitTimeMultiplier;
         }
         return timeBetweenCharacters;
+    }
+
+    private float GetWaitTimeForToken(string token)
+    {
+        if (token.Length > 1) return 0f;
+        return GetWaitTimeForCharacter(token[0]);
     }
 }
