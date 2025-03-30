@@ -58,4 +58,10 @@ public class PopEffect : MonoBehaviour
 
         animationCoroutine = null;
     }
+
+    public void SetProgress(float yScale)
+    {
+        Vector3 originalScale = transform.localScale;
+        transform.localScale = new Vector3(originalScale.x, yScale, originalScale.z);
+    }
 }

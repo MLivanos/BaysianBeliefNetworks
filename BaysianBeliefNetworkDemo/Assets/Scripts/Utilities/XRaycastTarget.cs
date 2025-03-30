@@ -3,15 +3,26 @@ using UnityEngine;
 
 public class XRaycastTarget : MonoBehaviour
 {
+    private static XRaycastTarget currentTarget = null;
+
     [SerializeField] private float hitDelay = 0.1f;
     private bool isHit = false;
     private Coroutine hitCoroutine = null;
 
     /// <summary>
-    /// Called by the centralized DeepRaycaster when this object is hit.
+    /// Called by the centralized raycaster when this object is hit.
     /// </summary>
     public void Hit()
     {
+        if (currentTarget != this)
+        {
+            if (currentTarget != null)
+            {
+                currentTarget.ForceExit();
+            }
+            currentTarget = this;
+        }
+
         if (!isHit)
         {
             isHit = true;
@@ -31,9 +42,36 @@ public class XRaycastTarget : MonoBehaviour
     private IEnumerator HandleHitTimer()
     {
         yield return new WaitForSeconds(hitDelay);
-        isHit = false;
-        TriggerPointerExit();
+
+        // Only trigger exit if we're still the active target.
+        if (currentTarget == this)
+        {
+            isHit = false;
+            TriggerPointerExit();
+            currentTarget = null;
+        }
         hitCoroutine = null;
+    }
+
+    /// <summary>
+    /// Immediately force an exit (cancel any timer and trigger exit event).
+    /// </summary>
+    public void ForceExit()
+    {
+        if (hitCoroutine != null)
+        {
+            StopCoroutine(hitCoroutine);
+            hitCoroutine = null;
+        }
+        if (isHit)
+        {
+            isHit = false;
+            TriggerPointerExit();
+        }
+        if (currentTarget == this)
+        {
+            currentTarget = null;
+        }
     }
 
     private void TriggerPointerEnter()

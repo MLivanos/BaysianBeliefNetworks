@@ -71436,7 +71436,7 @@ RectTransform:
   m_GameObject: {fileID: 1252166808}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -1.8766345}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 0, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 450721495}
@@ -98365,8 +98365,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29556191adbf6e74987b140d7553e8c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  graphicRaycaster: {fileID: 707857604}
   eventSystem: {fileID: 2032480311}
+  raycasters:
+  - {fileID: 972312763}
+  - {fileID: 707857604}
 --- !u!1 &1694689804
 GameObject:
   m_ObjectHideFlags: 0

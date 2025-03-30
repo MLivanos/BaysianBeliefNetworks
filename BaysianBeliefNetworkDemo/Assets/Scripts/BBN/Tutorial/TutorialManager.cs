@@ -28,6 +28,7 @@ public class TutorialManager : MonoBehaviour
     private int currentStep = 0;
     private Vector2 originalHighlightSize;
     private bool tutorialOngoing = false;
+    private string lastMessageID = "";
 
     public static TutorialManager Instance { get; private set; }
 
@@ -98,6 +99,11 @@ public class TutorialManager : MonoBehaviour
         if (!tutorialOngoing) return false;
         TutorialTooltipMessage tooltipMessage = tutorialSteps[currentStep].FindTooltip(triggerName);
         if (tooltipMessage == null) return true;
+        if (triggerName != lastMessageID)
+        {
+            tooltipPanelTransform.GetComponent<PopEffect>().SetProgress(0f);    
+        }
+        lastMessageID = triggerName;
         tooltipPanelTransform.GetComponent<PopEffect>().PlayPopIn();
         tooltipPanelTransform.localPosition = tooltipMessage.worldPositionOverride;
         tooltipPanelTransform.sizeDelta = tooltipMessage.boxSize;
