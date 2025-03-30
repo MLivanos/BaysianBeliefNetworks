@@ -25,6 +25,7 @@ public class Graph : MonoBehaviour
     private List<Node> negativeQuery;
     private List<Node> positiveEvidence;
     private List<Node> negativeEvidence;
+    private SamplingHistory queryRecord;
     bool isNegative;
     float lastProbability;
 
@@ -49,7 +50,7 @@ public class Graph : MonoBehaviour
         samplers[2] = GetComponent<GibbsSampler>();
         samplers[3] = GetComponent<HamiltonianSampler>();
         graphUIManager = GetComponent<GraphUIManager>();
-
+        queryRecord = GetComponent<SamplingHistory>();
         currentSampler = samplers[0];
     }
 
@@ -167,6 +168,14 @@ public class Graph : MonoBehaviour
         }
         float timeElapsed = Time.realtimeSinceStartup - startTime;
         float probability = currentSampler.CalculateProbability();
+        SamplingRecord record = new SamplingRecord(
+            GetPositiveQuery(), GetNegativeQuery(),
+            GetPositiveEvidence(), GetNegativeEvidence(),
+            probability,
+            currentSampler.GetNumberOfSamples(),
+            currentSampler.GetType().Name
+        );
+        queryRecord.AddRecord(record);
         lastProbability = probability;
         currentSampler.AddTime(timeElapsed);
         gameManager.UpdateTimer(-timeElapsed);
