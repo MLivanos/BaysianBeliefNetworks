@@ -47,6 +47,7 @@ public class TutorialManager : MonoBehaviour
     
     private void Start()
     {
+        queryHistoryOriginalPosition = queryHistoryTransform.anchoredPosition3D;
         tooltipPanelTransform.gameObject.SetActive(false);
         if (debug) PlayerPrefs.SetInt("TutorialCompleted", 0);
         PlayerPrefs.Save();
@@ -58,7 +59,6 @@ public class TutorialManager : MonoBehaviour
     {
         ToggleButtons(false);
         tutorialOngoing = true;
-        queryHistoryOriginalPosition = queryHistoryTransform.anchoredPosition3D;
         queryHistoryTransform.anchoredPosition3D = tutorialQueryHistoryPosition;
         HideIncrementalObjects();
         GameObject.Find("TimeLimit").SetActive(false);
