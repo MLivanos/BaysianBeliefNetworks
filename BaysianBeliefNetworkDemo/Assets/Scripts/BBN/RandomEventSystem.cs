@@ -29,14 +29,6 @@ public class RandomEventSystem : MonoBehaviour
 		}
 	}
 
-	private void Update()
-	{
-		if (Input.GetKeyDown("space"))
-        {
-            DrawEvent();
-        }
-	}
-
 	public void DrawEvent()
 	{
 		int index = runningTest ? testIndex++ % events.Count : (int)(Random.Range(0, events.Count));
