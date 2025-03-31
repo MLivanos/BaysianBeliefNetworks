@@ -193,11 +193,11 @@ public class Graph : MonoBehaviour
         hamiltonianOptions.SetActive(index == 3);
     }
 
-    public void SetNumberOfSamples(string numberOfSamplesText)
+    public void SetNumberOfSamples(int samples)
     {
         foreach(Sampler sampler in samplers)
         {
-            sampler.SetNumberOfSamples(Int32.Parse(numberOfSamplesText));
+            sampler.SetNumberOfSamples(samples);
         }
     }
 

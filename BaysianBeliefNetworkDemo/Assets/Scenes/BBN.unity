@@ -58641,24 +58641,24 @@ MonoBehaviour:
   m_VerticalScrollbarEventHandler: {fileID: 0}
   m_LayoutGroup: {fileID: 0}
   m_ScrollSensitivity: 1
-  m_ContentType: 2
+  m_ContentType: 0
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 4
+  m_KeyboardType: 0
   m_LineType: 0
   m_HideMobileInput: 0
   m_HideSoftKeyboard: 0
-  m_CharacterValidation: 2
+  m_CharacterValidation: 0
   m_RegexValue: 
   m_GlobalPointSize: 14
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2029756918}
-        m_TargetAssemblyTypeName: Graph, Assembly-CSharp
-        m_MethodName: SetNumberOfSamples
-        m_Mode: 0
+      - m_Target: {fileID: 2029756926}
+        m_TargetAssemblyTypeName: SampleInputHandler, Assembly-CSharp
+        m_MethodName: OnEditEnd
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -119354,6 +119354,7 @@ GameObject:
   - component: {fileID: 2029756922}
   - component: {fileID: 2029756923}
   - component: {fileID: 2029756924}
+  - component: {fileID: 2029756926}
   m_Layer: 0
   m_Name: Graph
   m_TagString: Untagged
@@ -119481,6 +119482,21 @@ MonoBehaviour:
   sampleInfo: {fileID: 998808399}
   calculateText: {fileID: 637719285}
   progressBar: {fileID: 1652601026}
+  maxNumberOfNoises: 2
+--- !u!114 &2029756926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2029756917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e48c743d9928f394cb652dfb0ab30d43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  graph: {fileID: 2029756918}
+  inputField: {fileID: 1028574029}
 --- !u!1 &2031132774
 GameObject:
   m_ObjectHideFlags: 0
