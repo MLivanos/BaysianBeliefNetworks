@@ -7,19 +7,21 @@ using System.Collections.Generic;
 
 public class TutorialManager : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> incrementalHiddenObjects;
-    [SerializeField] private GameObject tutorialSelectionWindow;
-    [SerializeField] private GameObject interactionBlocker;
-    [SerializeField] private ObjectiveSpawner objectiveSpawner;
-    [SerializeField] private DropdownList dropdownList;
     [SerializeField] private GameManager gameManager;
-    [SerializeField] private GameObject overlayCanvas;
-    [SerializeField] private TMP_Text tutorialText;
-    [SerializeField] private RectTransform highlightArea;
+    [Header("Interface Objects")]
+    [SerializeField] private List<GameObject> incrementalHiddenObjects;
+    [SerializeField] private GameObject interactionBlocker;
+    [SerializeField] private RectTransform queryHistoryTransform;
+    [SerializeField] private Vector3 tutorialQueryHistoryPosition;
+    [SerializeField] private List<Button> disabledDuringTutorial;
+    [Header("Player Communication Tools")]
+    [SerializeField] private GameObject tutorialSelectionWindow;
     [SerializeField] private List<TutorialStep> tutorialSteps = new List<TutorialStep>();
     [SerializeField] private TypewriterEffect typewriterEffect;
     [SerializeField] private GameObject messagePanel;
     [SerializeField] private FadableTextMeshPro completionText;
+    [SerializeField] private ObjectiveSpawner objectiveSpawner;
+    [SerializeField] private DropdownList dropdownList;
     [SerializeField] private Button advanceButton;
     [Header("Tooltip Objects")]
     [SerializeField] private RectTransform tooltipPanelTransform;
@@ -29,6 +31,7 @@ public class TutorialManager : MonoBehaviour
     private Vector2 originalHighlightSize;
     private bool tutorialOngoing = false;
     private string lastMessageID = "";
+    private Vector3 queryHistoryOriginalPosition;
 
     public static TutorialManager Instance { get; private set; }
 
@@ -53,7 +56,10 @@ public class TutorialManager : MonoBehaviour
 
     public void StartTutorial()
     {
+        ToggleButtons(false);
         tutorialOngoing = true;
+        queryHistoryOriginalPosition = queryHistoryTransform.anchoredPosition3D;
+        queryHistoryTransform.anchoredPosition3D = tutorialQueryHistoryPosition;
         HideIncrementalObjects();
         GameObject.Find("TimeLimit").SetActive(false);
         tutorialSelectionWindow.SetActive(false);
@@ -75,10 +81,11 @@ public class TutorialManager : MonoBehaviour
     
     public void EndTutorial()
     {
+        ToggleButtons(true);
         dropdownList.transform.parent.gameObject.SetActive(false);
+        queryHistoryTransform.anchoredPosition3D = queryHistoryOriginalPosition;
         gameManager.PromptGameMode();
         tutorialSelectionWindow.SetActive(false);
-        overlayCanvas.SetActive(false);
         PlayerPrefs.SetInt("TutorialCompleted", 1);
         PlayerPrefs.Save();
         interactionBlocker.SetActive(false);
@@ -91,6 +98,14 @@ public class TutorialManager : MonoBehaviour
         foreach(GameObject obj in incrementalHiddenObjects)
         {
             obj.SetActive(false);
+        }
+    }
+
+    private void ToggleButtons(bool toggleOn)
+    {
+        foreach(Button btn in disabledDuringTutorial)
+        {
+            btn.interactable = toggleOn;
         }
     }
 
