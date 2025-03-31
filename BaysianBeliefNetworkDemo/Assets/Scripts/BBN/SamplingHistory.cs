@@ -34,8 +34,17 @@ public class SamplingRecord
 
     public string GetFormattedQuery()
     {
-        string Format(List<string> list) => string.Join(", ", list);
-        return $"P({Format(positiveQuery)} | {Format(positiveEvidence)})";
+        List<string> queryTerms = new List<string>();
+        queryTerms.AddRange(positiveQuery);
+        queryTerms.AddRange(negativeQuery.Select(n => $"¬{n}"));
+
+        List<string> evidenceTerms = new List<string>();
+        evidenceTerms.AddRange(positiveEvidence);
+        evidenceTerms.AddRange(negativeEvidence.Select(n => $"¬{n}"));
+
+        string Format(List<string> list) => string.Join(", ", list.OrderBy(s => s));
+
+        return $"P({Format(queryTerms)} | {Format(evidenceTerms)})";
     }
 
     public string FormatSampleCount()
