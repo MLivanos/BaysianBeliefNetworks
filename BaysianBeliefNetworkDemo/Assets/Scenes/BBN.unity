@@ -24787,6 +24787,9 @@ GameObject:
   - component: {fileID: 446855291}
   - component: {fileID: 446855290}
   - component: {fileID: 446855293}
+  - component: {fileID: 446855295}
+  - component: {fileID: 446855294}
+  - component: {fileID: 446855296}
   m_Layer: 5
   m_Name: ExplorationButton
   m_TagString: Untagged
@@ -24954,6 +24957,48 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &446855294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 446855288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e19c15e1ebdfc5418f3015b98e9c639, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitDelay: 0.1
+--- !u!114 &446855295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 446855288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0cd794975b97694ea12c843622c1c9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverScale: {x: 1.075, y: 1.075}
+  scaleSpeed: 8
+--- !u!114 &446855296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 446855288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b939e59595cc5e94bb314b6da5aa0496, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEffect: Hover
+  playOnEnter: 1
+  playOnExit: 0
 --- !u!1 &450120598
 GameObject:
   m_ObjectHideFlags: 0
@@ -29306,6 +29351,9 @@ GameObject:
   - component: {fileID: 527523538}
   - component: {fileID: 527523537}
   - component: {fileID: 527523540}
+  - component: {fileID: 527523542}
+  - component: {fileID: 527523541}
+  - component: {fileID: 527523543}
   m_Layer: 5
   m_Name: SimulateDay
   m_TagString: Untagged
@@ -29439,39 +29487,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1348797323}
-          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-          m_MethodName: PlayEffect
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: Hover
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 4
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1348797323}
-          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-          m_MethodName: PlayEffect
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: ButtonPress
-            m_BoolArgument: 0
-          m_CallState: 2
+  m_Delegates: []
+--- !u!114 &527523541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527523535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e19c15e1ebdfc5418f3015b98e9c639, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitDelay: 0.1
+--- !u!114 &527523542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527523535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0cd794975b97694ea12c843622c1c9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverScale: {x: 1.075, y: 1.075}
+  scaleSpeed: 8
+--- !u!114 &527523543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527523535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b939e59595cc5e94bb314b6da5aa0496, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEffect: Hover
+  playOnEnter: 1
+  playOnExit: 0
 --- !u!1 &529138726
 GameObject:
   m_ObjectHideFlags: 0
@@ -34150,6 +34208,9 @@ GameObject:
   - component: {fileID: 596198193}
   - component: {fileID: 596198192}
   - component: {fileID: 596198196}
+  - component: {fileID: 596198198}
+  - component: {fileID: 596198197}
+  - component: {fileID: 596198199}
   m_Layer: 5
   m_Name: LegendButton
   m_TagString: Untagged
@@ -34204,18 +34265,6 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
-        - m_Target: {fileID: 1348797323}
-          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-          m_MethodName: PlayEffect
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: Hover
             m_BoolArgument: 1
           m_CallState: 2
   - eventID: 1
@@ -34345,6 +34394,48 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates: []
+--- !u!114 &596198197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 596198190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e19c15e1ebdfc5418f3015b98e9c639, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitDelay: 0.1
+--- !u!114 &596198198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 596198190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0cd794975b97694ea12c843622c1c9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverScale: {x: 1.15, y: 1.15}
+  scaleSpeed: 8
+--- !u!114 &596198199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 596198190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b939e59595cc5e94bb314b6da5aa0496, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEffect: Hover
+  playOnEnter: 1
+  playOnExit: 0
 --- !u!1 &597498216
 GameObject:
   m_ObjectHideFlags: 0
@@ -55369,6 +55460,9 @@ GameObject:
   - component: {fileID: 965840900}
   - component: {fileID: 965840904}
   - component: {fileID: 965840905}
+  - component: {fileID: 965840907}
+  - component: {fileID: 965840906}
+  - component: {fileID: 965840908}
   m_Layer: 5
   m_Name: AudioButton
   m_TagString: Untagged
@@ -55424,18 +55518,6 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
-        - m_Target: {fileID: 1348797323}
-          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-          m_MethodName: PlayEffect
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: Hover
             m_BoolArgument: 1
           m_CallState: 2
   - eventID: 1
@@ -55596,6 +55678,48 @@ MonoBehaviour:
   sfxSlider: {fileID: 810787516}
   volumeImage: {fileID: 1694689804}
   muteImage: {fileID: 1558579264}
+--- !u!114 &965840906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965840898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e19c15e1ebdfc5418f3015b98e9c639, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitDelay: 0.1
+--- !u!114 &965840907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965840898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0cd794975b97694ea12c843622c1c9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverScale: {x: 1.15, y: 1.15}
+  scaleSpeed: 8
+--- !u!114 &965840908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965840898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b939e59595cc5e94bb314b6da5aa0496, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEffect: Hover
+  playOnEnter: 1
+  playOnExit: 0
 --- !u!1 &967560318
 GameObject:
   m_ObjectHideFlags: 0
@@ -62298,6 +62422,9 @@ GameObject:
   - component: {fileID: 1098249761}
   - component: {fileID: 1098249760}
   - component: {fileID: 1098249764}
+  - component: {fileID: 1098249766}
+  - component: {fileID: 1098249765}
+  - component: {fileID: 1098249767}
   m_Layer: 5
   m_Name: ClearButton
   m_TagString: Untagged
@@ -62353,34 +62480,6 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1348797323}
-          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-          m_MethodName: PlayEffect
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: ButtonPress
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1348797323}
-          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-          m_MethodName: PlayEffect
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: Hover
             m_BoolArgument: 0
           m_CallState: 2
 --- !u!114 &1098249761
@@ -62478,6 +62577,48 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates: []
+--- !u!114 &1098249765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1098249758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e19c15e1ebdfc5418f3015b98e9c639, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitDelay: 0.1
+--- !u!114 &1098249766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1098249758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0cd794975b97694ea12c843622c1c9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverScale: {x: 1.15, y: 1.15}
+  scaleSpeed: 8
+--- !u!114 &1098249767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1098249758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b939e59595cc5e94bb314b6da5aa0496, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEffect: Hover
+  playOnEnter: 1
+  playOnExit: 0
 --- !u!1 &1098330919
 GameObject:
   m_ObjectHideFlags: 0
@@ -65124,6 +65265,9 @@ GameObject:
   - component: {fileID: 1143482423}
   - component: {fileID: 1143482422}
   - component: {fileID: 1143482425}
+  - component: {fileID: 1143482427}
+  - component: {fileID: 1143482426}
+  - component: {fileID: 1143482428}
   m_Layer: 5
   m_Name: ChallengeButton
   m_TagString: Untagged
@@ -65291,6 +65435,48 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1143482426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1143482420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e19c15e1ebdfc5418f3015b98e9c639, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitDelay: 0.1
+--- !u!114 &1143482427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1143482420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0cd794975b97694ea12c843622c1c9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverScale: {x: 1.075, y: 1.075}
+  scaleSpeed: 8
+--- !u!114 &1143482428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1143482420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b939e59595cc5e94bb314b6da5aa0496, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEffect: Hover
+  playOnEnter: 1
+  playOnExit: 0
 --- !u!1 &1145102548
 GameObject:
   m_ObjectHideFlags: 0
@@ -82168,6 +82354,9 @@ GameObject:
   - component: {fileID: 1413175650}
   - component: {fileID: 1413175649}
   - component: {fileID: 1413175653}
+  - component: {fileID: 1413175655}
+  - component: {fileID: 1413175654}
+  - component: {fileID: 1413175656}
   m_Layer: 5
   m_Name: HelpButton
   m_TagString: Untagged
@@ -82222,18 +82411,6 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
-        - m_Target: {fileID: 1348797323}
-          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-          m_MethodName: PlayEffect
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: Hover
             m_BoolArgument: 1
           m_CallState: 2
   - eventID: 1
@@ -82363,6 +82540,48 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates: []
+--- !u!114 &1413175654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1413175647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e19c15e1ebdfc5418f3015b98e9c639, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitDelay: 0.1
+--- !u!114 &1413175655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1413175647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0cd794975b97694ea12c843622c1c9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverScale: {x: 1.15, y: 1.15}
+  scaleSpeed: 8
+--- !u!114 &1413175656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1413175647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b939e59595cc5e94bb314b6da5aa0496, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEffect: Hover
+  playOnEnter: 1
+  playOnExit: 0
 --- !u!1 &1415055826
 GameObject:
   m_ObjectHideFlags: 0
@@ -91247,6 +91466,8 @@ GameObject:
   - component: {fileID: 1554082561}
   - component: {fileID: 1554082560}
   - component: {fileID: 1554082563}
+  - component: {fileID: 1554082565}
+  - component: {fileID: 1554082564}
   m_Layer: 5
   m_Name: ToInterviewsButton
   m_TagString: Untagged
@@ -91415,6 +91636,33 @@ MonoBehaviour:
             m_StringArgument: ButtonPress
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1554082564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1554082558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0cd794975b97694ea12c843622c1c9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverScale: {x: 1.05, y: 1.05}
+  scaleSpeed: 8
+--- !u!114 &1554082565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1554082558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e19c15e1ebdfc5418f3015b98e9c639, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitDelay: 0.1
 --- !u!1 &1556268227
 GameObject:
   m_ObjectHideFlags: 0
@@ -99018,6 +99266,9 @@ GameObject:
   - component: {fileID: 1681633095}
   - component: {fileID: 1681633094}
   - component: {fileID: 1681633097}
+  - component: {fileID: 1681633099}
+  - component: {fileID: 1681633098}
+  - component: {fileID: 1681633100}
   m_Layer: 5
   m_Name: NormalButton
   m_TagString: Untagged
@@ -99185,6 +99436,48 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1681633098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1681633092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e19c15e1ebdfc5418f3015b98e9c639, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitDelay: 0.1
+--- !u!114 &1681633099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1681633092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0cd794975b97694ea12c843622c1c9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverScale: {x: 1.075, y: 1.075}
+  scaleSpeed: 8
+--- !u!114 &1681633100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1681633092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b939e59595cc5e94bb314b6da5aa0496, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEffect: Hover
+  playOnEnter: 1
+  playOnExit: 0
 --- !u!1 &1682830630
 GameObject:
   m_ObjectHideFlags: 0
@@ -102370,6 +102663,9 @@ GameObject:
   - component: {fileID: 1736122390}
   - component: {fileID: 1736122389}
   - component: {fileID: 1736122392}
+  - component: {fileID: 1736122394}
+  - component: {fileID: 1736122393}
+  - component: {fileID: 1736122395}
   m_Layer: 5
   m_Name: Calculate Button
   m_TagString: Untagged
@@ -102504,23 +102800,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1348797323}
-          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-          m_MethodName: PlayEffect
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: Hover
-            m_BoolArgument: 0
-          m_CallState: 2
+  m_Delegates: []
+--- !u!114 &1736122393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1736122387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e19c15e1ebdfc5418f3015b98e9c639, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitDelay: 0.1
+--- !u!114 &1736122394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1736122387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0cd794975b97694ea12c843622c1c9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverScale: {x: 1.075, y: 1.075}
+  scaleSpeed: 8
+--- !u!114 &1736122395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1736122387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b939e59595cc5e94bb314b6da5aa0496, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEffect: Hover
+  playOnEnter: 1
+  playOnExit: 0
 --- !u!1 &1738948187
 GameObject:
   m_ObjectHideFlags: 0
@@ -117381,6 +117703,9 @@ GameObject:
   - component: {fileID: 1980073211}
   - component: {fileID: 1980073210}
   - component: {fileID: 1980073214}
+  - component: {fileID: 1980073216}
+  - component: {fileID: 1980073215}
+  - component: {fileID: 1980073217}
   m_Layer: 5
   m_Name: RandomEventButton
   m_TagString: Untagged
@@ -117435,34 +117760,6 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1348797323}
-          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-          m_MethodName: PlayEffect
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: ButtonPress
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1348797323}
-          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-          m_MethodName: PlayEffect
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: Hover
             m_BoolArgument: 0
           m_CallState: 2
 --- !u!114 &1980073211
@@ -117560,6 +117857,48 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates: []
+--- !u!114 &1980073215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980073208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e19c15e1ebdfc5418f3015b98e9c639, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitDelay: 0.1
+--- !u!114 &1980073216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980073208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0cd794975b97694ea12c843622c1c9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverScale: {x: 1.15, y: 1.15}
+  scaleSpeed: 8
+--- !u!114 &1980073217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980073208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b939e59595cc5e94bb314b6da5aa0496, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEffect: Hover
+  playOnEnter: 1
+  playOnExit: 0
 --- !u!1 &1982733015
 GameObject:
   m_ObjectHideFlags: 0
