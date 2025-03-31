@@ -22,10 +22,10 @@ public class SamplingRecord
         List<Node> posEvidence, List<Node> negEvidence,
         float probability, int samples, string samplerName)
     {
-        this.positiveQuery = posQuery.Select(n => n.GetName()).OrderBy(n => n).ToList();
-        this.negativeQuery = negQuery.Select(n => n.GetName()).OrderBy(n => n).ToList();
-        this.positiveEvidence = posEvidence.Select(n => n.GetName()).OrderBy(n => n).ToList();
-        this.negativeEvidence = negEvidence.Select(n => n.GetName()).OrderBy(n => n).ToList();
+        this.positiveQuery = posQuery.Select(n => n.GetAbriviation()).OrderBy(n => n).ToList();
+        this.negativeQuery = negQuery.Select(n => n.GetAbriviation()).OrderBy(n => n).ToList();
+        this.positiveEvidence = posEvidence.Select(n => n.GetAbriviation()).OrderBy(n => n).ToList();
+        this.negativeEvidence = negEvidence.Select(n => n.GetAbriviation()).OrderBy(n => n).ToList();
         this.probability = probability;
         this.numberOfSamples = samples;
         this.samplerName = samplerName;
@@ -80,7 +80,7 @@ public class SamplingHistory : MonoBehaviour
 
     private void Awake()
     {
-        historyText.text = "P(Query | Evidence) ~ Prob | Samples | Algo\n";
+        historyText.text = "P(Q|E) ≈ Prob | Samples | Algo\n";
         if (instance != null)
         {
             historyText.text += instance.historyRecord;
