@@ -75,14 +75,26 @@ public class SamplingHistory : MonoBehaviour
     private List<SamplingRecord> history = new List<SamplingRecord>();
     [SerializeField] private TextMeshProUGUI historyText;
 
-    private void Start()
+    public static SamplingHistory instance;
+    public string historyRecord {get; private set;}
+
+    private void Awake()
     {
         historyText.text = "P(Query | Evidence) ~ Prob | Samples | Algo\n";
+        if (instance != null)
+        {
+            historyText.text += instance.historyRecord;
+            Destroy(gameObject);
+            return;
+        }
+        instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     public void AddRecord(SamplingRecord record)
     {
         historyText.text += record.GetFormattedDisplay() + "\n";
+        historyRecord += record.GetFormattedDisplay() + "\n";
         history.Add(record);
     }
 
@@ -95,4 +107,5 @@ public class SamplingHistory : MonoBehaviour
     {
         history.Clear();
     }
+
 }

@@ -60678,6 +60678,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ff3b435acf684649ba8be882f6899df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1072816185
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1072816187}
+  - component: {fileID: 1072816186}
+  m_Layer: 0
+  m_Name: QueryHistory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1072816186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1072816185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56cb0ec7ea51afb449b4a08203a1f516, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  historyText: {fileID: 1277923346}
+--- !u!4 &1072816187
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1072816185}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 215.52759, y: 1377.0309, z: 66.575195}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1072893024
 GameObject:
   m_ObjectHideFlags: 0
@@ -74081,8 +74126,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 12
-  m_fontSizeBase: 12
+  m_fontSize: 9
+  m_fontSizeBase: 9
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -83951,7 +83996,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1448649567}
   - component: {fileID: 1448649566}
-  - component: {fileID: 1448649565}
   - component: {fileID: 1448649568}
   m_Layer: 5
   m_Name: QueryHistory
@@ -83960,19 +84004,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1448649565
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1448649564}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56cb0ec7ea51afb449b4a08203a1f516, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  historyText: {fileID: 1277923346}
 --- !u!114 &1448649566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118971,7 +119002,7 @@ MonoBehaviour:
   gibbsOptions: {fileID: 1798059107}
   hamiltonianOptions: {fileID: 175815275}
   graphUI: {fileID: 1428064585}
-  queryRecord: {fileID: 1448649565}
+  queryRecord: {fileID: 1072816186}
   test: 0
 --- !u!4 &2029756919
 Transform:
@@ -125628,3 +125659,4 @@ SceneRoots:
   - {fileID: 1694050718}
   - {fileID: 1320082883}
   - {fileID: 1417486166}
+  - {fileID: 1072816187}
