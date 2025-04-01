@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class ScaleOnHover : MonoBehaviour, IXRaycastTargetScript
 {
+    [SerializeField] private Transform transformToScale;
     [SerializeField] private Vector2 hoverScale = new Vector2(1.05f, 1.05f);
     [SerializeField] private float scaleSpeed = 8f;
 
@@ -11,7 +12,8 @@ public class ScaleOnHover : MonoBehaviour, IXRaycastTargetScript
 
     private void Awake()
     {
-        originalScale = transform.localScale;
+        if (transformToScale == null) transformToScale = transform;
+        originalScale = transformToScale.localScale;
         hoverScale *= originalScale;
     }
 
@@ -35,17 +37,17 @@ public class ScaleOnHover : MonoBehaviour, IXRaycastTargetScript
 
     private IEnumerator ScaleTo(Vector3 targetScale)
     {
-        Vector3 start = transform.localScale;
+        Vector3 start = transformToScale.localScale;
         float progress = 0f;
 
         while (progress < 1f)
         {
             progress += Time.deltaTime * scaleSpeed;
-            transform.localScale = Vector3.Lerp(start, targetScale, progress);
+            transformToScale.localScale = Vector3.Lerp(start, targetScale, progress);
             yield return null;
         }
 
-        transform.localScale = targetScale;
+        transformToScale.localScale = targetScale;
         scalingCoroutine = null;
     }
 }
