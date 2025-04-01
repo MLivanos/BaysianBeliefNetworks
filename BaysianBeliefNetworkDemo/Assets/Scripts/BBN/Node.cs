@@ -12,6 +12,13 @@ public class Node : MonoBehaviour
     bool isTrue;
     bool isSet;
 
+    public float[] JointProbabilityDistribution() => jointProbabilityDistribution;
+
+    public void CopyNode(Node other)
+    {
+        this.jointProbabilityDistribution = (float[])other.JointProbabilityDistribution().Clone();
+    }
+
     public float Query()
     {
         int index = 0;

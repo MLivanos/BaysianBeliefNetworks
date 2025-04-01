@@ -26,6 +26,7 @@ public class Graph : MonoBehaviour
     private List<Node> negativeQuery;
     private List<Node> positiveEvidence;
     private List<Node> negativeEvidence;
+    public static Graph instance;
     bool isNegative;
     float lastProbability;
 
@@ -36,6 +37,16 @@ public class Graph : MonoBehaviour
     public List<Node> GetNegativeQuery() => negativeQuery.ToList();
     public float GetLastProbability() => lastProbability;
 
+    private void Awake()
+    {
+        SaveGraph();
+        if (instance != null)
+        {
+            MigrateGraph();
+        }
+        instance = this;
+    }
+
     private void Start()
     {
         audioManager = FindObjectOfType<AudioManager>();
@@ -43,7 +54,6 @@ public class Graph : MonoBehaviour
         negativeQuery = new List<Node>();
         positiveEvidence = new List<Node>();
         negativeEvidence = new List<Node>();
-        SaveGraph();
         samplers = new Sampler[4];
         samplers[0] = GetComponent<RejectionSampler>();
         samplers[1] = GetComponent<LikelihoodWeightingSampler>();
@@ -75,21 +85,15 @@ public class Graph : MonoBehaviour
         }
     }
 
-    public void UnsaveGraph()
+    public void MigrateGraph()
     {
-        SceneManager.MoveGameObjectToScene(gameObject, SceneManager.GetActiveScene());
-        List<Node> currentNodes;
-        currentNodes = rootNodes.ToList();
-        while(currentNodes.Count > 0)
+        List<Node> oldGraphNodes = instance.GetAllNodes();
+        for(int i=0; i < allNodes.Count; i++)
         {
-            Node node = currentNodes[0];
-            foreach(Node child in node.GetChildren())
-            {
-                if (!currentNodes.Contains(child)) currentNodes.Add(child);
-            }
-            currentNodes.RemoveAt(0);
-            SceneManager.MoveGameObjectToScene(node.gameObject, SceneManager.GetActiveScene());
+            allNodes[i].CopyNode(oldGraphNodes[i]);
+            Destroy(oldGraphNodes[i].gameObject);
         }
+        Destroy(instance.gameObject);
     }
 
     private void Update()

@@ -12,8 +12,6 @@ public class SceneManagerScript : MonoBehaviour
 
     public void GoToNetwork()
     {
-        Graph graph = GameObject.Find("Graph").GetComponent<Graph>();
-        graph.UnsaveGraph();
         StartGame();
     }
 
