@@ -39,7 +39,7 @@ public class ProbabilityValue : MonoBehaviour
         yield return null;
         for(int i=0; i<displays.Count; i++)
         {
-            ChangeSlider(displays[i], displays[i].GetValue().ToString("0.000"));
+            ChangeSlider(displays[i], displays[i].GetValue().ToString("0.###"));
         }
     }
 

@@ -25,7 +25,7 @@ public class ProbabilityDisplay : MonoBehaviour
 
     public void SetValue(float newValue)
     {
-        SetValue(newValue.ToString("0.000"));
+        SetValue(newValue.ToString("0.###"));
     }
 
     public void SetValue(string newValue)
