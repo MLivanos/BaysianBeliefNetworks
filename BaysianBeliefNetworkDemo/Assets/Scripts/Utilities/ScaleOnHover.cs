@@ -27,7 +27,7 @@ public class ScaleOnHover : MonoBehaviour, IXRaycastTargetScript
 
     private void StartScaleTween(Vector2 target)
     {
-        if (!gameObject.activeSelf) return;
+        if (!isActiveAndEnabled) return;
         if (scalingCoroutine != null)
             StopCoroutine(scalingCoroutine);
         scalingCoroutine = StartCoroutine(ScaleTo(new Vector3(target.x, target.y, originalScale.z)));

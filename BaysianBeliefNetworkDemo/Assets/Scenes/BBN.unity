@@ -17390,7 +17390,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 180, y: 80}
+  m_SizeDelta: {x: 180, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &329592931
 MonoBehaviour:
@@ -29298,8 +29298,8 @@ MonoBehaviour:
   interactionBlocker: {fileID: 1502552892}
   timeLimit: {fileID: 1928283197}
   difficultyTimes:
-  - 999999
-  - 999999
+  - 9999
+  - 45
   - 30
 --- !u!4 &526090629
 Transform:
@@ -53009,7 +53009,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: t
+  m_text: "\u221E"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a85a5fb20be32c74e8b4a078e736f5ab, type: 2}
   m_sharedMaterial: {fileID: -8262044034710385518, guid: a85a5fb20be32c74e8b4a078e736f5ab,
@@ -64508,7 +64508,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 180, y: 80}
+  m_SizeDelta: {x: 180, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1127033005
 MonoBehaviour:
@@ -65348,6 +65348,30 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1417486168}
+        m_TargetAssemblyTypeName: EntropyGorilla, Assembly-CSharp
+        m_MethodName: TauntGorilla
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1417486168}
+        m_TargetAssemblyTypeName: EntropyGorilla, Assembly-CSharp
+        m_MethodName: PokeGorilla
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -77101,7 +77125,7 @@ MonoBehaviour:
   advanceButton: {fileID: 873177623}
   tooltipPanelTransform: {fileID: 1252166809}
   tooltipText: {fileID: 450721496}
-  debug: 1
+  debug: 0
 --- !u!4 &1320082883
 Transform:
   m_ObjectHideFlags: 0
@@ -82818,6 +82842,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1417486166}
   - component: {fileID: 1417486167}
+  - component: {fileID: 1417486168}
   m_Layer: 0
   m_Name: RandomEventSystem
   m_TagString: Untagged
@@ -82902,6 +82927,22 @@ MonoBehaviour:
   eventText: {fileID: 820290952}
   runningTest: 0
   testIndex: 0
+--- !u!114 &1417486168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417486165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3266de1fe695ba24b9df6f734e17fb0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minTimeBetweenEvents: 30
+  maxTimeBetweenEvents: 75
+  timeBetweenInitialEvents: 5
+  initialEvents: 3
 --- !u!1 &1418787604
 GameObject:
   m_ObjectHideFlags: 0
@@ -107209,7 +107250,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 180, y: 80}
+  m_SizeDelta: {x: 180, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1803522768
 MonoBehaviour:
@@ -108356,9 +108397,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You have limited computation time, forcing you to identify critical questions
-    before querying the graph. Focuses on prioritization and efficiency under computational
-    constraints.
+  m_text: You have much less computation time and need to think carefully about how
+    you will use scarce resources to uncover the truth. Periodic random news events
+    may also pop up, meaning you need to understand how those changes in the graph
+    impact what you know. Focuses on prioritization and efficiency under uncertainty
+    and computational constraints.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a85a5fb20be32c74e8b4a078e736f5ab, type: 2}
   m_sharedMaterial: {fileID: -8262044034710385518, guid: a85a5fb20be32c74e8b4a078e736f5ab,
@@ -109622,7 +109665,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You always have unlimited access to the graph, even during interviews.
+  m_text: You always have unlimited access to the graph until you move to the interviews.
     A relaxed environment to experiment and uncover patterns in alien sightings.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a85a5fb20be32c74e8b4a078e736f5ab, type: 2}
@@ -110640,9 +110683,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You have unlimited access to the graph, but you won't be able to reference
-    it during the interviews. Balances exploration with practical application in
-    evidence assessment.
+  m_text: You have limited but ample computation time, encouraging you to identify
+    critical questions before querying the graph. Balances exploration with practical
+    application in evidence assessment.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a85a5fb20be32c74e8b4a078e736f5ab, type: 2}
   m_sharedMaterial: {fileID: -8262044034710385518, guid: a85a5fb20be32c74e8b4a078e736f5ab,
@@ -120942,7 +120985,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 180, y: 80}
+  m_SizeDelta: {x: 180, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2041653702
 MonoBehaviour:

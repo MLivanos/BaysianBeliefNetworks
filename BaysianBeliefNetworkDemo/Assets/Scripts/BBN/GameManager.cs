@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour, ISceneDetectorTarget
     [SerializeField] private GameObject interactionBlocker;
     [SerializeField] private CircularProgressBar timeLimit;
     [SerializeField] private float[] difficultyTimes;
+    private EntropyGorilla gorilla;
     private AudioManager audioManager;
     private Playlist playlist;
     private static int difficulty = -1;
@@ -32,8 +33,9 @@ public class GameManager : MonoBehaviour, ISceneDetectorTarget
 
     private void Start()
     {
+        gorilla = FindObjectOfType<EntropyGorilla>();
         audioManager = FindObjectOfType<AudioManager>();
-        if (difficulty > 1)
+        if (difficulty > 0)
         {
             timeLimit.UpdateProgress(timeProgress);
         }
@@ -61,27 +63,35 @@ public class GameManager : MonoBehaviour, ISceneDetectorTarget
             difficultySettings.SetActive(true);
             toInterviewButton.interactable = false;
         }
+        if (gorilla == null)
+        {
+            gorilla = FindObjectOfType<EntropyGorilla>();
+        }
+        if (difficulty == 2)
+        {
+            gorilla.PokeGorilla();
+        }
     }
 
     public void ChangeGamemode(int gamemodeNumber)
     {
+        PlayerPrefs.SetInt("Difficulty", gamemodeNumber);
         difficultySettings.SetActive(false);
         interactionBlocker.SetActive(false);
         toInterviewButton.interactable = true;
         difficulty = gamemodeNumber;
-        if (gamemodeNumber < 2)
+        if (gamemodeNumber == 0)
         {
             timeLimit.SetMaxValue(float.MaxValue);
-            timeLimit.gameObject.SetActive(false);
             return;
         }
         timeLimit.SetMaxValue(difficultyTimes[gamemodeNumber]);
-        PlayerPrefs.SetInt("Difficulty", gamemodeNumber);
+        timeLimit.ResetProgress();
     }
 
     public bool CanSample()
     {
-        bool canRun = difficulty < 2 || timeLimit.GetMaxValue() - timeLimit.GetProgress() < difficultyTimes[difficulty];
+        bool canRun = difficulty == 0 || timeLimit.GetMaxValue() - timeLimit.GetProgress() < difficultyTimes[difficulty];
         if (!canRun)
         {
             audioManager.PlayEffect("OutOfCompute");
