@@ -18,7 +18,7 @@ public class ProbabilityValue : MonoBehaviour
     
     private void Start()
     {
-        graph = GameObject.Find("Graph").GetComponent<Graph>();
+        graph = Graph.instance;
         node = displays[0].GetNode();
         for(int i=0; i<displays.Count; i++)
         {
@@ -30,6 +30,16 @@ public class ProbabilityValue : MonoBehaviour
             currentValues.Add(sliders[i].value);
             sliders[i].onValueChanged.AddListener(value => ChangeDisplay(slider, value));
             displays[i].GetInputField().onEndEdit.AddListener(value => ChangeSlider(display, value));
+        }
+        StartCoroutine(ResetSliders());
+    }
+
+    private IEnumerator ResetSliders()
+    {
+        yield return null;
+        for(int i=0; i<displays.Count; i++)
+        {
+            ChangeSlider(displays[i], displays[i].GetValue().ToString("0.000"));
         }
     }
 
