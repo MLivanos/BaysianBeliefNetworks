@@ -366,6 +366,104 @@ MonoBehaviour:
     pitchMultiplier: 1
     source: {fileID: 0}
     duration: 0
+  - name: circle1
+    clip: {fileID: 8300000, guid: f1a947b79a7f9aa4e8fa86ad6c1a45a0, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: circle2
+    clip: {fileID: 8300000, guid: 81b1bf575e37d1c46a4ec1b838a71199, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: circle3
+    clip: {fileID: 8300000, guid: bb92b15c9ff34314ead2aa287d3c0557, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: circle4
+    clip: {fileID: 8300000, guid: 025784ade61fbe34cb019c4db4dc9220, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: circle5
+    clip: {fileID: 8300000, guid: 62e9016aeb220954fb31b7bd6e96de33, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: circle6
+    clip: {fileID: 8300000, guid: d6ef585aab3336a42882ff17b99879b7, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: circle7
+    clip: {fileID: 8300000, guid: 4a20adc79496f9e458b0c426d6d0dfce, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: reversedCircle1
+    clip: {fileID: 8300000, guid: f4e6127884bf16f488f53a8b491408c2, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: reversedCircle2
+    clip: {fileID: 8300000, guid: c755741b9927dd8429218b5945c37748, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: reversedCircle3
+    clip: {fileID: 8300000, guid: 15578698ca8d5f4448a870499164d6a7, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: reversedCircle4
+    clip: {fileID: 8300000, guid: d3eeb24f12bf1fc4394852317790e69d, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: reversedCircle5
+    clip: {fileID: 8300000, guid: 3bbc733170b8fb641ad6c0fb9aa8c0fa, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: reversedCircle6
+    clip: {fileID: 8300000, guid: 89c448f2c43c5b2449b36e7fba6cdb19, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: reversedCircle7
+    clip: {fileID: 8300000, guid: 68f66dd7e2c346445a2649393d174a58, type: 3}
+    loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
   volume: 1
   pitch: 1
 --- !u!1 &7901061059001884411
