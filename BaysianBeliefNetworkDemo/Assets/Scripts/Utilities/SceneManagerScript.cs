@@ -58,6 +58,8 @@ public class SceneManagerScript : MonoBehaviour
 
     public void GoToMainMenu()
     {
+        FadeMusic();
+        DisplayLoadingText("LOADING MENU");
         SceneManager.LoadScene("TitleScreen");
     }
 
@@ -78,5 +80,10 @@ public class SceneManagerScript : MonoBehaviour
         loadingText.ChangeFadeIn(fadeIn);
         loadingText.ChangeMessage(text);
         loadingText.StartElipsesEffect();
+    }
+
+    private void FadeMusic()
+    {
+        AudioManager.instance.FadeOutMusic(1.5f);
     }
 }
