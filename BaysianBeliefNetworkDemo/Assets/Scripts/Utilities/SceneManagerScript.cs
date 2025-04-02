@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 using UnityEngine.SceneManagement;
 
 public class SceneManagerScript : MonoBehaviour
@@ -25,6 +26,7 @@ public class SceneManagerScript : MonoBehaviour
 
     public void GoToCutscenes()
     {
+        DisplayLoadingText("LOADING SCENE", true, 5f);
         SceneManager.LoadScene("Cutscenes", LoadSceneMode.Single);
     }
 
@@ -65,11 +67,14 @@ public class SceneManagerScript : MonoBehaviour
 
     public void Exit()
     {
-        Debug.Log("Exit called (will not exit if in editor)");
-        Application.Quit();
+        #if UNITY_EDITOR
+            EditorApplication.isPlaying = false;
+        #else
+            Application.Quit();
+        #endif
     }
 
-    private void DisplayLoadingText(string text, bool fadeIn=true)
+    private void DisplayLoadingText(string text, bool fadeIn=true, float delay=0f)
     {
         if (loadingText == null)
         {
@@ -79,7 +84,7 @@ public class SceneManagerScript : MonoBehaviour
         loadingText.gameObject.SetActive(true);
         loadingText.ChangeFadeIn(fadeIn);
         loadingText.ChangeMessage(text);
-        loadingText.StartElipsesEffect();
+        loadingText.StartElipsesEffect(delay);
     }
 
     private void FadeMusic()
