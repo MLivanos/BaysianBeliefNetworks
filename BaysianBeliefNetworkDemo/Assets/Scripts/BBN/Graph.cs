@@ -14,6 +14,7 @@ public class Graph : MonoBehaviour
     [SerializeField] private GameObject gibbsOptions;
     [SerializeField] private GameObject hamiltonianOptions;
     [SerializeField] private GameObject graphUI;
+    [SerializeField] private SamplingHistory queryRecord;
     [SerializeField] private bool test;
     private GraphUIManager graphUIManager;
     private AudioManager audioManager;
@@ -25,8 +26,26 @@ public class Graph : MonoBehaviour
     private List<Node> negativeQuery;
     private List<Node> positiveEvidence;
     private List<Node> negativeEvidence;
+    public static Graph instance;
     bool isNegative;
     float lastProbability;
+
+    public List<Node> GetRootNodes() => rootNodes;
+    public List<Node> GetPositiveEvidence() => positiveEvidence.ToList();
+    public List<Node> GetNegativeEvidence() => negativeEvidence.ToList();
+    public List<Node> GetPositiveQuery() => positiveQuery.ToList();
+    public List<Node> GetNegativeQuery() => negativeQuery.ToList();
+    public float GetLastProbability() => lastProbability;
+
+    private void Awake()
+    {
+        SaveGraph();
+        if (instance != null)
+        {
+            MigrateGraph();
+        }
+        instance = this;
+    }
 
     private void Start()
     {
@@ -35,14 +54,12 @@ public class Graph : MonoBehaviour
         negativeQuery = new List<Node>();
         positiveEvidence = new List<Node>();
         negativeEvidence = new List<Node>();
-        SaveGraph();
         samplers = new Sampler[4];
         samplers[0] = GetComponent<RejectionSampler>();
         samplers[1] = GetComponent<LikelihoodWeightingSampler>();
         samplers[2] = GetComponent<GibbsSampler>();
         samplers[3] = GetComponent<HamiltonianSampler>();
         graphUIManager = GetComponent<GraphUIManager>();
-
         currentSampler = samplers[0];
     }
 
@@ -68,21 +85,15 @@ public class Graph : MonoBehaviour
         }
     }
 
-    public void UnsaveGraph()
+    public void MigrateGraph()
     {
-        SceneManager.MoveGameObjectToScene(gameObject, SceneManager.GetActiveScene());
-        List<Node> currentNodes;
-        currentNodes = rootNodes.ToList();
-        while(currentNodes.Count > 0)
+        List<Node> oldGraphNodes = instance.GetAllNodes();
+        for(int i=0; i < allNodes.Count; i++)
         {
-            Node node = currentNodes[0];
-            foreach(Node child in node.GetChildren())
-            {
-                if (!currentNodes.Contains(child)) currentNodes.Add(child);
-            }
-            currentNodes.RemoveAt(0);
-            SceneManager.MoveGameObjectToScene(node.gameObject, SceneManager.GetActiveScene());
+            allNodes[i].CopyNode(oldGraphNodes[i]);
+            Destroy(oldGraphNodes[i].gameObject);
         }
+        Destroy(instance.gameObject);
     }
 
     private void Update()
@@ -94,11 +105,6 @@ public class Graph : MonoBehaviour
             GetComponent<GraphTester>().TestGraph();
             test = false;
         }
-    }
-
-    public List<Node> GetRootNodes()
-    {
-        return rootNodes;
     }
 
     public void AddToEvidence(Node node, VariableChecks checks)
@@ -165,6 +171,14 @@ public class Graph : MonoBehaviour
         }
         float timeElapsed = Time.realtimeSinceStartup - startTime;
         float probability = currentSampler.CalculateProbability();
+        SamplingRecord record = new SamplingRecord(
+            GetPositiveQuery(), GetNegativeQuery(),
+            GetPositiveEvidence(), GetNegativeEvidence(),
+            probability,
+            currentSampler.GetNumberOfSamples(),
+            currentSampler.GetType().Name
+        );
+        queryRecord.AddRecord(record);
         lastProbability = probability;
         currentSampler.AddTime(timeElapsed);
         gameManager.UpdateTimer(-timeElapsed);
@@ -183,37 +197,12 @@ public class Graph : MonoBehaviour
         hamiltonianOptions.SetActive(index == 3);
     }
 
-    public List<Node> GetPositiveEvidence()
-    {
-        return positiveEvidence.ToList();
-    }
-
-    public List<Node> GetNegativeEvidence()
-    {
-        return negativeEvidence.ToList();
-    }
-
-    public List<Node> GetPositiveQuery()
-    {
-        return positiveQuery.ToList();
-    }
-
-    public List<Node> GetNegativeQuery()
-    {
-        return negativeQuery.ToList();
-    }
-
-    public void SetNumberOfSamples(string numberOfSamplesText)
+    public void SetNumberOfSamples(int samples)
     {
         foreach(Sampler sampler in samplers)
         {
-            sampler.SetNumberOfSamples(Int32.Parse(numberOfSamplesText));
+            sampler.SetNumberOfSamples(samples);
         }
-    }
-
-    public float GetLastProbability()
-    {
-        return lastProbability;
     }
 
     public bool[] VisualizeSample()

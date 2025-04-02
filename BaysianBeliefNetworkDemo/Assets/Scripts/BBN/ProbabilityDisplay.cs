@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 using TMPro;
 
 public class ProbabilityDisplay : MonoBehaviour
@@ -17,9 +18,14 @@ public class ProbabilityDisplay : MonoBehaviour
         inputText = inputField.textComponent;
     }
 
+    private void Start()
+    {
+        SetValue(node.JointProbabilityDistribution()[index]);
+    }
+
     public void SetValue(float newValue)
     {
-        SetValue(newValue.ToString("0.000"));
+        SetValue(newValue.ToString("0.###"));
     }
 
     public void SetValue(string newValue)
@@ -29,7 +35,10 @@ public class ProbabilityDisplay : MonoBehaviour
 
     public float GetValue()
     {
-        return float.Parse(inputText.text);
+        string cleanText = new string(inputText.text
+            .Where(c => char.IsDigit(c) || c == '.' || c == '-' || c == '+')
+            .ToArray());
+        return float.Parse(cleanText);
     }
 
     public int GetIndex()

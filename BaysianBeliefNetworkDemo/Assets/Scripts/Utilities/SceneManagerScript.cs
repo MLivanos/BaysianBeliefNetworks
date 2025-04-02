@@ -5,15 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class SceneManagerScript : MonoBehaviour
 {
+    [SerializeField] private LoadingScreenTextEffect loadingText;
+
     public void GoToDemo()
     {
+        DisplayLoadingText("LOADING SIMULATION");
         SceneManager.LoadScene("AnimatedDemo");
     }
 
     public void GoToNetwork()
     {
-        Graph graph = GameObject.Find("Graph").GetComponent<Graph>();
-        graph.UnsaveGraph();
         StartGame();
     }
 
@@ -29,6 +30,7 @@ public class SceneManagerScript : MonoBehaviour
 
     public void GoToInterviews()
     {
+        DisplayLoadingText("LOADING SCENE");
         SceneManager.LoadScene("Interviews", LoadSceneMode.Single);
     }
 
@@ -56,6 +58,8 @@ public class SceneManagerScript : MonoBehaviour
 
     public void GoToMainMenu()
     {
+        FadeMusic();
+        DisplayLoadingText("LOADING MENU");
         SceneManager.LoadScene("TitleScreen");
     }
 
@@ -63,5 +67,23 @@ public class SceneManagerScript : MonoBehaviour
     {
         Debug.Log("Exit called (will not exit if in editor)");
         Application.Quit();
+    }
+
+    private void DisplayLoadingText(string text, bool fadeIn=true)
+    {
+        if (loadingText == null)
+        {
+            Debug.LogWarning("No loading text set. Aborting.");
+            return;
+        }
+        loadingText.gameObject.SetActive(true);
+        loadingText.ChangeFadeIn(fadeIn);
+        loadingText.ChangeMessage(text);
+        loadingText.StartElipsesEffect();
+    }
+
+    private void FadeMusic()
+    {
+        AudioManager.instance.FadeOutMusic(1.5f);
     }
 }

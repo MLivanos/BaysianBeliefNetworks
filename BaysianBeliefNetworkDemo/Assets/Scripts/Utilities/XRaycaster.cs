@@ -30,10 +30,9 @@ public class XRaycaster : MonoBehaviour
 
         foreach (var result in combinedResults)
         {
-            if (result.gameObject.GetComponent<XRaycastStopper>() != null) break;
-
             var target = result.gameObject.GetComponent<XRaycastTarget>();
             if (target != null) target.Hit();
+            if (result.gameObject.GetComponent<XRaycastStopper>() != null) break;
         }
     }
 }

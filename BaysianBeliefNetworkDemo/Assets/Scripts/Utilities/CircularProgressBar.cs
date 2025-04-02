@@ -106,4 +106,10 @@ public class CircularProgressBar : MonoBehaviour
     {
         return progress;
     }
+
+    public void ResetProgress()
+    {
+        progress = maxValue;
+        Reset();
+    }
 }

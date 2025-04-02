@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class TransitionToInterviews : Transition
 {
 	[SerializeField] private GameObject background;
+	[SerializeField] private GameObject reflection;
 	[SerializeField] private RawImage whiteToDot;
 	[SerializeField] private GameObject circleToDot;
 	[SerializeField] private float minHeight;
@@ -29,6 +30,7 @@ public class TransitionToInterviews : Transition
     private void ShowObjects()
     {
     	background.SetActive(true);
+    	reflection.SetActive(true);
     	whiteToDot.gameObject.SetActive(true);
     	circleToDot.SetActive(true);
     }
