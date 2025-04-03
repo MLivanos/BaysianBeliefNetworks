@@ -33,6 +33,7 @@ public class InterviewManager : MonoBehaviour
     [SerializeField] private IntervieweeSpawner intervieweeSpawner;
     [SerializeField] private TimestepManager timestepManager;
     [SerializeField] private List<QuestionSequence> questionsByDifficulty;
+    [SerializeField] private GameObject followUpPanel;
     private InterviewCalculator calculator;
     private Recorder recorder;
     private EventDrawer eventDrawer;
@@ -65,6 +66,7 @@ public class InterviewManager : MonoBehaviour
                 intervieweeSpawner.SpawnInterviewee();
                 break;
             case 1:
+                followUpPanel.SetActive(true);
                 SetAdaptiveDifficulty(recorder.PlayerAccuracy());
                 QuestionSequenceEntry question = questionSequence[questionSequence.Count - questionsRemaining];
                 int numberOfEvents = (int)Mathf.Max(question.numberOfEvents + adaptiveDifficultyBonus, 1f);

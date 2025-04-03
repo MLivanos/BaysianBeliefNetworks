@@ -17,7 +17,8 @@ public class AdditionalQuestionManager : MonoBehaviour
 {
     [SerializeField] private List<string> newTextResponse;
     [SerializeField] private List<string> rejectedResponse;
-
+    [SerializeField] private DropdownList dropdown;
+    
     private InterviewUIManager uiManager;
     private EventDrawer eventDrawer;
 
@@ -140,7 +141,6 @@ public class AdditionalQuestionManager : MonoBehaviour
 	    var rejection = GetRandomLine(rejectedResponse);
 	    Dictionary<string,string> relevantDictionary = occurs ? nodeDescriptions : nodeNegations;
 	    uiManager.DisplayEyewitnessAccount($"{rejection}\n it was {relevantDictionary[node.name]}!");
-	    Debug.Log($"Already saw {node.name}");
 	}
 
 	private void PresentFollowupResult(Node node, bool occurs)
@@ -149,11 +149,11 @@ public class AdditionalQuestionManager : MonoBehaviour
 	    Dictionary<string,string> relevantDictionary = occurs ? nodeDescriptions : nodeNegations;
 	    uiManager.DisplayEyewitnessAccount($"{greeting}\n it was {relevantDictionary[node.name]}!");
 	    uiManager.DisplayEvidence(eventDrawer.GetEventEvidence(), false);
-	    Debug.Log($"[Follow-up] Asked about {node.name} → {(occurs ? "Yes" : "No")}");
 	}
 
 	private string GetRandomLine(List<string> source)
 	{
 	    return source[UnityEngine.Random.Range(0, source.Count)];
 	}
+
 }
