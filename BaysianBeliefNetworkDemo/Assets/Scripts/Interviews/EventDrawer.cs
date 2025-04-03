@@ -226,7 +226,7 @@ public class EventDrawer : MonoBehaviour
             rawEventEvidence = rawEventEvidence.Substring(0, rawEventEvidence.Length - 1);
     }
 
-    private void AddEventToRawText(Node node, string description, bool eventOccurs)
+    public void AddEventToRawText(Node node, string description, bool eventOccurs)
     {
         if (evidenceCollected.Contains(node.GetName()))
             return;

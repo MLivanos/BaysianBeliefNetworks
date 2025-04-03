@@ -14730,6 +14730,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c927f4f3a11caab4c98db47f45b69e18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newTextResponse:
+  - Now that I think about it...
+  rejectedResponse:
+  - I thought I already told you,
 --- !u!1 &1091864831
 GameObject:
   m_ObjectHideFlags: 0
