@@ -22,6 +22,7 @@ public class DropdownList : MonoBehaviour
 
     public void MoveDown()
     {
+        Debug.Log("movingDown");
         StartMovePanelCoroutine(true);
     }
 
@@ -39,9 +40,14 @@ public class DropdownList : MonoBehaviour
         float totalDistance = Vector3.Distance(initialPosition, targetPosition);
         float totalTime = totalDistance / animationSpeed;
 
+        Debug.Log(initialPosition);
+        Debug.Log(targetPosition);
+        Debug.Log(totalTime);
+
         float timer = 0f;
         while (timer < totalTime)
         {
+            Debug.Log(targetPosition);
             panelTransform.localPosition = Vector3.Lerp(initialPosition, targetPosition, timer / totalTime);
             timer += Time.deltaTime;
             yield return null;
