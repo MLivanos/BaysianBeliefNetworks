@@ -131,9 +131,6 @@ public class EventDrawer : MonoBehaviour
         return (int)Mathf.Round(Random.Range(0, list.Count - 0.51f));
     }
 
-    /// <summary>
-    /// Draws the specified number of random events and accumulates their descriptions and evidence.
-    /// </summary>
     public void DrawRandomEvents(int numberOfEvents, EventDrawMode mode)
     {
         questionRepo.AskingNewQuestion();
@@ -247,7 +244,21 @@ public class EventDrawer : MonoBehaviour
         rawEventDescription += relevantList[GetRandomIndex(relevantList)];
     }
 
-    // Public accessors for InterviewManager to retrieve the drawn event text.
+    public List<NodeDescriptions> GetNodePool(EventCategory category)
+    {
+        List<NodeDescriptions> pool = category switch
+        {
+            EventCategory.Season => seasons,
+            EventCategory.Weather => weather,
+            EventCategory.HumanBehavior => humanActivity,
+            EventCategory.AnimalBehavior => animalBehavior,
+            EventCategory.EnvironmentalConsequence => consequences,
+            _ => null
+        };
+
+        return pool;
+    }
+
     public string GetEventDescription() => rawEventDescription;
     public string GetEventEvidence() => rawEventEvidence;
     public bool GetAggression() => eventAggression;

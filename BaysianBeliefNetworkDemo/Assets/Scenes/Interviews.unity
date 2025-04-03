@@ -842,7 +842,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 75500335}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1086258976}
+        m_TargetAssemblyTypeName: AdditionalQuestionManager, Assembly-CSharp
+        m_MethodName: AskHumanQuestion
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &75500335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3190,7 +3202,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 298518558}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1086258976}
+        m_TargetAssemblyTypeName: AdditionalQuestionManager, Assembly-CSharp
+        m_MethodName: AskConsequenceQuestion
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &298518558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7684,9 +7708,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d064ca9951f32e648aba1a93344beb90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  masterSlider: {fileID: 0}
-  musicSlider: {fileID: 0}
-  sfxSlider: {fileID: 0}
+  masterSlider: {fileID: 1850755162}
+  musicSlider: {fileID: 1300299975}
+  sfxSlider: {fileID: 214464210}
   volumeImage: {fileID: 2115303124}
   muteImage: {fileID: 1647151828}
 --- !u!114 &657209645
@@ -7930,7 +7954,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 666005107}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1086258976}
+        m_TargetAssemblyTypeName: AdditionalQuestionManager, Assembly-CSharp
+        m_MethodName: AskWeatherQuestion
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &666005107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14258,6 +14294,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1086258975}
+    - targetCorrespondingSourceObject: {fileID: 6572116375759035472, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1086258976}
   m_SourcePrefab: {fileID: 100100000, guid: dcfb0bdf3c88d4d33aa91993c7372f1a, type: 3}
 --- !u!1 &1086258969 stripped
 GameObject:
@@ -14678,6 +14718,18 @@ MonoBehaviour:
   eventSystem: {fileID: 254519324}
   raycasters:
   - {fileID: 2094505749}
+--- !u!114 &1086258976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1086258969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c927f4f3a11caab4c98db47f45b69e18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1091864831
 GameObject:
   m_ObjectHideFlags: 0
@@ -16400,7 +16452,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1247135114}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1086258976}
+        m_TargetAssemblyTypeName: AdditionalQuestionManager, Assembly-CSharp
+        m_MethodName: AskSeasonQuestion
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1247135114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21856,6 +21920,7 @@ GameObject:
   - component: {fileID: 1642025577}
   - component: {fileID: 1642025580}
   - component: {fileID: 1642025579}
+  - component: {fileID: 1642025581}
   m_Layer: 5
   m_Name: AdditionalQuestionSelection
   m_TagString: Untagged
@@ -21942,8 +22007,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panelTransform: {fileID: 1850171648}
-  endPosition: {x: -30, y: 360, z: 0}
+  endPosition: {x: -205, y: 360, z: 0}
   animationSpeed: 250
+--- !u!114 &1642025581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1642025576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53f8bb2b65e756c4f85a51e7137a8766, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1642405547
 GameObject:
   m_ObjectHideFlags: 0
@@ -24833,7 +24910,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1994323222}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1086258976}
+        m_TargetAssemblyTypeName: AdditionalQuestionManager, Assembly-CSharp
+        m_MethodName: AskAnimalQuestion
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1994323222
 MonoBehaviour:
   m_ObjectHideFlags: 0
