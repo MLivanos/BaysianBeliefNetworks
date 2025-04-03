@@ -14732,8 +14732,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newTextResponse:
   - Now that I think about it...
+  - Oh, right! I just remembered-
+  - Now that you mention it...
+  - Actually, yeah...
+  - Wait, there *was* one more thing
+  - Funny you ask
+  - "Oh! I\u2019d almost forgotten"
+  - uh, yeah, I guess I never mentioned this but
+  - "It\u2019s coming back to me now"
+  - Now that you bring it up
+  - "I didn\u2019t think it mattered, but"
+  - You know, it might be nothing, but
+  - It's probably nothing, but
   rejectedResponse:
   - I thought I already told you,
+  - "You\u2019re asking again?"
+  - "Didn\u2019t we go over this?"
+  - "I\u2019m sure I said that already."
+  - Same answer as before.
+  - Sorry, but that's all I got,
+  - Like I said,
+  - I gave you everything I had
+  - "We\u2019ve already covered that"
+  - Could've sworn I told you,
 --- !u!1 &1091864831
 GameObject:
   m_ObjectHideFlags: 0
