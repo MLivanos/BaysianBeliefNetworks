@@ -18,9 +18,11 @@ public class AudioManager : MonoBehaviour
     private float lastSFXVolume = 1f;
     private float epsilon = 0.01f;
 
-    private bool muted = false;
+    // New mute flags
+    private bool muteSFX = false;
+    private bool muteMusic = false;
 
-    public static AudioManager instance {get; private set;}
+    public static AudioManager instance { get; private set; }
 
     private void Awake()
     {
@@ -37,6 +39,11 @@ public class AudioManager : MonoBehaviour
     {
         LoadVolumeSettings();
         UpdateVolumeLevels();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.M)) ToggleMuteState();
     }
 
     public void AdjustMusicVolume(float volume)
@@ -62,27 +69,43 @@ public class AudioManager : MonoBehaviour
         UpdateVolumeLevels();
     }
 
-    public void Mute()
+    // Cycle unmuted->mute SFX only->mute music only->mute->unmuted
+    public void ToggleMuteState()
     {
-        if (muted) UpdateVolumeLevels(); // If already muted, unmute
-        else // Otherwise, mute
+        if (!muteSFX && !muteMusic)
         {
-            music.UpdateVolume(0f);
-            sfx.UpdateVolume(0f);
+            muteSFX = true;
         }
-        muted = !muted;
-    }
-
-    public bool IsMute()
-    {
-        return muted;
+        else if (muteSFX && !muteMusic)
+        {
+            muteMusic = true;
+            muteSFX = false;
+        }
+        else if (!muteSFX && muteMusic)
+        {
+            muteSFX = true;
+        }
+        else if (muteSFX && muteMusic)
+        {
+            muteSFX = false;
+            muteMusic = false;
+        }
+        UpdateVolumeLevelsWithMute();
     }
 
     private void UpdateVolumeLevels()
     {
         music.UpdateVolume(masterVolume * musicVolume);
         sfx.UpdateVolume(masterVolume * sfxVolume);
+        SaveVolumeSettings();
+    }
 
+    private void UpdateVolumeLevelsWithMute()
+    {
+        float effectiveMusic = muteMusic ? 0f : musicVolume;
+        float effectiveSFX = muteSFX ? 0f : sfxVolume;
+        music.UpdateVolume(masterVolume * effectiveMusic);
+        sfx.UpdateVolume(masterVolume * effectiveSFX);
         SaveVolumeSettings();
     }
 
@@ -135,12 +158,12 @@ public class AudioManager : MonoBehaviour
     {
         if (musicToFadeIn.Count == 0) return;
         music.FadeIn(duration, musicToFadeIn.GetRange(0, 1));
-        sfx.FadeIn(duration, musicToFadeIn.GetRange(1, musicToFadeIn.Count-1));
+        sfx.FadeIn(duration, musicToFadeIn.GetRange(1, musicToFadeIn.Count - 1));
     }
 
     public void FadeInSong(string song, float duration)
     {
-        music.FadeIn(duration, new List<string>{song});
+        music.FadeIn(duration, new List<string> { song });
     }
 
     public void PauseMusic()
@@ -161,5 +184,18 @@ public class AudioManager : MonoBehaviour
     public void SetMusicTime(string song, float time)
     {
         music.SetTime(song, time);
+    }
+
+    public void Mute()
+    {
+        bool muteOn = !IsMuted();
+        muteSFX = muteOn;
+        muteMusic = muteOn;
+        UpdateVolumeLevelsWithMute();
+    }
+
+    public bool IsMuted()
+    {
+        return muteSFX && muteMusic;
     }
 }

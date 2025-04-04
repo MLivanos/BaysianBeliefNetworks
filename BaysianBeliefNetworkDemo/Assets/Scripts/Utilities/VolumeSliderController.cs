@@ -32,7 +32,7 @@ public class VolumeSliderController : MonoBehaviour
 
     private void SetMuteImage()
     {
-        if (audioManager.IsMute())
+        if (audioManager.IsMuted())
         {
             volumeImage.SetActive(false);
             muteImage.SetActive(true);
