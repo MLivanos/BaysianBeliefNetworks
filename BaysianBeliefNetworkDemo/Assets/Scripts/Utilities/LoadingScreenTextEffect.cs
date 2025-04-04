@@ -19,13 +19,14 @@ public class LoadingScreenTextEffect : MonoBehaviour
 		fadeIn = newFadeIn;
 	}
 
-	public void StartElipsesEffect()
+	public void StartElipsesEffect(float delay=0f)
 	{
-		StartCoroutine(PlayElipses());
+		StartCoroutine(PlayElipses(delay));
 	}
 
-	private IEnumerator PlayElipses()
+	private IEnumerator PlayElipses(float delay)
 	{
+		if (delay > 0f) yield return new WaitForSeconds(delay);
 		FadableTextMeshPro fadeEffect = GetComponent<FadableTextMeshPro>();
 		if (fadeIn && fadeEffect != null) yield return fadeEffect.Fade(timeBetweenElipses, true);
 		int numberOfElipses = 0;

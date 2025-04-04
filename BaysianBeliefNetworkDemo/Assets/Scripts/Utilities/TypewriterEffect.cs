@@ -22,11 +22,17 @@ public class TypewriterEffect : MonoBehaviour
     private string fullText;
     private int charsBeforeSound = 0;
 
-    void Awake()
+    public string Text()=>textComponent.text;
+
+    private void Awake()
     {
-        audioManager = AudioManager.instance;
         textComponent = GetComponent<TextMeshProUGUI>();
         fullText = textComponent.text;
+    }
+
+    private void Start()
+    {
+        audioManager = AudioManager.instance;
     }
 
     public void UpdateText(string newText)

@@ -80,11 +80,6 @@ public class GameManager : MonoBehaviour, ISceneDetectorTarget
         interactionBlocker.SetActive(false);
         toInterviewButton.interactable = true;
         difficulty = gamemodeNumber;
-        if (gamemodeNumber == 0)
-        {
-            timeLimit.SetMaxValue(float.MaxValue);
-            return;
-        }
         timeLimit.SetMaxValue(difficultyTimes[gamemodeNumber]);
         timeLimit.ResetProgress();
     }

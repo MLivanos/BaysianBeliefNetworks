@@ -18,6 +18,7 @@ public class PlayButtonGlitch : MonoBehaviour
 
     public void TriggerGlitch()
     {
+        buttonImage.gameObject.GetComponent<Button>().interactable = false;
         AudioManager.instance.PlayEffect("Glitch");
         StartCoroutine(GlitchRoutine());
     }
@@ -41,6 +42,6 @@ public class PlayButtonGlitch : MonoBehaviour
             elapsedTime += Time.deltaTime;
             yield return null;
         }
-        buttonImage.enabled = false;
+        buttonImage.gameObject.SetActive(false);
     }
 }

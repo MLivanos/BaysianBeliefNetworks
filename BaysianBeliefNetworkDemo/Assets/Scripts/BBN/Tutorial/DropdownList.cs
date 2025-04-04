@@ -62,4 +62,11 @@ public class DropdownList : MonoBehaviour
     {
         StartCoroutine(PeepDropdown());
     }
+
+    public void SnapPanel(bool movingDown)
+    {
+        Vector3 targetPosition = movingDown ? endPosition : startPosition;
+        Debug.Log(targetPosition);
+        panelTransform.localPosition = targetPosition;
+    }
 }
