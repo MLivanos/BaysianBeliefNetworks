@@ -17115,6 +17115,7 @@ GameObject:
   - component: {fileID: 319091452}
   - component: {fileID: 319091453}
   - component: {fileID: 319091454}
+  - component: {fileID: 319091455}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -17172,6 +17173,23 @@ MonoBehaviour:
   timeBetweenWhiteAndDot: 0.3
   whiteToLineTime: 0.3
   lineToDotTime: 0.3
+--- !u!114 &319091455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 319091450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5b7e32149866904bab2d8f2a1dd7c56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  graphCamera: {fileID: 330585545}
+  snapshotCameraPosition: {x: 0, y: 0, z: -29}
+  elementsToHide:
+  - {fileID: 9041401687156173548}
+  - {fileID: 972312762}
 --- !u!1 &319779154
 GameObject:
   m_ObjectHideFlags: 0
@@ -130535,6 +130553,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aed40cfff873c0f47bda79833a648834, type: 3}
+--- !u!1 &9041401687156173548 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8728993080452952843, guid: aed40cfff873c0f47bda79833a648834,
+    type: 3}
+  m_PrefabInstance: {fileID: 9041401687156173547}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

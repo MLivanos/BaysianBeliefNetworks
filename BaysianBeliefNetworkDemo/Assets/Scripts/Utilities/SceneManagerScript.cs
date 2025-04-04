@@ -32,6 +32,12 @@ public class SceneManagerScript : MonoBehaviour
 
     public void GoToInterviews()
     {
+        StartCoroutine(SnapshotAndGoToInterviews());
+    }
+
+    private IEnumerator SnapshotAndGoToInterviews()
+    {
+        yield return GetComponent<GraphSnapshotter>().CaptureRoutine();
         DisplayLoadingText("LOADING SCENE");
         SceneManager.LoadScene("Interviews", LoadSceneMode.Single);
     }
