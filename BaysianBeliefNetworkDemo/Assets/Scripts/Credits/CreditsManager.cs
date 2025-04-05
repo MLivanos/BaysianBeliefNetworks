@@ -31,15 +31,14 @@ public class CreditsManager : MonoBehaviour
     {
         fadeToBlack.SetAlpha(1f);
         yield return fadeToBlack.Fade(2f, false);
+        fadeToBlack.gameObject.SetActive(false);
     }
 
     private IEnumerator Scroll()
     {
         while(scrollingObject.localPosition.y < stopHeight)
         {
-            if (Input.GetMouseButtonDown(0)) scrollSpeed *= scrollSpeedMultiplier;
-            else if (Input.GetMouseButtonUp(0)) scrollSpeed /= scrollSpeedMultiplier;
-            scrollingObject.Translate(Vector3.up * scrollSpeed * Time.deltaTime);
+            scrollingObject.Translate(Vector3.up * scrollSpeed * (Input.GetMouseButton(0) ? scrollSpeedMultiplier : 1) * Time.deltaTime);
             yield return null;
         }
     }
