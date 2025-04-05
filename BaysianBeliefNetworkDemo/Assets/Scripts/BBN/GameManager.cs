@@ -139,8 +139,21 @@ public class GameManager : MonoBehaviour, ISceneDetectorTarget
 
     public void OnSceneChange(bool isHomeScene)
     {
+        if (timeLimit == null) timeLimit = FindFirstObjectByType<CircularProgressBar>();
+        HandleAudioSceneChange(isHomeScene);
+        if (isHomeScene && difficulty > -1) ResetTimer();
+    }
+
+    public void HandleAudioSceneChange(bool isHomeScene)
+    {
         if (!playlist) return;
         if (isHomeScene) playlist.Resume();
         else playlist.Pause();
+    }
+
+    public void ResetTimer()
+    {
+        timeLimit.SetMaxValue(difficultyTimes[difficulty]);
+        timeLimit.UpdateProgress(timeProgress);
     }
 }
