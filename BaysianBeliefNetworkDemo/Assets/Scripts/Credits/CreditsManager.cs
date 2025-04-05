@@ -31,6 +31,7 @@ public class CreditsManager : MonoBehaviour
     {
         fadeToBlack.SetAlpha(1f);
         yield return fadeToBlack.Fade(2f, false);
+        fadeToBlack.gameObject.SetActive(false);
     }
 
     private IEnumerator Scroll()

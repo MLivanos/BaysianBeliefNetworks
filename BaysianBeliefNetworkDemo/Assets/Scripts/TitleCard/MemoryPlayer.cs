@@ -56,6 +56,7 @@ public class MemoryPlayer : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        Debug.Log("!");
         isPointerOver = true;
         PlayClip();
     }
