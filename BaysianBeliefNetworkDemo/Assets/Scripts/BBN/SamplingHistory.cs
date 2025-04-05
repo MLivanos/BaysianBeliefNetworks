@@ -112,6 +112,12 @@ public class SamplingHistory : MonoBehaviour
         return history;
     }
 
+    public void SetHistoryText(string newText)
+    {
+        historyText.text = newText;
+    }
+    public string GetHistoryText() => historyText.text;
+
     public void ClearHistory()
     {
         history.Clear();

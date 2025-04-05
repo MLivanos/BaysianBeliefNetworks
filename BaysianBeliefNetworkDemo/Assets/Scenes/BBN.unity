@@ -42458,7 +42458,7 @@ GameObject:
   - component: {fileID: 708799016}
   - component: {fileID: 708799018}
   m_Layer: 5
-  m_Name: QuestPanel
+  m_Name: QueryPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
