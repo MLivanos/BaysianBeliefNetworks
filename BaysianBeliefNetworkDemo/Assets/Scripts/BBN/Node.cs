@@ -9,6 +9,7 @@ public class Node : MonoBehaviour
     [SerializeField] List<Node> children;
     [SerializeField] List<Node> parents;
     [SerializeField] float[] jointProbabilityDistribution;
+    private List<ProbabilityDisplay> displays = new List<ProbabilityDisplay>();
     bool isTrue;
     bool isSet;
 
@@ -17,6 +18,11 @@ public class Node : MonoBehaviour
     public void CopyNode(Node other)
     {
         this.jointProbabilityDistribution = (float[])other.JointProbabilityDistribution().Clone();
+    }
+
+    public void AddDisplay(ProbabilityDisplay display)
+    {
+        displays.Add(display);
     }
 
     public float Query()
@@ -105,6 +111,15 @@ public class Node : MonoBehaviour
     public float[] GetCPT()
     {
         return jointProbabilityDistribution;
+    }
+
+    public void SetJointProbabilityDistribution(float[] newJPD)
+    {
+        jointProbabilityDistribution = newJPD;
+        foreach(ProbabilityDisplay display in displays)
+        {
+            display.RefreshDisplay();
+        }
     }
 }
 

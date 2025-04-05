@@ -17,8 +17,15 @@ public class GameManager : MonoBehaviour, ISceneDetectorTarget
     private AudioManager audioManager;
     private Playlist playlist;
     private static int difficulty = -1;
-    private static GameManager instance;
+    public static GameManager instance;
     private static float timeProgress;
+
+    public float TimeProgress() => timeProgress;
+    public void SetTimeProgress(float progress){
+        timeProgress = progress;
+        timeLimit.SetMaxValue(difficultyTimes[difficulty]);
+        timeLimit.UpdateProgress(timeProgress);
+    } 
 
     private void Awake()
     {

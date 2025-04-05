@@ -20,6 +20,12 @@ public class ProbabilityDisplay : MonoBehaviour
 
     private void Start()
     {
+        node.AddDisplay(this);
+        RefreshDisplay();
+    }
+
+    public void RefreshDisplay()
+    {
         SetValue(node.JointProbabilityDistribution()[index]);
     }
 
