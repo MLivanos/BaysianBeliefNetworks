@@ -890,6 +890,7 @@ GameObject:
   - component: {fileID: 177567579}
   - component: {fileID: 177567581}
   - component: {fileID: 177567582}
+  - component: {fileID: 177567583}
   m_Layer: 0
   m_Name: CreditsManager
   m_TagString: Untagged
@@ -962,6 +963,19 @@ MonoBehaviour:
   eventSystem: {fileID: 33544165}
   raycasters:
   - {fileID: 1922557886}
+--- !u!114 &177567583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177567578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4d07103c09fd5840bf97917354690e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keysToReset: []
 --- !u!1 &193008372
 GameObject:
   m_ObjectHideFlags: 0
@@ -3991,8 +4005,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 177567581}
-        m_TargetAssemblyTypeName: SceneManagerScript, Assembly-CSharp
+      - m_Target: {fileID: 177567583}
+        m_TargetAssemblyTypeName: ResetGame, Assembly-CSharp
         m_MethodName: GoToMainMenu
         m_Mode: 1
         m_Arguments:
