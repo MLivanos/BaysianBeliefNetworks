@@ -540,6 +540,7 @@ GameObject:
   - component: {fileID: 177567580}
   - component: {fileID: 177567579}
   - component: {fileID: 177567581}
+  - component: {fileID: 177567582}
   m_Layer: 0
   m_Name: CreditsManager
   m_TagString: Untagged
@@ -597,6 +598,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadingText: {fileID: 0}
+--- !u!114 &177567582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177567578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29556191adbf6e74987b140d7553e8c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 33544165}
+  raycasters:
+  - {fileID: 1922557886}
 --- !u!1 &210597300
 GameObject:
   m_ObjectHideFlags: 0
@@ -670,9 +686,9 @@ MonoBehaviour:
     \u2013 Joyride  \r\nLofi \u2013 Milky Tea  \r\nLofi \u2013 In The Haze  \r\nLofi
     \u2013 Fade Away  \r\nSynthpop \u2013 Food Court  \r\nSynthpop \u2013 Most Wanted 
     \r\nSynthpop \u2013 First Flight  \r\nSynthpop \u2013 Funky\r\n\r\n<size=40%>
-    </size>  \r\n<size=140%>My Students</size>  \r\nFor your curiosity, imagination,
-    and support.  \r\nYou are the reason this project exists.  \r\nI hope it inspires
-    you as much as it inspired me.\r\n\r\n<size=40%> </size>  \r\n<size=140%>You</size> 
+    </size>  \r\n<size=140%>My Students</size>  \r\nFor your curiosity, imagination,\nand
+    support.  \r\nYou are the reason this\nproject exists.  \r\nI hope it inspires
+    you as much as\nyou inspire me.\r\n\r\n<size=40%> </size>  \r\n<size=140%>You</size> 
     \r\nFor giving this game a chance.  \r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n<size=40%>
     </size>  \r\n<size=125%>Thank you for playing!</size>\r"
   m_isRightToLeft: 0
@@ -765,6 +781,9 @@ GameObject:
   - component: {fileID: 467133287}
   - component: {fileID: 467133286}
   - component: {fileID: 467133285}
+  - component: {fileID: 467133291}
+  - component: {fileID: 467133290}
+  - component: {fileID: 467133289}
   m_Layer: 5
   m_Name: ExitGame
   m_TagString: Untagged
@@ -898,6 +917,49 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 467133283}
   m_CullTransparentMesh: 1
+--- !u!114 &467133289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 467133283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0cd794975b97694ea12c843622c1c9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transformToScale: {fileID: 0}
+  hoverScale: {x: 1.05, y: 1.05}
+  scaleSpeed: 8
+--- !u!114 &467133290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 467133283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e19c15e1ebdfc5418f3015b98e9c639, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitDelay: 0.1
+--- !u!114 &467133291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 467133283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b939e59595cc5e94bb314b6da5aa0496, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEffect: Hover
+  playOnEnter: 1
+  playOnExit: 0
 --- !u!1 &681616313
 GameObject:
   m_ObjectHideFlags: 0
@@ -1654,6 +1716,9 @@ GameObject:
   - component: {fileID: 2030507917}
   - component: {fileID: 2030507916}
   - component: {fileID: 2030507915}
+  - component: {fileID: 2030507921}
+  - component: {fileID: 2030507920}
+  - component: {fileID: 2030507919}
   m_Layer: 5
   m_Name: ReturnToMainMenu
   m_TagString: Untagged
@@ -1787,6 +1852,49 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2030507913}
   m_CullTransparentMesh: 1
+--- !u!114 &2030507919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2030507913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0cd794975b97694ea12c843622c1c9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transformToScale: {fileID: 0}
+  hoverScale: {x: 1.05, y: 1.05}
+  scaleSpeed: 8
+--- !u!114 &2030507920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2030507913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e19c15e1ebdfc5418f3015b98e9c639, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitDelay: 0.1
+--- !u!114 &2030507921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2030507913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b939e59595cc5e94bb314b6da5aa0496, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEffect: Hover
+  playOnEnter: 1
+  playOnExit: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
