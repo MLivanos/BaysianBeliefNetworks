@@ -117904,32 +117904,32 @@ MonoBehaviour:
   colorGradients:
   - startColor: {r: 0, g: 0.44705883, b: 0.69803923, a: 1}
     endColor: {r: 0, g: 0.44705883, b: 0.69803923, a: 1}
-    start: 24
-    end: 30
+    start: 0.8
+    end: 1
   - startColor: {r: 0.9411765, g: 0.89411765, b: 0.25882354, a: 1}
     endColor: {r: 0, g: 0.44705883, b: 0.69803923, a: 1}
-    start: 18
-    end: 24
+    start: 0.6
+    end: 0.8
   - startColor: {r: 0.9411765, g: 0.89411765, b: 0.25882354, a: 1}
     endColor: {r: 0.9411765, g: 0.89411765, b: 0.25882354, a: 1}
-    start: 12
-    end: 18
+    start: 0.4
+    end: 0.6
   - startColor: {r: 0.8352941, g: 0.36862746, b: 0, a: 1}
     endColor: {r: 0.93725497, g: 0.8941177, b: 0.25490198, a: 1}
-    start: 8
-    end: 12
+    start: 0.2667
+    end: 0.4
   - startColor: {r: 0.8352941, g: 0.36862746, b: 0, a: 1}
     endColor: {r: 0.8352942, g: 0.36862746, b: 0, a: 1}
-    start: 5
-    end: 8
+    start: 0.1667
+    end: 0.2667
   - startColor: {r: 0.6784314, g: 0, b: 0, a: 1}
     endColor: {r: 0.8352942, g: 0.36862746, b: 0, a: 1}
-    start: 2.5
-    end: 5
+    start: 0.0833
+    end: 0.1667
   - startColor: {r: 0.6784314, g: 0, b: 0, a: 1}
     endColor: {r: 0.6784314, g: 0, b: 0, a: 1}
     start: 0
-    end: 2.5
+    end: 0.0833
 --- !u!114 &1928283198
 MonoBehaviour:
   m_ObjectHideFlags: 0
