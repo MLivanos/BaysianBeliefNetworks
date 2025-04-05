@@ -183,6 +183,7 @@ public class Graph : MonoBehaviour
         currentSampler.AddTime(timeElapsed);
         gameManager.UpdateTimer(-timeElapsed);
         graphUIManager.UpdateUI(currentSampler.GetNumberOfSamples(), currentSampler.GetNumberOfAcceptedSamples(), currentSampler.GetTimeElapsed());
+        FindObjectOfType<SaveSystem>().SaveGame();
     }
 
     public void UpdateText(float probability=-1f)

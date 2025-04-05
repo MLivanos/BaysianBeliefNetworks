@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour, ISceneDetectorTarget
 
     public float TimeProgress() => timeProgress;
     public void SetTimeProgress(float progress){
+        difficulty = PlayerPrefs.GetInt("Difficulty", 0);
         timeProgress = progress;
         timeLimit.SetMaxValue(difficultyTimes[difficulty]);
         timeLimit.UpdateProgress(timeProgress);
@@ -83,6 +84,7 @@ public class GameManager : MonoBehaviour, ISceneDetectorTarget
     public void ChangeGamemode(int gamemodeNumber)
     {
         PlayerPrefs.SetInt("Difficulty", gamemodeNumber);
+        PlayerPrefs.Save();
         difficultySettings.SetActive(false);
         interactionBlocker.SetActive(false);
         toInterviewButton.interactable = true;

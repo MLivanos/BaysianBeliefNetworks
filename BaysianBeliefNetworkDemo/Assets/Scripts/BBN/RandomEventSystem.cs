@@ -36,6 +36,7 @@ public class RandomEventSystem : MonoBehaviour
 		if (notificationCoroutine != null) ClearNotification();
 		notificationCoroutine = StartCoroutine(NotifyUser(randomEvent.GetMessage(), randomEvent.GetDescription()));
 		randomEvent.ApplyOperations();
+		FindObjectOfType<SaveSystem>().SaveGame();
 	}
 
 	public IEnumerator NotifyUser(string message, string description)

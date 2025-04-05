@@ -83,8 +83,6 @@ public class SaveSystem : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    // ---------- Internal Abstractions Below ----------
-
     private SaveData CollectSaveData()
     {
         SaveData data = new SaveData();
