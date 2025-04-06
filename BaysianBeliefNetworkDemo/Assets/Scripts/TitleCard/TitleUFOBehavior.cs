@@ -55,6 +55,7 @@ public class TitleUFOBehaviorPortal : MonoBehaviour
 
     private float elapsedMoveTime = 0f;
     private AudioManager audioManager;
+    private Coroutine titleAnimation;
 
     void Start()
     {
@@ -73,7 +74,7 @@ public class TitleUFOBehaviorPortal : MonoBehaviour
         portalOpenFX.SetActive(false);
         shipTrailFX.SetActive(false);
 
-        StartCoroutine(StartBehavior());
+        titleAnimation = StartCoroutine(StartBehavior());
     }
 
     void Update()
@@ -124,6 +125,7 @@ public class TitleUFOBehaviorPortal : MonoBehaviour
 
         // 10. Deactivate the UFO.
         ufoTransform.gameObject.SetActive(false);
+        titleAnimation = null;
     }
 
     IEnumerator FadeInTitle()
@@ -216,5 +218,10 @@ public class TitleUFOBehaviorPortal : MonoBehaviour
         */
         yield return null;
         titleGlow.StartGlow();
+    }
+
+    public void Stop()
+    {
+        if (titleAnimation != null) StopCoroutine(titleAnimation);
     }
 }

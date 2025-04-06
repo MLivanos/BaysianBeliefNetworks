@@ -975,7 +975,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4d07103c09fd5840bf97917354690e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keysToReset: []
+  keysToReset:
+  - Difficulty
+  - TutorialCompleted
 --- !u!1 &193008372
 GameObject:
   m_ObjectHideFlags: 0

@@ -20146,8 +20146,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -346.45026, y: 104.00006}
-  m_SizeDelta: {x: 120, y: 80}
+  m_AnchoredPosition: {x: -370, y: 104.00006}
+  m_SizeDelta: {x: 150, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &368091532
 MonoBehaviour:
@@ -20169,7 +20169,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: S,R
+  m_text: Su,R
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a85a5fb20be32c74e8b4a078e736f5ab, type: 2}
   m_sharedMaterial: {fileID: -8262044034710385518, guid: a85a5fb20be32c74e8b4a078e736f5ab,
@@ -30343,7 +30343,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 319091453}
+      - m_Target: {fileID: 785744850}
         m_TargetAssemblyTypeName: SceneManagerScript, Assembly-CSharp
         m_MethodName: GoToDemo
         m_Mode: 1
@@ -75107,8 +75107,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -353, y: 104.00006}
-  m_SizeDelta: {x: 120, y: 80}
+  m_AnchoredPosition: {x: -357, y: 104.00006}
+  m_SizeDelta: {x: 124.03, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1253907455
 MonoBehaviour:
@@ -75130,7 +75130,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: B,C
+  m_text: B,Cl
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a85a5fb20be32c74e8b4a078e736f5ab, type: 2}
   m_sharedMaterial: {fileID: -8262044034710385518, guid: a85a5fb20be32c74e8b4a078e736f5ab,
@@ -94002,7 +94002,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeName: Power Outage
-  abriviation: Po
+  abriviation: P
   children:
   - {fileID: 1201334750}
   parents:

@@ -30,6 +30,7 @@ public class TransitionToCutscenes : Transition
 
     protected override IEnumerator TransitionToScene()
     {
+        GetComponent<TitleUFOBehaviorPortal>().Stop();
         TypeOutObjects();
         TypeInObjects();
         StopPlanets();
