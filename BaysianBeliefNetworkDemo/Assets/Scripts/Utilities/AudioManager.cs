@@ -171,6 +171,11 @@ public class AudioManager : MonoBehaviour
         music.PauseAll();
     }
 
+    public void StopMusic()
+    {
+        music.StopAll();
+    }
+
     public float GetSongLength(string song)
     {
         return music.GetSongLength(song);

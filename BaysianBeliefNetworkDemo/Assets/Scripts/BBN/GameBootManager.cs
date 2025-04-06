@@ -9,6 +9,7 @@ public class GameBootManager : MonoBehaviour
     [SerializeField] private List<ButtonFontChangeEffect> buttonFontEffects;
     [SerializeField] private List<PlayButtonGlitch> glitches;
     [SerializeField] private string saveFileName = "savegame.json";
+    private AudioManager audioManager;
     private TransitionToCutscenes transitionEffect;
     private SceneManagerScript sceneManager;
     private SaveSystem saveSystem;
@@ -21,6 +22,11 @@ public class GameBootManager : MonoBehaviour
         saveSystem = FindObjectOfType<SaveSystem>();
         sceneManager = FindObjectOfType<SceneManagerScript>();
         transitionEffect = FindObjectOfType<TransitionToCutscenes>();
+    }
+
+    private void Start()
+    {
+        audioManager = AudioManager.instance;
     }
 
     public void CheckForSave()
@@ -40,6 +46,7 @@ public class GameBootManager : MonoBehaviour
     public void LoadGame()
     {
         if (saveSystem != null) saveSystem.SetShouldLoadFlag();
+        audioManager.StopMusic();
         sceneManager.StartGame();
     }
 

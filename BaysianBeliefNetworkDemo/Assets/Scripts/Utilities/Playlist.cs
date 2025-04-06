@@ -17,18 +17,15 @@ public class Playlist : MonoBehaviour
 	private AudioManager audioManager;
 	private bool isPlaying = false;
 
-	private void Awake()
-	{
-		audioManager = AudioManager.instance;
-	}
-
 	private void Start()
 	{
+		audioManager = AudioManager.instance;
 		if (playOnAwake) Reset();
 	}
 
 	public void Play()
 	{
+		if (audioManager == null) audioManager = FindObjectOfType<AudioManager>();
 		isPlaying = true;
 		if (trackNumber > 0) audioManager.FadeOutMusic(fadeTime);
 		if (trackNumber < trackList.Count)
