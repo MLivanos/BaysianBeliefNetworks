@@ -5278,6 +5278,7 @@ GameObject:
   - component: {fileID: 1359452020}
   - component: {fileID: 1359452021}
   - component: {fileID: 1359452022}
+  - component: {fileID: 1359452023}
   m_Layer: 0
   m_Name: TitleSceneManager
   m_TagString: Untagged
@@ -5434,6 +5435,21 @@ MonoBehaviour:
   maxUpDown: 2
   deadZoneSize: 0.2
   cameraTransform: {fileID: 670132596}
+--- !u!114 &1359452023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359452017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4d07103c09fd5840bf97917354690e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keysToReset:
+  - Difficulty
+  - TutorialCompleted
 --- !u!1 &1448299533
 GameObject:
   m_ObjectHideFlags: 0

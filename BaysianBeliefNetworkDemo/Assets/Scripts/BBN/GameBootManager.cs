@@ -13,6 +13,7 @@ public class GameBootManager : MonoBehaviour
     private TransitionToCutscenes transitionEffect;
     private SceneManagerScript sceneManager;
     private SaveSystem saveSystem;
+    private ResetGame restartManager;
 
     private string saveFilePath;
 
@@ -22,6 +23,7 @@ public class GameBootManager : MonoBehaviour
         saveSystem = FindObjectOfType<SaveSystem>();
         sceneManager = FindObjectOfType<SceneManagerScript>();
         transitionEffect = FindObjectOfType<TransitionToCutscenes>();
+        restartManager = FindObjectOfType<ResetGame>();
     }
 
     private void Start()
@@ -32,13 +34,13 @@ public class GameBootManager : MonoBehaviour
     public void CheckForSave()
     {
         if (File.Exists(saveFilePath)) loadMenuCanvas.SetActive(true);
-        else PlayIntroSequence();
+        else StartNewGame();
     }
 
     public void StartNewGame()
     {
         if (saveSystem != null) saveSystem.DeleteSaveData();
-
+        if (restartManager != null) restartManager.ResetPlayerPrefs();
         loadMenuCanvas.SetActive(false);
         PlayIntroSequence();
     }

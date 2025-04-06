@@ -12,7 +12,7 @@ public class ResetGame : MonoBehaviour
         SceneManager.LoadScene("TitleScreen");
     }
 
-    private void ResetPlayerPrefs()
+    public void ResetPlayerPrefs()
     {
         foreach (string key in keysToReset)
         {
@@ -21,13 +21,12 @@ public class ResetGame : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    private void DestroyAllDDOL()
+    public void DestroyAllDDOL()
     {
         GameObject[] rootObjects = FindObjectsOfType<GameObject>(true);
         foreach (GameObject obj in rootObjects)
         {
             if (obj.scene.buildIndex == -1) Destroy(obj);
         }
-        Debug.Log("Deleted DDOL");
     }
 }
