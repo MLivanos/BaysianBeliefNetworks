@@ -22,7 +22,7 @@ public class SampleInputHandler : MonoBehaviour
 
         if (truePassword == userInput)
         {
-            inputField.text = "Access Code Accepted";
+            GameManager.instance.OverrideTime();
             return;
         }
 
