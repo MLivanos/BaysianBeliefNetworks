@@ -112,6 +112,13 @@ public class SamplingHistory : MonoBehaviour
         return history;
     }
 
+    public void SetHistoryText(string newText)
+    {
+        if (historyText == null) historyText = GameObject.FindWithTag("HistoryText").GetComponent<TextMeshProUGUI>();
+        historyText.text = newText;
+    }
+    public string GetHistoryText() => historyText.text;
+
     public void ClearHistory()
     {
         history.Clear();

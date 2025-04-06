@@ -11751,7 +11751,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 319091453}
+      - m_Target: {fileID: 785744850}
         m_TargetAssemblyTypeName: SceneManagerScript, Assembly-CSharp
         m_MethodName: GoToInterviews
         m_Mode: 1
@@ -42445,7 +42445,7 @@ GameObject:
   - component: {fileID: 708799016}
   - component: {fileID: 708799018}
   m_Layer: 5
-  m_Name: QuestPanel
+  m_Name: QueryPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46710,6 +46710,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 784627376}
   m_CullTransparentMesh: 0
+--- !u!1 &785744849
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 785744851}
+  - component: {fileID: 785744850}
+  m_Layer: 0
+  m_Name: LocalSceneManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &785744850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 785744849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa49e5cf2784d409fa17dd08c146fea8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadingText: {fileID: 1285283133}
+--- !u!4 &785744851
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 785744849}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1181.25, y: -3.3295135, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &788170226
 GameObject:
   m_ObjectHideFlags: 0
@@ -74261,6 +74306,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1233659831}
   m_CullTransparentMesh: 1
+--- !u!1 &1233951337
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1233951339}
+  - component: {fileID: 1233951338}
+  m_Layer: 0
+  m_Name: SaveSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1233951338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233951337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f16445e1467ec7741973388666bbc317, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1233951339
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233951337}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 189.40701, y: 145.189, z: 97.1344}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1234109179
 GameObject:
   m_ObjectHideFlags: 0
@@ -76954,7 +77043,7 @@ GameObject:
   - component: {fileID: 1277923346}
   m_Layer: 5
   m_Name: HistoryText
-  m_TagString: Untagged
+  m_TagString: HistoryText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107042,7 +107131,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 319091453}
+      - m_Target: {fileID: 785744850}
         m_TargetAssemblyTypeName: SceneManagerScript, Assembly-CSharp
         m_MethodName: GoToMainMenu
         m_Mode: 1
@@ -117904,32 +117993,32 @@ MonoBehaviour:
   colorGradients:
   - startColor: {r: 0, g: 0.44705883, b: 0.69803923, a: 1}
     endColor: {r: 0, g: 0.44705883, b: 0.69803923, a: 1}
-    start: 24
-    end: 30
+    start: 0.8
+    end: 1
   - startColor: {r: 0.9411765, g: 0.89411765, b: 0.25882354, a: 1}
     endColor: {r: 0, g: 0.44705883, b: 0.69803923, a: 1}
-    start: 18
-    end: 24
+    start: 0.6
+    end: 0.8
   - startColor: {r: 0.9411765, g: 0.89411765, b: 0.25882354, a: 1}
     endColor: {r: 0.9411765, g: 0.89411765, b: 0.25882354, a: 1}
-    start: 12
-    end: 18
+    start: 0.4
+    end: 0.6
   - startColor: {r: 0.8352941, g: 0.36862746, b: 0, a: 1}
     endColor: {r: 0.93725497, g: 0.8941177, b: 0.25490198, a: 1}
-    start: 8
-    end: 12
+    start: 0.2667
+    end: 0.4
   - startColor: {r: 0.8352941, g: 0.36862746, b: 0, a: 1}
     endColor: {r: 0.8352942, g: 0.36862746, b: 0, a: 1}
-    start: 5
-    end: 8
+    start: 0.1667
+    end: 0.2667
   - startColor: {r: 0.6784314, g: 0, b: 0, a: 1}
     endColor: {r: 0.8352942, g: 0.36862746, b: 0, a: 1}
-    start: 2.5
-    end: 5
+    start: 0.0833
+    end: 0.1667
   - startColor: {r: 0.6784314, g: 0, b: 0, a: 1}
     endColor: {r: 0.6784314, g: 0, b: 0, a: 1}
     start: 0
-    end: 2.5
+    end: 0.0833
 --- !u!114 &1928283198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124154,7 +124243,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 60}
-  m_SizeDelta: {x: 600, y: 50}
+  m_SizeDelta: {x: 650, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2036880046
 MonoBehaviour:
@@ -124176,8 +124265,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Are you sure you want to exit to the main menu? Query History and progress
-    will be lost
+  m_text: "Are you sure you want to exit to the main menu? \nProgress has already
+    been saved."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a85a5fb20be32c74e8b4a078e736f5ab, type: 2}
   m_sharedMaterial: {fileID: -8262044034710385518, guid: a85a5fb20be32c74e8b4a078e736f5ab,
@@ -130590,6 +130679,7 @@ SceneRoots:
   - {fileID: 2029756919}
   - {fileID: 2032480312}
   - {fileID: 319091452}
+  - {fileID: 785744851}
   - {fileID: 330585546}
   - {fileID: 2061259115}
   - {fileID: 1694050718}
@@ -130597,3 +130687,4 @@ SceneRoots:
   - {fileID: 1417486166}
   - {fileID: 1072816187}
   - {fileID: 9041401687156173547}
+  - {fileID: 1233951339}

@@ -84,7 +84,7 @@ public class TutorialManager : MonoBehaviour
         ToggleButtons(true);
         dropdownList.transform.parent.gameObject.SetActive(false);
         queryHistoryTransform.anchoredPosition3D = queryHistoryOriginalPosition;
-        gameManager.PromptGameMode();
+        if (PlayerPrefs.GetInt("ShouldLoad", 0) == 0) gameManager.PromptGameMode();
         tutorialSelectionWindow.SetActive(false);
         PlayerPrefs.SetInt("TutorialCompleted", 1);
         PlayerPrefs.Save();

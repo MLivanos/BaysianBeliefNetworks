@@ -17,8 +17,16 @@ public class GameManager : MonoBehaviour, ISceneDetectorTarget
     private AudioManager audioManager;
     private Playlist playlist;
     private static int difficulty = -1;
-    private static GameManager instance;
+    public static GameManager instance;
     private static float timeProgress;
+
+    public float TimeProgress() => timeProgress;
+    public void SetTimeProgress(float progress){
+        difficulty = PlayerPrefs.GetInt("Difficulty", 0);
+        timeProgress = progress;
+        timeLimit.SetMaxValue(difficultyTimes[difficulty]);
+        timeLimit.UpdateProgress(timeProgress);
+    } 
 
     private void Awake()
     {
@@ -76,6 +84,7 @@ public class GameManager : MonoBehaviour, ISceneDetectorTarget
     public void ChangeGamemode(int gamemodeNumber)
     {
         PlayerPrefs.SetInt("Difficulty", gamemodeNumber);
+        PlayerPrefs.Save();
         difficultySettings.SetActive(false);
         interactionBlocker.SetActive(false);
         toInterviewButton.interactable = true;
@@ -139,8 +148,21 @@ public class GameManager : MonoBehaviour, ISceneDetectorTarget
 
     public void OnSceneChange(bool isHomeScene)
     {
+        if (timeLimit == null) timeLimit = FindFirstObjectByType<CircularProgressBar>();
+        HandleAudioSceneChange(isHomeScene);
+        if (isHomeScene && difficulty > -1) ResetTimer();
+    }
+
+    public void HandleAudioSceneChange(bool isHomeScene)
+    {
         if (!playlist) return;
         if (isHomeScene) playlist.Resume();
         else playlist.Pause();
+    }
+
+    public void ResetTimer()
+    {
+        timeLimit.SetMaxValue(difficultyTimes[difficulty]);
+        timeLimit.UpdateProgress(timeProgress);
     }
 }
