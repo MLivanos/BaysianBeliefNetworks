@@ -19,7 +19,7 @@ public class Playlist : MonoBehaviour
 
 	private void Awake()
 	{
-		audioManager = FindObjectOfType<AudioManager>();
+		audioManager = AudioManager.instance;
 	}
 
 	private void Start()
