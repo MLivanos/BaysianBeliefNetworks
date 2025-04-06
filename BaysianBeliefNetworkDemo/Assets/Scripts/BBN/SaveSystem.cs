@@ -47,13 +47,13 @@ public class SaveSystem : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.S))
         {
             SaveGame();
-            Debug.Log("💾 Save triggered with S");
+            Debug.Log("Save triggered with S");
         }
 
         if (Input.GetKeyDown(KeyCode.L))
         {
             LoadGame();
-            Debug.Log("📂 Load triggered with L");
+            Debug.Log("Load triggered with L");
         }
     }
 
@@ -154,4 +154,18 @@ public class SaveSystem : MonoBehaviour
         }
         return null;
     }
+
+    public void DeleteSaveData()
+    {
+        if (File.Exists(filePath))
+        {
+            File.Delete(filePath);
+            Debug.Log("Save file deleted!");
+        }
+        else
+        {
+            Debug.LogWarning("No save file to delete.");
+        }
+    }
+
 }
