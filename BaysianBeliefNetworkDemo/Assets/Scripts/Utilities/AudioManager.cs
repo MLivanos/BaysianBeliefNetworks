@@ -41,11 +41,6 @@ public class AudioManager : MonoBehaviour
         UpdateVolumeLevels();
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.M)) ToggleMuteState();
-    }
-
     public void AdjustMusicVolume(float volume)
     {
         if (Mathf.Abs(volume - lastMusicVolume) < epsilon) return;
