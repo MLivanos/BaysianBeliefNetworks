@@ -686,7 +686,10 @@ MonoBehaviour:
   trackList:
   - LofiAlone
   - LofiMelancholicDrive
+  - LofiCafeDeBard
   - LofiFadeAway
+  - LofiASeriousMatter
+  - SynthpopMartini
   fadeTime: 0
   shuffle: 0
   loop: 1

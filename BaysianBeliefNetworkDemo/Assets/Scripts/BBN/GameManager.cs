@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour, ISceneDetectorTarget
     {
         gorilla = FindObjectOfType<EntropyGorilla>();
         audioManager = FindObjectOfType<AudioManager>();
+        audioManager.ToSimpleMute();
         if (difficulty > 0)
         {
             timeLimit.UpdateProgress(timeProgress);
@@ -164,5 +165,14 @@ public class GameManager : MonoBehaviour, ISceneDetectorTarget
     {
         timeLimit.SetMaxValue(difficultyTimes[difficulty]);
         timeLimit.UpdateProgress(timeProgress);
+    }
+
+    public void OverrideTime()
+    {
+        timeLimit.SetMaxValue(10000);
+        timeLimit.UpdateProgress(10000);
+        timeProgress = 10000;
+        SaveSystem saveSystem = FindObjectOfType<SaveSystem>();
+        if (saveSystem != null) saveSystem.SaveGame();
     }
 }

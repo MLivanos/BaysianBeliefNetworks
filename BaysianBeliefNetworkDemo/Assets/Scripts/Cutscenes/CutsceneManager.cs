@@ -49,6 +49,10 @@ public class CutsceneManager : MonoBehaviour
             else if (typewriterEffect.IsTyping()) typewriterEffect.Interrupt();
             else EndScene();
         }
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            audioManager.ToggleMuteState();
+        }
     }
 
     private IEnumerator PlayNextScene()

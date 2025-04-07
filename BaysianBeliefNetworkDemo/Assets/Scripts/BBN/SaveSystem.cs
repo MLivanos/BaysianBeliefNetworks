@@ -42,21 +42,6 @@ public class SaveSystem : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            SaveGame();
-            Debug.Log("Save triggered with S");
-        }
-
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            LoadGame();
-            Debug.Log("Load triggered with L");
-        }
-    }
-
     public void SaveGame()
     {
         SaveData data = CollectSaveData();

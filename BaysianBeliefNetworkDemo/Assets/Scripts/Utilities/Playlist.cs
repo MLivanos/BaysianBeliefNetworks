@@ -16,6 +16,10 @@ public class Playlist : MonoBehaviour
 	private int trackNumber = 0;
 	private AudioManager audioManager;
 	private bool isPlaying = false;
+	private List<PlaylistUIBinder> listeners = new List<PlaylistUIBinder>();
+
+	public string GetTrackTitle() => trackList[Mathf.Max(trackNumber-1,0)];
+	public void AddListener(PlaylistUIBinder listener) => listeners.Add(listener);
 
 	private void Start()
 	{
@@ -23,11 +27,13 @@ public class Playlist : MonoBehaviour
 		if (playOnAwake) Reset();
 	}
 
-	public void Play()
+	public void Play(bool isSkip=false, bool isReverse=false)
 	{
-		if (audioManager == null) audioManager = FindObjectOfType<AudioManager>();
+		if (audioManager == null) audioManager = AudioManager.instance;
 		isPlaying = true;
-		if (trackNumber > 0) audioManager.FadeOutMusic(fadeTime);
+		if (trackNumber > 0 && !isSkip) audioManager.FadeOutMusic(fadeTime);
+		else if (trackNumber > 0) audioManager.StopMusic();
+		if (isReverse) trackNumber = trackNumber - 2 < 0 ? trackList.Count - 1 : trackNumber - 2;
 		if (trackNumber < trackList.Count)
 		{
 			if (waitForNextSong != null) StopCoroutine(waitForNextSong);
@@ -36,6 +42,7 @@ public class Playlist : MonoBehaviour
 			if (autoPlay) waitForNextSong = StartCoroutine(WaitForNextSong(audioManager.GetSongLength(trackList[trackNumber-1])));
 		}
 		else if (loop) Reset();
+		foreach(PlaylistUIBinder listener in listeners) listener.UpdateTitle();
 	}
 
 	public void Reset()
@@ -80,6 +87,16 @@ public class Playlist : MonoBehaviour
 		isPlaying = true;
 		audioManager.PlayMusic(trackList[trackNumber-1]);
 		if (autoPlay) StartCoroutine(WaitForNextSong(audioManager.GetSongLength(trackList[trackNumber-1]) - timeElapsedWhenPaused));
+	}
+
+	public void Skip()
+	{
+		Play(true);
+	}
+
+	public void Back()
+	{
+		Play(true, true);
 	}
 
 	public void OnDestroy()
