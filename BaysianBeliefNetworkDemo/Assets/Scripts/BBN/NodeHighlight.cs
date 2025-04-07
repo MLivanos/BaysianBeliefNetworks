@@ -14,7 +14,7 @@ public class EdgeHighlightSettings
     public int generation = 1;
 }
 
-public class NodeHighlight : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class NodeHighlight : MonoBehaviour, IXRaycastTargetScript
 {
     [SerializeField] private EdgeHighlightSettings[] edgeHighlightSettings = new EdgeHighlightSettings[1];
     [SerializeField] private List<Image> markovBlanket;
@@ -50,7 +50,7 @@ public class NodeHighlight : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         }
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
+    public void OnDeepPointerEnter()
     {
         ToggleObjects(true);
         StartCoroutine(PlayHoverCoolDown());
@@ -62,7 +62,7 @@ public class NodeHighlight : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         }
     }
 
-    public void OnPointerExit(PointerEventData eventData)
+    public void OnDeepPointerExit()
     {
         ToggleObjects(false);
 

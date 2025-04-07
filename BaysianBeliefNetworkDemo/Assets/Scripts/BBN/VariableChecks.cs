@@ -17,7 +17,7 @@ public class VariableChecks : MonoBehaviour
         audioManager = FindObjectOfType<AudioManager>();
         queryToggle = transform.Find("QueryCheckbox").GetComponent<Toggle>();
         evidenceToggle = transform.Find("EvidenceCheckbox").GetComponent<Toggle>();
-        graphObject = GameObject.Find("Graph");
+        graphObject = Graph.instance.gameObject;
         graph = graphObject.GetComponent<Graph>();
         queryToggle.onValueChanged.AddListener(delegate {ChangeQuery(); });
         evidenceToggle.onValueChanged.AddListener(delegate {ChangeEvidence(); });

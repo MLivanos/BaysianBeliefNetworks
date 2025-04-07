@@ -67,7 +67,8 @@ public class EnvironmentalInstancer : MonoBehaviour
         {
             for (int attempts = 0; attempts < 10; attempts++)
             {
-                float x = Random.Range(Mathf.Max(bounds.min.x, bounds.min.x + settings.minX), bounds.max.x);
+                //float x = Random.Range(Mathf.Max(bounds.min.x, bounds.min.x + settings.minX), bounds.max.x);
+                float x = Random.Range(bounds.min.x + settings.minX, bounds.max.x);
                 float z = Random.Range(bounds.min.z, bounds.max.z);
                 Vector3 position = transform.TransformPoint(new Vector3(x, FindHeightAtPosition(terrainMesh.vertices, x, z), z));
 
@@ -88,7 +89,6 @@ public class EnvironmentalInstancer : MonoBehaviour
 
                     // Add the mesh index for tracking
                     meshIndices.Add(meshIndex);
-
                     usedPositions.Add(position);
                     break;
                 }
@@ -144,6 +144,43 @@ public class EnvironmentalInstancer : MonoBehaviour
 
     private void RenderInstances()
     {
+        // Group instance matrices by their setting index.
+        Dictionary<int, List<Matrix4x4>> groupedMatrices = new Dictionary<int, List<Matrix4x4>>();
+        for (int i = 0; i < instanceMatrices.Count; i++)
+        {
+            int settingIndex = meshIndices[i];
+            if (!groupedMatrices.ContainsKey(settingIndex))
+            {
+                groupedMatrices[settingIndex] = new List<Matrix4x4>();
+            }
+            groupedMatrices[settingIndex].Add(instanceMatrices[i]);
+        }
+
+        // Render each group in batches of 1023.
+        foreach (var kvp in groupedMatrices)
+        {
+            int settingIndex = kvp.Key;
+            InstanceSettings settings = instanceSettings[settingIndex];
+            Material material = settings.primaryMaterial;
+            List<Matrix4x4> matrices = kvp.Value;
+
+            for (int i = 0; i < matrices.Count; i += 1023)
+            {
+                int count = Mathf.Min(1023, matrices.Count - i);
+                Matrix4x4[] batchMatrices = matrices.GetRange(i, count).ToArray();
+
+                Graphics.RenderMeshInstanced(
+                    new RenderParams(material),
+                    settings.mesh,
+                    0,
+                    batchMatrices
+                );
+            }
+        }
+    }
+
+    /*private void RenderInstances()
+    {
         for (int i = 0; i < instanceMatrices.Count; i += 1023)
         {
             int count = Mathf.Min(1023, instanceMatrices.Count - i);
@@ -156,13 +193,11 @@ public class EnvironmentalInstancer : MonoBehaviour
             {
                 int matrixIndex = i + j;
 
-                // Retrieve the correct instance settings based on matrixIndex
                 InstanceSettings settings = instanceSettings[meshIndices[matrixIndex]];
 
                 // Check if it's the first pass and we need to handle multi-material meshes
                 if (firstPass && settings.secondaryMaterial != null)
                 {
-                    // Handle multi-material meshes
                     GameObject tempObject = new GameObject("InstanceObject");
                     MeshRenderer meshRenderer = tempObject.AddComponent<MeshRenderer>();
                     meshRenderer.materials = new Material[] { 
@@ -172,13 +207,8 @@ public class EnvironmentalInstancer : MonoBehaviour
 
                     MeshFilter meshFilter = tempObject.AddComponent<MeshFilter>();
                     meshFilter.mesh = settings.mesh;
-
-                    // Set position using the matrix
                     tempObject.transform.position = batchMatrices[j].GetColumn(3);
                     tempObject.transform.parent = transform;
-
-                    // Clean up if not using object pooling (optional)
-                    // Destroy(tempObject);
                 }
                 else
                 {
@@ -194,7 +224,7 @@ public class EnvironmentalInstancer : MonoBehaviour
             }
         }
         firstPass = false;
-    }
+    }*/
 
 
     private float FindHeightAtPosition(Vector3[] vertices, float x, float z)

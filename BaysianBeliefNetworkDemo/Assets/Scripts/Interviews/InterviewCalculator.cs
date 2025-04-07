@@ -27,7 +27,7 @@ public class InterviewCalculator : MonoBehaviour
         sampler.Reset();
     }
 
-    private float CalculateProbability(int numberOfSamples=10000)
+    private float CalculateProbability(int numberOfSamples=15000)
     {
         int[] positiveQuery = new int[1] {eventIndices["Alien"]};
         int[] negativeQuery = new int[0];

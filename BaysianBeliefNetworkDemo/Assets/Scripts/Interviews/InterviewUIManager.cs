@@ -15,10 +15,10 @@ public class InterviewUIManager : InterviewEventSystem
         eyewitnessAccountText.text = eyewitnessAccount;
     }
 
-    public void DisplayEvidence(string evidence)
+    public void DisplayEvidence(string evidence, bool slide=true)
     {
         evidenceText.text = $"P(Aliens|{evidence}) > P(Aliens)?";
-        slideInBehavior.BeginSlideIn();
+        if(slide) slideInBehavior.BeginSlideIn();
     }
 
     public void SendBelief(bool belief)

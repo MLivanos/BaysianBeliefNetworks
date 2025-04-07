@@ -12,16 +12,16 @@ public class TransitCutscene : IntroCutscene
     [SerializeField] private float chunkWidth;
     [SerializeField] private float timeInTunnel;
     [SerializeField] private float brightenTime;
+    private GameObject[] meshGenerators;
 
 	protected override IEnumerator PlayScene()
     {
         StartCoroutine(TransitionFade());
         StartCoroutine(ExitTunnel());
-    	cameraTransform.parent = train;
         
         yield return ViewPanel();
         AnimateText();
-        GameObject[] meshGenerators = InitializeMeshGenerators();
+        meshGenerators = InitializeMeshGenerators();
         float distanceTraveled = 0f;
         while (true)
         {
@@ -42,6 +42,10 @@ public class TransitCutscene : IntroCutscene
     protected override IEnumerator ExitTransition()
     {
     	yield return null;
+        foreach(GameObject generator in meshGenerators)
+        {
+            if (generator != null) Destroy(generator);
+        }
     }
 
     private GameObject[] InitializeMeshGenerators()

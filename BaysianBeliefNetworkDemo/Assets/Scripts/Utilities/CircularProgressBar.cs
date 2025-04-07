@@ -66,11 +66,12 @@ public class CircularProgressBar : MonoBehaviour
 
     private void UpdateColor()
     {
+        float adjustedProgress = progress / Mathf.Max(maxValue,0.0001f);
         foreach (ColorRange colorRange in colorGradients)
         {
-            if (colorRange.InRange(progress))
+            if (colorRange.InRange(adjustedProgress))
             {
-                progressDisplay.color = colorRange.GetColor(progress);
+                progressDisplay.color = colorRange.GetColor(adjustedProgress);
                 return;
             }
         }
@@ -105,5 +106,11 @@ public class CircularProgressBar : MonoBehaviour
     public float GetProgress()
     {
         return progress;
+    }
+
+    public void ResetProgress()
+    {
+        progress = maxValue;
+        Reset();
     }
 }

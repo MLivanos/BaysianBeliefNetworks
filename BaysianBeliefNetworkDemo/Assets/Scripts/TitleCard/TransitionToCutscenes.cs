@@ -7,7 +7,8 @@ public class TransitionToCutscenes : Transition
 {
     [SerializeField] private GameObject playButton;
     [SerializeField] private GameObject cloudParent;
-    [SerializeField] private List<GameObject> objectsToHide;
+    [SerializeField] private List<TypewriterEffect> objectsToTypeOut;
+    [SerializeField] private List<TypewriterEffect> objectsToTypeIn;
     [SerializeField] private List<FadableGameObject> clouds;
     [SerializeField] private List<PlanetaryBehavior> planets;
     [SerializeField] private SlideInBehavior cameraSlide;
@@ -19,14 +20,26 @@ public class TransitionToCutscenes : Transition
     [SerializeField] private float hangOnWhite;
     private AsyncOperation asyncLoad;
 
+    private void Start()
+    {
+        foreach(TypewriterEffect typewriter in objectsToTypeIn)
+        {
+            typewriter.Clear();
+        }
+    }
+
     protected override IEnumerator TransitionToScene()
     {
-        HideObjects();
+        GetComponent<TitleUFOBehaviorPortal>().Stop();
+        TypeOutObjects();
+        TypeInObjects();
         StopPlanets();
         cloudParent.SetActive(true);
-        yield return null; // Allow one frame to pass to let clouds initialize
+        yield return new WaitForSeconds(1f); // Wait for glitch effect, typeout
         ZoomToClouds();
+        AudioManager.instance.FadeOutMusic(cameraSlide.GetDuration()-fadeToWhiteTime);
         yield return new WaitForSeconds(cameraSlide.GetDuration()-fadeToWhiteTime);
+        AudioManager.instance.PlayEffect("CloudWoosh");
         fadeToWhite.gameObject.SetActive(true);
         yield return FadeInstructions(true);
         yield return PreloadScene();
@@ -36,12 +49,19 @@ public class TransitionToCutscenes : Transition
         yield return LoadScene();
     }
 
-    private void HideObjects()
+    private void TypeOutObjects()
     {
-        playButton.GetComponent<Image>().enabled = false;
-        foreach(GameObject go in objectsToHide)
+        foreach(TypewriterEffect entity in objectsToTypeOut)
         {
-            go.SetActive(false);
+            entity.TypewriterDelete();
+        }
+    }
+
+    private void TypeInObjects()
+    {
+        foreach(TypewriterEffect typewriter in objectsToTypeIn)
+        {
+            typewriter.UpdateText();
         }
     }
 
@@ -64,7 +84,7 @@ public class TransitionToCutscenes : Transition
 
     private IEnumerator PreloadScene()
     {
-        asyncLoad = sceneManager.PreloadScene("Cutscenes");
+        asyncLoad = GetComponent<SceneManagerScript>().PreloadScene("Cutscenes");
         asyncLoad.allowSceneActivation = false;
         while (asyncLoad.progress < 0.9f)
         {

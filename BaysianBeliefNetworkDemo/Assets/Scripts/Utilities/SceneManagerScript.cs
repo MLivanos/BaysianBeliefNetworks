@@ -1,19 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 using UnityEngine.SceneManagement;
 
 public class SceneManagerScript : MonoBehaviour
 {
+    [SerializeField] private LoadingScreenTextEffect loadingText;
+
     public void GoToDemo()
     {
+        DisplayLoadingText("LOADING SIMULATION");
         SceneManager.LoadScene("AnimatedDemo");
     }
 
     public void GoToNetwork()
     {
-        Graph graph = GameObject.Find("Graph").GetComponent<Graph>();
-        graph.UnsaveGraph();
         StartGame();
     }
 
@@ -24,12 +26,25 @@ public class SceneManagerScript : MonoBehaviour
 
     public void GoToCutscenes()
     {
+        DisplayLoadingText("LOADING SCENE", true, 5f);
         SceneManager.LoadScene("Cutscenes", LoadSceneMode.Single);
     }
 
     public void GoToInterviews()
     {
+        StartCoroutine(SnapshotAndGoToInterviews());
+    }
+
+    private IEnumerator SnapshotAndGoToInterviews()
+    {
+        yield return GetComponent<GraphSnapshotter>().CaptureRoutine();
+        DisplayLoadingText("LOADING SCENE");
         SceneManager.LoadScene("Interviews", LoadSceneMode.Single);
+    }
+
+    public void GoToEndGame()
+    {
+        SceneManager.LoadScene("EndGame");
     }
 
     public AsyncOperation PreloadScene(string sceneName)
@@ -51,12 +66,35 @@ public class SceneManagerScript : MonoBehaviour
 
     public void GoToMainMenu()
     {
+        FadeMusic();
+        DisplayLoadingText("LOADING MENU");
         SceneManager.LoadScene("TitleScreen");
     }
 
     public void Exit()
     {
-        Debug.Log("Exit called (will not exit if in editor)");
-        Application.Quit();
+        #if UNITY_EDITOR
+            EditorApplication.isPlaying = false;
+        #else
+            Application.Quit();
+        #endif
+    }
+
+    private void DisplayLoadingText(string text, bool fadeIn=true, float delay=0f)
+    {
+        if (loadingText == null)
+        {
+            Debug.LogWarning("No loading text set. Aborting.");
+            return;
+        }
+        loadingText.gameObject.SetActive(true);
+        loadingText.ChangeFadeIn(fadeIn);
+        loadingText.ChangeMessage(text);
+        loadingText.StartElipsesEffect(delay);
+    }
+
+    private void FadeMusic()
+    {
+        AudioManager.instance.FadeOutMusic(1.5f);
     }
 }

@@ -17,11 +17,17 @@ public abstract class CutsceneBehavior : MonoBehaviour
     [SerializeField] protected float fadeInTime;
     [SerializeField] protected float textPanelOpacity = 160;
     [SerializeField] protected bool isAtTop;
+    [Header("Character")]
+    [SerializeField] protected Sprite characterImage;
+    [SerializeField] protected string characterName;
     protected AudioManager audioManager;
     protected FadableImage fadablePanel;
     protected TypewriterEffect typewriterEffect;
     protected GameObject textPanel;
     protected Transform cameraTransform;
+    // Public accessors
+    public Sprite CharacterImage => characterImage;
+    public string CharacterName => characterName;
 
     protected abstract IEnumerator PlayScene();
     public abstract void Interrupt();

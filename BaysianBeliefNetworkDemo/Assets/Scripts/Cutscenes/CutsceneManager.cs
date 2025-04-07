@@ -1,13 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class CutsceneManager : MonoBehaviour
 {
     [SerializeField] private IntroCutscene[] cutscenes;
+    [Header("Universal Objects")]
     [SerializeField] private TypewriterEffect typewriterEffect;
     [SerializeField] private GameObject textPanel;
     [SerializeField] private Transform mainCamera;
+    [Header("Character Portrait")]
+    [SerializeField] private GameObject characterImage;
+    [SerializeField] private GameObject characterName;
+    [Header("Debug Tools")]
+    [SerializeField] private bool debugMode;
+    [SerializeField] private TextMeshProUGUI fpsCounterText;
     private AudioManager audioManager;
     private SceneManagerScript sceneManager;
     private CutsceneBehavior currentCutScene;
@@ -18,6 +27,10 @@ public class CutsceneManager : MonoBehaviour
     private void Start()
     {
         audioManager = AudioManager.instance;
+        characterImage.SetActive(false);
+        characterName.SetActive(false);
+        if (debugMode) GetComponent<FPSTracker>().StartTracking();
+        else fpsCounterText.gameObject.SetActive(false);
         sceneManager = GetComponent<SceneManagerScript>();
         textPanel.SetActive(false);
         currentCoroutine = StartCoroutine(PlayNextScene());
@@ -36,6 +49,10 @@ public class CutsceneManager : MonoBehaviour
             else if (typewriterEffect.IsTyping()) typewriterEffect.Interrupt();
             else EndScene();
         }
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            audioManager.ToggleMuteState();
+        }
     }
 
     private IEnumerator PlayNextScene()
@@ -43,6 +60,7 @@ public class CutsceneManager : MonoBehaviour
         if (cutsceneIndex < cutscenes.Length)
         {
             currentCutScene = cutscenes[cutsceneIndex];
+            UpdateCharacter(currentCutScene);
             currentCutScene.SetupObjects(mainCamera, textPanel, typewriterEffect);
             yield return currentCutScene.Play();  
         }
@@ -51,6 +69,19 @@ public class CutsceneManager : MonoBehaviour
             audioManager.PauseMusic();
             sceneManager.StartGame();
         }
+    }
+
+    private void UpdateCharacter(CutsceneBehavior currentCutScene)
+    {
+        bool textPanelActive = textPanel.activeSelf;
+        textPanel.SetActive(true);
+        Sprite characterSprite = currentCutScene.CharacterImage;
+        string characterNameString = currentCutScene.CharacterName;
+        characterImage.GetComponent<Image>().sprite  = characterSprite;
+        characterName.GetComponentInChildren<TextMeshProUGUI>().text = characterNameString;
+        characterImage.SetActive(characterSprite != null);
+        characterName.SetActive(!string.IsNullOrEmpty(characterNameString));
+        textPanel.SetActive(textPanelActive);
     }
 
     private IEnumerator ExitScene()

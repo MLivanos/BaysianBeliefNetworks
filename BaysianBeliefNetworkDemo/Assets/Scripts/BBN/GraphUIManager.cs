@@ -11,6 +11,8 @@ public class GraphUIManager : MonoBehaviour
     [SerializeField] private TMP_Text sampleInfo;
     [SerializeField] private TMP_Text calculateText;
     [SerializeField] private Slider progressBar;
+    [SerializeField] private int maxNumberOfNoises = 2;
+    private int numberOfNoises = 0;
     private AudioManager audioManager;
     private Graph graph;
     private string queryText;
@@ -95,6 +97,7 @@ public class GraphUIManager : MonoBehaviour
 
     public void DisplayProgressBar()
     {
+        numberOfNoises = 0;
         progressBar.gameObject.SetActive(true);
         queryTextDisplay.gameObject.SetActive(false);
         calculateText.text = "Stop";
@@ -102,7 +105,7 @@ public class GraphUIManager : MonoBehaviour
 
     public void UpdateProgressBar(float newProgress)
     {
-        audioManager.PlayEffect("Computation1");
+        if (numberOfNoises++ < maxNumberOfNoises) audioManager.PlayEffect("Computation1");
         progressBar.value = newProgress;
     }
 }

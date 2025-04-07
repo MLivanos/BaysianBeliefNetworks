@@ -4,12 +4,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[System.Serializable]
+public class TutorialMessage
+{
+	[SerializeField] private string message;
+	[SerializeField] private List<GameObject> messageObjects;
+
+	public string Message=>message;
+
+	public void ToggleObjects(bool toggleOn)
+	{
+		foreach(GameObject messageObject in messageObjects)
+		{
+			messageObject.SetActive(toggleOn);
+		}
+	}
+}
+
 public class TutorialStep : MonoBehaviour, IQuestParent
 {
 	[SerializeField] private List<TutorialQuestBase> quests;
 	[SerializeField] private List<GameObject> stepObjects;
 	[SerializeField] private List<GameObject> permanantStepObjects;
-	[SerializeField] private List<string> messages;
+	[SerializeField] private List<TutorialMessage> tutorialMessages;
+	[SerializeField] private List<List<GameObject>> messageObjects;
+	[SerializeField] private List<TutorialTooltipMessage> tooltipMessages;
 	[SerializeField] private bool isOrdered;
 	private QuestOrderHandler questOrderHandler;
 	private AudioManager audioManager;
@@ -20,7 +39,7 @@ public class TutorialStep : MonoBehaviour, IQuestParent
     private GameObject messagePanel;
     private Coroutine clickthroughText;
     private FadableTextMeshPro completionText;
-    private Image advanceButton;
+    private Button advanceButton;
 	private int questsCompleted = 0;
 	private int messageID = 0;
 	private Coroutine completionRoutine;
@@ -66,30 +85,36 @@ public class TutorialStep : MonoBehaviour, IQuestParent
 		messagePanel = tutorialManager.GetMessagePanel();
 		completionText = tutorialManager.GetCompletionText();
 		advanceButton = tutorialManager.GetAdvanceButton();
-		advanceButton.color = new Color32(0xA5, 0xA5, 0xA5, 160);
+		advanceButton.interactable = false;
 	}
 
 	private IEnumerator ClickThroughText()
 	{
-		if (messages.Count >= 1)
+		if (tutorialMessages.Count == 0)
+			yield break;
+
+		messagePanel.SetActive(true);
+		yield return null;
+
+		messageID = 0;
+		while (messageID <= tutorialMessages.Count)
 		{
-			messagePanel.SetActive(true);
-			yield return null;
-			typewriterEffect.UpdateText(messages[messageID++]);
-		}
-		while(messageID <= messages.Count)
-		{
-			if(Input.GetMouseButtonDown(0))
+			if (messageID-1 >= 0) tutorialMessages[messageID-1].ToggleObjects(false);
+			if (messageID < tutorialMessages.Count)
 			{
-				if(messageID == messages.Count) break;
+				tutorialMessages[messageID].ToggleObjects(true);
 				typewriterEffect.Clear();
-				typewriterEffect.UpdateText(messages[messageID++]);
+				typewriterEffect.UpdateText(tutorialMessages[messageID].Message);
 			}
-			yield return null;
+			messageID++;
+			yield return new WaitForSeconds(0.05f);
+			yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
 		}
-		tutorialManager.BlockInteractions(false);
+
 		messagePanel.SetActive(false);
+		tutorialManager.BlockInteractions(false);
 	}
+
 
 	private void ChangeHighlight(bool highlightOn)
 	{
@@ -111,7 +136,7 @@ public class TutorialStep : MonoBehaviour, IQuestParent
 	private void StepComplete()
 	{
 		messageID = 0;
-		advanceButton.color = new Color32(0xFF, 0xFF, 0xFF, 255);
+		advanceButton.interactable = true;
 		dropdownList.Peep();
 	}
 
@@ -124,6 +149,8 @@ public class TutorialStep : MonoBehaviour, IQuestParent
 	public void CloseMessages()
 	{
 		StopCoroutine(clickthroughText);
+		// Close out any active message objects
+		for (int i=0; i<tutorialMessages.Count; i++) tutorialMessages[i].ToggleObjects(false);
 		tutorialManager.BlockInteractions(false);
 		messagePanel.SetActive(false);
 	}
@@ -147,4 +174,14 @@ public class TutorialStep : MonoBehaviour, IQuestParent
 			quest.DestroyQuest();
 		}
 	}
+
+	public TutorialTooltipMessage FindTooltip(string triggerName)
+    {
+        foreach (var tooltip in tooltipMessages)
+        {
+            if (tooltip.tooltipID == triggerName)
+                return tooltip;
+        }
+        return null;
+    }
 }
