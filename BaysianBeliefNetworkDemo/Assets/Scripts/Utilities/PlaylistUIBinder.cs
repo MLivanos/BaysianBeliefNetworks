@@ -30,6 +30,12 @@ public class PlaylistUIBinder : MonoBehaviour
 
         skipButton.onClick.AddListener(currentPlaylist.Skip);
         backButton.onClick.AddListener(currentPlaylist.Back);
+        UpdateTitle();
+        currentPlaylist.AddListener(this);
+    }
+
+    public void UpdateTitle()
+    {
         trackNameDisplay.text = currentPlaylist.GetTrackTitle();
     }
 }
