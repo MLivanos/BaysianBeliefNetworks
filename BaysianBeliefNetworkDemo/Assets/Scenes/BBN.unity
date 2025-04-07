@@ -30313,6 +30313,15 @@ MonoBehaviour:
   - LofiCalm
   - LofiAlone
   - LofiRaindrops
+  - LofiButterflight
+  - LofiJoyride
+  - ChiptuneActionMysterious
+  - ChiptuneHeroComplex
+  - ChiptuneCandy
+  - ChiptuneQwerty
+  - ChiptuneRicochet
+  - ChiptuneLimbo
+  - SynthpopFreeJava
   fadeTime: 0
   shuffle: 0
   loop: 1
@@ -71666,71 +71675,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AudioManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 5053447448950097464, guid: abaea1a53b374c34096b54d49dae9a97,
-        type: 3}
-      propertyPath: sounds.Array.data[39].volumeMultiplier
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5053447448950097464, guid: abaea1a53b374c34096b54d49dae9a97,
-        type: 3}
-      propertyPath: sounds.Array.data[40].volumeMultiplier
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5053447448950097464, guid: abaea1a53b374c34096b54d49dae9a97,
-        type: 3}
-      propertyPath: sounds.Array.data[41].volumeMultiplier
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5053447448950097464, guid: abaea1a53b374c34096b54d49dae9a97,
-        type: 3}
-      propertyPath: sounds.Array.data[42].volumeMultiplier
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5053447448950097464, guid: abaea1a53b374c34096b54d49dae9a97,
-        type: 3}
-      propertyPath: sounds.Array.data[43].volumeMultiplier
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5053447448950097464, guid: abaea1a53b374c34096b54d49dae9a97,
-        type: 3}
-      propertyPath: sounds.Array.data[44].volumeMultiplier
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5053447448950097464, guid: abaea1a53b374c34096b54d49dae9a97,
-        type: 3}
-      propertyPath: sounds.Array.data[45].volumeMultiplier
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5053447448950097464, guid: abaea1a53b374c34096b54d49dae9a97,
-        type: 3}
-      propertyPath: sounds.Array.data[46].volumeMultiplier
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5053447448950097464, guid: abaea1a53b374c34096b54d49dae9a97,
-        type: 3}
-      propertyPath: sounds.Array.data[48].volumeMultiplier
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5053447448950097464, guid: abaea1a53b374c34096b54d49dae9a97,
-        type: 3}
-      propertyPath: sounds.Array.data[49].volumeMultiplier
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5053447448950097464, guid: abaea1a53b374c34096b54d49dae9a97,
-        type: 3}
-      propertyPath: sounds.Array.data[50].volumeMultiplier
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5053447448950097464, guid: abaea1a53b374c34096b54d49dae9a97,
-        type: 3}
-      propertyPath: sounds.Array.data[51].volumeMultiplier
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5053447448950097464, guid: abaea1a53b374c34096b54d49dae9a97,
-        type: 3}
-      propertyPath: sounds.Array.data[52].volumeMultiplier
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

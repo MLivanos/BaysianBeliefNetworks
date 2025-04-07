@@ -439,7 +439,7 @@ MonoBehaviour:
   - name: reversedCircle4
     clip: {fileID: 8300000, guid: d3eeb24f12bf1fc4394852317790e69d, type: 3}
     loop: 0
-    volumeMultiplier: 1
+    volumeMultiplier: 1.5
     pitchMultiplier: 1
     source: {fileID: 0}
     duration: 0
@@ -588,8 +588,15 @@ MonoBehaviour:
     pitchMultiplier: 1
     source: {fileID: 0}
     duration: 0
-  - name: SynthpopFoodCourt
-    clip: {fileID: 8300000, guid: b5e9486ee2f184446b56eae41756d9b0, type: 3}
+  - name: LofiButterflight
+    clip: {fileID: 8300000, guid: e7ac82432e4a6044b865bade2c452d7e, type: 3}
+    loop: 1
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: LofiASeriousMatter
+    clip: {fileID: 8300000, guid: a80a088013d0eb646a49a4002c2686e0, type: 3}
     loop: 1
     volumeMultiplier: 1
     pitchMultiplier: 1
@@ -612,6 +619,20 @@ MonoBehaviour:
   - name: LofiFadeAway
     clip: {fileID: 8300000, guid: efaada5cf0c7a474ab6df4ab07272210, type: 3}
     loop: 0
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: LofiSkateHome
+    clip: {fileID: 8300000, guid: f6656f4313946774396af4f967faa7ee, type: 3}
+    loop: 1
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: SynthpopFoodCourt
+    clip: {fileID: 8300000, guid: b5e9486ee2f184446b56eae41756d9b0, type: 3}
+    loop: 1
     volumeMultiplier: 1
     pitchMultiplier: 1
     source: {fileID: 0}
@@ -639,6 +660,20 @@ MonoBehaviour:
     duration: 0
   - name: SynthpopFunky
     clip: {fileID: 8300000, guid: e540d384c442b2747b4deeba0780c91c, type: 3}
+    loop: 1
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: SynthpopFreeJava
+    clip: {fileID: 8300000, guid: 67d039d12a7de104382bc9f878b66e02, type: 3}
+    loop: 1
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: SynthpopMartini
+    clip: {fileID: 8300000, guid: 9d0784a6b0f845b42993b4a00ac2fbdc, type: 3}
     loop: 1
     volumeMultiplier: 1
     pitchMultiplier: 1
@@ -695,6 +730,41 @@ MonoBehaviour:
     duration: 0
   - name: ChiptuneCastle
     clip: {fileID: 8300000, guid: 18068f54431d0de4a8534e117887099d, type: 3}
+    loop: 1
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: ChiptuneActionMysterious
+    clip: {fileID: 8300000, guid: 0ab61f55e9bd9e1489610aa2625748b3, type: 3}
+    loop: 1
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: ChiptuneCandy
+    clip: {fileID: 8300000, guid: 1b953d2210955c04cae886abcc5c0b0c, type: 3}
+    loop: 1
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: ChiptuneHeroComplex
+    clip: {fileID: 8300000, guid: f6d0a055e91fde941bc8ba7a448c2701, type: 3}
+    loop: 1
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: ChiptuneQwerty
+    clip: {fileID: 8300000, guid: a78b8e4ba9f0cd248adea5c2b938beb4, type: 3}
+    loop: 1
+    volumeMultiplier: 1
+    pitchMultiplier: 1
+    source: {fileID: 0}
+    duration: 0
+  - name: ChiptuneLimbo
+    clip: {fileID: 8300000, guid: a210d44c24be32245ac4151e29e17e90, type: 3}
     loop: 1
     volumeMultiplier: 1
     pitchMultiplier: 1
