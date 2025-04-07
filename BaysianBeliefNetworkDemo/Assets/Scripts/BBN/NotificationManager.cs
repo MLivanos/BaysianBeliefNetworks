@@ -9,6 +9,8 @@ public class NotificationManager : MonoBehaviour
     [SerializeField] private GameObject notificationPanel;
     [SerializeField] private TMP_Text messageText;
     [SerializeField] private TMP_Text eventText;
+    [SerializeField] private TMP_Text alienMessageText;
+    [SerializeField] private TMP_Text alienEventText;
 
     [Header("Timing")]
     [SerializeField] private float fadeTime = 0.5f;
@@ -19,32 +21,42 @@ public class NotificationManager : MonoBehaviour
 
     private Coroutine notificationCoroutine;
 
-    public void ShowNotification(string message, string description)
+    public void ShowNotification(string message, string description, bool alienText=false)
     {
         if (notificationCoroutine != null)
         {
             StopCoroutine(notificationCoroutine);
         }
 
-        notificationCoroutine = StartCoroutine(NotifyUserRoutine(message, description));
+        notificationCoroutine = StartCoroutine(NotifyUserRoutine(message, description, alienText));
     }
 
-    private IEnumerator NotifyUserRoutine(string message, string description)
+    private IEnumerator NotifyUserRoutine(string message, string description, bool alienText)
     {
+        TMP_Text messageElement = alienText ? alienMessageText : messageText;
+        TMP_Text eventElement = alienText ? alienEventText : eventText;
+        TMP_Text messageElementToHide = alienText ? messageText : alienMessageText;
+        TMP_Text eventElementToHide = alienText ? eventText : alienEventText;
+
+        messageElement.gameObject.SetActive(true);
+        eventElement.gameObject.SetActive(true);
+        messageElementToHide.gameObject.SetActive(false);
+        eventElementToHide.gameObject.SetActive(false);
+
         notificationPanel.SetActive(true);
-        messageText.text = message;
-        eventText.text = description;
+        messageElement.text = message;
+        eventElement.text = description;
 
         foreach (var element in fadableElements)
         {
-            element.FadeIn(fadeTime);
+            if (element.gameObject.activeSelf) element.FadeIn(fadeTime);
         }
 
         yield return new WaitForSeconds(fadeTime + stayTime);
 
         foreach (var element in fadableElements)
         {
-            element.FadeOut(fadeTime);
+            if (element.gameObject.activeSelf) element.FadeOut(fadeTime);
         }
 
         yield return new WaitForSeconds(fadeTime);
@@ -58,7 +70,7 @@ public class NotificationManager : MonoBehaviour
         StopCoroutine(notificationCoroutine);
         foreach(FadableElement element in fadableElements)
         {
-            element.SetAlpha(0f);
+            if (element.gameObject.activeSelf) element.SetAlpha(0f);
         }
     }
 }

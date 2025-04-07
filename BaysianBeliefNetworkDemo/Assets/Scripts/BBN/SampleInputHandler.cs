@@ -6,12 +6,14 @@ public class SampleInputHandler : MonoBehaviour
 {
     [SerializeField] private Graph graph;
     [SerializeField] private TMP_InputField inputField;
+    private NotificationManager notificationManager;
 
     private readonly string truePassword = "i am beautiful";
     private readonly string fakePassword = "you are beautiful";
 
     private void Start()
     {
+        notificationManager = FindObjectOfType<NotificationManager>();
         if (inputField == null)
             inputField = GetComponent<TMP_InputField>();
     }
@@ -22,12 +24,15 @@ public class SampleInputHandler : MonoBehaviour
 
         if (truePassword == userInput)
         {
+            notificationManager.ShowNotification("Password Accepted", "Compute Time Override Engaged");
+            inputField.text = "Override Successful";
             GameManager.instance.OverrideTime();
             return;
         }
 
         if (userInput == fakePassword)
         {
+            notificationManager.ShowNotification("thank you", "klt qrok fq fkql x pbic xccfojxqflk", true);
             inputField.text = "Error: See message";
             return;
         }
