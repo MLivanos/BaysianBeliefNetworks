@@ -198,4 +198,11 @@ public class AudioManager : MonoBehaviour
     {
         return muteSFX && muteMusic;
     }
+
+    public void ToSimpleMute()
+    {
+        muteSFX = muteSFX || muteMusic;
+        muteMusic = muteSFX || muteMusic;
+        UpdateVolumeLevelsWithMute();
+    }
 }

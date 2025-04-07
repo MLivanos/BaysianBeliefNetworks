@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour, ISceneDetectorTarget
     {
         gorilla = FindObjectOfType<EntropyGorilla>();
         audioManager = FindObjectOfType<AudioManager>();
+        audioManager.ToSimpleMute();
         if (difficulty > 0)
         {
             timeLimit.UpdateProgress(timeProgress);
