@@ -449,7 +449,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 15}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 300, y: 1025}
+  m_AnchoredPosition: {x: 300, y: 834.2}
   m_SizeDelta: {x: 176, y: 108}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &56832062
@@ -820,7 +820,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -10}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -300, y: 800}
+  m_AnchoredPosition: {x: -300, y: 700.5}
   m_SizeDelta: {x: 176, y: 108}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &143127114
@@ -917,9 +917,9 @@ MonoBehaviour:
   - {fileID: 2030507915}
   - {fileID: 2027596064}
   - {fileID: 17679400}
-  scrollSpeed: 45
+  scrollSpeed: 28
   scrollSpeedMultiplier: 5
-  stopHeight: 0
+  stopHeight: 225
 --- !u!4 &177567580
 Transform:
   m_ObjectHideFlags: 0
@@ -1130,17 +1130,20 @@ MonoBehaviour:
     \r\nAmbient \u2013 Nothingness  \r\nChiptune \u2013 Fun  \r\nChiptune \u2013
     Vanquish  \r\nChiptune \u2013 Urgent  \r\nChiptune \u2013 Summer  \r\nChiptune
     \u2013 Happy  \r\nChiptune \u2013 Ricochet  \r\nChiptune \u2013 Complete  \r\nChiptune
-    \u2013 Castle  \r\nLofi \u2013 Alone  \r\nLofi \u2013 Broken  \r\nLofi \u2013
-    Calm  \r\nLofi \u2013 Floating  \r\nLofi \u2013 Melancholic Drive  \r\nLofi \u2013
+    \u2013 Castle\r\nChiptune \u2013 Action Mysterious  \r\nChiptune \u2013 Candy\r\nChiptune
+    \u2013 Hero Complex\r\nChiptune - Limbo\r\nChiptune - Qwerty  \r\nLofi \u2013
+    Alone\r\nLofi - A Serious Matter\r\nLofi \u2013 Broken  \r\nLofi \u2013 Calm 
+    \r\nLofi \u2013 Floating  \r\nLofi \u2013 Melancholic Drive  \r\nLofi \u2013
     Raindrops  \r\nLofi \u2013 Winter Chill  \r\nLofi \u2013 Caf\xE9 De Bard  \r\nLofi
     \u2013 Joyride  \r\nLofi \u2013 Milky Tea  \r\nLofi \u2013 In The Haze  \r\nLofi
-    \u2013 Fade Away  \r\nSynthpop \u2013 Food Court  \r\nSynthpop \u2013 Most Wanted 
-    \r\nSynthpop \u2013 First Flight  \r\nSynthpop \u2013 Funky\r\n\r\n<size=40%>
-    </size>  \r\n<size=140%>My Students</size>  \r\nFor your curiosity, imagination,\nand
-    support.  \r\nYou are the reason this\nproject exists.  \r\nI hope it inspires
-    you as much as\nyou inspire me.\r\n\r\n<size=40%> </size>  \r\n<size=140%>You</size> 
+    \u2013 Fade Away\r\nLofi \u2013 Butterflight  \r\nLofi \u2013 Joyride\r\nLofi
+    \u2013 Skate Home\r\nSynthpop \u2013 Food Court  \r\nSynthpop \u2013 Martini\r\nSynthpop
+    \u2013 Most Wanted  \r\nSynthpop \u2013 First Flight  \r\nSynthpop \u2013 Funky\r\n\r\n<size=40%>
+    </size>  \r\n<size=140%>My Students</size>  \r\nFor your curiosity, imagination,\r\nand
+    support.  \r\nYou are the reason this\r\nproject exists.  \r\nI hope it inspires
+    you as much as\r\nyou inspire me.\r\n\r\n<size=40%> </size>  \r\n<size=140%>You</size> 
     \r\nFor giving this game a chance.  \r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n<size=40%>
-    </size>  \r\n<size=125%>Thank you for playing!</size>\r"
+    </size>  \r\n<size=125%>Thank you for playing!</size>\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a85a5fb20be32c74e8b4a078e736f5ab, type: 2}
   m_sharedMaterial: {fileID: -8262044034710385518, guid: a85a5fb20be32c74e8b4a078e736f5ab,
@@ -1453,7 +1456,7 @@ PrefabInstance:
     - target: {fileID: 495792412309017837, guid: 2c390a793a21fce449ab24644eb50751,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 725
+      value: 536
       objectReference: {fileID: 0}
     - target: {fileID: 495792412309017837, guid: 2c390a793a21fce449ab24644eb50751,
         type: 3}
@@ -1704,7 +1707,7 @@ PrefabInstance:
     - target: {fileID: 6327882714598311598, guid: 2b171451b771e854dbcf8b1e0fc15e81,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 350
+      value: 204
       objectReference: {fileID: 0}
     - target: {fileID: 6327882714598311598, guid: 2b171451b771e854dbcf8b1e0fc15e81,
         type: 3}
@@ -2027,7 +2030,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -15}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -300, y: 1250}
+  m_AnchoredPosition: {x: -300, y: 1311}
   m_SizeDelta: {x: 176, y: 108}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1113806486
@@ -2436,7 +2439,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -1700}
-  m_SizeDelta: {x: 325, y: 2875}
+  m_SizeDelta: {x: 325, y: 3100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1463857732
 GameObject:
@@ -2888,7 +2891,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -10}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -300, y: 350}
+  m_AnchoredPosition: {x: -300, y: 81.5}
   m_SizeDelta: {x: 176, y: 108}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1552540807
@@ -3137,7 +3140,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 15}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 300, y: 525}
+  m_AnchoredPosition: {x: 300, y: 439.14}
   m_SizeDelta: {x: 176, y: 108}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1697852789
@@ -3433,12 +3436,12 @@ PrefabInstance:
     - target: {fileID: 7052445906270491659, guid: 01adbe3ee0cb97449ba7b8fe050715a1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1025
+      value: 963.1
       objectReference: {fileID: 0}
     - target: {fileID: 7052445906270491659, guid: 01adbe3ee0cb97449ba7b8fe050715a1,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -40
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 7052445906270491659, guid: 01adbe3ee0cb97449ba7b8fe050715a1,
         type: 3}
@@ -3553,7 +3556,7 @@ PrefabInstance:
     - target: {fileID: 3192818363045728425, guid: 9e883036955d8634db30111152339d3e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 550
+      value: 326.25
       objectReference: {fileID: 0}
     - target: {fileID: 3192818363045728425, guid: 9e883036955d8634db30111152339d3e,
         type: 3}
@@ -4209,7 +4212,7 @@ PrefabInstance:
     - target: {fileID: 6540951404960765944, guid: 82ac27cb67da5b249a2c491e5603cb2e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1275
+      value: 1191.1
       objectReference: {fileID: 0}
     - target: {fileID: 6540951404960765944, guid: 82ac27cb67da5b249a2c491e5603cb2e,
         type: 3}
