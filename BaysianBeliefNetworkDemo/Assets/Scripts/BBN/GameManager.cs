@@ -96,7 +96,7 @@ public class GameManager : MonoBehaviour, ISceneDetectorTarget
 
     public bool CanSample()
     {
-        bool canRun = difficulty == 0 || timeLimit.GetMaxValue() - timeLimit.GetProgress() < difficultyTimes[difficulty];
+        bool canRun = difficulty <= 0 || timeLimit.GetMaxValue() - timeLimit.GetProgress() < difficultyTimes[difficulty];
         if (!canRun)
         {
             audioManager.PlayEffect("OutOfCompute");
