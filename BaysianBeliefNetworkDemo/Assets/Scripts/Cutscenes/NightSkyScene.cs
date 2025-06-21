@@ -14,6 +14,8 @@ public class NightSkyScene : IntroCutscene
     [SerializeField] private float cameraMoveDuration;
     [SerializeField] private FadableImage whiteOutImage;
     [SerializeField] private float whiteOutTimer;
+    [SerializeField] private FadableTextMeshPro clickToAdvance;
+    [SerializeField] private float notifyAboutAdvanceTimer;
 
     protected override IEnumerator PlayScene()
     {
@@ -21,6 +23,7 @@ public class NightSkyScene : IntroCutscene
         yield return StartShootingStars();
         yield return DisplayText();
         yield return SlideOutCamera();
+        yield return WaitToDisplayInstructions();
     }
 
     public override void Interrupt()
@@ -41,6 +44,8 @@ public class NightSkyScene : IntroCutscene
             alpha = timer / whiteOutTimer;
             yield return null;
         }
+        clickToAdvance.Interupt();
+        clickToAdvance.SetAlpha(0f);
     }
 
     private IEnumerator FadeInFromWhite()
@@ -79,5 +84,11 @@ public class NightSkyScene : IntroCutscene
             yield return null;
         }
         cameraTransform.position = cameraEnds[1].position;
+    }
+
+    private IEnumerator WaitToDisplayInstructions()
+    {
+        yield return new WaitForSeconds(notifyAboutAdvanceTimer);
+        clickToAdvance.FadeIn(2f);
     }
 }
