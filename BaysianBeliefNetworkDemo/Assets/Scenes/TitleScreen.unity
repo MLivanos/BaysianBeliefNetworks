@@ -5086,13 +5086,14 @@ GameObject:
   - component: {fileID: 1330034084}
   - component: {fileID: 1330034083}
   - component: {fileID: 1330034082}
+  - component: {fileID: 1330034086}
   m_Layer: 5
   m_Name: LoadingText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1330034082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5139,8 +5140,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 0
+  m_fontColor: {r: 0, g: 0, b: 0, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -5226,6 +5227,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0}
+--- !u!114 &1330034086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1330034081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feaff57a091ee4aee819d23981aa882d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1351452320
 GameObject:
   m_ObjectHideFlags: 0
@@ -5346,6 +5359,7 @@ MonoBehaviour:
   - {fileID: 1238953096}
   - {fileID: 353717929}
   - {fileID: 1976699587}
+  - {fileID: 1330034086}
   fadeToWhiteTime: 0.3
   fadeInstructionsTime: 1
   minimumInstructionTime: 3
@@ -5547,8 +5561,8 @@ RectTransform:
   - {fileID: 662520513}
   - {fileID: 566154543}
   - {fileID: 1789827903}
-  - {fileID: 70203312}
   - {fileID: 1330034085}
+  - {fileID: 70203312}
   - {fileID: 1351452321}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
