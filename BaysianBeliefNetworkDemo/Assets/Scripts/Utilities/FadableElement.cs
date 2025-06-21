@@ -33,6 +33,6 @@ public abstract class FadableElement : MonoBehaviour
 
     public void Interupt()
     {
-        StopCoroutine(currentFade);
+        if (currentFade != null) StopCoroutine(currentFade);
     }
 }
