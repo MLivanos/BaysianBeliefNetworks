@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class SceneManagerScript : MonoBehaviour
 {
     [SerializeField] private LoadingScreenTextEffect loadingText;
+    [SerializeField] private GameObject loadingObject;
 
     public void GoToDemo()
     {
@@ -38,7 +39,7 @@ public class SceneManagerScript : MonoBehaviour
     private IEnumerator SnapshotAndGoToInterviews()
     {
         yield return GetComponent<GraphSnapshotter>().CaptureRoutine();
-        DisplayLoadingText("LOADING SCENE");
+        loadingObject.SetActive(true);
         SceneManager.LoadScene("Interviews", LoadSceneMode.Single);
     }
 
