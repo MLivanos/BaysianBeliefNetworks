@@ -114,14 +114,23 @@ public class SamplingHistory : MonoBehaviour
 
     public void SetHistoryText(string newText)
     {
-        if (historyText == null) historyText = GameObject.FindWithTag("HistoryText").GetComponent<TextMeshProUGUI>();
+        CheckForHistoryText();
         historyText.text = newText;
     }
-    public string GetHistoryText() => historyText.text;
+    public string GetHistoryText()
+    {
+        CheckForHistoryText();
+        return historyText.text;
+    }
 
     public void ClearHistory()
     {
         history.Clear();
+    }
+
+    private void CheckForHistoryText()
+    {
+        if (historyText == null) historyText = GameObject.FindWithTag("HistoryText").GetComponent<TextMeshProUGUI>();
     }
 
 }

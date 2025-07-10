@@ -11,7 +11,7 @@ public class SceneManagerScript : MonoBehaviour
 
     public void GoToDemo()
     {
-        DisplayLoadingText("LOADING SIMULATION");
+        ActivateLoadingObject();
         SceneManager.LoadScene("AnimatedDemo");
     }
 
@@ -39,7 +39,7 @@ public class SceneManagerScript : MonoBehaviour
     private IEnumerator SnapshotAndGoToInterviews()
     {
         yield return GetComponent<GraphSnapshotter>().CaptureRoutine();
-        loadingObject.SetActive(true);
+        ActivateLoadingObject();
         SceneManager.LoadScene("Interviews", LoadSceneMode.Single);
     }
 
@@ -97,5 +97,11 @@ public class SceneManagerScript : MonoBehaviour
     private void FadeMusic()
     {
         AudioManager.instance.FadeOutMusic(1.5f);
+    }
+
+    private void ActivateLoadingObject()
+    {
+        if (loadingObject != null) loadingObject.SetActive(true);
+        else Debug.Log("No loading object");
     }
 }

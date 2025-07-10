@@ -47306,7 +47306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadingText: {fileID: 1285283133}
-  loadingObject: {fileID: 0}
+  loadingObject: {fileID: 600752522}
 --- !u!4 &785744851
 Transform:
   m_ObjectHideFlags: 0
