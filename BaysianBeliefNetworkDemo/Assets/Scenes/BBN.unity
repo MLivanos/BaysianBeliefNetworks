@@ -77570,7 +77570,7 @@ MonoBehaviour:
   - tooltipID: RainNode
     tooltipText: Rain is directly impacted by Clody and Atmospheric Pressure Drop
     boxSize: {x: 200, y: 150}
-    worldPositionOverride: {x: 351, y: 15, z: 0}
+    worldPositionOverride: {x: 353, y: 20, z: 0}
   - tooltipID: APDNode
     tooltipText: Atmospheric pressure drop is an example of a <b><i>root node</b></i>
       - a node without parents and occurs 40% of the time (probability 0.4).
@@ -113329,6 +113329,11 @@ MonoBehaviour:
       Want to test that out? Just make sure to uncheck Rain if you do.
     boxSize: {x: 200, y: 150}
     worldPositionOverride: {x: 217, y: 45, z: 0}
+  - tooltipID: RainNode
+    tooltipText: The probability of rain varies a lot depending on its parents. Take
+      a guess at P(Rain) before calculating!
+    boxSize: {x: 200, y: 150}
+    worldPositionOverride: {x: 351, y: 15, z: 0}
   isOrdered: 1
 --- !u!1 &1830711465
 GameObject:
