@@ -198843,7 +198843,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.9372549, g: 0.7529412, b: 0.4392157, a: 1}
-  m_Intensity: 1
+  m_Intensity: 1.25
   m_Range: 10
   m_SpotAngle: 82.82774
   m_InnerSpotAngle: 52.51583
@@ -306751,7 +306751,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.9372549, g: 0.7529412, b: 0.4392157, a: 1}
-  m_Intensity: 1.5
+  m_Intensity: 1.875
   m_Range: 10
   m_SpotAngle: 82.82774
   m_InnerSpotAngle: 52.51583
@@ -315921,6 +315921,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadingText: {fileID: 0}
+  loadingObject: {fileID: 0}
 --- !u!114 &1591941060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -321411,7 +321412,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.9372549, g: 0.7529412, b: 0.4392157, a: 1}
-  m_Intensity: 0.8
+  m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 82.82774
   m_InnerSpotAngle: 52.51583
