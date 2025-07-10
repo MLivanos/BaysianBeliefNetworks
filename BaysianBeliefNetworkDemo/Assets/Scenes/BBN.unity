@@ -77576,6 +77576,11 @@ MonoBehaviour:
       - a node without parents and occurs 40% of the time (probability 0.4).
     boxSize: {x: 200, y: 150}
     worldPositionOverride: {x: 455, y: 50, z: 0}
+  - tooltipID: ThunderNode
+    tooltipText: Thunder is a terminal node. It is directly impacted by Rain, indirectly
+      impacted by the rest of the graph, and does not directly influence any event.
+    boxSize: {x: 200, y: 150}
+    worldPositionOverride: {x: 475, y: -110, z: 0}
   isOrdered: 0
 --- !u!1 &1276429156
 GameObject:
