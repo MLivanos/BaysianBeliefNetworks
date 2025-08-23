@@ -9,6 +9,7 @@ public class DeskPhotoCutscene : IntroCutscene
     [SerializeField] private SlideInBehavior[] photoSlideOuts;
     [SerializeField] private SlideInBehavior transitionPicture;
     [SerializeField] private SlideInBehavior transitionCameraSlide;
+    private bool isInterrupted = false;
 
     protected override IEnumerator PlayScene()
     {
@@ -17,17 +18,20 @@ public class DeskPhotoCutscene : IntroCutscene
         foreach(SlideInBehavior photo in photoSlides)
         {
             audioManager.PlayEffect("PhotoSlide" + index++.ToString());
-            photo.BeginSlideIn();
+            if (!isInterrupted) photo.BeginSlideIn();
             yield return new WaitForSeconds(photo.GetDuration());
         }
+        if (isInterrupted) yield break;
         yield return ViewPanel();
         AnimateText();
     }
 
     public override void Interrupt()
     {
+        isInterrupted = true;
         foreach(SlideInBehavior photo in photoSlides)
         {
+            photo.Interupt();
             photo.SetAtTerminalPoint(false);
         }
     }
