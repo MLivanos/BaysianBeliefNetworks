@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour, ISceneDetectorTarget
     {
         if (instance != null)
         {
+            instance.TransferProgressBar(timeLimit);
             Destroy(gameObject);
             return;
         }
@@ -174,5 +175,12 @@ public class GameManager : MonoBehaviour, ISceneDetectorTarget
         timeProgress = 10000;
         SaveSystem saveSystem = FindObjectOfType<SaveSystem>();
         if (saveSystem != null) saveSystem.SaveGame();
+    }
+
+    private void TransferProgressBar(CircularProgressBar bar)
+    {
+        if (timeProgress == null) return;
+        timeLimit = bar;
+        timeLimit.UpdateProgress(timeProgress);
     }
 }
