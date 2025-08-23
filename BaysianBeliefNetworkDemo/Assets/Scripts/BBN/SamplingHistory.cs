@@ -41,10 +41,11 @@ public class SamplingRecord
         List<string> evidenceTerms = new List<string>();
         evidenceTerms.AddRange(positiveEvidence);
         evidenceTerms.AddRange(negativeEvidence.Select(n => $"¬{n}"));
+        string givenCharacter = evidenceTerms.Count > 0 ? " | " : "";
 
         string Format(List<string> list) => string.Join(", ", list.OrderBy(s => s));
 
-        return $"P({Format(queryTerms)} | {Format(evidenceTerms)})";
+        return $"P({Format(queryTerms)}{givenCharacter}{Format(evidenceTerms)})";
     }
 
     public string FormatSampleCount()
