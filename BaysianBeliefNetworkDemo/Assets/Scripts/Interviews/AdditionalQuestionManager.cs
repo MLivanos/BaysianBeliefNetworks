@@ -86,6 +86,7 @@ public class AdditionalQuestionManager : MonoBehaviour
 	    bool value = GenerateBoolValue(category);
 	    string description = GetDescriptionForNode(chosen, value);
 
+	    eventDrawer.AdjustForAdditionalEvent();
 	    eventDrawer.AddEventToRawText(chosen.node, description, value);
 	    PresentFollowupResult(chosen.node, value);
 	}
