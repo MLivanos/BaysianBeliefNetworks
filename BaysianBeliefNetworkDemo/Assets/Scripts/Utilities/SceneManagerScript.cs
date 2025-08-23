@@ -38,7 +38,8 @@ public class SceneManagerScript : MonoBehaviour
 
     private IEnumerator SnapshotAndGoToInterviews()
     {
-        yield return GetComponent<GraphSnapshotter>().CaptureRoutine();
+        GraphSnapshotter graphSnapshotter = GraphSnapshotter.instance;
+        yield return graphSnapshotter.CaptureRoutine();
         ActivateLoadingObject();
         SceneManager.LoadScene("Interviews", LoadSceneMode.Single);
     }

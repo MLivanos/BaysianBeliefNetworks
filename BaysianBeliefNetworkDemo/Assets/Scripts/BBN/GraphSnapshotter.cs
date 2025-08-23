@@ -10,17 +10,24 @@ public class GraphSnapshotter : MonoBehaviour
     [SerializeField] private Vector3 snapshotCameraPosition = new Vector3(0, 0, -29);
     [SerializeField] private List<GameObject> elementsToHide;
 
-    private static GraphSnapshotter instance;
+    public static GraphSnapshotter instance;
 
     private void Awake()
     {
         if (instance != null)
         {
+            instance.SetCamera(graphCamera);
             Destroy(gameObject);
             return;
         }
         instance = this;
         DontDestroyOnLoad(gameObject);
+    }
+
+    public void SetCamera(Camera camera)
+    {
+        if (graphCamera != null) return;
+        graphCamera = camera;
     }
 
     public IEnumerator CaptureRoutine()
