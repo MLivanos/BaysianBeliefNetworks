@@ -391,6 +391,7 @@ MonoBehaviour:
   startPosition: {x: 0.02, y: -0.0025, z: 0.022}
   endPosition: {x: -0.4389998, y: 0.1865014, z: 0.022}
   eventDuration: 0.5
+  dynamicStart: 0
   staticX: 0
   staticY: 0
   staticZ: 0
@@ -1339,6 +1340,8 @@ MonoBehaviour:
   fadeInTime: 0
   textPanelOpacity: 160
   isAtTop: 0
+  characterImage: {fileID: 0}
+  characterName: 
   code: 0
   objectsToSlide:
   - {fileID: 1354719749}
@@ -4388,6 +4391,8 @@ MonoBehaviour:
   fadeInTime: 0
   textPanelOpacity: 160
   isAtTop: 1
+  characterImage: {fileID: 0}
+  characterName: 
   code: 0
   hasText: 1
   timeBeforeText: 1
@@ -6767,6 +6772,7 @@ MonoBehaviour:
   startPosition: {x: 0.02, y: -0.0025, z: 0.022}
   endPosition: {x: -0.4389998, y: 0.1865014, z: 0.022}
   eventDuration: 0.5
+  dynamicStart: 0
   staticX: 0
   staticY: 0
   staticZ: 0
@@ -12688,6 +12694,8 @@ MonoBehaviour:
   fadeInTime: 0
   textPanelOpacity: 160
   isAtTop: 1
+  characterImage: {fileID: 0}
+  characterName: 
   code: 0
   hasText: 1
   timeBeforeText: 1
@@ -19541,6 +19549,7 @@ MonoBehaviour:
   startPosition: {x: 0.02, y: -0.0025, z: 0.022}
   endPosition: {x: -0.4389998, y: -0.1864987, z: 0.022}
   eventDuration: 0.5
+  dynamicStart: 0
   staticX: 0
   staticY: 0
   staticZ: 0
@@ -20147,6 +20156,7 @@ MonoBehaviour:
   startPosition: {x: 0.02, y: -0.0025, z: 0.022}
   endPosition: {x: 0.4390007, y: 0.1865014, z: 0.022}
   eventDuration: 0.5
+  dynamicStart: 0
   staticX: 0
   staticY: 0
   staticZ: 0
@@ -20421,6 +20431,7 @@ MonoBehaviour:
   startPosition: {x: 0.02, y: -0.0025, z: 0.022}
   endPosition: {x: 0.1460006, y: -0.1864987, z: 0.022}
   eventDuration: 0.5
+  dynamicStart: 0
   staticX: 0
   staticY: 0
   staticZ: 0
@@ -20664,6 +20675,8 @@ MonoBehaviour:
   fadeInTime: 0
   textPanelOpacity: 160
   isAtTop: 0
+  characterImage: {fileID: 0}
+  characterName: 
   code: 0
   objectsToSlide:
   - {fileID: 1137265829}
@@ -21648,6 +21661,7 @@ MonoBehaviour:
   startPosition: {x: 0, y: 0, z: 0}
   endPosition: {x: 0, y: 0.1720645, z: 1.163975}
   eventDuration: 1
+  dynamicStart: 0
   staticX: 0
   staticY: 0
   staticZ: 0
@@ -62029,6 +62043,7 @@ MonoBehaviour:
   startPosition: {x: 0.02, y: -0.0025, z: 0.022}
   endPosition: {x: 0.4390007, y: -0.1864987, z: 0.021}
   eventDuration: 0.5
+  dynamicStart: 0
   staticX: 0
   staticY: 0
   staticZ: 0
@@ -62302,6 +62317,7 @@ MonoBehaviour:
   startPosition: {x: 0.02, y: -0.0025, z: 0.022}
   endPosition: {x: -0.4389998, y: -0.1864987, z: 0.022}
   eventDuration: 0.5
+  dynamicStart: 0
   staticX: 0
   staticY: 0
   staticZ: 0
@@ -63152,6 +63168,7 @@ MonoBehaviour:
   startPosition: {x: 0.8805006, y: -0.8430003, z: -0.00000035762787}
   endPosition: {x: 0.1305, y: -0.09299999, z: 0.02200001}
   eventDuration: 1
+  dynamicStart: 0
   staticX: 0
   staticY: 0
   staticZ: 0
@@ -63791,6 +63808,7 @@ MonoBehaviour:
   startPosition: {x: 0.02, y: -0.0025, z: 0.022}
   endPosition: {x: -0.4389998, y: -0.1864987, z: 0.022}
   eventDuration: 0.5
+  dynamicStart: 0
   staticX: 0
   staticY: 0
   staticZ: 0
@@ -64315,6 +64333,7 @@ MonoBehaviour:
   startPosition: {x: 0.02, y: -0.0025, z: 0.022}
   endPosition: {x: -0.4389998, y: -0.1864987, z: 0.022}
   eventDuration: 0.5
+  dynamicStart: 0
   staticX: 0
   staticY: 0
   staticZ: 0
@@ -72985,6 +73004,8 @@ MonoBehaviour:
   fadeInTime: 0
   textPanelOpacity: 160
   isAtTop: 0
+  characterImage: {fileID: 0}
+  characterName: 
   code: 0
   objectsToSlide: []
   objectsToActivate:
@@ -73958,6 +73979,7 @@ MonoBehaviour:
   startPosition: {x: 0.02, y: -0.0025, z: 0.022}
   endPosition: {x: -0.4389998, y: -0.1864987, z: 0.022}
   eventDuration: 0.5
+  dynamicStart: 0
   staticX: 0
   staticY: 0
   staticZ: 0
@@ -75039,6 +75061,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa49e5cf2784d409fa17dd08c146fea8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadingText: {fileID: 0}
+  loadingObject: {fileID: 0}
 --- !u!1001 &789755482
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -77450,6 +77474,7 @@ MonoBehaviour:
   startPosition: {x: 0.02, y: -0.0025, z: 0.022}
   endPosition: {x: -0.1459996, y: -0.1864987, z: 0.022}
   eventDuration: 0.5
+  dynamicStart: 0
   staticX: 0
   staticY: 0
   staticZ: 0
@@ -79257,6 +79282,8 @@ MonoBehaviour:
   fadeInTime: 0
   textPanelOpacity: 200
   isAtTop: 1
+  characterImage: {fileID: 0}
+  characterName: 
   code: 0
   paperText:
   - strongly suggests the presence of aliens
@@ -79651,6 +79678,7 @@ MonoBehaviour:
   startPosition: {x: 0.02, y: -0.0025, z: 0.022}
   endPosition: {x: -0.4389998, y: -0.1864987, z: 0.022}
   eventDuration: 0.5
+  dynamicStart: 0
   staticX: 0
   staticY: 0
   staticZ: 0
@@ -82412,6 +82440,7 @@ MonoBehaviour:
   startPosition: {x: 0.02, y: -0.0025, z: 0.022}
   endPosition: {x: -0.4389998, y: -0.1864987, z: 0.022}
   eventDuration: 0.5
+  dynamicStart: 0
   staticX: 0
   staticY: 0
   staticZ: 0
@@ -86196,6 +86225,7 @@ MonoBehaviour:
   startPosition: {x: 0.02, y: -0.0025, z: 0.022}
   endPosition: {x: -0.1459996, y: 0.1865014, z: 0.022}
   eventDuration: 0.5
+  dynamicStart: 0
   staticX: 0
   staticY: 0
   staticZ: 0
@@ -102328,6 +102358,7 @@ MonoBehaviour:
   startPosition: {x: 0.02, y: -0.0025, z: 0.022}
   endPosition: {x: -0.4389998, y: -0.1864987, z: 0.022}
   eventDuration: 0.5
+  dynamicStart: 0
   staticX: 0
   staticY: 0
   staticZ: 0
@@ -103384,6 +103415,7 @@ MonoBehaviour:
   startPosition: {x: 0.6195002, y: -0.6570001, z: 0.021999843}
   endPosition: {x: -0.13050003, y: 0.09300001, z: 0.022000022}
   eventDuration: 1
+  dynamicStart: 0
   staticX: 0
   staticY: 0
   staticZ: 0
@@ -105509,6 +105541,8 @@ MonoBehaviour:
   fadeInTime: 0
   textPanelOpacity: 160
   isAtTop: 1
+  characterImage: {fileID: 0}
+  characterName: 
   code: 0
   hasText: 1
   timeBeforeText: 1
@@ -116853,6 +116887,7 @@ MonoBehaviour:
   startPosition: {x: 0.7435006, y: -0.7460003, z: 0.021999659}
   endPosition: {x: -0.006500043, y: 0.004000005, z: 0.022000017}
   eventDuration: 1
+  dynamicStart: 0
   staticX: 0
   staticY: 0
   staticZ: 0
@@ -120224,6 +120259,7 @@ MonoBehaviour:
   startPosition: {x: 0.6195002, y: -0.6570001, z: 0.021999843}
   endPosition: {x: -0.13050003, y: 0.09300001, z: 0.022000022}
   eventDuration: 1
+  dynamicStart: 0
   staticX: 0
   staticY: 0
   staticZ: 0
@@ -120839,6 +120875,8 @@ MonoBehaviour:
   fadeInTime: 0
   textPanelOpacity: 160
   isAtTop: 1
+  characterImage: {fileID: 0}
+  characterName: 
   code: 0
   blinker: {fileID: 75558156}
   blinkerFrequency: 4
@@ -126430,9 +126468,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenCharacters: 0.05
-  soundName: TextBeep
+  typingSoundName: 
+  deletingSoundName: 
+  charsBetweenSounds: 0
   specialCharacters: :.?!
   specialWaitTimeMultiplier: 15
+  maxFontSize: 32
+  resizeText: 0
+  smartDetectTokens: 0
 --- !u!1 &1385017723
 GameObject:
   m_ObjectHideFlags: 0
@@ -135903,6 +135946,7 @@ MonoBehaviour:
   startPosition: {x: 0.02, y: -0.0025, z: 0.022}
   endPosition: {x: 0.1460006, y: 0.1865014, z: 0.022}
   eventDuration: 0.5
+  dynamicStart: 0
   staticX: 0
   staticY: 0
   staticZ: 0
@@ -140497,6 +140541,7 @@ MonoBehaviour:
   startPosition: {x: 0.7435006, y: -0.7460003, z: 0.021999659}
   endPosition: {x: -0.006500043, y: 0.004000005, z: 0.022000017}
   eventDuration: 1
+  dynamicStart: 0
   staticX: 0
   staticY: 0
   staticZ: 0
@@ -144436,6 +144481,7 @@ MonoBehaviour:
   startPosition: {x: 0.02, y: -0.0025, z: 0.022}
   endPosition: {x: -0.4389998, y: -0.1864987, z: 0.022}
   eventDuration: 0.5
+  dynamicStart: 0
   staticX: 0
   staticY: 0
   staticZ: 0
@@ -147364,6 +147410,8 @@ MonoBehaviour:
   fadeInTime: 0
   textPanelOpacity: 160
   isAtTop: 1
+  characterImage: {fileID: 0}
+  characterName: 
   code: 0
   zoomIn: {fileID: 278444333}
   transitionSlide: {fileID: 2014632921}
@@ -149113,6 +149161,7 @@ MonoBehaviour:
   startPosition: {x: 0.02, y: -0.0025, z: 0.022}
   endPosition: {x: -0.4389998, y: -0.1864987, z: 0.022}
   eventDuration: 0.5
+  dynamicStart: 0
   staticX: 0
   staticY: 0
   staticZ: 0
@@ -151684,6 +151733,8 @@ MonoBehaviour:
   fadeInTime: 0
   textPanelOpacity: 160
   isAtTop: 0
+  characterImage: {fileID: 0}
+  characterName: 
   code: 0
   hasText: 1
   timeBeforeText: 1
@@ -162548,6 +162599,8 @@ MonoBehaviour:
   fadeInTime: 0
   textPanelOpacity: 160
   isAtTop: 1
+  characterImage: {fileID: 0}
+  characterName: 
   code: 0
   hasText: 1
   timeBeforeText: 1
@@ -166166,6 +166219,8 @@ MonoBehaviour:
   fadeInTime: 0
   textPanelOpacity: 160
   isAtTop: 0
+  characterImage: {fileID: 0}
+  characterName: 
   code: 0
   hasText: 1
   timeBeforeText: 1
@@ -175724,6 +175779,7 @@ MonoBehaviour:
   startPosition: {x: 0, y: 0.17206454, z: 1.1639752}
   endPosition: {x: 0.069845915, y: 0.46356773, z: 1.0666935}
   eventDuration: 0.5
+  dynamicStart: 0
   staticX: 0
   staticY: 0
   staticZ: 0
@@ -177104,6 +177160,7 @@ MonoBehaviour:
   startPosition: {x: 0.8805006, y: -0.8430003, z: -0.00000035762787}
   endPosition: {x: 0.1305, y: -0.09299999, z: 0.02200001}
   eventDuration: 1
+  dynamicStart: 0
   staticX: 0
   staticY: 0
   staticZ: 0
@@ -177997,6 +178054,7 @@ MonoBehaviour:
   startPosition: {x: 0.02, y: -0.0025, z: 0.022}
   endPosition: {x: -0.4389998, y: -0.1864987, z: 0.022}
   eventDuration: 0.5
+  dynamicStart: 0
   staticX: 0
   staticY: 0
   staticZ: 0
@@ -185827,6 +185885,8 @@ MonoBehaviour:
   fadeInTime: 0
   textPanelOpacity: 160
   isAtTop: 0
+  characterImage: {fileID: 0}
+  characterName: 
   code: 0
   hasText: 1
   timeBeforeText: 3
@@ -186109,6 +186169,8 @@ MonoBehaviour:
   fadeInTime: 0
   textPanelOpacity: 160
   isAtTop: 0
+  characterImage: {fileID: 0}
+  characterName: 
   code: 0
   hasText: 1
   timeBeforeText: 1
