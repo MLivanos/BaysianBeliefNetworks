@@ -15179,6 +15179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadingText: {fileID: 0}
+  loadingObject: {fileID: 0}
 --- !u!114 &1086258975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17918,7 +17919,7 @@ MonoBehaviour:
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 18
+  m_fontSizeMin: 10
   m_fontSizeMax: 18
   m_fontStyle: 0
   m_HorizontalAlignment: 2
