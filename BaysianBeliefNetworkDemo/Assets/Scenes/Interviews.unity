@@ -13098,7 +13098,7 @@ PrefabInstance:
     - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
         type: 3}
       propertyPath: winterNodeDescriptions.eventDescriptions.Array.data[7]
-      value: I was celebrating winter solstace
+      value: I was celebrating winter solstice
       objectReference: {fileID: 0}
     - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
         type: 3}
@@ -13223,7 +13223,7 @@ PrefabInstance:
     - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
         type: 3}
       propertyPath: descriptions.Array.data[0].eventDescriptions.Array.data[7]
-      value: I was celebrating winter solstace
+      value: I was celebrating winter solstice
       objectReference: {fileID: 0}
     - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
         type: 3}
@@ -13264,7 +13264,7 @@ PrefabInstance:
     - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
         type: 3}
       propertyPath: descriptions.Array.data[1].eventDescriptions.Array.data[5]
-      value: I was appriciating how the squirrels had just come out of hibernation
+      value: I was appreciating how the squirrels had just come out of hibernation
       objectReference: {fileID: 0}
     - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
         type: 3}
@@ -13330,7 +13330,7 @@ PrefabInstance:
     - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
         type: 3}
       propertyPath: descriptions.Array.data[2].eventDescriptions.Array.data[8]
-      value: I just left the summer solstace festival
+      value: I just left the summer solstice festival
       objectReference: {fileID: 0}
     - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
         type: 3}
@@ -13406,7 +13406,7 @@ PrefabInstance:
     - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
         type: 3}
       propertyPath: descriptions.Array.data[4].eventDescriptions.Array.data[3]
-      value: I got this wierd headache out of nowhere
+      value: I got this weird headache out of nowhere
       objectReference: {fileID: 0}
     - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
         type: 3}
@@ -13757,7 +13757,7 @@ PrefabInstance:
     - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
         type: 3}
       propertyPath: descriptions.Array.data[11].eventDescriptions.Array.data[8]
-      value: Its rare we get thunder here, but today was the exception
+      value: It's rare we get thunder here, but today was the exception
       objectReference: {fileID: 0}
     - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
         type: 3}
@@ -13777,7 +13777,7 @@ PrefabInstance:
     - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
         type: 3}
       propertyPath: descriptions.Array.data[12].eventDescriptions.Array.data[2]
-      value: I ordered my regular - coffe, black, no cream, no sugar
+      value: I ordered my regular - coffee, black, no cream, no sugar
       objectReference: {fileID: 0}
     - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
         type: 3}
@@ -13787,12 +13787,12 @@ PrefabInstance:
     - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
         type: 3}
       propertyPath: descriptions.Array.data[12].eventDescriptions.Array.data[4]
-      value: I was chatting with the barrista
+      value: I was chatting with the barista
       objectReference: {fileID: 0}
     - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
         type: 3}
       propertyPath: descriptions.Array.data[12].eventDescriptions.Array.data[5]
-      value: "The neon \"Open\" sign of the caf\xE9 shown brightly"
+      value: "The neon \"Open\" sign of the caf\xE9 shone brightly"
       objectReference: {fileID: 0}
     - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
         type: 3}
@@ -13858,7 +13858,7 @@ PrefabInstance:
     - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
         type: 3}
       propertyPath: descriptions.Array.data[13].eventDescriptions.Array.data[8]
-      value: Usually the neighbor's dog is so quiet, but she was barking like a madman
+      value: Usually the neighbor's dog is so quiet, but she was barking like crazy
       objectReference: {fileID: 0}
     - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
         type: 3}
@@ -13878,7 +13878,7 @@ PrefabInstance:
     - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
         type: 3}
       propertyPath: descriptions.Array.data[14].eventDescriptions.Array.data[2]
-      value: I almost tripped over Cheeto, the cat, - he wss running from something
+      value: I almost tripped over Cheeto, the cat, - he was running from something
       objectReference: {fileID: 0}
     - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
         type: 3}
@@ -13998,7 +13998,7 @@ PrefabInstance:
     - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
         type: 3}
       propertyPath: descriptions.Array.data[4].eventNegationDescriptions.Array.data[2]
-      value: My barometer showed no usual fluctuations that day
+      value: My barometer showed no unusual fluctuations that day
       objectReference: {fileID: 0}
     - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
         type: 3}
@@ -14043,7 +14043,7 @@ PrefabInstance:
     - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
         type: 3}
       propertyPath: descriptions.Array.data[5].eventNegationDescriptions.Array.data[4]
-      value: Paper napkins layed undisturbed on outdoor tables
+      value: Paper napkins lay undisturbed on outdoor tables
       objectReference: {fileID: 0}
     - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
         type: 3}
@@ -14194,7 +14194,7 @@ PrefabInstance:
     - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
         type: 3}
       propertyPath: descriptions.Array.data[10].eventNegationDescriptions.Array.data[2]
-      value: Itwas a slow day at work; everyone seemed relaxed and unhurried
+      value: It was a slow day at work; everyone seemed relaxed and unhurried
       objectReference: {fileID: 0}
     - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
         type: 3}
@@ -14290,7 +14290,7 @@ PrefabInstance:
     - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
         type: 3}
       propertyPath: descriptions.Array.data[13].eventNegationDescriptions.Array.data[0]
-      value: The neighborhood is unusually quiet, with no barking to be hear
+      value: The neighborhood is unusually quiet, with no barking to be heard
       objectReference: {fileID: 0}
     - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
         type: 3}
@@ -14370,7 +14370,7 @@ PrefabInstance:
     - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
         type: 3}
       propertyPath: descriptions.Array.data[14].eventNegationDescriptions.Array.data[6]
-      value: A sudden noise barely earned a glance before the cat resumes napping
+      value: A sudden noise barely earned a glance before the cat resumed napping
       objectReference: {fileID: 0}
     - target: {fileID: 6572116375759035479, guid: dcfb0bdf3c88d4d33aa91993c7372f1a,
         type: 3}
@@ -14841,11 +14841,11 @@ MonoBehaviour:
   - "I swear on my grandma\u2019s casserole recipe, it happened!"
   - "Okay, don\u2019t laugh, but I saw something wild."
   - My neighbor said I was imagining things, but I know what I saw
-  - I don't care if you beleive me or not, but this is what happened
+  - I don't care if you believe me or not, but this is what happened
   - "You\u2019re gonna think I\u2019ve been watching too many alien movies"
   - My mom said I must have been sleep deprived from exam season, but I know what
     I saw
-  - I never beleived the stories until I experienced it myself
+  - I never believed the stories until I experienced it myself
   eventNames:
   - Winter
   - Spring
@@ -14872,7 +14872,7 @@ MonoBehaviour:
     - The New Year's firework show was about to begin
     - I slipped on some ice and saw it when I looked up
     - The holiday lights outside flickered
-    - I was celebrating winter solstace
+    - I was celebrating winter solstice
     - I was sipping hot cocoa by the fireplace when it happened
     - My breath froze in the air as I stepped outside
     eventNegationDescriptions: []
@@ -14883,7 +14883,7 @@ MonoBehaviour:
     - Spring pollen was everywhere - right before I sneezed something caught my eye
     - It was after our Easter celebration
     - I was cleaning out my garage for spring cleaning when I saw it
-    - I was appriciating how the squirrels had just come out of hibernation
+    - I was appreciating how the squirrels had just come out of hibernation
     - "My springtime allergies were acting up, but I knew I wasn\u2019t imagining
       this"
     - I was just getting back from spring break
@@ -14900,7 +14900,7 @@ MonoBehaviour:
     - I was getting ready to go to the water park
     - It was the first day of summer break, I was so excited
     - I was going to hit the beach
-    - I just left the summer solstace festival
+    - I just left the summer solstice festival
     - I was getting ready for a summer camping trip
     eventNegationDescriptions: []
   - node: {fileID: 0}
@@ -14921,13 +14921,13 @@ MonoBehaviour:
     - My ears popped, and then I noticed it
     - My old football injury started hurting again
     - I was checking my barometer and noticed a drop, and then it appeared
-    - I got this wierd headache out of nowhere
+    - I got this weird headache out of nowhere
     - My bad knee was giving me trouble again
     - I had to sit down from a dizzy spell
     eventNegationDescriptions:
     - The air was still and steady
     - I felt a calm, consistent atmosphere envelope the area
-    - My barometer showed no usual fluctuations that day
+    - My barometer showed no unusual fluctuations that day
     - The sky stretched out calm and unremarkable, free of tension
     - Nothing felt off; the environment was as predictable as ever
     - The barometer sat idle. I figured it would be an uneventful day
@@ -14949,7 +14949,7 @@ MonoBehaviour:
     - Flags drooped lazily, devoid of even a slight breeze
     - The air feels stagnant, as if time itself has paused
     - Conversations carried easily, unbroken by gusts
-    - Paper napkins layed undisturbed on outdoor tables
+    - Paper napkins lay undisturbed on outdoor tables
     - The lake was calm - no ripples from a stirring breeze
     - A cyclist pedals easily, facing no resistance from the air
   - node: {fileID: 0}
@@ -15043,7 +15043,7 @@ MonoBehaviour:
     eventNegationDescriptions:
     - The streets were quiet, with only a few passersby
     - Shops stood empty, their usual hustle replaced by calm
-    - Itwas a slow day at work; everyone seemed relaxed and unhurried
+    - It was a slow day at work; everyone seemed relaxed and unhurried
     - Public spaces felt deserted, with no lines or crowds to navigate
     - A lone car rolled down an empty avenue, the driver enjoying the peace
     - The town square looked almost abandoned, devoid of its usual bustle
@@ -15058,7 +15058,7 @@ MonoBehaviour:
     - "I counted the seconds between thunderclaps\u2014and then it appeared"
     - I had just come in after I heard the thunder
     - When the thunder rolled in, I knew we were in for a storm
-    - Its rare we get thunder here, but today was the exception
+    - It's rare we get thunder here, but today was the exception
     - The crack of thunder scared me, but what I saw next shook me to my core
     eventNegationDescriptions:
     - The air is utterly silent
@@ -15071,10 +15071,10 @@ MonoBehaviour:
     eventDescriptions:
     - "I hardly got any sleep, so I was headed to the caf\xE9 for a pick-me-up"
     - I just ordered my favorite matcha latte
-    - I ordered my regular - coffe, black, no cream, no sugar
+    - I ordered my regular - coffee, black, no cream, no sugar
     - "I was glad the caf\xE9 was still open"
-    - I was chatting with the barrista
-    - "The neon \"Open\" sign of the caf\xE9 shown brightly"
+    - I was chatting with the barista
+    - "The neon \"Open\" sign of the caf\xE9 shone brightly"
     - "I was about to enter the caf\xE9"
     - "I had just gotten out of the caf\xE9"
     - "The \u201COpen\u201D sign at the caf\xE9 had just turned on when I saw it"
@@ -15097,10 +15097,10 @@ MonoBehaviour:
     - I could hear dogs throughout the neighborhood
     - "My dog was barking like he\u2019d seen a ghost"
     - I thought my dog was barking at the mailman
-    - Usually the neighbor's dog is so quiet, but she was barking like a madman
+    - Usually the neighbor's dog is so quiet, but she was barking like crazy
     - I heard the howl of the neighborhood dogs
     eventNegationDescriptions:
-    - The neighborhood is unusually quiet, with no barking to be hear
+    - The neighborhood is unusually quiet, with no barking to be heard
     - The dog rested lazily, occasionally lifting its head but staying silent
     - Mail carriers walked by undisturbed, without triggering any canine alarm
     - "A jogger passed by the yard, and the dog doesn\u2019t make a sound"
@@ -15114,7 +15114,7 @@ MonoBehaviour:
     eventDescriptions:
     - I saw Cheeto, the cat, darting away
     - Cheeto, the cat, ducked under a building
-    - I almost tripped over Cheeto, the cat, - he wss running from something
+    - I almost tripped over Cheeto, the cat, - he was running from something
     - I noticed Cheeto, the cat, hiding, looking scared
     - I couldn't find Cheeto, the cat, no matter where I looked
     - Cheeto hadn't come out for a cat treat - it wasn't like him
@@ -15129,7 +15129,7 @@ MonoBehaviour:
     - I was excited to snap a few pictures of Cheeto, the cat
     - Calm and collected, the cat watched the world from its favorite perch
     - Cheeto, the cat, was fully at ease
-    - A sudden noise barely earned a glance before the cat resumes napping
+    - A sudden noise barely earned a glance before the cat resumed napping
   friendlyDescriptions:
   - The aliens helped me carry my groceries inside!
   - An alien fixed the flat tire on my car!
@@ -22905,7 +22905,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 15/15
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a85a5fb20be32c74e8b4a078e736f5ab, type: 2}
   m_sharedMaterial: {fileID: -8262044034710385518, guid: a85a5fb20be32c74e8b4a078e736f5ab,
