@@ -8,6 +8,7 @@ public class InterviewUIManager : InterviewEventSystem
     [SerializeField] private TMP_Text evidenceText;
     [SerializeField] private SlideInBehavior slideInBehavior;
     [SerializeField] private GameObject eyewitnessPanel;
+    [SerializeField] private TMP_Text interviewCounter;
     
     public void DisplayEyewitnessAccount(string eyewitnessAccount)
     {
@@ -27,5 +28,11 @@ public class InterviewUIManager : InterviewEventSystem
         interviewManager.Advance();
         eyewitnessPanel.SetActive(false);
         slideInBehavior.BeginSlideOut();
+    }
+
+    public void UpdateCounter(int numerator, int denominator)
+    {
+        if (interviewCounter == null) return;
+        interviewCounter.text = $"{Mathf.Min(numerator+1, denominator)}/{denominator}";
     }
 }
