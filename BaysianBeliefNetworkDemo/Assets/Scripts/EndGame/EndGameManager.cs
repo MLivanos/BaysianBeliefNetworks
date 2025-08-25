@@ -23,6 +23,11 @@ public class EndGameManager : MonoBehaviour
     private EndGameState endGameState;
     private bool done;
 
+    private void Awake()
+    {
+        DynamicGI.UpdateEnvironment();
+    }
+
     private void Start()
     {
         done = false;
