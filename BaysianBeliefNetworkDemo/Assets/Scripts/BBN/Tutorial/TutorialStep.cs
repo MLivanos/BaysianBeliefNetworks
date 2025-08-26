@@ -98,7 +98,7 @@ public class TutorialStep : MonoBehaviour, IQuestParent
 		yield return null;
 
 		messageID = 0;
-		while (messageID <= tutorialMessages.Count)
+		while (messageID < tutorialMessages.Count)
 		{
 			if (messageID-1 >= 0) tutorialMessages[messageID-1].ToggleObjects(false);
 			if (messageID < tutorialMessages.Count)
@@ -108,7 +108,7 @@ public class TutorialStep : MonoBehaviour, IQuestParent
 				typewriterEffect.UpdateText(tutorialMessages[messageID].Message);
 			}
 			messageID++;
-			yield return new WaitForSeconds(0.05f);
+			yield return new WaitUntil(() => !Input.GetMouseButton(0));
 			yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
 		}
 
