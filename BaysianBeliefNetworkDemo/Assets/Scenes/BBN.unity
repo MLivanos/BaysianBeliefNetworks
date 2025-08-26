@@ -80358,6 +80358,7 @@ MonoBehaviour:
   disabledDuringTutorial:
   - {fileID: 527523537}
   - {fileID: 1554082560}
+  timeLimit: {fileID: 1928283195}
   tutorialSelectionWindow: {fileID: 1855488276}
   tutorialSteps:
   - {fileID: 1276263262}
