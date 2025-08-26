@@ -98,18 +98,16 @@ public class TutorialStep : MonoBehaviour, IQuestParent
 		yield return null;
 
 		messageID = 0;
-		while (messageID < tutorialMessages.Count)
+		for (int i = 0; i < tutorialMessages.Count; i++)
 		{
-			if (messageID-1 >= 0) tutorialMessages[messageID-1].ToggleObjects(false);
-			if (messageID < tutorialMessages.Count)
-			{
-				tutorialMessages[messageID].ToggleObjects(true);
-				typewriterEffect.Clear();
-				typewriterEffect.UpdateText(tutorialMessages[messageID].Message);
-			}
-			messageID++;
+			tutorialMessages[i].ToggleObjects(true);
+			typewriterEffect.Clear();
+			typewriterEffect.UpdateText(tutorialMessages[i].Message);
+
 			yield return new WaitUntil(() => !Input.GetMouseButton(0));
 			yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
+
+			tutorialMessages[i].ToggleObjects(false);
 		}
 
 		messagePanel.SetActive(false);
