@@ -41,6 +41,7 @@ public class CutsceneManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            audioManager.FadeOutMusic(0.5f);
             sceneManager.StartGame();
         }
         if (Input.GetMouseButtonDown(0))
