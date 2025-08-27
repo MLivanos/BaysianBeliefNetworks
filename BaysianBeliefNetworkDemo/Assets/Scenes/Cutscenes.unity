@@ -205387,7 +205387,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The aliens reports you've seen on the news? They're real, and I have the
+  m_text: The alien reports you've seen on the news? They're real, and I have the
     math to prove it.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a85a5fb20be32c74e8b4a078e736f5ab, type: 2}
@@ -277764,11 +277764,10 @@ MonoBehaviour:
   skyMaterial: {fileID: 2100000, guid: c56e28e54cac24b04ae3dd957d214534, type: 2}
   ambientIntensity: 2.5
   text: Graduation sent us on separate journeys. I was chasing stories as a budding
-    journalist, while she pursued a double major in astronomy and math on the fast
-    track to grad school. We had spent years as a team - her logic, my instinct.
-    But now, Kayla was off to calculate the universe, and I was off to write about
-    it. Maybe we were always in different orbits, but until now, we had never drifted
-    apart.
+    journalist, while she pursued a double major in astronomy and math, already eyeing
+    grad school. We had spent years as a team, but now Kayla was off to chart the
+    universe, and I was off to write about it. Maybe we were always in different
+    orbits, but until now, we had never drifted apart.
   fadeInPanel: 0
   fadeInTime: 0
   textPanelOpacity: 160
@@ -320082,7 +320081,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "You\u2019re the one person I can count on to tell this story right."
+  m_text: "You\u2019re the one person I trust to tell this story right."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a85a5fb20be32c74e8b4a078e736f5ab, type: 2}
   m_sharedMaterial: {fileID: -8262044034710385518, guid: a85a5fb20be32c74e8b4a078e736f5ab,
@@ -371225,9 +371224,9 @@ MonoBehaviour:
   needsPrewarm: 1
   skyMaterial: {fileID: 2100000, guid: c56e28e54cac24b04ae3dd957d214534, type: 2}
   ambientIntensity: 3
-  text: "I booked the ticket without a second thought. This wasn\u2019t just a career-defining
-    opportunity - it was a chance to see Kayla again, to mend what time and distance
-    had frayed."
+  text: I booked the ticket without a second thought. For the story that I had been
+    waiting for, the friend I had been missing, and a chance to mend what time and
+    distance had frayed.
   fadeInPanel: 0
   fadeInTime: 0
   textPanelOpacity: 160
@@ -374149,9 +374148,8 @@ MonoBehaviour:
   needsPrewarm: 0
   skyMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   ambientIntensity: 8
-  text: Two years later, I crossed the stage without a safety net. All I had were
-    my dreams and a stubborn conviction to tell a story that would make the world
-    take notice. That's when I got the text.
+  text: "Two years later, I crossed the stage with nothing but my dreams and a stubborn
+    conviction to tell a story that mattered. That\u2019s when I got the text."
   fadeInPanel: 0
   fadeInTime: 0
   textPanelOpacity: 160
