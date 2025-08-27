@@ -11192,7 +11192,7 @@ MonoBehaviour:
       query. How many samples were generated, how many were usable, and how long
       the calculation took."
     messageObjects: []
-  - message: So far, you've been using <b><i>Rejection Sampling</i><b>. It works
+  - message: So far, you've been using <b><i>Rejection Sampling</i></b>. It works
       by generating random days, but if they contradict your evidence, they get thrown
       out. That means if your evidence is rare, most samples go to waste!
     messageObjects: []
