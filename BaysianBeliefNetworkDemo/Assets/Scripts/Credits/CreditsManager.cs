@@ -12,6 +12,11 @@ public class CreditsManager : MonoBehaviour
     [SerializeField] private float stopHeight;
     private AudioManager audioManager;
 
+    private void Awake()
+    {
+        DynamicGI.UpdateEnvironment();
+    }
+
     private void Start()
     {
         audioManager = AudioManager.instance;
