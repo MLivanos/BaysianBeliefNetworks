@@ -71,44 +71,55 @@ public class GraphActionRecorder : MonoBehaviour
 
         _history.Add(ar);
         _cursor++;
-        Debug.Log("?");
     }
 
     private void Apply(ActionRecord ar)
     {
+        ar.Node.SilenceToggles(true);
         switch (ar.Kind)
         {
             case ActionKind.AddQuery:
                 _graph.AddToQuery(ar.Node, ar.IsTrue, record:false);
+                ar.Node.ToggleQuery();
                 break;
             case ActionKind.RemoveQuery:
                 _graph.RemoveFromQuery(ar.Node, record:false);
+                ar.Node.ToggleQuery();
                 break;
             case ActionKind.AddEvidence:
                 _graph.AddToEvidence(ar.Node, ar.IsTrue, record:false);
+                ar.Node.ToggleEvidence();
                 break;
             case ActionKind.RemoveEvidence:
                 _graph.RemoveFromEvidence(ar.Node, record:false);
+                ar.Node.ToggleEvidence();
                 break;
         }
+        ar.Node.SilenceToggles(false);
     }
 
     private void ApplyInverse(ActionRecord ar)
     {
+        ar.Node.SilenceToggles(true);
         switch (ar.Kind)
         {
             case ActionKind.AddQuery:
                 _graph.RemoveFromQuery(ar.Node, record:false);
+                ar.Node.ToggleQuery();
                 break;
             case ActionKind.RemoveQuery:
                 _graph.AddToQuery(ar.Node, ar.IsTrue, record:false);
+                ar.Node.ToggleQuery();
                 break;
             case ActionKind.AddEvidence:
                 _graph.RemoveFromEvidence(ar.Node, record:false);
+                ar.Node.ToggleEvidence();
                 break;
             case ActionKind.RemoveEvidence:
                 _graph.AddToEvidence(ar.Node, ar.IsTrue, record:false);
+                ar.Node.ToggleEvidence();
                 break;
         }
+        ar.Node.SilenceToggles(false);
     }
 }

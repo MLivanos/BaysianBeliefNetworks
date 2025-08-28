@@ -10,6 +10,7 @@ public class Node : MonoBehaviour
     [SerializeField] List<Node> parents;
     [SerializeField] float[] jointProbabilityDistribution;
     private List<ProbabilityDisplay> displays = new List<ProbabilityDisplay>();
+    private VariableChecks variableChecks;
     bool isTrue;
     bool isSet;
 
@@ -121,5 +122,24 @@ public class Node : MonoBehaviour
             display.RefreshDisplay();
         }
     }
-}
 
+    public void SetVariableChecks(VariableChecks varChecks)
+    {
+        variableChecks = varChecks;
+    }
+
+    public void ToggleQuery()
+    {
+        variableChecks.SwitchQuery();
+    }
+
+    public void ToggleEvidence()
+    {
+        variableChecks.SwitchEvidence();
+    }
+
+    public void SilenceToggles(bool toSilence)
+    {
+        variableChecks.Silence(toSilence);
+    }
+}

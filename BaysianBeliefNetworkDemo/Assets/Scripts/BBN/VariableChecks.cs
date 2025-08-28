@@ -11,6 +11,12 @@ public class VariableChecks : MonoBehaviour
     private GameObject graphObject;
     private Graph graph;
     private AudioManager audioManager;
+    private bool isSilenced;
+
+    private void Awake()
+    {
+        node.SetVariableChecks(this);
+    }
 
     private void Start()
     {
@@ -25,6 +31,7 @@ public class VariableChecks : MonoBehaviour
 
     private void ChangeQuery()
     {
+        if (isSilenced) return;
         if (queryToggle.isOn)
         {
             audioManager.PlayEffect("ClickOn");
@@ -40,6 +47,7 @@ public class VariableChecks : MonoBehaviour
 
     private void ChangeEvidence()
     {
+        if (isSilenced) return;
         if (evidenceToggle.isOn)
         {
             audioManager.PlayEffect("ClickOn");
@@ -66,5 +74,10 @@ public class VariableChecks : MonoBehaviour
     private void SwitchToggle(Toggle toggle)
     {
         toggle.isOn = !toggle.isOn;
+    }
+
+    public void Silence(bool silenceOn)
+    {
+        isSilenced = silenceOn;
     }
 }

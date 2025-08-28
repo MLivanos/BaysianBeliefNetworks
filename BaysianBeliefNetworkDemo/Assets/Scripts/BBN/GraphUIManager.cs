@@ -37,7 +37,6 @@ public class GraphUIManager : MonoBehaviour
         if (RedoButtonsPressed())
         {
             graphActionRecorder.Redo();
-            Debug.Log(graph.GetPositiveQuery().Count);
             UpdateText();
         }
     }

@@ -229,6 +229,7 @@ public class Graph : MonoBehaviour
     public void ClearGraph()
     {
         UncheckAllCheckboxes(graphUI);
+        graphActionRecorder.ClearHistory();
         positiveQuery.Clear();
         negativeQuery.Clear();
         positiveEvidence.Clear();
