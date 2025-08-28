@@ -5432,6 +5432,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadingText: {fileID: 1330034082}
+  loadingObject: {fileID: 0}
 --- !u!114 &1359452022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5464,6 +5465,7 @@ MonoBehaviour:
   keysToReset:
   - Difficulty
   - TutorialCompleted
+  - ShouldLoad
 --- !u!1 &1448299533
 GameObject:
   m_ObjectHideFlags: 0
@@ -8284,6 +8286,9 @@ MonoBehaviour:
   - {fileID: 566154549}
   - {fileID: 1789827910}
   saveFileName: savegame.json
+  objectsToPersist:
+  - AudioManager
+  - CursorManager
 --- !u!1001 &1951719158
 PrefabInstance:
   m_ObjectHideFlags: 0

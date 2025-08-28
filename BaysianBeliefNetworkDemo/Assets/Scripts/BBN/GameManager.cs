@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour, ISceneDetectorTarget
 
     public void PromptGameMode()
     {
-        if (difficulty == -1)
+        if (PlayerPrefs.GetInt("Difficulty", -1) == -1)
         {
             interactionBlocker.SetActive(true);
             difficultySettings.SetActive(true);
