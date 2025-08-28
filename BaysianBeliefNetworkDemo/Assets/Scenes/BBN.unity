@@ -89119,9 +89119,9 @@ MonoBehaviour:
       previous queries.
     messageObjects:
     - {fileID: 1186323456}
-  - message: One at a time, add each season to the Evidence and check how the probability
-      changes. To remove a season, click off the Evidence checkbox. Make sure only
-      one season is selected at a time.
+  - message: Add each season to Evidence one at a time (click the box or press E
+      while hovering) and check how the probability changes. Make sure only one season
+      is selected at a time.
     messageObjects: []
   - message: Watch how the probability shifts. Does one season make Rain much more
       likely than others?
@@ -113429,8 +113429,9 @@ MonoBehaviour:
       the one under ''E'' is for evidence. When we check a query, we''re asking:
       "How often does this event happen?"'
     messageObjects: []
-  - message: Add Rain to the query and click 'Calculate.' The system will estimate
-      the probability of Rain occurring based on all available data in the network.
+  - message: "Add Rain to the query by clicking \"Q\" box or by hovering over the
+      node and pressing the \"Q\" key. Then click \u2018Calculate\u2019 to see the
+      estimated probability of Rain in the network."
     messageObjects: []
   tooltipMessages:
   - tooltipID: WinterNode
@@ -124736,6 +124737,7 @@ GameObject:
   - component: {fileID: 2029756923}
   - component: {fileID: 2029756924}
   - component: {fileID: 2029756926}
+  - component: {fileID: 2029756927}
   m_Layer: 0
   m_Name: Graph
   m_TagString: Untagged
@@ -124878,6 +124880,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   graph: {fileID: 2029756918}
   inputField: {fileID: 1028574029}
+--- !u!114 &2029756927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2029756917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38bb33c8ff9005c4a897120b2e4b75c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2031132774
 GameObject:
   m_ObjectHideFlags: 0

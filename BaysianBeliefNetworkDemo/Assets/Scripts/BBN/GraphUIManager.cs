@@ -15,12 +15,31 @@ public class GraphUIManager : MonoBehaviour
     private int numberOfNoises = 0;
     private AudioManager audioManager;
     private Graph graph;
+    private GraphActionRecorder graphActionRecorder;
     private string queryText;
 
     private void Start()
     {
         audioManager = FindObjectOfType<AudioManager>();
         graph = gameObject.GetComponent<Graph>();
+        graphActionRecorder = gameObject.GetComponent<GraphActionRecorder>();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Return)) graph.Sample();
+        if (Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.C)) graph.ClearGraph();
+        if (UndoButtonsPressded())
+        {
+            graphActionRecorder.Undo();
+            UpdateText();
+        }
+        if (RedoButtonsPressed())
+        {
+            graphActionRecorder.Redo();
+            Debug.Log(graph.GetPositiveQuery().Count);
+            UpdateText();
+        }
     }
 
     public void UpdateText(float probabilityValue=-1.0f)
@@ -107,5 +126,17 @@ public class GraphUIManager : MonoBehaviour
     {
         if (numberOfNoises++ < maxNumberOfNoises) audioManager.PlayEffect("Computation1");
         progressBar.value = newProgress;
+    }
+
+    private bool RedoButtonsPressed()
+    {
+        return (Input.GetKeyDown(KeyCode.Y) && (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl))) ||
+            (Input.GetKeyDown(KeyCode.Z) && (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) &&
+            (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl)));
+    }
+
+    private bool UndoButtonsPressded()
+    {
+        return Input.GetKeyDown(KeyCode.Z) && (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl));
     }
 }
