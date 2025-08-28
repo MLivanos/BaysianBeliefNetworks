@@ -92,6 +92,7 @@ public class GameManager : MonoBehaviour, ISceneDetectorTarget
         toInterviewButton.interactable = true;
         difficulty = gamemodeNumber;
         timeLimit.SetMaxValue(difficultyTimes[gamemodeNumber]);
+        timeProgress = difficultyTimes[gamemodeNumber];
         timeLimit.ResetProgress();
     }
 
