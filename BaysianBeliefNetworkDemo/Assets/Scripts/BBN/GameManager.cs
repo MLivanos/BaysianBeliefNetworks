@@ -20,6 +20,12 @@ public class GameManager : MonoBehaviour, ISceneDetectorTarget
     public static GameManager instance;
     private static float timeProgress;
 
+    public GameObject WarningPanel
+    {
+        get => warningPanel;
+        private set => warningPanel = value;
+    }
+
     public float TimeProgress() => timeProgress;
     public void SetTimeProgress(float progress){
         difficulty = PlayerPrefs.GetInt("Difficulty", 0);
@@ -33,6 +39,7 @@ public class GameManager : MonoBehaviour, ISceneDetectorTarget
         if (instance != null)
         {
             instance.TransferProgressBar(timeLimit);
+            instance.WarningPanel = WarningPanel;
             Destroy(gameObject);
             return;
         }
@@ -43,7 +50,7 @@ public class GameManager : MonoBehaviour, ISceneDetectorTarget
     private void Start()
     {
         gorilla = FindObjectOfType<EntropyGorilla>();
-        audioManager = FindObjectOfType<AudioManager>();
+        audioManager = AudioManager.instance;
         audioManager.ToSimpleMute();
         if (difficulty > 0)
         {

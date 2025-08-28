@@ -89,6 +89,7 @@ public class Graph : MonoBehaviour
 
     public void MigrateGraph()
     {
+        gameManager = GameManager.instance;
         List<Node> oldGraphNodes = instance.GetAllNodes();
         for(int i=0; i < allNodes.Count; i++)
         {
