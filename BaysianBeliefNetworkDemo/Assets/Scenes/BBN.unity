@@ -61828,8 +61828,8 @@ MonoBehaviour:
       you use it.
     messageObjects: []
   - message: "Now that you know the basics, let\u2019s get to why you\u2019re here.
-      Clear the current probability question by unchecking all checkboxes, or use
-      the Clear button (near the top left) to reset everything in one click."
+      Clear the current probability question by unchecking all checkboxes, using
+      the Clear button near the top left, or pressing the C key."
     messageObjects: []
   tooltipMessages: []
   isOrdered: 0
@@ -89121,7 +89121,7 @@ MonoBehaviour:
     - {fileID: 1186323456}
   - message: Add each season to Evidence one at a time (click the box or press E
       while hovering) and check how the probability changes. Make sure only one season
-      is selected at a time.
+      is selected at a time. <b>Tip:</b> Press Ctrl+Z to undo the last add/remove.
     messageObjects: []
   - message: Watch how the probability shifts. Does one season make Rain much more
       likely than others?
