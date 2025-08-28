@@ -233,4 +233,10 @@ public class SimulationManager : MonoBehaviour
             sunnyPlaylist.Reset();
         }
     }
+
+    public void SilenceScene()
+    {
+        AudioManager.instance.FadeOutMusic(0.5f);
+        AudioManager.instance.FadeOutSFX(0.5f);
+    }
 }
