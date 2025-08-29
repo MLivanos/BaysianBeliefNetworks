@@ -38,6 +38,11 @@ public class SimulationManager : MonoBehaviour
     private bool[] truthValues;
     private bool sceneSet;
 
+    private void Awake()
+    {
+        DynamicGI.UpdateEnvironment();
+    }
+
     private void Start()
     {
         graph = GameObject.Find("Graph").GetComponent<Graph>();

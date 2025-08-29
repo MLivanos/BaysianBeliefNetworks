@@ -187,7 +187,7 @@ public class GameManager : MonoBehaviour, ISceneDetectorTarget
 
     private void TransferProgressBar(CircularProgressBar bar)
     {
-        if (timeProgress == null) return;
+        if (timeLimit == null) return;
         timeLimit = bar;
         timeLimit.UpdateProgress(timeProgress);
     }
