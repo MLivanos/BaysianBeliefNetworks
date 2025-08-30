@@ -7662,8 +7662,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 214441789}
   m_HandleRect: {fileID: 214441788}
   m_Direction: 0
-  m_Value: -0.0000017619903
-  m_Size: 0.9755823
+  m_Value: 0.000003523956
+  m_Size: 0.9755822
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -9777,6 +9777,7 @@ GameObject:
   - component: {fileID: 762154871}
   - component: {fileID: 762154870}
   - component: {fileID: 762154873}
+  - component: {fileID: 762154874}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -9825,7 +9826,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1600
-  field of view: 60
+  field of view: 65.38409
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -9902,6 +9903,20 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &762154874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762154869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1100961f3c354ff498bc18af589a8fa7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  referenceVerticalFOV: 60
+  referenceAspect: 1.7777778
 --- !u!1 &777520431
 GameObject:
   m_ObjectHideFlags: 0
@@ -20346,7 +20361,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1138220297}
   m_HandleRect: {fileID: 1138220296}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:

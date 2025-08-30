@@ -10,7 +10,11 @@ public class ConstantHorizontalFOV : MonoBehaviour
     void Awake()
     {
         Camera cam = GetComponent<Camera>();
-        if (Mathf.Abs(cam.aspect - referenceAspect) < 0.001f) return;
+        if (Mathf.Abs(cam.aspect - referenceAspect) < 0.001f)
+        {
+            cam.fieldOfView = referenceVerticalFOV;
+            return;
+        }
         float hFOV = 2f * Mathf.Atan(Mathf.Tan(referenceVerticalFOV * Mathf.Deg2Rad / 2f) * referenceAspect);
         float vFOV = 2f * Mathf.Atan(Mathf.Tan(hFOV / 2f) / cam.aspect);
         cam.fieldOfView = vFOV * Mathf.Rad2Deg;
