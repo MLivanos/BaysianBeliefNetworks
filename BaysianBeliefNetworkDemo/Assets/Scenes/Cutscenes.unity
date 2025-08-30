@@ -54079,7 +54079,7 @@ MonoBehaviour:
   cameraMark: {fileID: 1301991090}
   needsPrewarm: 0
   skyMaterial: {fileID: 2100000, guid: 171e6ee74c4706e408c3ae23b55f467f, type: 2}
-  ambientIntensity: 1.5
+  ambientIntensity: 1.75
   text: We used to stare at the stars wondering if we were alone.... or was someone
     looking back, wondering the same thing?
   fadeInPanel: 1
@@ -384653,7 +384653,7 @@ Camera:
     height: 1
   near clip plane: 0.03
   far clip plane: 1000
-  field of view: 60
+  field of view: 65.33675
   orthographic: 0
   orthographic size: 5
   m_Depth: 1
