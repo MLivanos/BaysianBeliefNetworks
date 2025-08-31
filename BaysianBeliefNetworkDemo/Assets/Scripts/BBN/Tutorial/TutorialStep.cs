@@ -104,14 +104,24 @@ public class TutorialStep : MonoBehaviour, IQuestParent
 			typewriterEffect.Clear();
 			typewriterEffect.UpdateText(tutorialMessages[i].Message);
 
-			yield return new WaitUntil(() => !Input.GetMouseButton(0));
-			yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
+			yield return WaitForClick();
+			if (typewriterEffect.gameObject.activeInHierarchy && typewriterEffect.IsTyping())
+			{
+				typewriterEffect.Interrupt();
+				yield return WaitForClick();
+			}
 
 			tutorialMessages[i].ToggleObjects(false);
 		}
 
 		messagePanel.SetActive(false);
 		tutorialManager.BlockInteractions(false);
+	}
+
+	private IEnumerator WaitForClick()
+	{
+		yield return new WaitUntil(() => !Input.GetMouseButton(0));
+		yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
 	}
 
 

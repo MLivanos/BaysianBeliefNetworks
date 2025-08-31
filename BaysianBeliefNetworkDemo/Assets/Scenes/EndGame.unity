@@ -1333,8 +1333,8 @@ MonoBehaviour:
   skyMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   ambientIntensity: 1.5
   text: Renowned for its insights and forging a lasting legacy, the report set the
-    stage for a remarkable career together. The two remained frequent coathors as
-    thier friendship flourished. Their names, once joined on academic papers, eventually
+    stage for a remarkable career together. The two remained frequent coauthors as
+    their friendship flourished. Their names, once joined on academic papers, eventually
     adorned holiday cards, legal documents, and family keepsakes.
   fadeInPanel: 0
   fadeInTime: 0
@@ -20670,7 +20670,7 @@ MonoBehaviour:
     professional bond. Kayla\u2019s research and Celeste\u2019s storytelling combined
     to create a legacy that neither could have achieved alone. The pair emerged as
     successful professionals and lifelong friends, frequently publishing papers together
-    and forever grateful for their first-joint publication."
+    and forever grateful for their first joint publication."
   fadeInPanel: 0
   fadeInTime: 0
   textPanelOpacity: 160
@@ -76341,7 +76341,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 1000
-  field of view: 60
+  field of view: 65.33675
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -147420,7 +147420,7 @@ MonoBehaviour:
     and keen intuition. Shortly after its acceptance, your paper passes through hallowed
     halls and skeptical hands, landing on the desks of scientists and world leaders,
     all with the same question in mind: have you uncovered the truth, or will it
-    all unravel under the weight scientific scrutiny?'
+    all unravel under the weight of scientific scrutiny?'
   fadeInPanel: 0
   fadeInTime: 0
   textPanelOpacity: 160
@@ -151739,11 +151739,11 @@ MonoBehaviour:
   needsPrewarm: 0
   skyMaterial: {fileID: 2100000, guid: 73324b55f67f54c7bbf43204788b8bbe, type: 2}
   ambientIntensity: 1.5
-  text: "Our extraterrestrial visitors extended a hand of friendship, sharing advancements
+  text: "Our extraterrestrial visitors extend a hand of friendship, sharing advancements
     that launched humanity into a golden age of progress. Within months, diseases
     were cured, famines were ended, and fossil fuels became a relic of the past.
-    Beyond the technological marvels, the aliens\u2019 presence showed humanity of
-    the power of cooperation, inspiring a brighter, united future."
+    Beyond the technological marvels, the aliens\u2019 presence showed humanity the
+    power of cooperation, inspiring a brighter, united future."
   fadeInPanel: 0
   fadeInTime: 0
   textPanelOpacity: 160
@@ -185894,7 +185894,7 @@ MonoBehaviour:
   ambientIntensity: 0
   text: Under the weight of mistrust - a sentiment your paper encouraged - humanity
     united to drive the aliens away. The true extent of whatever knowledge or harm
-    they might have brought will remain forever unknown, possibilities disappear
+    they might have brought will remain forever unknown, possibilities disappearing
     with the trails of their departing ships.
   fadeInPanel: 0
   fadeInTime: 0
