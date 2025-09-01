@@ -2350,13 +2350,13 @@ MonoBehaviour:
   - circle6
   - circle7
   undrawNoises:
-  - circleReversed1
-  - circleReversed2
-  - circleReversed3
-  - circleReversed4
-  - circleReversed5
-  - circleReversed6
-  - circleReversed7
+  - reversedCircle1
+  - reversedCircle2
+  - reversedCircle3
+  - reversedCircle4
+  - reversedCircle5
+  - reversedCircle6
+  - reversedCircle7
 --- !u!1001 &213303953
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7662,8 +7662,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 214441789}
   m_HandleRect: {fileID: 214441788}
   m_Direction: 0
-  m_Value: 0.000003523956
-  m_Size: 0.9755822
+  m_Value: -0.0000070479614
+  m_Size: 0.9755823
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -9073,13 +9073,13 @@ MonoBehaviour:
   - circle6
   - circle7
   undrawNoises:
-  - circleReversed1
-  - circleReversed2
-  - circleReversed3
-  - circleReversed4
-  - circleReversed5
-  - circleReversed6
-  - circleReversed7
+  - reversedCircle1
+  - reversedCircle2
+  - reversedCircle3
+  - reversedCircle4
+  - reversedCircle5
+  - reversedCircle6
+  - reversedCircle7
 --- !u!1 &739244080
 GameObject:
   m_ObjectHideFlags: 0
@@ -9826,7 +9826,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1600
-  field of view: 65.38409
+  field of view: 65.39716
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -20361,7 +20361,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1138220297}
   m_HandleRect: {fileID: 1138220296}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
