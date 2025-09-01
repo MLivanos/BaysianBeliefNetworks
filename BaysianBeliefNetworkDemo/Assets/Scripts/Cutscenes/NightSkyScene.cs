@@ -20,6 +20,7 @@ public class NightSkyScene : IntroCutscene
     protected override IEnumerator PlayScene()
     {
         yield return FadeInFromWhite();
+        DynamicGI.UpdateEnvironment();
         yield return StartShootingStars();
         yield return DisplayText();
         yield return SlideOutCamera();
