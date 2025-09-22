@@ -4274,7 +4274,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'No, back
 
-    to the graph'
+    to the game'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a85a5fb20be32c74e8b4a078e736f5ab, type: 2}
   m_sharedMaterial: {fileID: -8262044034710385518, guid: a85a5fb20be32c74e8b4a078e736f5ab,
@@ -19915,7 +19915,6 @@ RectTransform:
   m_Children:
   - {fileID: 403150015}
   - {fileID: 1584084278}
-  - {fileID: 1707161231}
   m_Father: {fileID: 2094505752}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -23113,11 +23112,11 @@ RectTransform:
   - {fileID: 793246258}
   - {fileID: 1605943823}
   - {fileID: 555770840}
-  m_Father: {fileID: 1485900104}
+  m_Father: {fileID: 2094505752}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 384.88794, y: -154.11864}
+  m_AnchoredPosition: {x: 0.00021362305, y: 3.881363}
   m_SizeDelta: {x: 100, y: 140}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1729686585
@@ -27189,6 +27188,7 @@ RectTransform:
   - {fileID: 969566835}
   - {fileID: 274079241}
   - {fileID: 1657395763}
+  - {fileID: 1707161231}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
