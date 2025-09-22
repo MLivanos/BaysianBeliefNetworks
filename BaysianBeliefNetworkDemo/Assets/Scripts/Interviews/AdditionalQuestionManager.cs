@@ -31,7 +31,7 @@ public class AdditionalQuestionManager : MonoBehaviour
 	    { "RainNode", "raining" },
 	    { "CloudNode", "cloudy" },
 	    { "HighWindNode", "windy" },
-	    { "APDNode", "feeling heavy in the air"},
+	    { "AtmosphericPressureDropNode", "feeling heavy in the air"},
 	    { "PowerOutageNode", "in the middle of a power outage" },
 	    { "BusyNode", "a busy day" },
 	    { "CafeNode", "business as usual at the cafe" },
@@ -46,7 +46,7 @@ public class AdditionalQuestionManager : MonoBehaviour
 	    { "RainNode", "dry out" },
 	    { "CloudNode", "clear skies" },
 	    { "HighWindNode", "calm air" },
-	    { "APDNode", "stable pressure" },
+	    { "AtmosphericPressureDropNode", "stable pressure" },
 	    { "PowerOutageNode", "business as usual at the power plant" },
 	    { "BusyNode", "a slow day" },
 	    { "CafeNode", "sad to see the cafe was closed" },
@@ -86,6 +86,7 @@ public class AdditionalQuestionManager : MonoBehaviour
 	    bool value = GenerateBoolValue(category);
 	    string description = GetDescriptionForNode(chosen, value);
 
+	    eventDrawer.AdjustForAdditionalEvent();
 	    eventDrawer.AddEventToRawText(chosen.node, description, value);
 	    PresentFollowupResult(chosen.node, value);
 	}

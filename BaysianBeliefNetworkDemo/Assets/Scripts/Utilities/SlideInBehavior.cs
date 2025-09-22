@@ -48,6 +48,7 @@ public class SlideInBehavior : MonoBehaviour
     [SerializeField] private bool staticX;
     [SerializeField] private bool staticY;
     [SerializeField] private bool staticZ;
+    private Coroutine currentSlide;
 
     private IPositionable positionable;
 
@@ -81,12 +82,12 @@ public class SlideInBehavior : MonoBehaviour
     public void BeginSlideIn()
     {
         if (dynamicStart) startPosition = SetStaticAxes(positionable.Position);
-        StartCoroutine(Slide(true));
+        currentSlide = StartCoroutine(Slide(true));
     }
 
     public void BeginSlideOut()
     {
-        StartCoroutine(Slide(false));
+        currentSlide = StartCoroutine(Slide(false));
     }
 
     public IEnumerator Slide(bool slideIn)
@@ -113,5 +114,10 @@ public class SlideInBehavior : MonoBehaviour
     public float GetDuration()
     {
         return eventDuration;
+    }
+
+    public void Interupt()
+    {
+        if (currentSlide != null) StopCoroutine(currentSlide);
     }
 }

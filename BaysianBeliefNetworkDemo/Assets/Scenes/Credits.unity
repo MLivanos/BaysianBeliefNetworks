@@ -371,10 +371,10 @@ RectTransform:
   - {fileID: 1699152672}
   m_Father: {fileID: 1922557889}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 178.46155}
-  m_SizeDelta: {x: 370, y: 100}
+  m_AnchorMin: {x: 0.5, y: 0.3}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: 122.23076}
+  m_SizeDelta: {x: 370, y: -192.46152}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &42007256
 MonoBehaviour:
@@ -917,9 +917,9 @@ MonoBehaviour:
   - {fileID: 2030507915}
   - {fileID: 2027596064}
   - {fileID: 17679400}
-  scrollSpeed: 28
+  scrollSpeed: 28.5
   scrollSpeedMultiplier: 5
-  stopHeight: 225
+  stopHeight: 315
 --- !u!4 &177567580
 Transform:
   m_ObjectHideFlags: 0
@@ -948,6 +948,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadingText: {fileID: 0}
+  loadingObject: {fileID: 0}
 --- !u!114 &177567582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1123,27 +1124,28 @@ MonoBehaviour:
   m_text: "<size=125%><b>A Game By</b></size>  \r\n<size=175%>Michael Livanos</size>\r\n\r\n<size=20%>
     </size>  \r\n<size=140%><b>With Special Thanks To:</b></size>  \r\n\r\n<size=40%>
     </size>  \r\n<size=140%>My Playtesters</size>  \r\nFor helping shape the game
-    into what it is\r\n\r\n<size=20%> </size>  \r\n<size=140%>The Independent Studios
-    Whose Work I Licensed</size>  \r\nFor providing many of the art assets on display\r\n\r\n<size=20%>
-    </size>  \r\n<size=140%>Ovani Sound</size>  \r\nFor crafting the soundtrack that
-    set the tone of adventure\r\n\r\n<size=120%><b>Ovani Sound Tracklist</b></size> 
-    \r\nAmbient \u2013 Nothingness  \r\nChiptune \u2013 Fun  \r\nChiptune \u2013
-    Vanquish  \r\nChiptune \u2013 Urgent  \r\nChiptune \u2013 Summer  \r\nChiptune
-    \u2013 Happy  \r\nChiptune \u2013 Ricochet  \r\nChiptune \u2013 Complete  \r\nChiptune
-    \u2013 Castle\r\nChiptune \u2013 Action Mysterious  \r\nChiptune \u2013 Candy\r\nChiptune
-    \u2013 Hero Complex\r\nChiptune - Limbo\r\nChiptune - Qwerty  \r\nLofi \u2013
-    Alone\r\nLofi - A Serious Matter\r\nLofi \u2013 Broken  \r\nLofi \u2013 Calm 
-    \r\nLofi \u2013 Floating  \r\nLofi \u2013 Melancholic Drive  \r\nLofi \u2013
-    Raindrops  \r\nLofi \u2013 Winter Chill  \r\nLofi \u2013 Caf\xE9 De Bard  \r\nLofi
-    \u2013 Joyride  \r\nLofi \u2013 Milky Tea  \r\nLofi \u2013 In The Haze  \r\nLofi
-    \u2013 Fade Away\r\nLofi \u2013 Butterflight  \r\nLofi \u2013 Joyride\r\nLofi
-    \u2013 Skate Home\r\nSynthpop \u2013 Food Court  \r\nSynthpop \u2013 Martini\r\nSynthpop
-    \u2013 Most Wanted  \r\nSynthpop \u2013 First Flight  \r\nSynthpop \u2013 Funky\r\n\r\n<size=40%>
+    into what it is\r\n\r\n<size=20%> </size>  \r\n<size=140%>Many Independent Art
+    Studios</size>\r\nFor the licensed assets that helped bring this world to life\r\n\r\n<size=20%>
+    </size>  \r\n<size=140%>The Independent Music Studios</size>  \r\nWhose licensed
+    music set the tone of adventure\r\n\r\n<size=20%> </size>  \r\n<size=120%>Ovani
+    Sound</size>  \r\n\r\n<size=120%><b>Tracklist</b></size>  \r\nAmbient \u2013
+    Nothingness  \r\nChiptune \u2013 Chilled Fun  \r\nChiptune \u2013 Vanquish  \r\nChiptune
+    \u2013 Urgent  \r\nChiptune \u2013 Summer  \r\nChiptune \u2013 Happy  \r\nChiptune
+    \u2013 Ricochet  \r\nChiptune \u2013 Complete  \r\nChiptune \u2013 Castle\r\nChiptune
+    \u2013 Mysterious  \r\nChiptune \u2013 Candy\r\nChiptune \u2013 Hero Complex\r\nChiptune
+    - Limbo\r\nChiptune - Qwerty  \r\nLofi - A Serious Matter\r\nLofi \u2013 Caf\xE9
+    De Bard  \r\nLofi \u2013 Joyride  \r\nLofi \u2013 Milky Tea  \r\nLofi \u2013
+    Butterflight  \r\nLofi \u2013 Skate Home\r\nSynthpop \u2013 Food Court  \r\nSynthpop
+    \u2013 Martini\r\nSynthpop \u2013 Most Wanted  \r\nSynthpop \u2013 First Flight 
+    \r\nSynthpop \u2013 Funky Dunk\r\n\r\n<size=20%> </size>  \r\n<size=120%>Composer
+    Squad</size>  \r\n\r\n<size=120%><b>Tracklist</b></size> \r\n\r\nLofi \u2013
+    Alone\r\nLofi \u2013 Broken  \r\nLofi \u2013 Calm  \r\nLofi \u2013 Floating 
+    \r\nLofi \u2013 Melancholic Drive  \r\nLofi \u2013 Raindrops  \r\nLofi \u2013
+    Winter Chill\r\nLofi \u2013 In The Haze  \r\nLofi \u2013 Fade Away\r\n\r\n<size=40%>
     </size>  \r\n<size=140%>My Students</size>  \r\nFor your curiosity, imagination,\r\nand
     support.  \r\nYou are the reason this\r\nproject exists.  \r\nI hope it inspires
     you as much as\r\nyou inspire me.\r\n\r\n<size=40%> </size>  \r\n<size=140%>You</size> 
-    \r\nFor giving this game a chance.  \r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n<size=40%>
-    </size>  \r\n<size=125%>Thank you for playing!</size>\r\n"
+    \r\nFor giving this game a chance.  "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a85a5fb20be32c74e8b4a078e736f5ab, type: 2}
   m_sharedMaterial: {fileID: -8262044034710385518, guid: a85a5fb20be32c74e8b4a078e736f5ab,
@@ -1540,17 +1542,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 681616313}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1922557889}
+  m_Father: {fileID: 1801137610}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 800, y: 450}
+  m_SizeDelta: {x: 0, y: 0.000030517578}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &681616315
 MonoBehaviour:
@@ -1616,7 +1618,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &738377847
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1624,17 +1626,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 738377846}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1922557889}
+  m_Father: {fileID: 1801137610}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 800, y: 450}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -441, y: -275.5}
+  m_SizeDelta: {x: -82.00008, y: -101.00004}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &738377848
 MonoBehaviour:
@@ -2270,6 +2272,7 @@ GameObject:
   - component: {fileID: 1348926550}
   - component: {fileID: 1348926549}
   - component: {fileID: 1348926552}
+  - component: {fileID: 1348926553}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2318,7 +2321,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 65.33675
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -2395,6 +2398,20 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &1348926553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1348926548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1100961f3c354ff498bc18af589a8fa7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  referenceVerticalFOV: 60
+  referenceAspect: 1.7777778
 --- !u!1 &1461663350
 GameObject:
   m_ObjectHideFlags: 0
@@ -2438,7 +2455,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -1700}
+  m_AnchoredPosition: {x: 0, y: -1705}
   m_SizeDelta: {x: 325, y: 3100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1463857732
@@ -3232,7 +3249,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -5}
   m_SizeDelta: {x: 400, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1699152673
@@ -3405,6 +3422,109 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1726145122}
   m_CullTransparentMesh: 1
+--- !u!1 &1801137606
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1801137610}
+  - component: {fileID: 1801137609}
+  - component: {fileID: 1801137608}
+  - component: {fileID: 1801137607}
+  m_Layer: 5
+  m_Name: BackgroundCanvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1801137607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801137606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &1801137608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801137606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
+--- !u!223 &1801137609
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801137606}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!224 &1801137610
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801137606}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 738377847}
+  - {fileID: 681616314}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
 --- !u!1001 &1872795667
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3734,10 +3854,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 738377847}
   - {fileID: 1461663351}
   - {fileID: 42007255}
-  - {fileID: 681616314}
   - {fileID: 2030507914}
   - {fileID: 467133284}
   m_Father: {fileID: 0}
@@ -4276,3 +4394,4 @@ SceneRoots:
   - {fileID: 1696062408}
   - {fileID: 177567580}
   - {fileID: 840113359}
+  - {fileID: 1801137610}

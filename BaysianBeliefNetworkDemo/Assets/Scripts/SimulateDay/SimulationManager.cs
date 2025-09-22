@@ -38,6 +38,11 @@ public class SimulationManager : MonoBehaviour
     private bool[] truthValues;
     private bool sceneSet;
 
+    private void Awake()
+    {
+        DynamicGI.UpdateEnvironment();
+    }
+
     private void Start()
     {
         graph = GameObject.Find("Graph").GetComponent<Graph>();
@@ -232,5 +237,11 @@ public class SimulationManager : MonoBehaviour
             overcastPlaylist.Pause();
             sunnyPlaylist.Reset();
         }
+    }
+
+    public void SilenceScene()
+    {
+        AudioManager.instance.FadeOutMusic(0.5f);
+        AudioManager.instance.FadeOutSFX(0.5f);
     }
 }

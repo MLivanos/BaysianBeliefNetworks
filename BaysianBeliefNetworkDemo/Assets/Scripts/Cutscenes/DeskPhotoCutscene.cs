@@ -9,6 +9,7 @@ public class DeskPhotoCutscene : IntroCutscene
     [SerializeField] private SlideInBehavior[] photoSlideOuts;
     [SerializeField] private SlideInBehavior transitionPicture;
     [SerializeField] private SlideInBehavior transitionCameraSlide;
+    private bool isInterrupted = false;
 
     protected override IEnumerator PlayScene()
     {
@@ -17,31 +18,34 @@ public class DeskPhotoCutscene : IntroCutscene
         foreach(SlideInBehavior photo in photoSlides)
         {
             audioManager.PlayEffect("PhotoSlide" + index++.ToString());
-            photo.BeginSlideIn();
+            if (!isInterrupted) photo.BeginSlideIn();
             yield return new WaitForSeconds(photo.GetDuration());
         }
+        if (isInterrupted) yield break;
         yield return ViewPanel();
         AnimateText();
     }
 
     public override void Interrupt()
     {
+        isInterrupted = true;
         foreach(SlideInBehavior photo in photoSlides)
         {
+            photo.Interupt();
             photo.SetAtTerminalPoint(false);
         }
     }
 
     protected override IEnumerator ExitTransition()
     {
-        int index = 4;
+        int index = 3;
         foreach(SlideInBehavior photo in photoSlideOuts)
         {
-            audioManager.PlayEffect("PhotoSlide" + index++.ToString());
+            audioManager.PlayEffect("PhotoSlide" + ((index++%6)+1).ToString());
             photo.BeginSlideIn();
             yield return new WaitForSeconds(photo.GetDuration());
         }
-        audioManager.PlayEffect("PhotoSlide11");
+        audioManager.PlayEffect("PhotoSlide1");
         transitionPicture.BeginSlideIn();
         yield return new WaitForSeconds(transitionPicture.GetDuration());
         transitionCameraSlide.BeginSlideIn();

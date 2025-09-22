@@ -52,6 +52,7 @@ public class InterviewManager : MonoBehaviour
         questionSequence = questionsByDifficulty[PlayerPrefs.GetInt("Difficulty", 1)].questionSequence;
         questionsRemaining = questionSequence.Count;
         GetComponents();
+        UpdateCounter();
         StartCoroutine(InstantiateManager());
         Advance();
     }
@@ -85,6 +86,7 @@ public class InterviewManager : MonoBehaviour
                 float eventProbability = calculator.CalculateProbability(0.99f, 20, 10, 2.576f);
                 recorder.AddEntry(eventDrawer.GetEventEvidence(), eventProbability, lastEventBelieved, eventDrawer.GetAggression());
                 if (--questionsRemaining == 0) EndInterviews();
+                UpdateCounter();
                 break;
             default:
                 break;
@@ -160,5 +162,10 @@ public class InterviewManager : MonoBehaviour
             else if (playerAccuracy < 0.2f) return -2;
         }
         return 0;
+    }
+
+    private void UpdateCounter()
+    {
+        uiManager.UpdateCounter(questionSequence.Count-questionsRemaining, questionSequence.Count);
     }
 }

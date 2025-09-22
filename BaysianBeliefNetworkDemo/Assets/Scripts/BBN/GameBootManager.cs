@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using System.IO;
 
@@ -9,6 +10,7 @@ public class GameBootManager : MonoBehaviour
     [SerializeField] private List<ButtonFontChangeEffect> buttonFontEffects;
     [SerializeField] private List<PlayButtonGlitch> glitches;
     [SerializeField] private string saveFileName = "savegame.json";
+    [SerializeField] private List<string> objectsToPersist;
     private AudioManager audioManager;
     private TransitionToCutscenes transitionEffect;
     private SceneManagerScript sceneManager;
@@ -42,6 +44,7 @@ public class GameBootManager : MonoBehaviour
         if (saveSystem != null) saveSystem.DeleteSaveData();
         if (restartManager != null) restartManager.ResetPlayerPrefs();
         loadMenuCanvas.SetActive(false);
+        ClearDontDestroyOnLoad();
         PlayIntroSequence();
     }
 
@@ -58,5 +61,23 @@ public class GameBootManager : MonoBehaviour
         foreach(ButtonFontChangeEffect buttonFontEffect in buttonFontEffects) buttonFontEffect.Click();
         foreach(PlayButtonGlitch glitch in glitches) glitch.TriggerGlitch();
         loadMenuCanvas.SetActive(false);
+    }
+
+    public void ClearDontDestroyOnLoad()
+    {
+        Scene ddol = GetDontDestroyOnLoadScene();
+        foreach (GameObject go in ddol.GetRootGameObjects())
+        {
+            if (!objectsToPersist.Contains(go.name)) Destroy(go);
+        }
+    }
+
+    private Scene GetDontDestroyOnLoadScene()
+    {
+        var temp = new GameObject("__ddol_probe__");
+        DontDestroyOnLoad(temp);
+        Scene ddolScene = temp.scene;
+        Object.Destroy(temp);
+        return ddolScene;
     }
 }

@@ -34,6 +34,7 @@ public class CutsceneManager : MonoBehaviour
         sceneManager = GetComponent<SceneManagerScript>();
         textPanel.SetActive(false);
         currentCoroutine = StartCoroutine(PlayNextScene());
+        DynamicGI.UpdateEnvironment();
         audioManager.FadeInMusicAndAmbient(cutscenes[0].GetMusic(), cutscenes[0].GetFadeSoundTime());
     }
 
@@ -41,6 +42,7 @@ public class CutsceneManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            audioManager.FadeOutMusic(0.5f);
             sceneManager.StartGame();
         }
         if (Input.GetMouseButtonDown(0))

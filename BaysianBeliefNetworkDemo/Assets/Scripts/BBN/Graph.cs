@@ -26,6 +26,7 @@ public class Graph : MonoBehaviour
     private List<Node> negativeQuery;
     private List<Node> positiveEvidence;
     private List<Node> negativeEvidence;
+    private GraphActionRecorder graphActionRecorder;
     public static Graph instance;
     bool isNegative;
     float lastProbability;
@@ -60,6 +61,7 @@ public class Graph : MonoBehaviour
         samplers[2] = GetComponent<GibbsSampler>();
         samplers[3] = GetComponent<HamiltonianSampler>();
         graphUIManager = GetComponent<GraphUIManager>();
+        graphActionRecorder = GetComponent<GraphActionRecorder>();
         currentSampler = samplers[0];
     }
 
@@ -87,6 +89,7 @@ public class Graph : MonoBehaviour
 
     public void MigrateGraph()
     {
+        gameManager = GameManager.instance;
         List<Node> oldGraphNodes = instance.GetAllNodes();
         for(int i=0; i < allNodes.Count; i++)
         {
@@ -119,36 +122,40 @@ public class Graph : MonoBehaviour
         if (positiveEvidence.Any(n => n == node) || negativeEvidence.Any(n => n == node)) checks.SwitchEvidence();
     }
 
-    public void AddToQuery(Node node, bool isTrue)
+    public void AddToQuery(Node node, bool isTrue, bool record=true)
     {
         List<Node> relevantList = isTrue ? positiveQuery : negativeQuery;
         relevantList.Add(node);
         GetComponent<LikelihoodWeightingSampler>().Reset();
+        if(record) graphActionRecorder.RecordAddQuery(node, isTrue);
     }
 
-    public void AddToEvidence(Node node, bool isTrue)
+    public void AddToEvidence(Node node, bool isTrue, bool record=true)
     {
         List<Node> relevantList = isTrue ? positiveEvidence : negativeEvidence;
         relevantList.Add(node);
         GetComponent<LikelihoodWeightingSampler>().Reset();
         GetComponent<GibbsSampler>().Reset();
         GetComponent<HamiltonianSampler>().Reset();
+        if(record) graphActionRecorder.RecordAddEvidence(node, isTrue);
     }
 
-    public void RemoveFromEvidence(Node node)
+    public void RemoveFromEvidence(Node node, bool record=true)
     {
         List<Node> relevantList = negativeEvidence.Any(n => n == node) ? negativeEvidence : positiveEvidence;
         relevantList.Remove(node);
         GetComponent<LikelihoodWeightingSampler>().Reset();
         GetComponent<GibbsSampler>().Reset();
         GetComponent<HamiltonianSampler>().Reset();
+        if(record) graphActionRecorder.RecordRemoveEvidence(node);
     }
 
-    public void RemoveFromQuery(Node node)
+    public void RemoveFromQuery(Node node, bool record=true)
     {
         List<Node> relevantList = negativeQuery.Any(n => n == node) ? negativeQuery : positiveQuery;
         relevantList.Remove(node);
         GetComponent<LikelihoodWeightingSampler>().Reset();
+        if(record) graphActionRecorder.RecordRemoveQuery(node);
     }
 
     public void Sample()
@@ -223,6 +230,7 @@ public class Graph : MonoBehaviour
     public void ClearGraph()
     {
         UncheckAllCheckboxes(graphUI);
+        graphActionRecorder.ClearHistory();
         positiveQuery.Clear();
         negativeQuery.Clear();
         positiveEvidence.Clear();

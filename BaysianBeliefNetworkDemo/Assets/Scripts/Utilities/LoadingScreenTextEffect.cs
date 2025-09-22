@@ -9,6 +9,11 @@ public class LoadingScreenTextEffect : MonoBehaviour
 	[SerializeField] private string message = "LOADING";
 	[SerializeField] private bool fadeIn;
 
+	private void Awake()
+	{
+		if (loadingText == null) loadingText = GetComponent<TMP_Text>();
+	}
+
 	public void ChangeMessage(string newMessage)
 	{
 		message = newMessage;

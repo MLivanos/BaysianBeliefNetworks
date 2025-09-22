@@ -41,10 +41,11 @@ public class SamplingRecord
         List<string> evidenceTerms = new List<string>();
         evidenceTerms.AddRange(positiveEvidence);
         evidenceTerms.AddRange(negativeEvidence.Select(n => $"¬{n}"));
+        string givenCharacter = evidenceTerms.Count > 0 ? " | " : "";
 
         string Format(List<string> list) => string.Join(", ", list.OrderBy(s => s));
 
-        return $"P({Format(queryTerms)} | {Format(evidenceTerms)})";
+        return $"P({Format(queryTerms)}{givenCharacter}{Format(evidenceTerms)})";
     }
 
     public string FormatSampleCount()
@@ -114,14 +115,23 @@ public class SamplingHistory : MonoBehaviour
 
     public void SetHistoryText(string newText)
     {
-        if (historyText == null) historyText = GameObject.FindWithTag("HistoryText").GetComponent<TextMeshProUGUI>();
+        CheckForHistoryText();
         historyText.text = newText;
     }
-    public string GetHistoryText() => historyText.text;
+    public string GetHistoryText()
+    {
+        CheckForHistoryText();
+        return historyText.text;
+    }
 
     public void ClearHistory()
     {
         history.Clear();
+    }
+
+    private void CheckForHistoryText()
+    {
+        if (historyText == null) historyText = GameObject.FindWithTag("HistoryText").GetComponent<TextMeshProUGUI>();
     }
 
 }

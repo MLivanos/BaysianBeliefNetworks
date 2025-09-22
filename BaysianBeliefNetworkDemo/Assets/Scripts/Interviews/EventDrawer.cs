@@ -45,6 +45,7 @@ public class EventDrawer : MonoBehaviour
     private HashSet<string> evidenceCollected = new HashSet<string>();
     private string rawEventDescription = "";
     private string rawEventEvidence = "";
+    private bool toRemoveComma = false;
 
     /// <summary>
     /// Initializes the event drawer by building the event dictionary and populating the lists of events.
@@ -235,6 +236,11 @@ public class EventDrawer : MonoBehaviour
         evidenceCollected.Add(node.GetName());
         rawEventEvidence += (eventOccurs ? "" : "¬") + node.GetAbriviation() + ",";
         eventCount++;
+        if (toRemoveComma)
+        {
+            TruncateTrailingComma();
+            toRemoveComma = false;
+        }
     }
 
     private void AddAggressionDescription()
@@ -257,6 +263,12 @@ public class EventDrawer : MonoBehaviour
         };
 
         return pool;
+    }
+
+    public void AdjustForAdditionalEvent()
+    {
+        rawEventEvidence += ',';
+        toRemoveComma = true;
     }
 
     public string GetEventDescription() => rawEventDescription;

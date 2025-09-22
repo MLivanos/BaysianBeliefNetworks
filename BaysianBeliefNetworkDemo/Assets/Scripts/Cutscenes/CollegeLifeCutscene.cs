@@ -6,6 +6,7 @@ public class CollegeLifeCutscene : IntroCutscene
 {
 	[SerializeField] private GameObject solidLine;
 	[SerializeField] private GameObject brokenLine;
+    [SerializeField] private Transform localCanvas;
 	[SerializeField] private float timeBeforeText;
     [SerializeField] private GameObject leavingScene;
     [SerializeField] private Camera collegeCamera;
@@ -41,6 +42,7 @@ public class CollegeLifeCutscene : IntroCutscene
 
     protected override IEnumerator ExitTransition()
     {
+        brokenLine.GetComponent<RectTransform>().SetParent(localCanvas, false);
         foreach(GameObject directionalLight in directionalLights)
         {
             directionalLight.SetActive(false);

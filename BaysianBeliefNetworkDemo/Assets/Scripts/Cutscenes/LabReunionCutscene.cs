@@ -7,6 +7,7 @@ public class LabReunionCutscene : IntroCutscene
     [SerializeField] private float timeBeforeSound;
     [SerializeField] private float timeBeforeText;
     [SerializeField] private SlideInBehavior cameraSlide;
+    [SerializeField] private FadableTextMeshPro loadingText;
 
 	protected override IEnumerator PlayScene()
     {
@@ -25,6 +26,7 @@ public class LabReunionCutscene : IntroCutscene
     protected override IEnumerator ExitTransition()
     {
         cameraSlide.BeginSlideIn();
+        loadingText.SetAlpha(1f);
         yield return new WaitForSeconds(cameraSlide.GetDuration());
     }
 }

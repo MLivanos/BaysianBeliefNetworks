@@ -38,6 +38,7 @@ public class TutorialStep : MonoBehaviour, IQuestParent
     private TypewriterEffect typewriterEffect;
     private GameObject messagePanel;
     private Coroutine clickthroughText;
+    private Coroutine giveAdvanceInstructions;
     private FadableTextMeshPro completionText;
     private Button advanceButton;
 	private int questsCompleted = 0;
@@ -97,22 +98,30 @@ public class TutorialStep : MonoBehaviour, IQuestParent
 		yield return null;
 
 		messageID = 0;
-		while (messageID <= tutorialMessages.Count)
+		for (int i = 0; i < tutorialMessages.Count; i++)
 		{
-			if (messageID-1 >= 0) tutorialMessages[messageID-1].ToggleObjects(false);
-			if (messageID < tutorialMessages.Count)
+			tutorialMessages[i].ToggleObjects(true);
+			typewriterEffect.Clear();
+			typewriterEffect.UpdateText(tutorialMessages[i].Message);
+
+			yield return WaitForClick();
+			if (typewriterEffect.gameObject.activeInHierarchy && typewriterEffect.IsTyping())
 			{
-				tutorialMessages[messageID].ToggleObjects(true);
-				typewriterEffect.Clear();
-				typewriterEffect.UpdateText(tutorialMessages[messageID].Message);
+				typewriterEffect.Interrupt();
+				yield return WaitForClick();
 			}
-			messageID++;
-			yield return new WaitForSeconds(0.05f);
-			yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
+
+			tutorialMessages[i].ToggleObjects(false);
 		}
 
 		messagePanel.SetActive(false);
 		tutorialManager.BlockInteractions(false);
+	}
+
+	private IEnumerator WaitForClick()
+	{
+		yield return new WaitUntil(() => !Input.GetMouseButton(0));
+		yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
 	}
 
 
@@ -137,12 +146,15 @@ public class TutorialStep : MonoBehaviour, IQuestParent
 	{
 		messageID = 0;
 		advanceButton.interactable = true;
+		giveAdvanceInstructions = StartCoroutine(DisplayAdvanceInstructions());
 		dropdownList.Peep();
 	}
 
 	public void ClearObjectives()
 	{
 		objectiveSpawner.ClearObjectives();
+		StopAdvanceInstruction();
+		completionText.SetAlpha(0f);
 		ChangeHighlight(false);
 	}
 
@@ -159,9 +171,7 @@ public class TutorialStep : MonoBehaviour, IQuestParent
 	{
 		if (stepComplete) audioManager.PlayEffect("Success2");
 		else audioManager.PlayEffect("Success");
-		completionText.SetText("Completed:\n" + questText);
-		completionText.SetAlpha(0f);
-		completionText.FadeIn(0.5f);
+		FadeInMessage("Completed:\n" + questText);
 		yield return new WaitForSeconds(2f);
 		completionText.FadeOut(0.5f);
 		completionRoutine = null;
@@ -183,5 +193,35 @@ public class TutorialStep : MonoBehaviour, IQuestParent
                 return tooltip;
         }
         return null;
+    }
+
+    private IEnumerator DisplayAdvanceInstructions()
+    {
+    	yield return new WaitForSeconds(10.0f);
+    	FadeInMessage("Click the arrow when you're ready to advance");
+    	ToggleAdvanceHighlight(true);
+    }
+
+    private void FadeInMessage(string message)
+    {
+    	completionText.SetText(message);
+		completionText.SetAlpha(0f);
+		completionText.FadeIn(0.5f);
+    }
+
+    private void ToggleAdvanceHighlight(bool toggleOn)
+    {
+    	foreach (Transform highlightTransform in advanceButton.transform)
+		{
+			if (!highlightTransform.name.Contains("Highlight"))
+        		continue;
+		    highlightTransform.gameObject.SetActive(toggleOn);
+		}
+    }
+
+    private void StopAdvanceInstruction()
+    {
+    	if (giveAdvanceInstructions != null) StopCoroutine(giveAdvanceInstructions);
+    	ToggleAdvanceHighlight(false);
     }
 }

@@ -391,6 +391,7 @@ MonoBehaviour:
   startPosition: {x: 0.02, y: -0.0025, z: 0.022}
   endPosition: {x: -0.4389998, y: 0.1865014, z: 0.022}
   eventDuration: 0.5
+  dynamicStart: 0
   staticX: 0
   staticY: 0
   staticZ: 0
@@ -1332,13 +1333,15 @@ MonoBehaviour:
   skyMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   ambientIntensity: 1.5
   text: Renowned for its insights and forging a lasting legacy, the report set the
-    stage for a remarkable career together. The two remained frequent coathors as
-    thier friendship flourished. Their names, once joined on academic papers, eventually
+    stage for a remarkable career together. The two remained frequent coauthors as
+    their friendship flourished. Their names, once joined on academic papers, eventually
     adorned holiday cards, legal documents, and family keepsakes.
   fadeInPanel: 0
   fadeInTime: 0
   textPanelOpacity: 160
   isAtTop: 0
+  characterImage: {fileID: 0}
+  characterName: 
   code: 0
   objectsToSlide:
   - {fileID: 1354719749}
@@ -4388,6 +4391,8 @@ MonoBehaviour:
   fadeInTime: 0
   textPanelOpacity: 160
   isAtTop: 1
+  characterImage: {fileID: 0}
+  characterName: 
   code: 0
   hasText: 1
   timeBeforeText: 1
@@ -6767,6 +6772,7 @@ MonoBehaviour:
   startPosition: {x: 0.02, y: -0.0025, z: 0.022}
   endPosition: {x: -0.4389998, y: 0.1865014, z: 0.022}
   eventDuration: 0.5
+  dynamicStart: 0
   staticX: 0
   staticY: 0
   staticZ: 0
@@ -12688,6 +12694,8 @@ MonoBehaviour:
   fadeInTime: 0
   textPanelOpacity: 160
   isAtTop: 1
+  characterImage: {fileID: 0}
+  characterName: 
   code: 0
   hasText: 1
   timeBeforeText: 1
@@ -19541,6 +19549,7 @@ MonoBehaviour:
   startPosition: {x: 0.02, y: -0.0025, z: 0.022}
   endPosition: {x: -0.4389998, y: -0.1864987, z: 0.022}
   eventDuration: 0.5
+  dynamicStart: 0
   staticX: 0
   staticY: 0
   staticZ: 0
@@ -20147,6 +20156,7 @@ MonoBehaviour:
   startPosition: {x: 0.02, y: -0.0025, z: 0.022}
   endPosition: {x: 0.4390007, y: 0.1865014, z: 0.022}
   eventDuration: 0.5
+  dynamicStart: 0
   staticX: 0
   staticY: 0
   staticZ: 0
@@ -20421,6 +20431,7 @@ MonoBehaviour:
   startPosition: {x: 0.02, y: -0.0025, z: 0.022}
   endPosition: {x: 0.1460006, y: -0.1864987, z: 0.022}
   eventDuration: 0.5
+  dynamicStart: 0
   staticX: 0
   staticY: 0
   staticZ: 0
@@ -20659,11 +20670,13 @@ MonoBehaviour:
     professional bond. Kayla\u2019s research and Celeste\u2019s storytelling combined
     to create a legacy that neither could have achieved alone. The pair emerged as
     successful professionals and lifelong friends, frequently publishing papers together
-    and forever grateful for their first-joint publication."
+    and forever grateful for their first joint publication."
   fadeInPanel: 0
   fadeInTime: 0
   textPanelOpacity: 160
   isAtTop: 0
+  characterImage: {fileID: 0}
+  characterName: 
   code: 0
   objectsToSlide:
   - {fileID: 1137265829}
@@ -21648,6 +21661,7 @@ MonoBehaviour:
   startPosition: {x: 0, y: 0, z: 0}
   endPosition: {x: 0, y: 0.1720645, z: 1.163975}
   eventDuration: 1
+  dynamicStart: 0
   staticX: 0
   staticY: 0
   staticZ: 0
@@ -62029,6 +62043,7 @@ MonoBehaviour:
   startPosition: {x: 0.02, y: -0.0025, z: 0.022}
   endPosition: {x: 0.4390007, y: -0.1864987, z: 0.021}
   eventDuration: 0.5
+  dynamicStart: 0
   staticX: 0
   staticY: 0
   staticZ: 0
@@ -62302,6 +62317,7 @@ MonoBehaviour:
   startPosition: {x: 0.02, y: -0.0025, z: 0.022}
   endPosition: {x: -0.4389998, y: -0.1864987, z: 0.022}
   eventDuration: 0.5
+  dynamicStart: 0
   staticX: 0
   staticY: 0
   staticZ: 0
@@ -63152,6 +63168,7 @@ MonoBehaviour:
   startPosition: {x: 0.8805006, y: -0.8430003, z: -0.00000035762787}
   endPosition: {x: 0.1305, y: -0.09299999, z: 0.02200001}
   eventDuration: 1
+  dynamicStart: 0
   staticX: 0
   staticY: 0
   staticZ: 0
@@ -63791,6 +63808,7 @@ MonoBehaviour:
   startPosition: {x: 0.02, y: -0.0025, z: 0.022}
   endPosition: {x: -0.4389998, y: -0.1864987, z: 0.022}
   eventDuration: 0.5
+  dynamicStart: 0
   staticX: 0
   staticY: 0
   staticZ: 0
@@ -64315,6 +64333,7 @@ MonoBehaviour:
   startPosition: {x: 0.02, y: -0.0025, z: 0.022}
   endPosition: {x: -0.4389998, y: -0.1864987, z: 0.022}
   eventDuration: 0.5
+  dynamicStart: 0
   staticX: 0
   staticY: 0
   staticZ: 0
@@ -72985,6 +73004,8 @@ MonoBehaviour:
   fadeInTime: 0
   textPanelOpacity: 160
   isAtTop: 0
+  characterImage: {fileID: 0}
+  characterName: 
   code: 0
   objectsToSlide: []
   objectsToActivate:
@@ -73958,6 +73979,7 @@ MonoBehaviour:
   startPosition: {x: 0.02, y: -0.0025, z: 0.022}
   endPosition: {x: -0.4389998, y: -0.1864987, z: 0.022}
   eventDuration: 0.5
+  dynamicStart: 0
   staticX: 0
   staticY: 0
   staticZ: 0
@@ -75039,6 +75061,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa49e5cf2784d409fa17dd08c146fea8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadingText: {fileID: 0}
+  loadingObject: {fileID: 0}
 --- !u!1001 &789755482
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -76268,6 +76292,7 @@ GameObject:
   - component: {fileID: 814317431}
   - component: {fileID: 814317430}
   - component: {fileID: 814317433}
+  - component: {fileID: 814317434}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -76316,7 +76341,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 1000
-  field of view: 60
+  field of view: 65.33675
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -76393,6 +76418,20 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &814317434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814317429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1100961f3c354ff498bc18af589a8fa7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  referenceVerticalFOV: 60
+  referenceAspect: 1.7777778
 --- !u!1 &816015261
 GameObject:
   m_ObjectHideFlags: 0
@@ -77450,6 +77489,7 @@ MonoBehaviour:
   startPosition: {x: 0.02, y: -0.0025, z: 0.022}
   endPosition: {x: -0.1459996, y: -0.1864987, z: 0.022}
   eventDuration: 0.5
+  dynamicStart: 0
   staticX: 0
   staticY: 0
   staticZ: 0
@@ -78279,10 +78319,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1454985702}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 800, y: 450}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &859196959
 MonoBehaviour:
@@ -79257,6 +79297,8 @@ MonoBehaviour:
   fadeInTime: 0
   textPanelOpacity: 200
   isAtTop: 1
+  characterImage: {fileID: 0}
+  characterName: 
   code: 0
   paperText:
   - strongly suggests the presence of aliens
@@ -79651,6 +79693,7 @@ MonoBehaviour:
   startPosition: {x: 0.02, y: -0.0025, z: 0.022}
   endPosition: {x: -0.4389998, y: -0.1864987, z: 0.022}
   eventDuration: 0.5
+  dynamicStart: 0
   staticX: 0
   staticY: 0
   staticZ: 0
@@ -82412,6 +82455,7 @@ MonoBehaviour:
   startPosition: {x: 0.02, y: -0.0025, z: 0.022}
   endPosition: {x: -0.4389998, y: -0.1864987, z: 0.022}
   eventDuration: 0.5
+  dynamicStart: 0
   staticX: 0
   staticY: 0
   staticZ: 0
@@ -86196,6 +86240,7 @@ MonoBehaviour:
   startPosition: {x: 0.02, y: -0.0025, z: 0.022}
   endPosition: {x: -0.1459996, y: 0.1865014, z: 0.022}
   eventDuration: 0.5
+  dynamicStart: 0
   staticX: 0
   staticY: 0
   staticZ: 0
@@ -102328,6 +102373,7 @@ MonoBehaviour:
   startPosition: {x: 0.02, y: -0.0025, z: 0.022}
   endPosition: {x: -0.4389998, y: -0.1864987, z: 0.022}
   eventDuration: 0.5
+  dynamicStart: 0
   staticX: 0
   staticY: 0
   staticZ: 0
@@ -103384,6 +103430,7 @@ MonoBehaviour:
   startPosition: {x: 0.6195002, y: -0.6570001, z: 0.021999843}
   endPosition: {x: -0.13050003, y: 0.09300001, z: 0.022000022}
   eventDuration: 1
+  dynamicStart: 0
   staticX: 0
   staticY: 0
   staticZ: 0
@@ -105509,6 +105556,8 @@ MonoBehaviour:
   fadeInTime: 0
   textPanelOpacity: 160
   isAtTop: 1
+  characterImage: {fileID: 0}
+  characterName: 
   code: 0
   hasText: 1
   timeBeforeText: 1
@@ -116853,6 +116902,7 @@ MonoBehaviour:
   startPosition: {x: 0.7435006, y: -0.7460003, z: 0.021999659}
   endPosition: {x: -0.006500043, y: 0.004000005, z: 0.022000017}
   eventDuration: 1
+  dynamicStart: 0
   staticX: 0
   staticY: 0
   staticZ: 0
@@ -120224,6 +120274,7 @@ MonoBehaviour:
   startPosition: {x: 0.6195002, y: -0.6570001, z: 0.021999843}
   endPosition: {x: -0.13050003, y: 0.09300001, z: 0.022000022}
   eventDuration: 1
+  dynamicStart: 0
   staticX: 0
   staticY: 0
   staticZ: 0
@@ -120839,6 +120890,8 @@ MonoBehaviour:
   fadeInTime: 0
   textPanelOpacity: 160
   isAtTop: 1
+  characterImage: {fileID: 0}
+  characterName: 
   code: 0
   blinker: {fileID: 75558156}
   blinkerFrequency: 4
@@ -126430,9 +126483,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenCharacters: 0.05
-  soundName: TextBeep
+  typingSoundName: 
+  deletingSoundName: 
+  charsBetweenSounds: 0
   specialCharacters: :.?!
   specialWaitTimeMultiplier: 15
+  maxFontSize: 32
+  resizeText: 0
+  smartDetectTokens: 0
 --- !u!1 &1385017723
 GameObject:
   m_ObjectHideFlags: 0
@@ -135126,9 +135184,9 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 800, y: 450}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -135903,6 +135961,7 @@ MonoBehaviour:
   startPosition: {x: 0.02, y: -0.0025, z: 0.022}
   endPosition: {x: 0.1460006, y: 0.1865014, z: 0.022}
   eventDuration: 0.5
+  dynamicStart: 0
   staticX: 0
   staticY: 0
   staticZ: 0
@@ -140497,6 +140556,7 @@ MonoBehaviour:
   startPosition: {x: 0.7435006, y: -0.7460003, z: 0.021999659}
   endPosition: {x: -0.006500043, y: 0.004000005, z: 0.022000017}
   eventDuration: 1
+  dynamicStart: 0
   staticX: 0
   staticY: 0
   staticZ: 0
@@ -144436,6 +144496,7 @@ MonoBehaviour:
   startPosition: {x: 0.02, y: -0.0025, z: 0.022}
   endPosition: {x: -0.4389998, y: -0.1864987, z: 0.022}
   eventDuration: 0.5
+  dynamicStart: 0
   staticX: 0
   staticY: 0
   staticZ: 0
@@ -147359,11 +147420,13 @@ MonoBehaviour:
     and keen intuition. Shortly after its acceptance, your paper passes through hallowed
     halls and skeptical hands, landing on the desks of scientists and world leaders,
     all with the same question in mind: have you uncovered the truth, or will it
-    all unravel under the weight scientific scrutiny?'
+    all unravel under the weight of scientific scrutiny?'
   fadeInPanel: 0
   fadeInTime: 0
   textPanelOpacity: 160
   isAtTop: 1
+  characterImage: {fileID: 0}
+  characterName: 
   code: 0
   zoomIn: {fileID: 278444333}
   transitionSlide: {fileID: 2014632921}
@@ -149113,6 +149176,7 @@ MonoBehaviour:
   startPosition: {x: 0.02, y: -0.0025, z: 0.022}
   endPosition: {x: -0.4389998, y: -0.1864987, z: 0.022}
   eventDuration: 0.5
+  dynamicStart: 0
   staticX: 0
   staticY: 0
   staticZ: 0
@@ -151675,15 +151739,17 @@ MonoBehaviour:
   needsPrewarm: 0
   skyMaterial: {fileID: 2100000, guid: 73324b55f67f54c7bbf43204788b8bbe, type: 2}
   ambientIntensity: 1.5
-  text: "Our extraterrestrial visitors extended a hand of friendship, sharing advancements
+  text: "Our extraterrestrial visitors extend a hand of friendship, sharing advancements
     that launched humanity into a golden age of progress. Within months, diseases
     were cured, famines were ended, and fossil fuels became a relic of the past.
-    Beyond the technological marvels, the aliens\u2019 presence showed humanity of
-    the power of cooperation, inspiring a brighter, united future."
+    Beyond the technological marvels, the aliens\u2019 presence showed humanity the
+    power of cooperation, inspiring a brighter, united future."
   fadeInPanel: 0
   fadeInTime: 0
   textPanelOpacity: 160
   isAtTop: 0
+  characterImage: {fileID: 0}
+  characterName: 
   code: 0
   hasText: 1
   timeBeforeText: 1
@@ -162548,6 +162614,8 @@ MonoBehaviour:
   fadeInTime: 0
   textPanelOpacity: 160
   isAtTop: 1
+  characterImage: {fileID: 0}
+  characterName: 
   code: 0
   hasText: 1
   timeBeforeText: 1
@@ -163016,10 +163084,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1721674735}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 800, y: 450}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1871734956
 MonoBehaviour:
@@ -166166,6 +166234,8 @@ MonoBehaviour:
   fadeInTime: 0
   textPanelOpacity: 160
   isAtTop: 0
+  characterImage: {fileID: 0}
+  characterName: 
   code: 0
   hasText: 1
   timeBeforeText: 1
@@ -175724,6 +175794,7 @@ MonoBehaviour:
   startPosition: {x: 0, y: 0.17206454, z: 1.1639752}
   endPosition: {x: 0.069845915, y: 0.46356773, z: 1.0666935}
   eventDuration: 0.5
+  dynamicStart: 0
   staticX: 0
   staticY: 0
   staticZ: 0
@@ -177104,6 +177175,7 @@ MonoBehaviour:
   startPosition: {x: 0.8805006, y: -0.8430003, z: -0.00000035762787}
   endPosition: {x: 0.1305, y: -0.09299999, z: 0.02200001}
   eventDuration: 1
+  dynamicStart: 0
   staticX: 0
   staticY: 0
   staticZ: 0
@@ -177997,6 +178069,7 @@ MonoBehaviour:
   startPosition: {x: 0.02, y: -0.0025, z: 0.022}
   endPosition: {x: -0.4389998, y: -0.1864987, z: 0.022}
   eventDuration: 0.5
+  dynamicStart: 0
   staticX: 0
   staticY: 0
   staticZ: 0
@@ -185821,12 +185894,14 @@ MonoBehaviour:
   ambientIntensity: 0
   text: Under the weight of mistrust - a sentiment your paper encouraged - humanity
     united to drive the aliens away. The true extent of whatever knowledge or harm
-    they might have brought will remain forever unknown, possibilities disappear
+    they might have brought will remain forever unknown, possibilities disappearing
     with the trails of their departing ships.
   fadeInPanel: 0
   fadeInTime: 0
   textPanelOpacity: 160
   isAtTop: 0
+  characterImage: {fileID: 0}
+  characterName: 
   code: 0
   hasText: 1
   timeBeforeText: 3
@@ -186109,6 +186184,8 @@ MonoBehaviour:
   fadeInTime: 0
   textPanelOpacity: 160
   isAtTop: 0
+  characterImage: {fileID: 0}
+  characterName: 
   code: 0
   hasText: 1
   timeBeforeText: 1

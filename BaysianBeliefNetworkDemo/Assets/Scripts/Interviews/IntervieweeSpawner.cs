@@ -1,17 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
-using UnityEditor.Animations;
 
 public class IntervieweeSpawner : InterviewEventSystem
 {
     [SerializeField] private GameObject[] intervieweePrefabs;
     [SerializeField] private Transform[] waypoints;
     [SerializeField] private Transform lookAheadNode;
-    [SerializeField] private AnimatorController animator;
+    [SerializeField] private RuntimeAnimatorController animator;
     [SerializeField] private float speed;
     [SerializeField] private float rotationSpeed;
+
     private GameObject currentInterviewee;
     private Animator intervieweeAnimator;
     private int currentWaypointIndex = 0;
@@ -19,10 +18,17 @@ public class IntervieweeSpawner : InterviewEventSystem
 
     public void SpawnInterviewee()
     {
-        currentInterviewee = Instantiate(intervieweePrefabs[(int)Mathf.Round(Random.Range(0, intervieweePrefabs.Length-0.51f))], transform.position, transform.rotation);
-        currentInterviewee.GetComponent<Animator>().runtimeAnimatorController = animator as RuntimeAnimatorController;
-        currentInterviewee.GetComponent<Animator>().applyRootMotion = false;
-        intervieweeAnimator = currentInterviewee.GetComponent<Animator>();
+        int idx = Random.Range(0, intervieweePrefabs.Length);
+        currentInterviewee = Instantiate(intervieweePrefabs[idx], transform.position, transform.rotation);
+
+        var anim = currentInterviewee.GetComponent<Animator>();
+        if (anim != null)
+        {
+            anim.runtimeAnimatorController = animator; // no cast needed
+            anim.applyRootMotion = false;
+            intervieweeAnimator = anim;
+        }
+
         StartCoroutine(SitAtBooth());
     }
 
@@ -61,12 +67,11 @@ public class IntervieweeSpawner : InterviewEventSystem
 
     private IEnumerator WaitForAnimationState(Animator animator, string stateName, int layer = 0)
     {
+        // Note: this waits until the *current* state matches. If you need to wait for it to finish,
+        // also check normalizedTime >= 1.0f.
         while (!animator.GetCurrentAnimatorStateInfo(layer).IsName(stateName))
-        {
             yield return null;
-        }
     }
-
 
     private IEnumerator MoveInterviewee(bool reverse)
     {
@@ -93,16 +98,17 @@ public class IntervieweeSpawner : InterviewEventSystem
         Vector3 currentPosition = currentInterviewee.transform.position;
         Vector3 targetPosition = waypoints[currentWaypointIndex].position;
         Vector3 direction = (targetPosition - currentInterviewee.transform.position).normalized;
+
         currentInterviewee.transform.position = Vector3.MoveTowards(
-            currentPosition, 
-            targetPosition, 
+            currentPosition,
+            targetPosition,
             speed * Time.deltaTime
         );
+
         RotateCharacter(direction);
-        if (IsAtTarget(currentInterviewee.transform.position,targetPosition))
-        {
+
+        if (IsAtTarget(currentInterviewee.transform.position, targetPosition))
             currentWaypointIndex += reverse ? -1 : 1;
-        }
     }
 
     private void RotateCharacter(Vector3 direction)
@@ -111,8 +117,8 @@ public class IntervieweeSpawner : InterviewEventSystem
         {
             Quaternion targetRotation = Quaternion.LookRotation(direction);
             currentInterviewee.transform.rotation = Quaternion.RotateTowards(
-                currentInterviewee.transform.rotation, 
-                targetRotation, 
+                currentInterviewee.transform.rotation,
+                targetRotation,
                 rotationSpeed * Time.deltaTime
             );
         }

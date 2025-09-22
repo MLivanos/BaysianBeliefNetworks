@@ -14,6 +14,7 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private RectTransform queryHistoryTransform;
     [SerializeField] private Vector3 tutorialQueryHistoryPosition;
     [SerializeField] private List<Button> disabledDuringTutorial;
+    [SerializeField] private GameObject timeLimit;
     [Header("Player Communication Tools")]
     [SerializeField] private GameObject tutorialSelectionWindow;
     [SerializeField] private List<TutorialStep> tutorialSteps = new List<TutorialStep>();
@@ -61,7 +62,7 @@ public class TutorialManager : MonoBehaviour
         tutorialOngoing = true;
         queryHistoryTransform.anchoredPosition3D = tutorialQueryHistoryPosition;
         HideIncrementalObjects();
-        GameObject.Find("TimeLimit").SetActive(false);
+        timeLimit.SetActive(false);
         tutorialSelectionWindow.SetActive(false);
         tutorialSteps[0].Initialize(this);
     }
@@ -82,6 +83,7 @@ public class TutorialManager : MonoBehaviour
     public void EndTutorial()
     {
         ToggleButtons(true);
+        timeLimit.SetActive(true);
         dropdownList.transform.parent.gameObject.SetActive(false);
         queryHistoryTransform.anchoredPosition3D = queryHistoryOriginalPosition;
         if (PlayerPrefs.GetInt("ShouldLoad", 0) == 0) gameManager.PromptGameMode();
@@ -111,7 +113,7 @@ public class TutorialManager : MonoBehaviour
 
     public bool HandleTooltipHoverEnter(string triggerName)
     {
-        if (!tutorialOngoing) return false;
+        if (!tutorialOngoing || currentStep >= tutorialSteps.Count) return false;
         TutorialTooltipMessage tooltipMessage = tutorialSteps[currentStep].FindTooltip(triggerName);
         if (tooltipMessage == null) return true;
         if (triggerName != lastMessageID)

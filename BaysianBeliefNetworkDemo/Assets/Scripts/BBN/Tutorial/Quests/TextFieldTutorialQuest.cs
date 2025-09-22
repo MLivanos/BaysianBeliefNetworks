@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 using TMPro;
 
 public class TextFieldTutorialQuest : TutorialQuest<string>
@@ -28,6 +29,7 @@ public class TextFieldTutorialQuest : TutorialQuest<string>
 
     public void HandleInteraction(string inputText)
     {
+        inputText = new string(inputText.Where(char.IsDigit).ToArray());
         if (inputText.Trim() == targetText)
         {
             Complete();

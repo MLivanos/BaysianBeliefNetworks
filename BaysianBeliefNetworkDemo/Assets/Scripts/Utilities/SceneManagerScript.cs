@@ -7,10 +7,11 @@ using UnityEngine.SceneManagement;
 public class SceneManagerScript : MonoBehaviour
 {
     [SerializeField] private LoadingScreenTextEffect loadingText;
+    [SerializeField] private GameObject loadingObject;
 
     public void GoToDemo()
     {
-        DisplayLoadingText("LOADING SIMULATION");
+        ActivateLoadingObject();
         SceneManager.LoadScene("AnimatedDemo");
     }
 
@@ -37,8 +38,9 @@ public class SceneManagerScript : MonoBehaviour
 
     private IEnumerator SnapshotAndGoToInterviews()
     {
-        yield return GetComponent<GraphSnapshotter>().CaptureRoutine();
-        DisplayLoadingText("LOADING SCENE");
+        GraphSnapshotter graphSnapshotter = GraphSnapshotter.instance;
+        yield return graphSnapshotter.CaptureRoutine();
+        ActivateLoadingObject();
         SceneManager.LoadScene("Interviews", LoadSceneMode.Single);
     }
 
@@ -96,5 +98,11 @@ public class SceneManagerScript : MonoBehaviour
     private void FadeMusic()
     {
         AudioManager.instance.FadeOutMusic(1.5f);
+    }
+
+    private void ActivateLoadingObject()
+    {
+        if (loadingObject != null) loadingObject.SetActive(true);
+        else Debug.Log("No loading object");
     }
 }

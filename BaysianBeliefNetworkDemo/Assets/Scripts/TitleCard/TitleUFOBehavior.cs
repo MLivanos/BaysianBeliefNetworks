@@ -132,7 +132,7 @@ public class TitleUFOBehaviorPortal : MonoBehaviour
     {
         foreach (FadableTextMeshPro element in titleFadeInText)
         {
-            element.FadeIn(titleFadeInTime);
+            if (element.gameObject.activeSelf) element.FadeIn(titleFadeInTime);
             yield return new WaitForSeconds(titleFadeInTime * 2);
         }
     }
