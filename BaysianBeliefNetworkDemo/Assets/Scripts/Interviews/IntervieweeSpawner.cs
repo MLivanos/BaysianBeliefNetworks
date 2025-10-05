@@ -16,9 +16,22 @@ public class IntervieweeSpawner : InterviewEventSystem
     private int currentWaypointIndex = 0;
     private float proximityCriterion = 0.05f;
 
+    private Queue<int> _bag;
+    private int _lastIdx = -1;
+
     public void SpawnInterviewee()
     {
-        int idx = Random.Range(0, intervieweePrefabs.Length);
+        if (intervieweePrefabs == null || intervieweePrefabs.Length == 0)
+        {
+            Debug.LogWarning("IntervieweeSpawner: No prefabs assigned.");
+            return;
+        }
+
+        if (_bag == null || _bag.Count == 0)
+            RefillBag();
+
+        int idx = _bag.Dequeue();
+
         currentInterviewee = Instantiate(intervieweePrefabs[idx], transform.position, transform.rotation);
 
         var anim = currentInterviewee.GetComponent<Animator>();
@@ -29,7 +42,41 @@ public class IntervieweeSpawner : InterviewEventSystem
             intervieweeAnimator = anim;
         }
 
+        _lastIdx = idx;
         StartCoroutine(SitAtBooth());
+    }
+
+    private void RefillBag()
+    {
+        int n = intervieweePrefabs.Length;
+
+        if (n == 1)
+        {
+            _bag = new Queue<int>();
+            _bag.Enqueue(0);
+            return;
+        }
+
+        List<int> list = new List<int>(n);
+        for (int i = 0; i < n; i++) list.Add(i);
+        FisherYates(list);
+
+        if (_lastIdx >= 0 && list[0] == _lastIdx)
+        {
+            int swapWith = Random.Range(1, list.Count); // [1, n-1]
+            (list[0], list[swapWith]) = (list[swapWith], list[0]);
+        }
+
+        _bag = new Queue<int>(list);
+    }
+
+    private static void FisherYates(List<int> list)
+    {
+        for (int i = list.Count - 1; i > 0; i--)
+        {
+            int j = Random.Range(0, i + 1);
+            (list[i], list[j]) = (list[j], list[i]);
+        }
     }
 
     public void DespawnInterviewee()

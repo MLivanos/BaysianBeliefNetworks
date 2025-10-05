@@ -50,7 +50,7 @@ public class TMPGlitchEffect : MonoBehaviour
 
             yield return new WaitForSeconds(GetRandomTime());
             float duration = glitchDuration;
-            AudioManager.instance.PlayEffect("MiniGlitch");
+            if(AudioManager.instance) AudioManager.instance.PlayEffect("MiniGlitch");
 
             if (Random.value >= 0.5f)
             {
@@ -76,7 +76,7 @@ public class TMPGlitchEffect : MonoBehaviour
         }
     }
 
-    private void OffsetText()
+    public void OffsetText()
     {
         foreach (TMP_Text text in glitchTexts)
         {
@@ -120,7 +120,7 @@ public class TMPGlitchEffect : MonoBehaviour
         }
     }
 
-    private void ResetTexts()
+    public void ResetTexts()
     {
         foreach (TMP_Text text in glitchTexts)
         {
@@ -139,7 +139,7 @@ public class TMPGlitchEffect : MonoBehaviour
         ToggleAlienTextVisibility(false);
     }
 
-    private void ToggleAlienTextVisibility(bool alienTextOn)
+    public void ToggleAlienTextVisibility(bool alienTextOn)
     {
         if (alienText != null)
             alienText.SetActive(alienTextOn);

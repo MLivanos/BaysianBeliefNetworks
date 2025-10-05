@@ -164,6 +164,11 @@ public class TypewriterEffect : MonoBehaviour
         return totalTime;
     }
 
+    public float GetTypingTime()
+    {
+        return GetTypingTime(fullText, true);
+    }
+
     private float GetWaitTimeForCharacter(char letter)
     {
         if (specialCharacters.Contains(letter))
