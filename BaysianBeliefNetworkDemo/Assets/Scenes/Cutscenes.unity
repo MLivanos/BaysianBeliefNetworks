@@ -176052,7 +176052,7 @@ PrefabInstance:
     - target: {fileID: 4642321485657796711, guid: c9a3550f006434d96bf752946c5f95b3,
         type: 3}
       propertyPath: EmissionModule.m_Bursts.Array.data[0].probability
-      value: 0.2
+      value: 0.12
       objectReference: {fileID: 0}
     - target: {fileID: 4642321485657796711, guid: c9a3550f006434d96bf752946c5f95b3,
         type: 3}
@@ -370559,7 +370559,7 @@ PrefabInstance:
     - target: {fileID: 4642321485657796711, guid: c9a3550f006434d96bf752946c5f95b3,
         type: 3}
       propertyPath: EmissionModule.m_Bursts.Array.data[0].probability
-      value: 0.2
+      value: 0.12
       objectReference: {fileID: 0}
     - target: {fileID: 4642321485657796711, guid: c9a3550f006434d96bf752946c5f95b3,
         type: 3}

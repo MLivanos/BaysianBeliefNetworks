@@ -151,6 +151,7 @@ public class SimulationManager : MonoBehaviour
 
     private void SetWeather()
     {
+        directionalLight.intensity = 1f;
         if (!truthValues[eventIndices["Rain"]] && truthValues[eventIndices["Cloudy"]])
         {
             directionalLight.intensity = 0f;
