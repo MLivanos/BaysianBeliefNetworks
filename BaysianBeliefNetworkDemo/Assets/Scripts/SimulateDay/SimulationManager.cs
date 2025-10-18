@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Steamworks;
 
 public class SimulationManager : MonoBehaviour
 {
@@ -203,6 +204,7 @@ public class SimulationManager : MonoBehaviour
     {
         if(truthValues[eventIndices["Alien"]])
         {
+            AchievementManager.I.Unlock("ACH_WITNESS");
             aliens.SetActive(true);
         }
     }
