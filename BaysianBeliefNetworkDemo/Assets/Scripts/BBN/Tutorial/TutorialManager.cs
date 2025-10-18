@@ -71,7 +71,11 @@ public class TutorialManager : MonoBehaviour
     {
         tutorialSteps[currentStep].DestroyQuests();
         tutorialSteps[currentStep].ClearObjectives();
-        if (++currentStep >= tutorialSteps.Count) EndTutorial();
+        if (++currentStep >= tutorialSteps.Count)
+        {
+            AchievementManager.I.Unlock("ACH_TUTORIAL");
+            EndTutorial();
+        }
         else tutorialSteps[currentStep].Initialize(this);
     }
 

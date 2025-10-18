@@ -21,6 +21,7 @@ public class EndGameManager : MonoBehaviour
     private int currentSceneId = 0;
     private List<int> sceneCodes = new List<int>();
     private EndGameState endGameState;
+    private int score;
     private bool done;
 
     private void Awake()
@@ -33,6 +34,8 @@ public class EndGameManager : MonoBehaviour
         done = false;
         audioManager = AudioManager.instance;
         endGameState = EndGameState.instance;
+        score = endGameState.GetScore();
+        if (score >= 2) AchievementManager.I.Unlock("ACH_WIN");
         GetSceneCodes();
         PlayMusic();
         if (test) StartCoroutine(Test());
@@ -86,7 +89,7 @@ public class EndGameManager : MonoBehaviour
 
     private void PlayMusic()
     {
-        audioManager.PlayMusic(tracks[endGameState.GetScore()]);
+        audioManager.PlayMusic(tracks[score]);
     }
 
     private IEnumerator Test()

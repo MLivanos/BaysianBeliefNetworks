@@ -27,6 +27,7 @@ public class SampleInputHandler : MonoBehaviour
             notificationManager.ShowNotification("Password Accepted", "Compute Time Override Engaged");
             inputField.text = "Override Successful";
             GameManager.instance.OverrideTime();
+            AchievementManager.I.Unlock("ACH_SECRET");
             return;
         }
 
