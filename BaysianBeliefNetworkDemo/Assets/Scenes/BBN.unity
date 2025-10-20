@@ -11669,14 +11669,21 @@ MonoBehaviour:
       query. How many samples were generated, how many were usable, and how long
       the calculation took."
     messageObjects: []
-  - message: So far, you've been using <b><i>Rejection Sampling</i></b>. It works
-      by generating random days, but if they contradict your evidence, they get thrown
-      out. That means if your evidence is rare, most samples go to waste!
+  - message: "The algorithm starts with the root of the network, assigns random truth
+      values based on their probability, then moves outward to each child once all
+      its parents are set. When every node has a value, that\u2019s one complete
+      <b><i>sample</i></b>, and the animation you\u2019re seeing shows that process
+      in action!"
     messageObjects: []
-  - message: "What happens if we barely get any usable data? That\u2019s where Likelihood
-      Weighting comes in. Instead of throwing out samples, it forces the evidence
-      to be true and adjusts the importance of each sample by how likely the evidence
-      was to occur."
+  - message: "Up until now you\u2019ve been using <b><i>Rejection Sampling</i></b>,
+      which estimates probability by comparing the number of times your query matches
+      the samples to the total number of samples, but throws away any samples that
+      don't match the evidence."
+    messageObjects: []
+  - message: <b><i>Likelihood Weighting</i></b> works differently. It keeps all the
+      samples, but forces the evidence to be true and gives each sample a weight
+      based on how likely that evidence would have been. This means every sample
+      counts, just not equally.
     messageObjects: []
   - message: Try running the same query with the Likelihood Weighting algorithm.
       Look at the number of usable samples. How does it compare to before?
