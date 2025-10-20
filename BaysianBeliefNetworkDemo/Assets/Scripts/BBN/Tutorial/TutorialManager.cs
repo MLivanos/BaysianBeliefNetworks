@@ -33,6 +33,7 @@ public class TutorialManager : MonoBehaviour
     private bool tutorialOngoing = false;
     private string lastMessageID = "";
     private Vector3 queryHistoryOriginalPosition;
+    private bool advancing;
 
     public static TutorialManager Instance { get; private set; }
 
@@ -69,14 +70,31 @@ public class TutorialManager : MonoBehaviour
 
     public void NextStep()
     {
-        tutorialSteps[currentStep].DestroyQuests();
-        tutorialSteps[currentStep].ClearObjectives();
-        if (++currentStep >= tutorialSteps.Count)
+        if (advancing) return;
+        advancing = true;
+
+        StartCoroutine(AdvanceStep());
+    }
+
+    private IEnumerator AdvanceStep()
+    {
+        // Capture local in case currentStep mutates elsewhere (paranoia)
+        var step = tutorialSteps[currentStep];
+
+        step.DestroyQuests();
+        step.ClearObjectives();
+
+        currentStep++;
+        if (currentStep >= tutorialSteps.Count)
         {
             AchievementManager.I.Unlock("ACH_TUTORIAL");
             EndTutorial();
+            yield break;
         }
-        else tutorialSteps[currentStep].Initialize(this);
+
+        tutorialSteps[currentStep].Initialize(this);
+        yield return null;
+        advancing = false;
     }
 
     public void BlockInteractions(bool block)
