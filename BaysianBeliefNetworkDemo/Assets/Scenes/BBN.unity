@@ -55229,6 +55229,11 @@ MonoBehaviour:
       a random day with all these effects in play. Add events to evidence if you
       want to make sure they happen in the simulation.
     messageObjects: []
+  - message: 'Remember: use the graph to find when the Aliens are most likely to
+      visit, then listen to the interviews and see whose account fits the model.
+      You won''t have access to the model during the interviews, so learn everything
+      you can about the system here.'
+    messageObjects: []
   - message: This is where I step back, and you take the lead. Explore the graph,
       uncover the patterns. When you've learned all you can, power off The Xenograph
       and move on to the interviews. Go find the truth, Celeste.
