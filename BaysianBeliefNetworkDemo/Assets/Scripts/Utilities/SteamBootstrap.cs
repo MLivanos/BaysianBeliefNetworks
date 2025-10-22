@@ -36,6 +36,7 @@ public class SteamBootstrap : MonoBehaviour
             Debug.Log($"[SteamBootstrap] Init with AppID={appid} | Platform={Application.platform} | OS='{SystemInfo.operatingSystem}'");
 
             SteamClient.Init(appid, true);
+            Debug.Log(Steamworks.SteamClient.Name);
             Initialized = SteamClient.IsValid;
             Debug.Log($"[SteamBootstrap] SteamClient.IsValid={SteamClient.IsValid}, LoggedOn={SteamClient.IsLoggedOn}");
             Debug.Log($"[Steam] AppId={SteamClient.AppId}, IsValid={SteamClient.IsValid}, LoggedOn={SteamClient.IsLoggedOn}");
@@ -53,8 +54,11 @@ public class SteamBootstrap : MonoBehaviour
                     Debug.Log("[SteamBootstrap] StatsReady = TRUE ✨");
                     DumpAchievements();
                 }
+                else
+                {
+                    Debug.LogWarning("[SteamBootstrap] StatsReceived but not OK or wrong SID");
+                }
             };
-            SteamUserStats.OnUserStatsReceived += _statsHandler;
 
             // Delay the first request slightly, then retry once if needed (stabilizes mac/Editor)
             StartCoroutine(RequestStatsWithRetry());
@@ -79,10 +83,10 @@ public class SteamBootstrap : MonoBehaviour
         Debug.Log("[SteamBootstrap] Start() — Initialized=" + Initialized);
     }
 
-    void OnDisable()         { Cleanup("[SteamBootstrap] OnDisable"); }
-    void OnDestroy()         { Cleanup("[SteamBootstrap] OnDestroy"); }
+    //void OnDisable()         { Cleanup("[SteamBootstrap] OnDisable"); }
+    //void OnDestroy()         { Cleanup("[SteamBootstrap] OnDestroy"); }
     void OnApplicationQuit() { Cleanup("[SteamBootstrap] OnApplicationQuit"); }
-    void ExitingPlayMode()   { Cleanup("[SteamBootstrap] ExitingPlayMode");}
+    //void ExitingPlayMode()   { Cleanup("[SteamBootstrap] ExitingPlayMode");}
 
     private IEnumerator RequestStatsWithRetry()
     {
@@ -111,7 +115,7 @@ public class SteamBootstrap : MonoBehaviour
             SteamUserStats.OnUserStatsReceived -= _statsHandler;
             _statsHandler = null;
         }
-        if (SteamClient.IsValid) SteamClient.Shutdown();
+        SteamClient.Shutdown();
         Initialized = false;
         StatsReady  = false;
     }

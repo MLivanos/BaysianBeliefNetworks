@@ -1,8 +1,9 @@
 using UnityEngine;
 using Steamworks;
 using Steamworks.Data;
+using System.Collections;
 using System.Collections.Generic;
-using System.Linq; // for FirstOrDefault()
+using System.Linq;
 
 public static class Achievements
 {
@@ -22,7 +23,7 @@ public class AchievementManager : MonoBehaviour
         if (I != null && I != this) { Destroy(gameObject); return; }
         I = this;
         DontDestroyOnLoad(gameObject);
-        ResetAllLocal();
+        StartCoroutine(ResetAllLocal());
     }
 
     void Update()
@@ -33,11 +34,6 @@ public class AchievementManager : MonoBehaviour
 
     public void Unlock(string id)
     {
-        if (!SteamBootstrap.Initialized || !SteamBootstrap.StatsReady)
-        {
-            pending.Enqueue(id);
-            return;
-        }
         InternalUnlock(id);
     }
 
@@ -72,9 +68,14 @@ public class AchievementManager : MonoBehaviour
     }
 
     [ContextMenu("Reset All Achievements (Local)")]
-    public void ResetAllLocal()
+    public IEnumerator ResetAllLocal()
     {
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
+        while (!SteamBootstrap.Initialized || !SteamBootstrap.StatsReady)
+        {
+            Debug.Log("Waiting for initialization...");
+            yield return new WaitForSeconds(5f);
+        }
         SteamUserStats.ResetAll(true);
         Debug.Log("Local Steam stats & achievements reset 💫");
 #endif
