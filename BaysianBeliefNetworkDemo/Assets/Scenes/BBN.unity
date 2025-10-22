@@ -33900,11 +33900,11 @@ RectTransform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1060621089}
+  m_Father: {fileID: 1213236120}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -17.22254}
+  m_AnchoredPosition: {x: 0, y: -9}
   m_SizeDelta: {x: 800, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &558095188
@@ -33927,16 +33927,28 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Use the provided Bayseian Beleif Network to reason about various probabilities
-    related to the problem.\n\nTo find a particular probabilitiy, add a node to the
-    query (P(Q)) by clicking the Q checkbox.\n\nAdd something to the evidence (P(Q|E))
-    by clicking the E checkbox.\n\nTo add the negation of a node (P(\xACQ)), hold
-    the Shift key while clicking.\n\nTo remove a node from the probability, uncheck
-    the box.\n\nClick the sampler you'd like to chose on the bottom left, and the
-    number of samples next to that. When you're ready, click \"Caclulate\" to estimate
-    the probability. Note the efficiency statistics on the top right.\n\nAt any point,
-    click the \"Simulate Day\" button to view a simulation of a random sample consistent
-    with the evidence you check."
+  m_text: "Your mission is to assess the risk of an alien visitation using a Bayesian
+    Belief Network. Each node represents an event that may influence others. Your
+    goal is to understand how these factors interact!\n<b>Stage 1: Graph Analysis</b>\nUse
+    the graph to explore how different factors affect the probability of an alien
+    visitation.\n<size=30%> </size>\n<b>Query (P(Q))</b> - what you want to know
+    the probability of...\n<size=90%>Click a node\u2019s Q checkbox or hover and
+    press Q to add it.</size>\n<b>Evidence (P(Q|E))</b> - ...given that the evidence
+    is true.\n<size=90%>Click a node\u2019s E box or hover and press E to add it.</size>\n<b>Negation
+    (P(\xACQ))</b> - An event NOT happening\n<size=90%>Hold Shift while selecting
+    a node.</size>\n<size=30%> </size>\nClear Selections \u2014 press C or X to reset
+    the current probability question.\nRun Query - press Enter to calculate results
+    using your chosen sampling algorithm.\nUndo / Redo - press Ctrl+Z or Ctrl+Y to
+    step through recent edits.\nSimulate a Day - see a random day consistent with
+    your current evidence.\nSampler Settings - bottom-left corner: choose your sampler
+    and number of samples.\nEfficiency stats (samples used, runtime, etc.) appear
+    in the top-right corner. \n<size=30%> </size>\n<b>Stage 2: Interviews</b>\n<size=30%>
+    </size>\nWhen ready, click \u201CInterview Witnesses\u201D to power down the
+    Xenograph and advance to the next stage. You\u2019ll listen to witnesses describe
+    events from different days and decide whether their reports seem credible - that
+    is, if:\n<size=30%> </size>\nP(Aliens | Evidence) > P(Aliens)\n<size=30%> </size>\nDuring
+    interviews, you won\u2019t have access to the graph, but you can still hover
+    over the history panel to view your past queries at any time."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a85a5fb20be32c74e8b4a078e736f5ab, type: 2}
   m_sharedMaterial: {fileID: -8262044034710385518, guid: a85a5fb20be32c74e8b4a078e736f5ab,
@@ -34003,7 +34015,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &558095189
@@ -36231,7 +36243,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 15.112183, y: -42.399994}
+  m_AnchoredPosition: {x: 15.112305, y: -42.400024}
   m_SizeDelta: {x: 35, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &596198192
@@ -59237,7 +59249,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 15.112183, y: -127.2}
+  m_AnchoredPosition: {x: 15.112305, y: -127.19995}
   m_SizeDelta: {x: 35, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &965840900
@@ -60386,8 +60398,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2096041990}
   m_HandleRect: {fileID: 2096041989}
   m_Direction: 0
-  m_Value: 0.0000052859336
-  m_Size: 0.9695776
+  m_Value: -0.0000017619903
+  m_Size: 0.96957785
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -64748,7 +64760,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1060621089
 RectTransform:
   m_ObjectHideFlags: 0
@@ -64762,8 +64774,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1345726583}
-  - {fileID: 1224281960}
-  - {fileID: 558095187}
+  - {fileID: 1213236120}
   m_Father: {fileID: 972312766}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -66635,7 +66646,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 15.112183, y: -71}
+  m_AnchoredPosition: {x: 15.112305, y: -71}
   m_SizeDelta: {x: 35, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1098249760
@@ -74905,6 +74916,43 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1211064137}
   m_CullTransparentMesh: 1
+--- !u!1 &1213236119
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1213236120}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1213236120
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1213236119}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1224281960}
+  - {fileID: 558095187}
+  m_Father: {fileID: 1060621089}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 50}
+  m_SizeDelta: {x: 400, y: 195.65254}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1214118875
 GameObject:
   m_ObjectHideFlags: 0
@@ -75653,11 +75701,11 @@ RectTransform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1060621089}
+  m_Father: {fileID: 1213236120}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 92.22254}
+  m_AnchoredPosition: {x: 0, y: 85.32628}
   m_SizeDelta: {x: 800, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1224281961
@@ -75680,7 +75728,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: We Need Your Help To Analyze the Risk Of An Alien Visitation In Davis!
+  m_text: Welcome to the Xenograph!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a85a5fb20be32c74e8b4a078e736f5ab, type: 2}
   m_sharedMaterial: {fileID: -8262044034710385518, guid: a85a5fb20be32c74e8b4a078e736f5ab,
@@ -75747,7 +75795,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1224281962
@@ -83366,7 +83414,7 @@ RectTransform:
   m_GameObject: {fileID: 1345726582}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.55, y: 0.575, z: 1}
+  m_LocalScale: {x: 0.55, y: 0.78, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1060621089}
@@ -87337,7 +87385,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 15.112183, y: -14.9646}
+  m_AnchoredPosition: {x: 15.112305, y: -14.9646}
   m_SizeDelta: {x: 35, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1413175649
@@ -96631,7 +96679,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 15.112183, y: -155.8}
+  m_AnchoredPosition: {x: 15.112305, y: -155.79999}
   m_SizeDelta: {x: 35, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1545909994
@@ -124772,7 +124820,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 15.112183, y: -98.600006}
+  m_AnchoredPosition: {x: 15.112305, y: -98.599976}
   m_SizeDelta: {x: 35, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1980073210
