@@ -73,6 +73,7 @@ public abstract class CutsceneBehavior : MonoBehaviour
 
     protected void AnimateText()
     {
+        if (typewriterEffect.gameObject.activeInHierarchy) typewriterEffect.Clear();
         typewriterEffect.UpdateText(text);
     }
 

@@ -150,6 +150,7 @@ public class TypewriterEffect : MonoBehaviour
 
     public void Clear()
     {
+        StopCoroutine(typingCoroutine);
         textComponent.text = "";
     }
 
