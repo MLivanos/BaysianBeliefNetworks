@@ -79,5 +79,6 @@ public class AchievementManager : MonoBehaviour
         SteamUserStats.ResetAll(true);
         Debug.Log("Local Steam stats & achievements reset 💫");
 #endif
+        yield return null;
     }
 }
