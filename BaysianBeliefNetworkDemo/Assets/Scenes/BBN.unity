@@ -33904,7 +33904,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -9}
+  m_AnchoredPosition: {x: 0, y: -10}
   m_SizeDelta: {x: 800, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &558095188
@@ -33936,7 +33936,7 @@ MonoBehaviour:
     press Q to add it.</size>\n<b>Evidence (P(Q|E))</b> - ...given that the evidence
     is true.\n<size=90%>Click a node\u2019s E box or hover and press E to add it.</size>\n<b>Negation
     (P(\xACQ))</b> - An event NOT happening\n<size=90%>Hold Shift while selecting
-    a node.</size>\n<size=30%> </size>\nClear Selections \u2014 press C or X to reset
+    a node.</size>\n<size=30%> </size>\nClear Selections - press C or X to reset
     the current probability question.\nRun Query - press Enter to calculate results
     using your chosen sampling algorithm.\nUndo / Redo - press Ctrl+Z or Ctrl+Y to
     step through recent edits.\nSimulate a Day - see a random day consistent with
@@ -60398,8 +60398,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2096041990}
   m_HandleRect: {fileID: 2096041989}
   m_Direction: 0
-  m_Value: -0.0000017619903
-  m_Size: 0.96957785
+  m_Value: 0.0000052859336
+  m_Size: 0.9695776
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -64760,7 +64760,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1060621089
 RectTransform:
   m_ObjectHideFlags: 0
