@@ -1121,7 +1121,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<size=125%><b>A Game By</b></size>  \r\n<size=175%>Michael Livanos</size>\r\n\r\n<size=20%>
+  m_text: "<size=125%><b>A Game By</b></size>  \r\n<size=175%>Kayla Livanos</size>\r\n\r\n<size=20%>
     </size>  \r\n<size=140%><b>With Special Thanks To:</b></size>  \r\n\r\n<size=40%>
     </size>  \r\n<size=140%>My Playtesters</size>  \r\nFor helping shape the game
     into what it is\r\n\r\n<size=20%> </size>  \r\n<size=140%>Many Independent Art
@@ -2321,7 +2321,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 65.33675
+  field of view: 60
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
